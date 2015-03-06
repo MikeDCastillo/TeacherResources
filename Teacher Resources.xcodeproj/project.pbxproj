@@ -7,9 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EEF1AAA67DD0051D062 /* Stack.m */; };
+		27CC8EF31AAA68770051D062 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EF21AAA68770051D062 /* Student.m */; };
+		27CC8EF61AAA68930051D062 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EF51AAA68930051D062 /* Group.m */; };
+		27CC8EF91AAA695A0051D062 /* FeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EF81AAA695A0051D062 /* FeaturesViewController.m */; };
+		27CC8EFF1AAA6A3A0051D062 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EFE1AAA6A3A0051D062 /* TimerViewController.m */; };
+		27CC8F031AAA6A5B0051D062 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F021AAA6A5B0051D062 /* Timer.m */; };
+		27CC8F071AAA6A880051D062 /* GroupRandomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F061AAA6A880051D062 /* GroupRandomizer.m */; };
+		27CC8F0A1AAA6A990051D062 /* SingleRandomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F091AAA6A990051D062 /* SingleRandomizer.m */; };
+		27CC8F0D1AAA6ACC0051D062 /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F0C1AAA6ACC0051D062 /* GroupController.m */; };
+		27CC8F101AAA6B4A0051D062 /* StudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F0F1AAA6B4A0051D062 /* StudentListViewController.m */; };
+		27CC8F131AAA6B740051D062 /* RandomizedGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */; };
+		27CC8F181AAA6CE00051D062 /* GroupViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F171AAA6CE00051D062 /* GroupViewControllerDataSource.m */; };
+		27CC8F1B1AAA6D000051D062 /* RandomizedViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F1A1AAA6D000051D062 /* RandomizedViewControllerDataSource.m */; };
+		27CC8F1F1AAA6D350051D062 /* FeaturesViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F1E1AAA6D350051D062 /* FeaturesViewControllerDataSource.m */; };
+		27CC8F231AAA6D6C0051D062 /* StudentListViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F221AAA6D6C0051D062 /* StudentListViewControllerDataSource.m */; };
 		6A048AB51AAA477800C7E790 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048AB41AAA477800C7E790 /* main.m */; };
 		6A048AB81AAA477800C7E790 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048AB71AAA477800C7E790 /* AppDelegate.m */; };
-		6A048ABB1AAA477800C7E790 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048ABA1AAA477800C7E790 /* ViewController.m */; };
+		6A048ABB1AAA477800C7E790 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048ABA1AAA477800C7E790 /* GroupViewController.m */; };
 		6A048ABE1AAA477800C7E790 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A048ABC1AAA477800C7E790 /* Main.storyboard */; };
 		6A048AC01AAA477900C7E790 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A048ABF1AAA477900C7E790 /* Images.xcassets */; };
 		6A048AC31AAA477900C7E790 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A048AC11AAA477900C7E790 /* LaunchScreen.xib */; };
@@ -27,13 +42,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27CC8EEE1AAA67DD0051D062 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		27CC8EEF1AAA67DD0051D062 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		27CC8EF11AAA68770051D062 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		27CC8EF21AAA68770051D062 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		27CC8EF41AAA68930051D062 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		27CC8EF51AAA68930051D062 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		27CC8EF71AAA695A0051D062 /* FeaturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesViewController.h; sourceTree = "<group>"; };
+		27CC8EF81AAA695A0051D062 /* FeaturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesViewController.m; sourceTree = "<group>"; };
+		27CC8EFD1AAA6A3A0051D062 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		27CC8EFE1AAA6A3A0051D062 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
+		27CC8F011AAA6A5B0051D062 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		27CC8F021AAA6A5B0051D062 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		27CC8F051AAA6A880051D062 /* GroupRandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupRandomizer.h; sourceTree = "<group>"; };
+		27CC8F061AAA6A880051D062 /* GroupRandomizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupRandomizer.m; sourceTree = "<group>"; };
+		27CC8F081AAA6A990051D062 /* SingleRandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleRandomizer.h; sourceTree = "<group>"; };
+		27CC8F091AAA6A990051D062 /* SingleRandomizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleRandomizer.m; sourceTree = "<group>"; };
+		27CC8F0B1AAA6ACC0051D062 /* GroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupController.h; sourceTree = "<group>"; };
+		27CC8F0C1AAA6ACC0051D062 /* GroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupController.m; sourceTree = "<group>"; };
+		27CC8F0E1AAA6B4A0051D062 /* StudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentListViewController.h; sourceTree = "<group>"; };
+		27CC8F0F1AAA6B4A0051D062 /* StudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentListViewController.m; sourceTree = "<group>"; };
+		27CC8F111AAA6B740051D062 /* RandomizedGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedGroupsViewController.h; sourceTree = "<group>"; };
+		27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedGroupsViewController.m; sourceTree = "<group>"; };
+		27CC8F161AAA6CE00051D062 /* GroupViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewControllerDataSource.h; sourceTree = "<group>"; };
+		27CC8F171AAA6CE00051D062 /* GroupViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewControllerDataSource.m; sourceTree = "<group>"; };
+		27CC8F191AAA6D000051D062 /* RandomizedViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedViewControllerDataSource.h; sourceTree = "<group>"; };
+		27CC8F1A1AAA6D000051D062 /* RandomizedViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedViewControllerDataSource.m; sourceTree = "<group>"; };
+		27CC8F1D1AAA6D350051D062 /* FeaturesViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesViewControllerDataSource.h; sourceTree = "<group>"; };
+		27CC8F1E1AAA6D350051D062 /* FeaturesViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesViewControllerDataSource.m; sourceTree = "<group>"; };
+		27CC8F211AAA6D6C0051D062 /* StudentListViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentListViewControllerDataSource.h; sourceTree = "<group>"; };
+		27CC8F221AAA6D6C0051D062 /* StudentListViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentListViewControllerDataSource.m; sourceTree = "<group>"; };
 		6A048AAF1AAA477800C7E790 /* Teacher Resources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teacher Resources.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A048AB31AAA477800C7E790 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A048AB41AAA477800C7E790 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A048AB61AAA477800C7E790 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6A048AB71AAA477800C7E790 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6A048AB91AAA477800C7E790 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6A048ABA1AAA477800C7E790 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6A048AB91AAA477800C7E790 /* GroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
+		6A048ABA1AAA477800C7E790 /* GroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
 		6A048ABD1AAA477800C7E790 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A048ABF1AAA477900C7E790 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6A048AC21AAA477900C7E790 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -60,6 +105,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27CC8EFA1AAA697C0051D062 /* Feature VC's */ = {
+			isa = PBXGroup;
+			children = (
+				27CC8F111AAA6B740051D062 /* RandomizedGroupsViewController.h */,
+				27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */,
+				27CC8F0E1AAA6B4A0051D062 /* StudentListViewController.h */,
+				27CC8F0F1AAA6B4A0051D062 /* StudentListViewController.m */,
+				27CC8EFD1AAA6A3A0051D062 /* TimerViewController.h */,
+				27CC8EFE1AAA6A3A0051D062 /* TimerViewController.m */,
+				27CC8EF71AAA695A0051D062 /* FeaturesViewController.h */,
+				27CC8EF81AAA695A0051D062 /* FeaturesViewController.m */,
+			);
+			name = "Feature VC's";
+			sourceTree = "<group>";
+		};
+		27CC8EFB1AAA69DC0051D062 /* Group VC's */ = {
+			isa = PBXGroup;
+			children = (
+				6A048AB91AAA477800C7E790 /* GroupViewController.h */,
+				6A048ABA1AAA477800C7E790 /* GroupViewController.m */,
+			);
+			name = "Group VC's";
+			sourceTree = "<group>";
+		};
+		27CC8F151AAA6C940051D062 /* DataSources  */ = {
+			isa = PBXGroup;
+			children = (
+				27CC8F191AAA6D000051D062 /* RandomizedViewControllerDataSource.h */,
+				27CC8F1A1AAA6D000051D062 /* RandomizedViewControllerDataSource.m */,
+				27CC8F211AAA6D6C0051D062 /* StudentListViewControllerDataSource.h */,
+				27CC8F221AAA6D6C0051D062 /* StudentListViewControllerDataSource.m */,
+				27CC8F161AAA6CE00051D062 /* GroupViewControllerDataSource.h */,
+				27CC8F171AAA6CE00051D062 /* GroupViewControllerDataSource.m */,
+				27CC8F1D1AAA6D350051D062 /* FeaturesViewControllerDataSource.h */,
+				27CC8F1E1AAA6D350051D062 /* FeaturesViewControllerDataSource.m */,
+			);
+			name = "DataSources ";
+			sourceTree = "<group>";
+		};
 		6A048AA61AAA477800C7E790 = {
 			isa = PBXGroup;
 			children = (
@@ -83,8 +167,23 @@
 			children = (
 				6A048AB61AAA477800C7E790 /* AppDelegate.h */,
 				6A048AB71AAA477800C7E790 /* AppDelegate.m */,
-				6A048AB91AAA477800C7E790 /* ViewController.h */,
-				6A048ABA1AAA477800C7E790 /* ViewController.m */,
+				27CC8EF11AAA68770051D062 /* Student.h */,
+				27CC8EF21AAA68770051D062 /* Student.m */,
+				27CC8F011AAA6A5B0051D062 /* Timer.h */,
+				27CC8F021AAA6A5B0051D062 /* Timer.m */,
+				27CC8EF41AAA68930051D062 /* Group.h */,
+				27CC8EF51AAA68930051D062 /* Group.m */,
+				27CC8F0B1AAA6ACC0051D062 /* GroupController.h */,
+				27CC8F0C1AAA6ACC0051D062 /* GroupController.m */,
+				27CC8F051AAA6A880051D062 /* GroupRandomizer.h */,
+				27CC8F061AAA6A880051D062 /* GroupRandomizer.m */,
+				27CC8F081AAA6A990051D062 /* SingleRandomizer.h */,
+				27CC8F091AAA6A990051D062 /* SingleRandomizer.m */,
+				27CC8F151AAA6C940051D062 /* DataSources  */,
+				27CC8EFA1AAA697C0051D062 /* Feature VC's */,
+				27CC8EFB1AAA69DC0051D062 /* Group VC's */,
+				27CC8EEE1AAA67DD0051D062 /* Stack.h */,
+				27CC8EEF1AAA67DD0051D062 /* Stack.m */,
 				6A048ABC1AAA477800C7E790 /* Main.storyboard */,
 				6A048ABF1AAA477900C7E790 /* Images.xcassets */,
 				6A048AC11AAA477900C7E790 /* LaunchScreen.xib */,
@@ -219,9 +318,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A048ABB1AAA477800C7E790 /* ViewController.m in Sources */,
+				27CC8F131AAA6B740051D062 /* RandomizedGroupsViewController.m in Sources */,
+				27CC8F181AAA6CE00051D062 /* GroupViewControllerDataSource.m in Sources */,
+				27CC8F1F1AAA6D350051D062 /* FeaturesViewControllerDataSource.m in Sources */,
+				27CC8EFF1AAA6A3A0051D062 /* TimerViewController.m in Sources */,
+				27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */,
+				27CC8F231AAA6D6C0051D062 /* StudentListViewControllerDataSource.m in Sources */,
+				6A048ABB1AAA477800C7E790 /* GroupViewController.m in Sources */,
+				27CC8EF91AAA695A0051D062 /* FeaturesViewController.m in Sources */,
+				27CC8F1B1AAA6D000051D062 /* RandomizedViewControllerDataSource.m in Sources */,
+				27CC8EF31AAA68770051D062 /* Student.m in Sources */,
 				6A048AB81AAA477800C7E790 /* AppDelegate.m in Sources */,
+				27CC8F071AAA6A880051D062 /* GroupRandomizer.m in Sources */,
+				27CC8F031AAA6A5B0051D062 /* Timer.m in Sources */,
 				6A048AB51AAA477800C7E790 /* main.m in Sources */,
+				27CC8F0D1AAA6ACC0051D062 /* GroupController.m in Sources */,
+				27CC8EF61AAA68930051D062 /* Group.m in Sources */,
+				27CC8F0A1AAA6A990051D062 /* SingleRandomizer.m in Sources */,
+				27CC8F101AAA6B4A0051D062 /* StudentListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +528,7 @@
 				6A048AD41AAA477900C7E790 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6A048AD51AAA477900C7E790 /* Build configuration list for PBXNativeTarget "Teacher ResourcesTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +537,7 @@
 				6A048AD71AAA477900C7E790 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

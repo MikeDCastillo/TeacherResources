@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 PJayRushton. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GroupViewController.h"
 
-@interface ViewController ()
+@interface GroupViewController ()
 
 @end
 
-@implementation ViewController
+@implementation GroupViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
