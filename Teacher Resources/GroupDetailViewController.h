@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GroupDetailViewControllerDataSource.h"
 
 @interface GroupDetailViewController : UIViewController
+
+@property (nonatomic, strong) UITextField *groupNameTextField;
+@property (nonatomic, strong) UITextField *studentNameTextField;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) GroupDetailViewControllerDataSource *dataSource;
 
 @end

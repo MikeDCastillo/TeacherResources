@@ -10,4 +10,6 @@
 
 @interface GroupController : NSObject
 
++ (GroupController *)sharedInstance;
+
 @end

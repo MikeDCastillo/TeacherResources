@@ -24,6 +24,7 @@
 		27CC8F231AAA6D6C0051D062 /* StudentListViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F221AAA6D6C0051D062 /* StudentListViewControllerDataSource.m */; };
 		27CC8F261AAA7BAF0051D062 /* GroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F251AAA7BAF0051D062 /* GroupDetailViewController.m */; };
 		27CC8F291AAA7C8A0051D062 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F271AAA7C8A0051D062 /* Model.xcdatamodeld */; };
+		27CC8F2C1AABF0F30051D062 /* GroupDetailViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F2B1AABF0F30051D062 /* GroupDetailViewControllerDataSource.m */; };
 		6A048AB51AAA477800C7E790 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048AB41AAA477800C7E790 /* main.m */; };
 		6A048AB81AAA477800C7E790 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048AB71AAA477800C7E790 /* AppDelegate.m */; };
 		6A048ABB1AAA477800C7E790 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048ABA1AAA477800C7E790 /* GroupViewController.m */; };
@@ -77,6 +78,8 @@
 		27CC8F241AAA7BAF0051D062 /* GroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailViewController.h; sourceTree = "<group>"; };
 		27CC8F251AAA7BAF0051D062 /* GroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailViewController.m; sourceTree = "<group>"; };
 		27CC8F281AAA7C8A0051D062 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		27CC8F2A1AABF0F30051D062 /* GroupDetailViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailViewControllerDataSource.h; sourceTree = "<group>"; };
+		27CC8F2B1AABF0F30051D062 /* GroupDetailViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailViewControllerDataSource.m; sourceTree = "<group>"; };
 		6A048AAF1AAA477800C7E790 /* Teacher Resources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teacher Resources.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A048AB31AAA477800C7E790 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A048AB41AAA477800C7E790 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				27CC8F221AAA6D6C0051D062 /* StudentListViewControllerDataSource.m */,
 				27CC8F161AAA6CE00051D062 /* GroupViewControllerDataSource.h */,
 				27CC8F171AAA6CE00051D062 /* GroupViewControllerDataSource.m */,
+				27CC8F2A1AABF0F30051D062 /* GroupDetailViewControllerDataSource.h */,
+				27CC8F2B1AABF0F30051D062 /* GroupDetailViewControllerDataSource.m */,
 				27CC8F1D1AAA6D350051D062 /* FeaturesViewControllerDataSource.h */,
 				27CC8F1E1AAA6D350051D062 /* FeaturesViewControllerDataSource.m */,
 			);
@@ -340,6 +345,7 @@
 				27CC8EF31AAA68770051D062 /* Student.m in Sources */,
 				6A048AB81AAA477800C7E790 /* AppDelegate.m in Sources */,
 				27CC8F071AAA6A880051D062 /* GroupRandomizer.m in Sources */,
+				27CC8F2C1AABF0F30051D062 /* GroupDetailViewControllerDataSource.m in Sources */,
 				27CC8F031AAA6A5B0051D062 /* Timer.m in Sources */,
 				6A048AB51AAA477800C7E790 /* main.m in Sources */,
 				27CC8F0D1AAA6ACC0051D062 /* GroupController.m in Sources */,

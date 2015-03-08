@@ -10,6 +10,17 @@
 
 @implementation GroupController
 
++ (GroupController *)sharedInstance {
+    static GroupController *sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [GroupController new];
+    });
+    
+    return sharedInstance;
+    
+}
+
 @end
 
 

@@ -11,31 +11,10 @@
 
 @interface GroupViewController () <UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UINavigationBar *navBar;
-@property (nonatomic, strong) GroupViewControllerDataSource *dataSource; 
-
 @end
 
 @implementation GroupViewController
 
-- (UITableView *)makeTableView {
-    
-    CGFloat x = 0;
-    CGFloat y = 75;
-    CGFloat width = self.view.frame.size.width;
-    CGFloat height = self.view.frame.size.height - 75;
-    CGRect tableFrame = CGRectMake(x,y,width,height);
-    
-    self.tableView = [[UITableView alloc]initWithFrame:tableFrame style:UITableViewStyleGrouped];
-    
-    self.tableView.rowHeight = 60;
-    self.tableView.scrollEnabled = YES;
-    
-    return self.tableView;
-    
-    
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,10 +30,18 @@
     self.title = @"Teacher's Pet";
     
     
-    self.tableView = [self makeTableView];
+    self.view.backgroundColor = [UIColor cyanColor];
+
     
-    self.view.backgroundColor = [UIColor lightGrayColor];
-    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 150, self.view.frame.size.width, self.view.frame.size.height - 100)];
+    
+    self.label = [[UILabel alloc]initWithFrame:CGRectMake(95, 90, 180, 45)];
+    self.label.text = @" Click + to add class! ";
+    self.label.textColor = [UIColor blackColor];
+    self.label.font = [UIFont systemFontOfSize:18];
+    self.label.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:self.label];
+
     
     self.dataSource = [GroupViewControllerDataSource new];
     self.tableView.dataSource = self.dataSource;
@@ -71,6 +58,7 @@
     
     GroupDetailViewController *groupDetailViewController = [GroupDetailViewController new];
     
+    // [detailViewController updateWithGroup:[GroupController sharedInstance].groups[indexPath.row]];
     
     [self.navigationController pushViewController:groupDetailViewController animated:YES];
     
@@ -78,7 +66,9 @@
 
 - (void)addGroup:(id)sender {
     
+    GroupDetailViewController *groupDetailViewController = [GroupDetailViewController new];
     
+    [self.navigationController pushViewController:groupDetailViewController animated:YES];
     
 }
 

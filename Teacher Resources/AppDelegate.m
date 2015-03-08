@@ -24,7 +24,7 @@
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:groupViewController];
     self.window.rootViewController = navController;
     
-    self.window.backgroundColor = [UIColor lightGrayColor];
+    self.window.backgroundColor = [UIColor cyanColor];
     [self.window makeKeyAndVisible];
     
     

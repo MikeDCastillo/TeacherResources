@@ -8,7 +8,7 @@
 
 #import "GroupDetailViewController.h"
 
-@interface GroupDetailViewController ()
+@interface GroupDetailViewController () <UITableViewDelegate>
 
 @end
 
@@ -16,7 +16,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.groupNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(45, 75, 150, 45)];
+    self.groupNameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.groupNameTextField.placeholder = @" Enter subject ";
+    [self.view addSubview:self.groupNameTextField];
+    
+    self.studentNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(45, 150, 150, 45)];
+    self.studentNameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.studentNameTextField.placeholder = @" Enter student ";
+    [self.view addSubview:self.studentNameTextField];
+    
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 250, self.view.frame.size.width, self.view.frame.size.height - 100)];
+    
+    
+    self.dataSource = [GroupDetailViewControllerDataSource new];
+    self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self;
+    
+    [self.dataSource registerTableView:self.tableView];
+    [self.view addSubview:self.tableView];
+    
+    
+    
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Edit Student" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Edit name" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+        
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+        
+    
 }
 
 - (void)didReceiveMemoryWarning {
