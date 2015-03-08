@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+@import UIKit;
 
-@interface GroupViewControllerDataSource : NSObject
+@interface GroupViewControllerDataSource : NSObject <UITableViewDataSource>
+
+-(void)registerTableView:(UITableView *)tableView;
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

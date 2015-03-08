@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "GroupViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    
+    GroupViewController *groupViewController = [GroupViewController new];
+    
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:groupViewController];
+    self.window.rootViewController = navController;
+    
+    self.window.backgroundColor = [UIColor lightGrayColor];
+    [self.window makeKeyAndVisible];
+    
+    
+    
     return YES;
 }
 
