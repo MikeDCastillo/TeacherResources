@@ -21,7 +21,7 @@
     
 }
 
-- (NSArray *)studentNames {
+- (NSArray *)studentNamesArray {
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
     
@@ -31,7 +31,7 @@
     
 }
 
-- (NSArray *)groupNames {
+- (NSArray *)groupNamesArray {
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
     

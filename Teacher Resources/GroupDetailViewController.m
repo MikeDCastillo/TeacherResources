@@ -32,10 +32,13 @@
     self.groupNameTextField.text = self.group.groupName;
     self.studentNameTextField.text = self.group.studentName;
     
+    // adds group text field
     self.groupNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(45, 75, 150, 45)];
     self.groupNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.groupNameTextField.placeholder = @" Enter subject ";
     [self.view addSubview:self.groupNameTextField];
+    
+    
     
     self.studentNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(45, 150, 150, 45)];
     self.studentNameTextField.borderStyle = UITextBorderStyleRoundedRect;

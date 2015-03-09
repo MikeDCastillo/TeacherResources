@@ -12,8 +12,8 @@
 
 @interface GroupController : NSObject
 
-@property (nonatomic, strong, readonly) NSArray *studentNames;
-@property (nonatomic, strong, readonly) NSArray *groupNames; 
+@property (nonatomic, strong, readonly) NSArray *studentNamesArray;
+@property (nonatomic, strong, readonly) NSArray *groupNamesArray;
 
 + (GroupController *)sharedInstance;
 

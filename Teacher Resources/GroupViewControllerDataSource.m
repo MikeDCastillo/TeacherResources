@@ -20,7 +20,7 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [GroupController sharedInstance].groupNames.count;
+    return [GroupController sharedInstance].groupNamesArray.count;
     
 }
 
@@ -28,7 +28,7 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 
-    Group *group = [GroupController sharedInstance].groupNames[indexPath.row];
+    Group *group = [GroupController sharedInstance].groupNamesArray[indexPath.row];
     cell.textLabel.text = group.groupName;
     
     return cell; 

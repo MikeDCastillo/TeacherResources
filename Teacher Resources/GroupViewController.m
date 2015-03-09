@@ -55,7 +55,7 @@
     
     GroupDetailViewController *groupDetailViewController = [GroupDetailViewController new];
     
-    [groupDetailViewController updateWithGroup:[GroupController sharedInstance].groupNames[indexPath.row]];
+    [groupDetailViewController updateWithGroup:[GroupController sharedInstance].groupNamesArray[indexPath.row]];
     
     [self.navigationController pushViewController:groupDetailViewController animated:YES];
     
