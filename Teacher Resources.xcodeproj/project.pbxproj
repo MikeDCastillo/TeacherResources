@@ -7,29 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27CA15241AAE519800A93A24 /* Links.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA15231AAE519800A93A24 /* Links.m */; };
-		27CA15261AAE54D500A93A24 /* randomGroup.png in Resources */ = {isa = PBXBuildFile; fileRef = 27CA15251AAE54D500A93A24 /* randomGroup.png */; };
-		27CA15281AAE54E000A93A24 /* randomList.png in Resources */ = {isa = PBXBuildFile; fileRef = 27CA15271AAE54E000A93A24 /* randomList.png */; };
-		27CA152A1AAE54E900A93A24 /* nameFromAHat.png in Resources */ = {isa = PBXBuildFile; fileRef = 27CA15291AAE54E900A93A24 /* nameFromAHat.png */; };
-		27CA152C1AAE54F200A93A24 /* cooperativeLearning.png in Resources */ = {isa = PBXBuildFile; fileRef = 27CA152B1AAE54F200A93A24 /* cooperativeLearning.png */; };
-		27CA152E1AAE54FC00A93A24 /* theWilliams.png in Resources */ = {isa = PBXBuildFile; fileRef = 27CA152D1AAE54FC00A93A24 /* theWilliams.png */; };
-		27CA15301AAE550100A93A24 /* seatingChart.png in Resources */ = {isa = PBXBuildFile; fileRef = 27CA152F1AAE550100A93A24 /* seatingChart.png */; };
 		27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EEF1AAA67DD0051D062 /* Stack.m */; };
 		27CC8EF91AAA695A0051D062 /* FeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EF81AAA695A0051D062 /* FeaturesViewController.m */; };
 		27CC8EFF1AAA6A3A0051D062 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EFE1AAA6A3A0051D062 /* TimerViewController.m */; };
 		27CC8F031AAA6A5B0051D062 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F021AAA6A5B0051D062 /* Timer.m */; };
 		27CC8F071AAA6A880051D062 /* GroupRandomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F061AAA6A880051D062 /* GroupRandomizer.m */; };
-		27CC8F0A1AAA6A990051D062 /* SingleRandomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F091AAA6A990051D062 /* SingleRandomizer.m */; };
 		27CC8F0D1AAA6ACC0051D062 /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F0C1AAA6ACC0051D062 /* GroupController.m */; };
-		27CC8F101AAA6B4A0051D062 /* StudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F0F1AAA6B4A0051D062 /* StudentListViewController.m */; };
 		27CC8F131AAA6B740051D062 /* RandomizedGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */; };
 		27CC8F181AAA6CE00051D062 /* GroupViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F171AAA6CE00051D062 /* GroupViewControllerDataSource.m */; };
 		27CC8F1B1AAA6D000051D062 /* RandomizedViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F1A1AAA6D000051D062 /* RandomizedViewControllerDataSource.m */; };
 		27CC8F1F1AAA6D350051D062 /* FeaturesViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F1E1AAA6D350051D062 /* FeaturesViewControllerDataSource.m */; };
-		27CC8F231AAA6D6C0051D062 /* StudentListViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F221AAA6D6C0051D062 /* StudentListViewControllerDataSource.m */; };
-		27CC8F261AAA7BAF0051D062 /* GroupDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F251AAA7BAF0051D062 /* GroupDetailViewController.m */; };
+		27CC8F261AAA7BAF0051D062 /* StudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F251AAA7BAF0051D062 /* StudentListViewController.m */; };
 		27CC8F291AAA7C8A0051D062 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F271AAA7C8A0051D062 /* Model.xcdatamodeld */; };
-		27CC8F2C1AABF0F30051D062 /* GroupDetailViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F2B1AABF0F30051D062 /* GroupDetailViewControllerDataSource.m */; };
+		27CC8F2C1AABF0F30051D062 /* StudentListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F2B1AABF0F30051D062 /* StudentListDataSource.m */; };
 		27CC8F2F1AAD121B0051D062 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F2E1AAD121B0051D062 /* Group.m */; };
 		6A048AB51AAA477800C7E790 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048AB41AAA477800C7E790 /* main.m */; };
 		6A048AB81AAA477800C7E790 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048AB71AAA477800C7E790 /* AppDelegate.m */; };
@@ -38,6 +28,7 @@
 		6A048AC01AAA477900C7E790 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A048ABF1AAA477900C7E790 /* Images.xcassets */; };
 		6A048AC31AAA477900C7E790 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A048AC11AAA477900C7E790 /* LaunchScreen.xib */; };
 		6A048ACF1AAA477900C7E790 /* Teacher_ResourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048ACE1AAA477900C7E790 /* Teacher_ResourcesTests.m */; };
+		6AFD4E5D1AAE4F3500308595 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E5C1AAE4F3500308595 /* UIColor+Category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,14 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		27CA15221AAE519800A93A24 /* Links.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Links.h; sourceTree = "<group>"; };
-		27CA15231AAE519800A93A24 /* Links.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Links.m; sourceTree = "<group>"; };
-		27CA15251AAE54D500A93A24 /* randomGroup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = randomGroup.png; sourceTree = "<group>"; };
-		27CA15271AAE54E000A93A24 /* randomList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = randomList.png; sourceTree = "<group>"; };
-		27CA15291AAE54E900A93A24 /* nameFromAHat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nameFromAHat.png; sourceTree = "<group>"; };
-		27CA152B1AAE54F200A93A24 /* cooperativeLearning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cooperativeLearning.png; sourceTree = "<group>"; };
-		27CA152D1AAE54FC00A93A24 /* theWilliams.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = theWilliams.png; sourceTree = "<group>"; };
-		27CA152F1AAE550100A93A24 /* seatingChart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seatingChart.png; sourceTree = "<group>"; };
 		27CC8EEE1AAA67DD0051D062 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		27CC8EEF1AAA67DD0051D062 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
 		27CC8EF71AAA695A0051D062 /* FeaturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesViewController.h; sourceTree = "<group>"; };
@@ -69,12 +52,8 @@
 		27CC8F021AAA6A5B0051D062 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		27CC8F051AAA6A880051D062 /* GroupRandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupRandomizer.h; sourceTree = "<group>"; };
 		27CC8F061AAA6A880051D062 /* GroupRandomizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupRandomizer.m; sourceTree = "<group>"; };
-		27CC8F081AAA6A990051D062 /* SingleRandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleRandomizer.h; sourceTree = "<group>"; };
-		27CC8F091AAA6A990051D062 /* SingleRandomizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleRandomizer.m; sourceTree = "<group>"; };
 		27CC8F0B1AAA6ACC0051D062 /* GroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupController.h; sourceTree = "<group>"; };
 		27CC8F0C1AAA6ACC0051D062 /* GroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupController.m; sourceTree = "<group>"; };
-		27CC8F0E1AAA6B4A0051D062 /* StudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentListViewController.h; sourceTree = "<group>"; };
-		27CC8F0F1AAA6B4A0051D062 /* StudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentListViewController.m; sourceTree = "<group>"; };
 		27CC8F111AAA6B740051D062 /* RandomizedGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedGroupsViewController.h; sourceTree = "<group>"; };
 		27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedGroupsViewController.m; sourceTree = "<group>"; };
 		27CC8F161AAA6CE00051D062 /* GroupViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewControllerDataSource.h; sourceTree = "<group>"; };
@@ -83,13 +62,11 @@
 		27CC8F1A1AAA6D000051D062 /* RandomizedViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedViewControllerDataSource.m; sourceTree = "<group>"; };
 		27CC8F1D1AAA6D350051D062 /* FeaturesViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesViewControllerDataSource.h; sourceTree = "<group>"; };
 		27CC8F1E1AAA6D350051D062 /* FeaturesViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesViewControllerDataSource.m; sourceTree = "<group>"; };
-		27CC8F211AAA6D6C0051D062 /* StudentListViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentListViewControllerDataSource.h; sourceTree = "<group>"; };
-		27CC8F221AAA6D6C0051D062 /* StudentListViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentListViewControllerDataSource.m; sourceTree = "<group>"; };
-		27CC8F241AAA7BAF0051D062 /* GroupDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailViewController.h; sourceTree = "<group>"; };
-		27CC8F251AAA7BAF0051D062 /* GroupDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailViewController.m; sourceTree = "<group>"; };
+		27CC8F241AAA7BAF0051D062 /* StudentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentListViewController.h; sourceTree = "<group>"; };
+		27CC8F251AAA7BAF0051D062 /* StudentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentListViewController.m; sourceTree = "<group>"; };
 		27CC8F281AAA7C8A0051D062 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		27CC8F2A1AABF0F30051D062 /* GroupDetailViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDetailViewControllerDataSource.h; sourceTree = "<group>"; };
-		27CC8F2B1AABF0F30051D062 /* GroupDetailViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDetailViewControllerDataSource.m; sourceTree = "<group>"; };
+		27CC8F2A1AABF0F30051D062 /* StudentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentListDataSource.h; sourceTree = "<group>"; };
+		27CC8F2B1AABF0F30051D062 /* StudentListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentListDataSource.m; sourceTree = "<group>"; };
 		27CC8F2D1AAD121B0051D062 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Group.h; path = ../Group.h; sourceTree = "<group>"; };
 		27CC8F2E1AAD121B0051D062 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = ../Group.m; sourceTree = "<group>"; };
 		6A048AAF1AAA477800C7E790 /* Teacher Resources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teacher Resources.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +82,8 @@
 		6A048AC81AAA477900C7E790 /* Teacher ResourcesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Teacher ResourcesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A048ACD1AAA477900C7E790 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A048ACE1AAA477900C7E790 /* Teacher_ResourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Teacher_ResourcesTests.m; sourceTree = "<group>"; };
+		6AFD4E5B1AAE4F3500308595 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
+		6AFD4E5C1AAE4F3500308595 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,47 +104,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27CC8EFA1AAA697C0051D062 /* Feature VC's */ = {
+		27CC8EFA1AAA697C0051D062 /* Features Collection View */ = {
 			isa = PBXGroup;
 			children = (
-				27CC8F111AAA6B740051D062 /* RandomizedGroupsViewController.h */,
-				27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */,
-				27CC8F0E1AAA6B4A0051D062 /* StudentListViewController.h */,
-				27CC8F0F1AAA6B4A0051D062 /* StudentListViewController.m */,
-				27CC8EFD1AAA6A3A0051D062 /* TimerViewController.h */,
-				27CC8EFE1AAA6A3A0051D062 /* TimerViewController.m */,
 				27CC8EF71AAA695A0051D062 /* FeaturesViewController.h */,
 				27CC8EF81AAA695A0051D062 /* FeaturesViewController.m */,
+				27CC8F1D1AAA6D350051D062 /* FeaturesViewControllerDataSource.h */,
+				27CC8F1E1AAA6D350051D062 /* FeaturesViewControllerDataSource.m */,
 			);
-			name = "Feature VC's";
+			name = "Features Collection View";
 			sourceTree = "<group>";
 		};
-		27CC8EFB1AAA69DC0051D062 /* Group VC's */ = {
+		27CC8EFB1AAA69DC0051D062 /* Group List  (HOME) */ = {
 			isa = PBXGroup;
 			children = (
 				6A048AB91AAA477800C7E790 /* GroupViewController.h */,
 				6A048ABA1AAA477800C7E790 /* GroupViewController.m */,
-				27CC8F241AAA7BAF0051D062 /* GroupDetailViewController.h */,
-				27CC8F251AAA7BAF0051D062 /* GroupDetailViewController.m */,
-			);
-			name = "Group VC's";
-			sourceTree = "<group>";
-		};
-		27CC8F151AAA6C940051D062 /* DataSources  */ = {
-			isa = PBXGroup;
-			children = (
-				27CC8F191AAA6D000051D062 /* RandomizedViewControllerDataSource.h */,
-				27CC8F1A1AAA6D000051D062 /* RandomizedViewControllerDataSource.m */,
-				27CC8F211AAA6D6C0051D062 /* StudentListViewControllerDataSource.h */,
-				27CC8F221AAA6D6C0051D062 /* StudentListViewControllerDataSource.m */,
 				27CC8F161AAA6CE00051D062 /* GroupViewControllerDataSource.h */,
 				27CC8F171AAA6CE00051D062 /* GroupViewControllerDataSource.m */,
-				27CC8F2A1AABF0F30051D062 /* GroupDetailViewControllerDataSource.h */,
-				27CC8F2B1AABF0F30051D062 /* GroupDetailViewControllerDataSource.m */,
-				27CC8F1D1AAA6D350051D062 /* FeaturesViewControllerDataSource.h */,
-				27CC8F1E1AAA6D350051D062 /* FeaturesViewControllerDataSource.m */,
 			);
-			name = "DataSources ";
+			name = "Group List  (HOME)";
 			sourceTree = "<group>";
 		};
 		6A048AA61AAA477800C7E790 = {
@@ -189,25 +147,14 @@
 		6A048AB11AAA477800C7E790 /* Teacher Resources */ = {
 			isa = PBXGroup;
 			children = (
-				27CC8F271AAA7C8A0051D062 /* Model.xcdatamodeld */,
-				6A048AB61AAA477800C7E790 /* AppDelegate.h */,
-				6A048AB71AAA477800C7E790 /* AppDelegate.m */,
-				27CC8F011AAA6A5B0051D062 /* Timer.h */,
-				27CC8F021AAA6A5B0051D062 /* Timer.m */,
-				27CC8F2D1AAD121B0051D062 /* Group.h */,
-				27CC8F2E1AAD121B0051D062 /* Group.m */,
-				27CC8F0B1AAA6ACC0051D062 /* GroupController.h */,
-				27CC8F0C1AAA6ACC0051D062 /* GroupController.m */,
-				27CC8F051AAA6A880051D062 /* GroupRandomizer.h */,
-				27CC8F061AAA6A880051D062 /* GroupRandomizer.m */,
-				27CC8F081AAA6A990051D062 /* SingleRandomizer.h */,
-				27CC8F091AAA6A990051D062 /* SingleRandomizer.m */,
-				27CC8F151AAA6C940051D062 /* DataSources  */,
-				27CC8EFA1AAA697C0051D062 /* Feature VC's */,
-				27CC8EFB1AAA69DC0051D062 /* Group VC's */,
-				27CC8EEE1AAA67DD0051D062 /* Stack.h */,
-				27CC8EEF1AAA67DD0051D062 /* Stack.m */,
 				6A048ABC1AAA477800C7E790 /* Main.storyboard */,
+				6AFD4E561AAE4A1200308595 /* Model/Core Data */,
+				6AFD4E571AAE4A9F00308595 /* Controllers */,
+				27CC8EFB1AAA69DC0051D062 /* Group List  (HOME) */,
+				27CC8EFA1AAA697C0051D062 /* Features Collection View */,
+				6AFD4E5A1AAE4B7100308595 /* Randomized Groups */,
+				6AFD4E581AAE4ACB00308595 /* Student List */,
+				6AFD4E591AAE4B4900308595 /* Timer */,
 				6A048ABF1AAA477900C7E790 /* Images.xcassets */,
 				6A048AC11AAA477900C7E790 /* LaunchScreen.xib */,
 				6A048AB21AAA477800C7E790 /* Supporting Files */,
@@ -218,16 +165,10 @@
 		6A048AB21AAA477800C7E790 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				27CA152F1AAE550100A93A24 /* seatingChart.png */,
-				27CA152D1AAE54FC00A93A24 /* theWilliams.png */,
-				27CA152B1AAE54F200A93A24 /* cooperativeLearning.png */,
-				27CA15291AAE54E900A93A24 /* nameFromAHat.png */,
-				27CA15271AAE54E000A93A24 /* randomList.png */,
-				27CA15251AAE54D500A93A24 /* randomGroup.png */,
+				6AFD4E5B1AAE4F3500308595 /* UIColor+Category.h */,
+				6AFD4E5C1AAE4F3500308595 /* UIColor+Category.m */,
 				6A048AB31AAA477800C7E790 /* Info.plist */,
 				6A048AB41AAA477800C7E790 /* main.m */,
-				27CA15221AAE519800A93A24 /* Links.h */,
-				27CA15231AAE519800A93A24 /* Links.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -247,6 +188,64 @@
 				6A048ACD1AAA477900C7E790 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6AFD4E561AAE4A1200308595 /* Model/Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				27CC8F271AAA7C8A0051D062 /* Model.xcdatamodeld */,
+				6A048AB61AAA477800C7E790 /* AppDelegate.h */,
+				6A048AB71AAA477800C7E790 /* AppDelegate.m */,
+				27CC8F2D1AAD121B0051D062 /* Group.h */,
+				27CC8F2E1AAD121B0051D062 /* Group.m */,
+				27CC8EEE1AAA67DD0051D062 /* Stack.h */,
+				27CC8EEF1AAA67DD0051D062 /* Stack.m */,
+			);
+			name = "Model/Core Data";
+			sourceTree = "<group>";
+		};
+		6AFD4E571AAE4A9F00308595 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				27CC8F0B1AAA6ACC0051D062 /* GroupController.h */,
+				27CC8F0C1AAA6ACC0051D062 /* GroupController.m */,
+				27CC8F051AAA6A880051D062 /* GroupRandomizer.h */,
+				27CC8F061AAA6A880051D062 /* GroupRandomizer.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6AFD4E581AAE4ACB00308595 /* Student List */ = {
+			isa = PBXGroup;
+			children = (
+				27CC8F2A1AABF0F30051D062 /* StudentListDataSource.h */,
+				27CC8F2B1AABF0F30051D062 /* StudentListDataSource.m */,
+				27CC8F241AAA7BAF0051D062 /* StudentListViewController.h */,
+				27CC8F251AAA7BAF0051D062 /* StudentListViewController.m */,
+			);
+			name = "Student List";
+			sourceTree = "<group>";
+		};
+		6AFD4E591AAE4B4900308595 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				27CC8F011AAA6A5B0051D062 /* Timer.h */,
+				27CC8F021AAA6A5B0051D062 /* Timer.m */,
+				27CC8EFD1AAA6A3A0051D062 /* TimerViewController.h */,
+				27CC8EFE1AAA6A3A0051D062 /* TimerViewController.m */,
+			);
+			name = Timer;
+			sourceTree = "<group>";
+		};
+		6AFD4E5A1AAE4B7100308595 /* Randomized Groups */ = {
+			isa = PBXGroup;
+			children = (
+				27CC8F111AAA6B740051D062 /* RandomizedGroupsViewController.h */,
+				27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */,
+				27CC8F191AAA6D000051D062 /* RandomizedViewControllerDataSource.h */,
+				27CC8F1A1AAA6D000051D062 /* RandomizedViewControllerDataSource.m */,
+			);
+			name = "Randomized Groups";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,15 +328,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27CA15261AAE54D500A93A24 /* randomGroup.png in Resources */,
-				27CA15281AAE54E000A93A24 /* randomList.png in Resources */,
-				27CA152A1AAE54E900A93A24 /* nameFromAHat.png in Resources */,
-				27CA152C1AAE54F200A93A24 /* cooperativeLearning.png in Resources */,
 				6A048ABE1AAA477800C7E790 /* Main.storyboard in Resources */,
-				27CA152E1AAE54FC00A93A24 /* theWilliams.png in Resources */,
 				6A048AC31AAA477900C7E790 /* LaunchScreen.xib in Resources */,
 				6A048AC01AAA477900C7E790 /* Images.xcassets in Resources */,
-				27CA15301AAE550100A93A24 /* seatingChart.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,11 +351,9 @@
 				27CC8F131AAA6B740051D062 /* RandomizedGroupsViewController.m in Sources */,
 				27CC8F181AAA6CE00051D062 /* GroupViewControllerDataSource.m in Sources */,
 				27CC8F1F1AAA6D350051D062 /* FeaturesViewControllerDataSource.m in Sources */,
-				27CA15241AAE519800A93A24 /* Links.m in Sources */,
-				27CC8F261AAA7BAF0051D062 /* GroupDetailViewController.m in Sources */,
+				27CC8F261AAA7BAF0051D062 /* StudentListViewController.m in Sources */,
 				27CC8EFF1AAA6A3A0051D062 /* TimerViewController.m in Sources */,
 				27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */,
-				27CC8F231AAA6D6C0051D062 /* StudentListViewControllerDataSource.m in Sources */,
 				27CC8F2F1AAD121B0051D062 /* Group.m in Sources */,
 				27CC8F291AAA7C8A0051D062 /* Model.xcdatamodeld in Sources */,
 				6A048ABB1AAA477800C7E790 /* GroupViewController.m in Sources */,
@@ -370,12 +361,11 @@
 				27CC8F1B1AAA6D000051D062 /* RandomizedViewControllerDataSource.m in Sources */,
 				6A048AB81AAA477800C7E790 /* AppDelegate.m in Sources */,
 				27CC8F071AAA6A880051D062 /* GroupRandomizer.m in Sources */,
-				27CC8F2C1AABF0F30051D062 /* GroupDetailViewControllerDataSource.m in Sources */,
+				27CC8F2C1AABF0F30051D062 /* StudentListDataSource.m in Sources */,
 				27CC8F031AAA6A5B0051D062 /* Timer.m in Sources */,
 				6A048AB51AAA477800C7E790 /* main.m in Sources */,
 				27CC8F0D1AAA6ACC0051D062 /* GroupController.m in Sources */,
-				27CC8F0A1AAA6A990051D062 /* SingleRandomizer.m in Sources */,
-				27CC8F101AAA6B4A0051D062 /* StudentListViewController.m in Sources */,
+				6AFD4E5D1AAE4F3500308595 /* UIColor+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

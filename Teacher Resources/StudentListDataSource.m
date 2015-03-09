@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 PJayRushton. All rights reserved.
 //
 
-#import "GroupDetailViewControllerDataSource.h"
+#import "StudentListDataSource.h"
 
 static NSString * const cellIdentifier = @"CellIdentifier";
 
-@implementation GroupDetailViewControllerDataSource
+@implementation StudentListDataSource
 
 -(void)registerTableView:(UITableView *)tableView {
     
