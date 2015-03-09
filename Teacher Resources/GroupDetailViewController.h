@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GroupDetailViewControllerDataSource.h"
+#import "GroupController.h"
 #import "Group.h"
 
 @interface GroupDetailViewController : UIViewController

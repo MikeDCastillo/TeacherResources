@@ -72,6 +72,16 @@
 
 - (void)saveGroups:(id)sender {
     
+    if (self.group) {
+        self.group.groupName = self.groupNameTextField.text;
+        self.group.studentName = self.studentNameTextField.text;
+        
+        [[GroupController sharedInstance]synchronize];
+    }
+    else {
+        [[GroupController sharedInstance]addGroupWithGroupName:self.groupNameTextField.text studentName:self.studentNameTextField.text];
+    }
+    
     
 }
 
