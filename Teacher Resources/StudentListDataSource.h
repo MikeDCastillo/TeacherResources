@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface GroupDetailViewControllerDataSource : NSObject <UITableViewDataSource>
+@interface StudentListDataSource : NSObject <UITableViewDataSource>
 
 -(void)registerTableView:(UITableView *)tableView;
 
