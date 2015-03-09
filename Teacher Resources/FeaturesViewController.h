@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FeaturesViewControllerDataSource.h"
 
-@interface FeaturesViewController : UIViewController
+@interface FeaturesViewController : UIViewController <UICollectionViewDelegate>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UINavigationBar *navBar; 
+@property (nonatomic, strong) FeaturesViewControllerDataSource *dataSource;
 
 @end

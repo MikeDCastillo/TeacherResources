@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@import UIKit;
 
-@interface FeaturesViewControllerDataSource : NSObject
+@interface FeaturesViewControllerDataSource : NSObject <UICollectionViewDataSource>
+
+- (NSArray *)iconImageNames;
+
+- (void)registerCollectionView:(UICollectionView *)collectionView;
 
 @end

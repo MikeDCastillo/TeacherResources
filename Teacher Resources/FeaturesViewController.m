@@ -16,8 +16,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navBar = [[UINavigationBar alloc]init];
+    [self.view addSubview:self.navBar];
+    
+    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    
+    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
+    
+    self.dataSource = [FeaturesViewControllerDataSource new];
+    self.collectionView.dataSource = self.dataSource;
+    self.collectionView.delegate = self;
+    [self.dataSource registerCollectionView:self.collectionView];
+    [self.view addSubview:self.collectionView];
+    
+    
+    
 }
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+   
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
