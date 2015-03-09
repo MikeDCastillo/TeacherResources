@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GroupController.h"
 @import UIKit;
 
 @interface GroupViewControllerDataSource : NSObject <UITableViewDataSource>

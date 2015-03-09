@@ -20,15 +20,17 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return [GroupController sharedInstance].groupNames.count;
     
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    cell.textLabel.text = @" Math ";
 
+    Group *group = [GroupController sharedInstance].groupNames[indexPath.row];
+    cell.textLabel.text = group.groupName;
+    
     return cell; 
     
 }

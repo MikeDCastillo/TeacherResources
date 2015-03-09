@@ -21,6 +21,52 @@
     
 }
 
+- (NSArray *)studentNames {
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
+    
+    NSArray *objects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    
+    return objects;
+    
+}
+
+- (NSArray *)groupNames {
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
+    
+    NSArray *objects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    
+    return objects;
+    
+}
+
+- (void)addGroupWithGroupName:(NSString *)groupName studentName:(NSString *)studentName {
+    
+    Group *group = [NSEntityDescription insertNewObjectForEntityForName:@"Group" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    
+    group.groupName = groupName;
+    group.studentName = studentName;
+    
+    [self synchronize];
+    
+    
+}
+
+- (void)removeGroup:(Group *)group {
+    
+    [group.managedObjectContext deleteObject:group];
+    [self synchronize];
+    
+    
+}
+
+- (void)synchronize {
+    
+    [[Stack sharedInstance].managedObjectContext save:NULL];
+    
+}
+
 @end
 
 
