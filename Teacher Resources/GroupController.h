@@ -8,18 +8,24 @@
 
 #import <Foundation/Foundation.h>
 #import "Group.h"
+#import "Member.h"
 #import "Stack.h"
 
 @interface GroupController : NSObject
 
-@property (nonatomic, strong, readonly) NSArray *studentNamesArray;
+//@property (nonatomic, strong, readonly) NSArray *studentNamesArray;
 @property (nonatomic, strong, readonly) NSArray *groupNamesArray;
+@property (nonatomic, strong) Group *group;
 
 + (GroupController *)sharedInstance;
 
-- (void)addGroupWithGroupName:(NSString *)groupName studentName:(NSString *)studentName;
+- (void)addGroupWithGroupName:(NSString *)groupName;
 
 - (void)removeGroup:(Group *)group;
+
+-(void)removeMember: (Member *)member;
+
+- (void)addMemberToGroup: (Group *)group;
 
 - (void)synchronize;
 

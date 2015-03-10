@@ -8,14 +8,14 @@
 
 #import "GroupViewControllerDataSource.h"
 
+@interface GroupViewControllerDataSource () 
+
+@end
+
 @implementation GroupViewControllerDataSource
 
-static NSString * const cellIdentifier = @"CellIdentifier";
-
--(void)registerTableView:(UITableView *)tableView {
-    
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellIdentifier"];
-    
+- (void)registerTableView:(UITableView *)tableView {
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -26,13 +26,29 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    
     Group *group = [GroupController sharedInstance].groupNamesArray[indexPath.row];
-    cell.textLabel.text = group.groupName;
+    cell.textLabel.text = group.title;
     
-    return cell; 
+    //Cell Subtitle
+    NSString *numberOfStudents = [NSString stringWithFormat:@"%lu Member", (unsigned long)[GroupController sharedInstance].group.members.count];
+    cell.detailTextLabel.text = numberOfStudents;
     
+    return cell;
+    
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [tableView beginUpdates];
+        
+        [[GroupController sharedInstance] removeGroup:[[GroupController sharedInstance].groupNamesArray objectAtIndex:indexPath.row]];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        [tableView endUpdates];
+    }
 }
 
 @end
