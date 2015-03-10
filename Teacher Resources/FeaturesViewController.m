@@ -7,6 +7,7 @@
 //
 
 #import "FeaturesViewController.h"
+#import "UIColor+Category.h"
 
 @interface FeaturesViewController ()
 
@@ -17,12 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navBar = [[UINavigationBar alloc]init];
-    [self.view addSubview:self.navBar];
-    
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
+    self.collectionView.backgroundColor = [UIColor slateColor];
+
     
     self.dataSource = [FeaturesViewControllerDataSource new];
     self.collectionView.dataSource = self.dataSource;
@@ -30,14 +30,22 @@
     [self.dataSource registerCollectionView:self.collectionView];
     [self.view addSubview:self.collectionView];
     
-    
-    
 }
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    return CGSizeMake(self.view.frame.size.width/2, self.view.frame.size.width/2);
+}
+
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    RandomizedGroupsViewController *randomizedGroupsViewController = [RandomizedGroupsViewController new];
     
-   
+    [self.navigationController pushViewController:randomizedGroupsViewController animated:YES];
+    
 }
 
 

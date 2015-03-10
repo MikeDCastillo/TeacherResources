@@ -15,7 +15,7 @@ static NSString *cellID = @"CellID";
 
 - (void)registerCollectionView:(UICollectionView *)collectionView {
     
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CellID"];
+    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellID];
     
 }
 
@@ -30,19 +30,21 @@ static NSString *cellID = @"CellID";
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
+    cell.layer.borderWidth = 5.0f;
+    cell.layer.borderColor = [UIColor blackColor].CGColor;
+    
     UIImage *image = [UIImage imageNamed:[self iconImageNames][indexPath.row]];
     
     UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+//    imageView.frame = cell.frame;
     [cell.contentView addSubview:imageView];
+    
+    cell.backgroundColor = [UIColor redColor];
     
     return cell;
     
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake(100, 100);
-}
 
 - (NSArray *)iconImageNames {
     
