@@ -1,18 +1,18 @@
 //
-//  Group.m
+//  Member.m
 //  Teacher Resources
 //
 //  Created by Parker Rushton on 3/9/15.
 //  Copyright (c) 2015 PJayRushton. All rights reserved.
 //
 
-#import "Group.h"
 #import "Member.h"
+#import "Group.h"
 
 
-@implementation Group
+@implementation Member
 
-@dynamic title;
-@dynamic members;
+@dynamic name;
+@dynamic group;
 
 @end
