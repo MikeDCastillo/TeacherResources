@@ -13,5 +13,7 @@
 @interface GroupViewControllerDataSource : NSObject <UITableViewDataSource>
 
 -(void)registerTableView:(UITableView *)tableView;
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 
 @end

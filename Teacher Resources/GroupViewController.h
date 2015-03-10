@@ -13,8 +13,6 @@
 
 @interface GroupViewController : UIViewController
 
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) GroupViewControllerDataSource *datasource;
 
 @end
 

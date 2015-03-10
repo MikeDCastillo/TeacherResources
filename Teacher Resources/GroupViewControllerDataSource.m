@@ -8,14 +8,14 @@
 
 #import "GroupViewControllerDataSource.h"
 
-static NSString * const cellIdentifier = @"cellIdentifier";
+@interface GroupViewControllerDataSource () 
+
+@end
 
 @implementation GroupViewControllerDataSource
 
-
-
 - (void)registerTableView:(UITableView *)tableView {
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -26,22 +26,21 @@ static NSString * const cellIdentifier = @"cellIdentifier";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    
     Group *group = [GroupController sharedInstance].groupNamesArray[indexPath.row];
     cell.textLabel.text = group.title;
     
     //Cell Subtitle
     NSString *numberOfStudents = [NSString stringWithFormat:@"%lu Member", (unsigned long)[GroupController sharedInstance].group.members.count];
     cell.detailTextLabel.text = numberOfStudents;
-                                  
-    return cell; 
+    
+    return cell;
     
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80.0;
-}
+
+
 
 //-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 //    

@@ -13,6 +13,9 @@
 
 @interface GroupViewController () <UITableViewDelegate,UITextFieldDelegate>
 
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) GroupViewControllerDataSource *datasource;
+
 @property (strong, nonatomic) UIView *addStudentsCV;
 @property (strong, nonatomic) UITextField *addTextField;
 
@@ -25,12 +28,7 @@
     [super viewDidLoad];
     [self.tableView reloadData];
     
-    //DataSource + Delegate
     self.datasource = [GroupViewControllerDataSource new];
-    self.tableView.dataSource = self.datasource;
-    self.tableView.delegate = self;
-    [self.datasource registerTableView:self.tableView];
-
     
     //Add Class PLUS button
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
@@ -47,19 +45,16 @@
     self.view.backgroundColor= [UIColor whiteColor];
     
     //TableView Config
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    
+    //DataSource + Delegate
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self.datasource;
+    [self.datasource registerTableView:self.tableView];
+    
     
     [self.view addSubview:self.tableView];
     
-    
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    FeaturesViewController *featuresViewController = [FeaturesViewController new];
-    
-    [self.navigationController pushViewController:featuresViewController animated:YES];
     
 }
 
@@ -103,6 +98,8 @@
     [self.addTextField resignFirstResponder];
 }
 
+#pragma - mark TextField Delegate Methods
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
         [textField resignFirstResponder];
@@ -112,6 +109,19 @@
     [self addGroupButtonPressed];
     return YES;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.addStudentsCV removeFromSuperview];
+    FeaturesViewController *featuresViewController = [FeaturesViewController new];
+    
+    [self.navigationController pushViewController:featuresViewController animated:YES];
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80.0;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
