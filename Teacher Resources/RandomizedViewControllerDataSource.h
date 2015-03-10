@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface RandomizedViewControllerDataSource : NSObject
+@interface RandomizedViewControllerDataSource : NSObject <UICollectionViewDataSource>
+
+- (void)registerCollectionView:(UICollectionView *)collectionView;
+- (void)randomizeAndReload;
 
 @end
