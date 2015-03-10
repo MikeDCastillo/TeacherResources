@@ -30,6 +30,12 @@ static NSString *cellID = @"CellID";
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
+    NSArray *subviews = [cell.contentView subviews];
+    
+    for (UIView *view in subviews) {
+        [view removeFromSuperview];
+    }
+    
     cell.layer.borderWidth = 5.0f;
     cell.layer.borderColor = [UIColor blackColor].CGColor;
     

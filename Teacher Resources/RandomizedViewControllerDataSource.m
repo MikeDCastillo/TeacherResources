@@ -29,7 +29,7 @@
 
 - (void)registerCollectionView:(UICollectionView *)collectionView {
     
-    self.collectionView = collectionView;
+    [collectionView registerClass:[MembersCollectionViewCell class] forCellWithReuseIdentifier:@"memberCell"];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -41,7 +41,7 @@
     MembersCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"memberCell" forIndexPath:indexPath];
     
     [cell configureCellWithName:self.members[indexPath.item]];
-    
+    [cell setBackgroundColor:[UIColor blueColor]];
     return cell;
 }
 

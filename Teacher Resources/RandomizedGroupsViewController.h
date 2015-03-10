@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RandomizedGroupsViewController : UICollectionViewController
+@interface RandomizedGroupsViewController : UIViewController <UICollectionViewDelegate>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
