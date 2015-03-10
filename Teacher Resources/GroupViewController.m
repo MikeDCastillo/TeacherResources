@@ -61,14 +61,15 @@
 - (void)addGroup:(id)sender {
     
     //Create Custom Subview for adding groups
-    self.addStudentsCV = [[UIView alloc] initWithFrame:CGRectMake(0, 18, self.view.frame.size.width, 44)];
+    self.addStudentsCV = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 64)];
     self.addStudentsCV.backgroundColor = [UIColor trBlueColor];
     
-    //Add TextField
-    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 4, 250, 35)];
+    //Add Group TextField
+    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, 250, 35)];
     self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.addTextField.delegate = self;
     self.addTextField.placeholder = @"Enter Group Title";
+    [self.addTextField setReturnKeyType:UIReturnKeyDone];
     [self.addTextField becomeFirstResponder];
     [self.addStudentsCV addSubview:self.addTextField];
     
@@ -80,11 +81,11 @@
     
     [addGroupButton setTitle:@"Add Group" forState:UIControlStateNormal];
     addGroupButton.tintColor = [UIColor whiteColor];
-    addGroupButton.frame = CGRectMake(self.view.frame.size.width - 85, 15.0, 80.0, 20.0);
+    addGroupButton.frame = CGRectMake(self.view.frame.size.width - 85, 35.0, 80.0, 20.0);
     [self.addStudentsCV addSubview:addGroupButton];
 
     [self.navigationController.view addSubview:self.addStudentsCV];
-
+    [self moveOver:self.addStudentsCV thisMuch:250 withDuration:.2];
     
 }
 
@@ -94,7 +95,7 @@
     }
     [[GroupController sharedInstance] addGroupWithGroupName:self.addTextField.text];
     [self.tableView reloadData];
-    [self.addStudentsCV removeFromSuperview];
+    [self moveOver:self.addStudentsCV thisMuch:-(self.view.frame.size.width) withDuration:.25];
     [self.addTextField resignFirstResponder];
 }
 
@@ -103,12 +104,14 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
         [textField resignFirstResponder];
-        [self.addStudentsCV removeFromSuperview];
+        [self moveOver:self.addStudentsCV thisMuch:-(self.view.frame.size.width) withDuration:.25];
         return YES;
     }
     [self addGroupButtonPressed];
     return YES;
 }
+
+#pragma - mark TableView Delegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -122,10 +125,14 @@
     return 80.0;
 }
 
+#pragma - mark Animations
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)moveOver:(UIView *)view thisMuch:(float)distance withDuration:(float)duration {
+
+    [UIView animateWithDuration:duration animations:^{
+        view.center = CGPointMake(view.center.x + distance, view.center.y);
+        
+    }];
 }
 
 @end
