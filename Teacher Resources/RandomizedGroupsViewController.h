@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RandomizedGroupsViewController : UIViewController
+@interface RandomizedGroupsViewController : UICollectionViewController
 
 @end

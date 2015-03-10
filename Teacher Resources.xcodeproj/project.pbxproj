@@ -30,6 +30,7 @@
 		6AFD4E5D1AAE4F3500308595 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E5C1AAE4F3500308595 /* UIColor+Category.m */; };
 		6AFD4E661AAE8AA900308595 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E651AAE8AA900308595 /* Group.m */; };
 		6AFD4E691AAE8AA900308595 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E681AAE8AA900308595 /* Member.m */; };
+		EBBF55461AAF83B2006EF8ED /* MembersCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,8 @@
 		6AFD4E651AAE8AA900308595 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = ../Group.m; sourceTree = "<group>"; };
 		6AFD4E671AAE8AA900308595 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Member.h; path = ../Member.h; sourceTree = "<group>"; };
 		6AFD4E681AAE8AA900308595 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Member.m; path = ../Member.m; sourceTree = "<group>"; };
+		EBBF55441AAF83B2006EF8ED /* MembersCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersCollectionViewCell.h; sourceTree = "<group>"; };
+		EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +252,8 @@
 				27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */,
 				27CC8F191AAA6D000051D062 /* RandomizedViewControllerDataSource.h */,
 				27CC8F1A1AAA6D000051D062 /* RandomizedViewControllerDataSource.m */,
+				EBBF55441AAF83B2006EF8ED /* MembersCollectionViewCell.h */,
+				EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */,
 			);
 			name = "Randomized Groups";
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBBF55461AAF83B2006EF8ED /* MembersCollectionViewCell.m in Sources */,
 				27CC8F131AAA6B740051D062 /* RandomizedGroupsViewController.m in Sources */,
 				27CC8F181AAA6CE00051D062 /* GroupViewControllerDataSource.m in Sources */,
 				27CC8F1F1AAA6D350051D062 /* FeaturesViewControllerDataSource.m in Sources */,
