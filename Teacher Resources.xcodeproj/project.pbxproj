@@ -20,7 +20,6 @@
 		27CC8F261AAA7BAF0051D062 /* StudentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F251AAA7BAF0051D062 /* StudentListViewController.m */; };
 		27CC8F291AAA7C8A0051D062 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F271AAA7C8A0051D062 /* Model.xcdatamodeld */; };
 		27CC8F2C1AABF0F30051D062 /* StudentListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F2B1AABF0F30051D062 /* StudentListDataSource.m */; };
-		27CC8F2F1AAD121B0051D062 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F2E1AAD121B0051D062 /* Group.m */; };
 		6A048AB51AAA477800C7E790 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048AB41AAA477800C7E790 /* main.m */; };
 		6A048AB81AAA477800C7E790 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048AB71AAA477800C7E790 /* AppDelegate.m */; };
 		6A048ABB1AAA477800C7E790 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048ABA1AAA477800C7E790 /* GroupViewController.m */; };
@@ -29,6 +28,8 @@
 		6A048AC31AAA477900C7E790 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A048AC11AAA477900C7E790 /* LaunchScreen.xib */; };
 		6A048ACF1AAA477900C7E790 /* Teacher_ResourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048ACE1AAA477900C7E790 /* Teacher_ResourcesTests.m */; };
 		6AFD4E5D1AAE4F3500308595 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E5C1AAE4F3500308595 /* UIColor+Category.m */; };
+		6AFD4E661AAE8AA900308595 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E651AAE8AA900308595 /* Group.m */; };
+		6AFD4E691AAE8AA900308595 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E681AAE8AA900308595 /* Member.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +68,6 @@
 		27CC8F281AAA7C8A0051D062 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		27CC8F2A1AABF0F30051D062 /* StudentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentListDataSource.h; sourceTree = "<group>"; };
 		27CC8F2B1AABF0F30051D062 /* StudentListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentListDataSource.m; sourceTree = "<group>"; };
-		27CC8F2D1AAD121B0051D062 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Group.h; path = ../Group.h; sourceTree = "<group>"; };
-		27CC8F2E1AAD121B0051D062 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = ../Group.m; sourceTree = "<group>"; };
 		6A048AAF1AAA477800C7E790 /* Teacher Resources.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teacher Resources.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A048AB31AAA477800C7E790 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A048AB41AAA477800C7E790 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +83,10 @@
 		6A048ACE1AAA477900C7E790 /* Teacher_ResourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Teacher_ResourcesTests.m; sourceTree = "<group>"; };
 		6AFD4E5B1AAE4F3500308595 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
 		6AFD4E5C1AAE4F3500308595 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
+		6AFD4E641AAE8AA900308595 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Group.h; path = ../Group.h; sourceTree = "<group>"; };
+		6AFD4E651AAE8AA900308595 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = ../Group.m; sourceTree = "<group>"; };
+		6AFD4E671AAE8AA900308595 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Member.h; path = ../Member.h; sourceTree = "<group>"; };
+		6AFD4E681AAE8AA900308595 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Member.m; path = ../Member.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,10 +197,12 @@
 			isa = PBXGroup;
 			children = (
 				27CC8F271AAA7C8A0051D062 /* Model.xcdatamodeld */,
+				6AFD4E641AAE8AA900308595 /* Group.h */,
+				6AFD4E651AAE8AA900308595 /* Group.m */,
+				6AFD4E671AAE8AA900308595 /* Member.h */,
+				6AFD4E681AAE8AA900308595 /* Member.m */,
 				6A048AB61AAA477800C7E790 /* AppDelegate.h */,
 				6A048AB71AAA477800C7E790 /* AppDelegate.m */,
-				27CC8F2D1AAD121B0051D062 /* Group.h */,
-				27CC8F2E1AAD121B0051D062 /* Group.m */,
 				27CC8EEE1AAA67DD0051D062 /* Stack.h */,
 				27CC8EEF1AAA67DD0051D062 /* Stack.m */,
 			);
@@ -354,10 +359,11 @@
 				27CC8F261AAA7BAF0051D062 /* StudentListViewController.m in Sources */,
 				27CC8EFF1AAA6A3A0051D062 /* TimerViewController.m in Sources */,
 				27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */,
-				27CC8F2F1AAD121B0051D062 /* Group.m in Sources */,
 				27CC8F291AAA7C8A0051D062 /* Model.xcdatamodeld in Sources */,
 				6A048ABB1AAA477800C7E790 /* GroupViewController.m in Sources */,
 				27CC8EF91AAA695A0051D062 /* FeaturesViewController.m in Sources */,
+				6AFD4E691AAE8AA900308595 /* Member.m in Sources */,
+				6AFD4E661AAE8AA900308595 /* Group.m in Sources */,
 				27CC8F1B1AAA6D000051D062 /* RandomizedViewControllerDataSource.m in Sources */,
 				6A048AB81AAA477800C7E790 /* AppDelegate.m in Sources */,
 				27CC8F071AAA6A880051D062 /* GroupRandomizer.m in Sources */,

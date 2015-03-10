@@ -11,9 +11,10 @@
 #import "FeaturesViewController.h"
 
 
-@interface GroupViewController () <UITableViewDelegate>
+@interface GroupViewController () <UITableViewDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) UIView *addStudentsCV;
+@property (strong, nonatomic) UITextField *addTextField;
 
 @end
 
@@ -25,9 +26,11 @@
     [self.tableView reloadData];
     
     //DataSource + Delegate
-    self.dataSource = [GroupViewControllerDataSource new];
-    self.tableView.dataSource = self.dataSource;
+    self.datasource = [GroupViewControllerDataSource new];
+    self.tableView.dataSource = self.datasource;
     self.tableView.delegate = self;
+    [self.datasource registerTableView:self.tableView];
+
     
     //Add Class PLUS button
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
@@ -36,14 +39,16 @@
     
     //Navigation Bar Title
     self.title = @"Teacher Resources";
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor trBlueColor];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     //Background Color
-    self.view.backgroundColor= [UIColor slateColor];
+    self.view.backgroundColor= [UIColor whiteColor];
     
     //TableView Config
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(20, 44, self.view.frame.size.width - 40, self.view.frame.size.height)];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
-    [self.dataSource registerTableView:self.tableView];
     [self.view addSubview:self.tableView];
     
     
@@ -60,30 +65,52 @@
 
 - (void)addGroup:(id)sender {
     
-    //Create Custome Subview for adding students
-    self.addStudentsCV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 400, 64)];
-    self.addStudentsCV.backgroundColor = [UIColor redColor];
+    //Create Custom Subview for adding groups
+    self.addStudentsCV = [[UIView alloc] initWithFrame:CGRectMake(0, 18, self.view.frame.size.width, 44)];
+    self.addStudentsCV.backgroundColor = [UIColor trBlueColor];
     
     //Add TextField
-    UITextField *addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 10, 100, 25)];
-    [self.addStudentsCV addSubview:addTextField];
+    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 4, 250, 35)];
+    self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.addTextField.delegate = self;
+    self.addTextField.placeholder = @"Enter Group Title";
+    [self.addTextField becomeFirstResponder];
+    [self.addStudentsCV addSubview:self.addTextField];
     
-    //Add Cancel Button
-    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [cancelButton addTarget:self
-                     action:@selector(cancel)
+    //Add addGroup Button
+    UIButton *addGroupButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [addGroupButton addTarget:self
+                     action:@selector(addGroupButtonPressed)
            forControlEvents:UIControlEventTouchUpInside];
-    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
-    cancelButton.frame = CGRectMake(self.view.frame.size.width - 80, 30.0, 30.0, 30.0);
-    [self.addStudentsCV addSubview:cancelButton];
+    
+    [addGroupButton setTitle:@"Add Group" forState:UIControlStateNormal];
+    addGroupButton.tintColor = [UIColor whiteColor];
+    addGroupButton.frame = CGRectMake(self.view.frame.size.width - 85, 15.0, 80.0, 20.0);
+    [self.addStudentsCV addSubview:addGroupButton];
 
     [self.navigationController.view addSubview:self.addStudentsCV];
 
     
 }
 
--(void)cancel {
+-(void)addGroupButtonPressed {
+    if ([self.addTextField.text isEqualToString:@""]) {
+        return;
+    }
+    [[GroupController sharedInstance] addGroupWithGroupName:self.addTextField.text];
+    [self.tableView reloadData];
     [self.addStudentsCV removeFromSuperview];
+    [self.addTextField resignFirstResponder];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([textField.text isEqualToString:@""]) {
+        [textField resignFirstResponder];
+        [self.addStudentsCV removeFromSuperview];
+        return YES;
+    }
+    [self addGroupButtonPressed];
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -18,9 +18,7 @@
     
     self.group = group;
     
-    self.groupNameTextField.text = group.groupName;
-    self.studentNameTextField.text = group.studentName;
-    
+    self.groupNameTextField.text = group.title;
 }
 
 - (void)viewDidLoad {
@@ -29,30 +27,16 @@
     self.groupNameTextField.delegate = self;
     self.studentNameTextField.delegate = self;
     
-    self.groupNameTextField.text = self.group.groupName;
-    self.studentNameTextField.text = self.group.studentName;
-    
-    // adds group text field
-    self.groupNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(45, 75, 150, 45)];
-    self.groupNameTextField.borderStyle = UITextBorderStyleRoundedRect;
-    self.groupNameTextField.placeholder = @" Enter subject ";
-    [self.view addSubview:self.groupNameTextField];
+    self.groupNameTextField.text = self.group.title;
     
     
-    
+    //Add Student Text Field
     self.studentNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(45, 150, 150, 45)];
     self.studentNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.studentNameTextField.placeholder = @" Enter student ";
     [self.view addSubview:self.studentNameTextField];
     
-    self.addGroupButton = [[UIButton alloc]initWithFrame:CGRectMake(280, 75, 60, 45)];
-    [self.addGroupButton setTitle:@" Add " forState:(UIControlStateNormal)];
-    self.addGroupButton.backgroundColor = [UIColor greenColor];
-    [self.addGroupButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
-    self.addGroupButton.titleLabel.font = [UIFont systemFontOfSize:18];
-    [self.addGroupButton addTarget:self action:@selector(saveGroups:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.addGroupButton];
-    
+    //Add Student Button
     self.addStudentButton = [[UIButton alloc]initWithFrame:CGRectMake(280, 150, 60, 45)];
     [self.addStudentButton setTitle:@" Add " forState:(UIControlStateNormal)];
     self.addStudentButton.backgroundColor = [UIColor greenColor];
@@ -76,13 +60,12 @@
 - (void)saveGroups:(id)sender {
     
     if (self.group) {
-        self.group.groupName = self.groupNameTextField.text;
-        self.group.studentName = self.studentNameTextField.text;
+        self.group.title = self.groupNameTextField.text;
         
         [[GroupController sharedInstance]synchronize];
     }
     else {
-        [[GroupController sharedInstance]addGroupWithGroupName:self.groupNameTextField.text studentName:self.studentNameTextField.text];
+        [[GroupController sharedInstance] addGroupWithGroupName:self.groupNameTextField.text];
     }
     
     
@@ -95,23 +78,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Edit Student" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Edit Student" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//    
+//    [alertController addAction:[UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//
+//        
+//    }]];
+//    
+//    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//
+//    }]];
+//    
+//    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        
+//    }]];
+//    
+//    [self presentViewController:alertController animated:YES completion:nil];
     
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-
-        
-    }]];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-
-    }]];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-    }]];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
-        
     
 }
 
