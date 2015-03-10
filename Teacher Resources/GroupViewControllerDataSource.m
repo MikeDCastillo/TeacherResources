@@ -39,24 +39,16 @@
     
 }
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 
-
-
-//-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        
-//        [tableView beginUpdates];
-//        [[GroupController sharedInstance] removeMember:[self.players objectAtIndex:indexPath.row]];
-//        
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//        
-//        NSMutableArray *players = [[NSMutableArray alloc] initWithArray:self.players];
-//        [players removeObjectAtIndex:indexPath.row];
-//        self.players = players;
-//        
-//        [tableView endUpdates];
-//    }
-//}
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [tableView beginUpdates];
+        
+        [[GroupController sharedInstance] removeGroup:[[GroupController sharedInstance].groupNamesArray objectAtIndex:indexPath.row]];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        [tableView endUpdates];
+    }
+}
 
 @end

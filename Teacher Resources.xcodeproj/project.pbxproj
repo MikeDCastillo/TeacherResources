@@ -150,6 +150,8 @@
 		6A048AB11AAA477800C7E790 /* Teacher Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6A048AB61AAA477800C7E790 /* AppDelegate.h */,
+				6A048AB71AAA477800C7E790 /* AppDelegate.m */,
 				6A048ABC1AAA477800C7E790 /* Main.storyboard */,
 				6AFD4E561AAE4A1200308595 /* Model/Core Data */,
 				6AFD4E571AAE4A9F00308595 /* Controllers */,
@@ -201,8 +203,6 @@
 				6AFD4E651AAE8AA900308595 /* Group.m */,
 				6AFD4E671AAE8AA900308595 /* Member.h */,
 				6AFD4E681AAE8AA900308595 /* Member.m */,
-				6A048AB61AAA477800C7E790 /* AppDelegate.h */,
-				6A048AB71AAA477800C7E790 /* AppDelegate.m */,
 				27CC8EEE1AAA67DD0051D062 /* Stack.h */,
 				27CC8EEF1AAA67DD0051D062 /* Stack.m */,
 			);

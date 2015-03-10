@@ -21,15 +21,15 @@
     
 }
 
-- (NSArray *)studentNamesArray {
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
-    
-    NSArray *objects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
-    
-    return objects;
-    
-}
+//- (NSArray *)studentNamesArray {
+//    
+//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
+//    
+//    NSArray *objects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+//    
+//    return objects;
+//    
+//}
 
 - (NSArray *)groupNamesArray {
     

@@ -13,7 +13,7 @@
 
 @interface GroupController : NSObject
 
-@property (nonatomic, strong, readonly) NSArray *studentNamesArray;
+//@property (nonatomic, strong, readonly) NSArray *studentNamesArray;
 @property (nonatomic, strong, readonly) NSArray *groupNamesArray;
 @property (nonatomic, strong) Group *group;
 
