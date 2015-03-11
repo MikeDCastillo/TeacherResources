@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Student list"; 
+    
     self.groupNameTextField.delegate = self;
     self.studentNameTextField.delegate = self;
     

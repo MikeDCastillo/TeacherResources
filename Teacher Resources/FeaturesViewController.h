@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "FeaturesViewControllerDataSource.h"
 #import "RandomizedGroupsViewController.h"
+#import "StudentListViewController.h"
+#import "TimerViewController.h"
 
 @interface FeaturesViewController : UIViewController <UICollectionViewDelegate>
 

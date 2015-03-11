@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2765C79B1AB0E72E009F9DD7 /* FeaturesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2765C79A1AB0E72E009F9DD7 /* FeaturesCollectionViewCell.m */; };
 		27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EEF1AAA67DD0051D062 /* Stack.m */; };
 		27CC8EF91AAA695A0051D062 /* FeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EF81AAA695A0051D062 /* FeaturesViewController.m */; };
 		27CC8EFF1AAA6A3A0051D062 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EFE1AAA6A3A0051D062 /* TimerViewController.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2765C7991AB0E72E009F9DD7 /* FeaturesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesCollectionViewCell.h; sourceTree = "<group>"; };
+		2765C79A1AB0E72E009F9DD7 /* FeaturesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeaturesCollectionViewCell.m; sourceTree = "<group>"; };
 		27CC8EEE1AAA67DD0051D062 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		27CC8EEF1AAA67DD0051D062 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
 		27CC8EF71AAA695A0051D062 /* FeaturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeaturesViewController.h; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				27CC8EF81AAA695A0051D062 /* FeaturesViewController.m */,
 				27CC8F1D1AAA6D350051D062 /* FeaturesViewControllerDataSource.h */,
 				27CC8F1E1AAA6D350051D062 /* FeaturesViewControllerDataSource.m */,
+				2765C7991AB0E72E009F9DD7 /* FeaturesCollectionViewCell.h */,
+				2765C79A1AB0E72E009F9DD7 /* FeaturesCollectionViewCell.m */,
 			);
 			name = "Features Collection View";
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				EBBF55601AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m in Sources */,
 				EBBF55461AAF83B2006EF8ED /* MembersCollectionViewCell.m in Sources */,
 				27CC8F131AAA6B740051D062 /* RandomizedGroupsViewController.m in Sources */,
+				2765C79B1AB0E72E009F9DD7 /* FeaturesCollectionViewCell.m in Sources */,
 				27CC8F181AAA6CE00051D062 /* GroupViewControllerDataSource.m in Sources */,
 				27CC8F1F1AAA6D350051D062 /* FeaturesViewControllerDataSource.m in Sources */,
 				EBBF55631AB0E994006EF8ED /* StudentController.m in Sources */,

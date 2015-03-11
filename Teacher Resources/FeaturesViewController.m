@@ -18,12 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Features"; 
+    
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
     self.collectionView.backgroundColor = [UIColor slateColor];
-
     
+    layout.sectionInset = UIEdgeInsetsMake(2.0, 2.0, 2.0, 2.0);
+
     self.dataSource = [FeaturesViewControllerDataSource new];
     self.collectionView.dataSource = self.dataSource;
     self.collectionView.delegate = self;
@@ -36,15 +39,54 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    return CGSizeMake(self.view.frame.size.width/2, self.view.frame.size.width/2);
+    return CGSizeMake(180,180);
 }
 
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    RandomizedGroupsViewController *randomizedGroupsViewController = [RandomizedGroupsViewController new];
+    switch (indexPath.row) {
+        case 0: {
+            
+            RandomizedGroupsViewController *randomizedGroupsViewController = [RandomizedGroupsViewController new];
+            
+            [self.navigationController pushViewController:randomizedGroupsViewController animated:YES];
+            
+            
+            break; }
+        case 1: {
+            
+            StudentListViewController *listViewController = [StudentListViewController new];
+            
+            [self.navigationController pushViewController:listViewController animated:YES];
+            
+            
+            break; }
+        case 2: {
+            
+            
+            break; }
+        case 3: {
+            
+            break; }
+        case 4: {
+            
+            TimerViewController *timerViewController = [TimerViewController new];
+            
+            [self.navigationController pushViewController:timerViewController animated:YES];
+            
+            break; }
+        case 5: {
+            
+        
+            break; }
+            
+            
+        default:
+            break;
+    }
     
-    [self.navigationController pushViewController:randomizedGroupsViewController animated:YES];
+
     
 }
 

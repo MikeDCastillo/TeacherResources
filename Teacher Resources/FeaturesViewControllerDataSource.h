@@ -12,6 +12,8 @@
 
 @interface FeaturesViewControllerDataSource : NSObject <UICollectionViewDataSource>
 
+- (NSArray *)iconFooterNames;
+
 - (NSArray *)iconImageNames;
 
 - (void)registerCollectionView:(UICollectionView *)collectionView;

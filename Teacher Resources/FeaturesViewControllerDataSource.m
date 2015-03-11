@@ -7,18 +7,27 @@
 //
 
 #import "FeaturesViewControllerDataSource.h"
+#import "FeaturesCollectionViewCell.h"
 
 static NSString *cellID = @"CellID";
 
 @implementation FeaturesViewControllerDataSource
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [FeaturesCollectionViewCell new];
+    }
+    return self;
+}
+
 
 - (void)registerCollectionView:(UICollectionView *)collectionView {
     
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellID];
+    [collectionView registerClass:[FeaturesCollectionViewCell class] forCellWithReuseIdentifier:cellID];
     
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
@@ -26,9 +35,9 @@ static NSString *cellID = @"CellID";
     
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (FeaturesCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    FeaturesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
     NSArray *subviews = [cell.contentView subviews];
     
@@ -42,9 +51,11 @@ static NSString *cellID = @"CellID";
     UIImage *image = [UIImage imageNamed:[self iconImageNames][indexPath.row]];
     
     UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-//    imageView.frame = cell.frame;
-    [cell.contentView addSubview:imageView];
     
+    imageView.frame = CGRectMake(60, 45, 60, 60);
+
+    [cell.contentView addSubview:imageView];
+    cell.footerLabel.text = [self iconFooterNames][indexPath.row];
     cell.backgroundColor = [UIColor redColor];
     
     return cell;
@@ -52,9 +63,18 @@ static NSString *cellID = @"CellID";
 }
 
 
+
+- (NSArray *)iconFooterNames {
+    
+    return @[@"Randomizer", @"List Maker", @"Name From Hat", @"Cooperative Learning", @"Timer", @"Seating Chart"];
+    
+}
+
+
+
 - (NSArray *)iconImageNames {
     
-    return @[@"randomGroup.png", @"randomList.png", @"nameFromAHat.png", @"cooperativeLearning.png", @"theWilliams.png", @"seatingChart.png"];
+    return @[@"randomGroup.png", @"randomList.png", @"nameFromAHat.png", @"cooperativeLearning.png", @"Timer.png", @"seatingChart.png"];
 
 }
 
