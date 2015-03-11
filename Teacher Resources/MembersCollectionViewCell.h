@@ -10,8 +10,12 @@
 
 @interface MembersCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (nonatomic,strong) UILabel *name;
+@property (nonatomic,assign) CGRect labelFrame;
 
-- (void)configureCellWithName:(NSString *)name;
+
+-(void)setupViews;
+-(void)updateLabelFrame:(CGRect)frame;
 
 @end
+

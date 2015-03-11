@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString * const refreshNotification = @"refresh";
+
 @interface RandomizedGroupsViewController : UIViewController <UICollectionViewDelegate>
 
-@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic,strong) NSMutableArray * usableArray;
+@property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,assign) CGFloat screenHeight;
+@property (nonatomic,assign) CGFloat screenWidth;
+@property (nonatomic, strong) NSIndexPath * arrayIndex;
+
+-(void)refresh;
+-(void)refreshData;
 
 @end
