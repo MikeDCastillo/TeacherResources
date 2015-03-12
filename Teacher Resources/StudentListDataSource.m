@@ -7,6 +7,7 @@
 //
 
 #import "StudentListDataSource.h"
+#import "GroupViewController.h"
 
 static NSString * const cellIdentifier = @"CellIdentifier";
 
@@ -20,18 +21,35 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return [GroupController sharedInstance].memberNamesArray.count;
     
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
     
-    cell.textLabel.text = @" Student name ";
+    Member *member = [GroupController sharedInstance].memberNamesArray[indexPath.row];
+    cell.textLabel.text = member.name;
+    
     
     return cell;
     
 }
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [tableView beginUpdates];
+        
+        [[GroupController sharedInstance] removeMember:[[GroupController sharedInstance].memberNamesArray objectAtIndex:indexPath.row]];
+         
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        [tableView endUpdates];
+    }
+}
+
+
 
 @end

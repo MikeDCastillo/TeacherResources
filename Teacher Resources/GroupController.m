@@ -21,15 +21,15 @@
     
 }
 
-//- (NSArray *)studentNamesArray {
-//    
-//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
-//    
-//    NSArray *objects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
-//    
-//    return objects;
-//    
-//}
+- (NSArray *)memberNamesArray {
+
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Member"];
+
+    NSArray *objects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+
+    return objects;
+
+}
 
 - (NSArray *)groupNamesArray {
     
@@ -51,7 +51,19 @@
     
 }
 
--(void)addMemberToGroup:(Group *)group {
+- (void)addMemberWithMemberName:(NSString *)memberName {
+    
+    Member *member = [NSEntityDescription insertNewObjectForEntityForName:@"Member" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    
+    member.name = memberName;
+    [self synchronize];
+    
+}
+
+-(void)addMemberToGroup:(Group *)group member:(Member *)member {
+    
+    //Assign student array(members) to group title at index path in group view controller
+    
     
 }
 

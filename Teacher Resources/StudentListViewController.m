@@ -21,28 +21,48 @@
     self.groupNameTextField.text = group.title;
 }
 
+- (NSString *)groupTitle {
+    
+    Group *group = [GroupController sharedInstance].groupNamesArray[[GroupController sharedInstance].groupSelected];
+    
+    NSString *titleOfGroup = group.title;
+    
+    return titleOfGroup;
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Student list"; 
+    self.title = [self groupTitle];
+    self.view.backgroundColor = [UIColor blackColor];
     
-    self.groupNameTextField.delegate = self;
     self.studentNameTextField.delegate = self;
     
-    self.groupNameTextField.text = self.group.title;
+//    self.groupNameTextField.text = self.group.title;
     
     
     //Add Student Text Field
-    self.studentNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(45, 150, 150, 45)];
+    self.studentNameTextField = [[UITextField alloc]initWithFrame:CGRectMake(45, 100, 150, 45)];
     self.studentNameTextField.borderStyle = UITextBorderStyleRoundedRect;
+//    [self.studentNameTextField setReturnKeyType:UIReturnKeyDefault];
+    [self.studentNameTextField becomeFirstResponder];
     self.studentNameTextField.placeholder = @" Enter student ";
     [self.view addSubview:self.studentNameTextField];
     
+    //Add Clear Button
+    self.clearButton = [[UIButton alloc]initWithFrame:CGRectMake(45, 165, 80, 45)];
+    [self.clearButton setTitle:@" Clear " forState:(UIControlStateNormal)];
+    [self.clearButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
+    self.clearButton.backgroundColor = [UIColor slateColor];
+    [self.clearButton addTarget:self action:@selector(clearField:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.clearButton];
+    
     //Add Student Button
-    self.addStudentButton = [[UIButton alloc]initWithFrame:CGRectMake(280, 150, 60, 45)];
+    self.addStudentButton = [[UIButton alloc]initWithFrame:CGRectMake(280, 100, 60, 45)];
     [self.addStudentButton setTitle:@" Add " forState:(UIControlStateNormal)];
-    self.addStudentButton.backgroundColor = [UIColor greenColor];
-    [self.addStudentButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+    self.addStudentButton.backgroundColor = [UIColor slateColor];
+    [self.addStudentButton setTitleColor:[UIColor whiteColor] forState:(UIControlStateNormal)];
     self.addStudentButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [self.addStudentButton addTarget:self action:@selector(saveStudents:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.addStudentButton];
@@ -54,8 +74,15 @@
     self.tableView.dataSource = self.dataSource;
     self.tableView.delegate = self;
     
+    [self updateWithGroup:self.group];
     [self.dataSource registerTableView:self.tableView];
     [self.view addSubview:self.tableView];
+    
+}
+
+- (void)clearField:(id)sender {
+    
+    self.studentNameTextField.text = @"";
     
 }
 
@@ -75,10 +102,38 @@
 
 - (void)saveStudents:(id)sender {
     
+    if ([self.studentNameTextField.text isEqualToString:@""]) {
+        return;
+    }
+    [[GroupController sharedInstance] addMemberWithMemberName:self.studentNameTextField.text];
+    [self.tableView reloadData];
+
+    [self.studentNameTextField resignFirstResponder];
+    
     
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self saveStudent];
+    return YES;
+}
+
+- (void)saveStudent {
+    if ([self.studentNameTextField.text isEqualToString:@""]) {
+        return;
+    }
+    [[GroupController sharedInstance] addMemberWithMemberName:self.studentNameTextField.text];
+    [self.tableView reloadData];
+    
+    [self.studentNameTextField resignFirstResponder];
+    
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    
     
 //    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Edit Student" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 //    

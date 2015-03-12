@@ -15,7 +15,6 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) GroupViewControllerDataSource *datasource;
-
 @property (strong, nonatomic) UIView *addStudentsCV;
 @property (strong, nonatomic) UITextField *addTextField;
 
@@ -114,6 +113,8 @@
 #pragma - mark TableView Delegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [GroupController sharedInstance].groupSelected = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.addStudentsCV removeFromSuperview];
     FeaturesViewController *featuresViewController = [FeaturesViewController new];

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GroupController.h"
+#import "Member.h"
 @import UIKit;
 
 @interface StudentListDataSource : NSObject <UITableViewDataSource>
