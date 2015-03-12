@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 static NSString * const refreshNotification = @"refresh";
+static int numberOfPeopleInGroup = 2;
 
 @interface RandomizedGroupsViewController : UIViewController <UICollectionViewDelegate>
 

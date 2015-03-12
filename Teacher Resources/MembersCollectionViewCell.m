@@ -26,7 +26,7 @@
 -(void)setupViews
 {
     self.backgroundColor = [UIColor clearColor];
-    [self.layer setBorderColor:[UIColor trBlueColor].CGColor];
+    [self.layer setBorderColor:[UIColor whiteColor].CGColor];
     [self.layer setBorderWidth:2.0];
     [self.layer setCornerRadius:10];
     [self.layer setShadowOffset:CGSizeMake(1, 5)];
@@ -35,7 +35,7 @@
     self.labelFrame = self.bounds;
     name = [[UILabel alloc]initWithFrame:self.labelFrame];
     [name setTextAlignment:NSTextAlignmentCenter];
-    [name setTextColor:[UIColor trBlueColor]];
+    [name setTextColor:[UIColor whiteColor]];
     [name setFont:[UIFont fontWithName:@"ChalkboardSE-Regular" size:20]];
     [self addSubview:name];
 }

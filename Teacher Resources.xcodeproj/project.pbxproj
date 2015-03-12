@@ -12,7 +12,6 @@
 		27CC8EF91AAA695A0051D062 /* FeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EF81AAA695A0051D062 /* FeaturesViewController.m */; };
 		27CC8EFF1AAA6A3A0051D062 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8EFE1AAA6A3A0051D062 /* TimerViewController.m */; };
 		27CC8F031AAA6A5B0051D062 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F021AAA6A5B0051D062 /* Timer.m */; };
-		27CC8F071AAA6A880051D062 /* GroupRandomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F061AAA6A880051D062 /* GroupRandomizer.m */; };
 		27CC8F0D1AAA6ACC0051D062 /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F0C1AAA6ACC0051D062 /* GroupController.m */; };
 		27CC8F131AAA6B740051D062 /* RandomizedGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */; };
 		27CC8F181AAA6CE00051D062 /* GroupViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CC8F171AAA6CE00051D062 /* GroupViewControllerDataSource.m */; };
@@ -58,8 +57,6 @@
 		27CC8EFE1AAA6A3A0051D062 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		27CC8F011AAA6A5B0051D062 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		27CC8F021AAA6A5B0051D062 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
-		27CC8F051AAA6A880051D062 /* GroupRandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupRandomizer.h; sourceTree = "<group>"; };
-		27CC8F061AAA6A880051D062 /* GroupRandomizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupRandomizer.m; sourceTree = "<group>"; };
 		27CC8F0B1AAA6ACC0051D062 /* GroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupController.h; sourceTree = "<group>"; };
 		27CC8F0C1AAA6ACC0051D062 /* GroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupController.m; sourceTree = "<group>"; };
 		27CC8F111AAA6B740051D062 /* RandomizedGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedGroupsViewController.h; sourceTree = "<group>"; };
@@ -233,8 +230,6 @@
 				27CC8F0C1AAA6ACC0051D062 /* GroupController.m */,
 				EBBF55611AB0E994006EF8ED /* StudentController.h */,
 				EBBF55621AB0E994006EF8ED /* StudentController.m */,
-				27CC8F051AAA6A880051D062 /* GroupRandomizer.h */,
-				27CC8F061AAA6A880051D062 /* GroupRandomizer.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -396,7 +391,6 @@
 				6AFD4E661AAE8AA900308595 /* Group.m in Sources */,
 				27CC8F1B1AAA6D000051D062 /* RandomizedViewControllerDataSource.m in Sources */,
 				6A048AB81AAA477800C7E790 /* AppDelegate.m in Sources */,
-				27CC8F071AAA6A880051D062 /* GroupRandomizer.m in Sources */,
 				27CC8F2C1AABF0F30051D062 /* StudentListDataSource.m in Sources */,
 				27CC8F031AAA6A5B0051D062 /* Timer.m in Sources */,
 				6A048AB51AAA477800C7E790 /* main.m in Sources */,

@@ -41,5 +41,10 @@
     return wasatchGray;
 }
 
++(UIColor *)trBlueColor2 {
+    UIColor *trBlueColor2 = [UIColor colorWithRed:0.179 green:0.472 blue:0.757 alpha:1.000];
+    return trBlueColor2;
+}
+
 
 @end

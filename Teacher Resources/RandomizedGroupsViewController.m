@@ -12,6 +12,7 @@
 #import "RandomizedViewControllerDataSource.h"
 #import "StudentController.h"
 #import "Member.h"
+#import "UIColor+Category.h"
 
 @interface RandomizedGroupsViewController ()
 
@@ -27,8 +28,7 @@
 
 @synthesize screenHeight,screenWidth,customCell;
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.modelController = [StudentController new];
@@ -51,10 +51,11 @@
     
     [self setupCollectionView];
     
+    [self setupToolBar];
+    
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self refreshData];
     
@@ -62,13 +63,12 @@
 
 #pragma mark - Setup CollectionView
 
--(void)setupCollectionView
-{
+- (void)setupCollectionView {
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0.0, 5.0, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:layout];
     
     
-    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
+    [self.collectionView setBackgroundColor:[UIColor trBlueColor]];
     [self.dataSource registerCollectionView:self.collectionView];
     self.collectionView.dataSource = self.dataSource;
     self.collectionView.delegate = self;
@@ -80,21 +80,19 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    CGSize itemSize = CGSizeMake((screenWidth /2) - 6 , ((screenHeight - 64) / 5) / 2);
+    CGSize itemSize = CGSizeMake((screenWidth /numberOfPeopleInGroup) - 6 , ((screenHeight - 64) / 5) / 2);
     return itemSize;
     
     
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(MembersCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath;
-{
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(MembersCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath; {
     
-    [cell updateLabelFrame:CGRectMake(0, 0, (screenWidth /2) - 6 , ((screenHeight - 64) / 5) / 2)];
+    [cell updateLabelFrame:CGRectMake(0, 0, (screenWidth /numberOfPeopleInGroup) - 6 , ((screenHeight - 64) / 5) / 2)];
     
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *message = [NSString stringWithFormat:@"Are you sure that you want to delete %@", [[StudentController SharedInstance].students objectAtIndex:indexPath.row]];
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:message delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
@@ -116,8 +114,7 @@
     return 0.0;
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1)
     {
         [[StudentController SharedInstance] removeStudent:self.arrayIndex.row];
@@ -132,56 +129,86 @@
 
 #pragma mark - Setup Navigation Bar
 
--(void)setupNavigationBar
-{
-    UIBarButtonItem *refreshBtn = [[UIBarButtonItem alloc]
-                                   initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                   target:self
-                                   action:@selector(refresh)];
-    
-    UIBarButtonItem *addBtn = [[UIBarButtonItem alloc]
+-(void)setupNavigationBar {
+
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                target:self
                                action:@selector(AddNewStudent)];
     
-    self.navigationItem.leftBarButtonItem = refreshBtn;
-    self.navigationItem.rightBarButtonItem = addBtn;
+    self.navigationItem.rightBarButtonItem = addButton;
     
     [self setTitle:@"Random Groups"];
 }
 
 #pragma mark - Shuffle & Refresh Methods
 
--(void)refresh
-{
+-(void)setupToolBar {
+    
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width, 44)];
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc]
+                                   initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                   target:self
+                                   action:@selector(refresh)];
+    UIBarButtonItem *groupsOfTwo = [[UIBarButtonItem alloc] initWithTitle:@"2"
+                                 style: UIBarButtonItemStylePlain
+                                 target:nil
+                                 action:@selector(groupsOfTwo)];
+    UIBarButtonItem *groupsOfThree = [[UIBarButtonItem alloc] initWithTitle:@"3"
+                                   style: UIBarButtonItemStylePlain
+                                   target:nil
+                                   action:@selector(groupsOfThree)];
+    UIBarButtonItem *groupsOfFour = [[UIBarButtonItem alloc] initWithTitle:@"4"
+                                  style: UIBarButtonItemStylePlain
+                                  target:nil
+                                  action:@selector(groupsOfFour)];
+
+    refreshButton.tintColor = [UIColor whiteColor];
+    NSArray *arrayOfItems = @[flexibleItem, refreshButton, flexibleItem, groupsOfTwo, flexibleItem, groupsOfThree, flexibleItem, groupsOfFour, flexibleItem];
+    [toolBar setItems:arrayOfItems];
+    [self.view addSubview:toolBar];
+}
+
+-(void)groupsOfTwo {
+    numberOfPeopleInGroup = 2;
+    [self refreshData];
+}
+
+-(void)groupsOfThree {
+    numberOfPeopleInGroup = 3;
+    [self refreshData];
+}
+
+-(void)groupsOfFour {
+    numberOfPeopleInGroup = 4;
+    [self refreshData];
+}
+
+-(void)refresh{
     [self.modelController shuffle:[StudentController SharedInstance].students];
     [self refreshData];
 }
 
--(void)refreshData
-{
+-(void)refreshData {
     [self.collectionView reloadData];
 }
 
--(void)AddNewStudent
-{
+-(void)AddNewStudent {
     [self.navigationController pushViewController: [NewStudentViewController new] animated:YES];
 }
 
 #pragma mark - Notification Center
 
--(void)registerNotifications
-{
+-(void)registerNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:refreshNotification object:nil];
 }
 
--(void)unregisterNotifications
-{
+-(void)unregisterNotifications {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:studentKey object:nil];
 }
 
--(void)dealloc
-{
+-(void)dealloc {
     [self unregisterNotifications];
 }
 
