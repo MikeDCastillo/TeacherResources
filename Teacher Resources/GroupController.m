@@ -60,12 +60,16 @@
     
 }
 
--(void)addMemberToGroup:(Group *)group member:(Member *)member {
-    
-    //Assign student array(members) to group title at index path in group view controller
-    
-    
-}
+//-(void)addMemberToGroup:(Group *)group {
+//    
+//    Member *member = [NSEntityDescription insertNewObjectForEntityForName:@"Member" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+//    
+//    member.group = group;
+//    
+//    //Assign student array(members) to group title at index path in group view controller
+//    
+//    
+//}
 
 - (void)removeGroup:(Group *)group {
     

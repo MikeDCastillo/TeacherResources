@@ -27,9 +27,9 @@
 
 - (void)removeGroup:(Group *)group;
 
--(void)removeMember: (Member *)member;
+- (void)removeMember: (Member *)member;
 
-- (void)addMemberToGroup:(Group *)group member:(Member *)member;
+- (void)addMemberToGroup:(Group *)group;
 
 - (void)synchronize;
 

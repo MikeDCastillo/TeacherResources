@@ -35,6 +35,8 @@
     NSString *numberOfStudents = [NSString stringWithFormat:@"%lu Member", (unsigned long)[GroupController sharedInstance].group.members.count];
     cell.detailTextLabel.text = numberOfStudents;
     
+    cell.imageView.image = [UIImage imageNamed:@"Groups.png"]; 
+    
     return cell;
     
 }

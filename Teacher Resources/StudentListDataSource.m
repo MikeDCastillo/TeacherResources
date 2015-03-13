@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 PJayRushton. All rights reserved.
 //
 
-#import "StudentListDataSource.h"
+#import "StudentListDataSource.h" 
 #import "GroupViewController.h"
 
 static NSString * const cellIdentifier = @"CellIdentifier";
@@ -25,12 +25,23 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     
 }
 
+//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
+//    
+////    Group *group = [GroupController sharedInstance]addMemberToGroup:
+//    
+//    return  cell;
+//}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
     
     Member *member = [GroupController sharedInstance].memberNamesArray[indexPath.row];
     cell.textLabel.text = member.name;
+    
+    cell.imageView.image = [UIImage imageNamed:@"StudentHat.png"];
     
     
     return cell;
