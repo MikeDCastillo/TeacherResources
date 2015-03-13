@@ -1,5 +1,5 @@
 //
-//  POTimer.m
+//  Timer.m
 //  The Pomodoro
 //
 //  Created by sombra on 2015-02-16.
@@ -8,25 +8,21 @@
 
 #import "Timer.h"
 
-static NSString * const secondTickNotification = @"secondTick";
-static NSString * const currentRoundNotification = @"currentRound";
-static NSString * const roundCompleteNotification = @"roundComplete";
+@interface Timer ()
 
-@interface POTimer ()
-
-@property (nonatomic,assign) BOOL isOn;
+@property (strong, nonatomic) NSDate *expirationDate;
 
 @end
 
 
 
-@implementation POTimer
+@implementation Timer
 
-+ (POTimer *)sharedInstance {
-    static POTimer *sharedInstance = nil;
++ (Timer *)sharedInstance {
+    static Timer *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[POTimer alloc] init];
+        sharedInstance = [[Timer alloc] init];
     });
     return sharedInstance;
 }
@@ -43,36 +39,46 @@ static NSString * const roundCompleteNotification = @"roundComplete";
 
 - (void)endTimer {
     self.isOn = NO;
-    [[NSNotificationCenter defaultCenter] postNotificationName:roundCompleteNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:timerCompleteNotification object:nil];
     
 }
 
 - (void)decreaseSecond {
     
-    if (self.seconds > -1){
-        self.seconds --;
+    if (self.seconds > 0)
+    {
+        self.seconds--;
+        [[NSNotificationCenter defaultCenter] postNotificationName:secondTickNotification object:nil];
     }
-    
-    if (self.minutes > 0 || (self.minutes == 0 && self.seconds > -1)) {
-        if (self.seconds == -1) {
-            self.seconds = 59;
-            self.minutes--;
-        }
-        
-        [[NSNotificationCenter defaultCenter]postNotificationName:secondTickNotification object:nil];
-    } else {
-        if (self.seconds == -1){
-            [self endTimer];
-        }
+    else if (self.seconds == 0 && self.minutes > 0)
+    {
+        self.minutes--;
+        self.seconds = 59;
+        [[NSNotificationCenter defaultCenter] postNotificationName:secondTickNotification object:nil];
     }
-    
+    else
+    {
+        [self endTimer];
+    }
 }
 
 - (void)isActive {
     if (self.isOn) {
-        [self decreaseSecond];
         [self performSelector:@selector(isActive) withObject:nil afterDelay:1.0];
+        [self decreaseSecond];
     }
 }
 
+
+- (void)prepareForBackground {
+    [[NSUserDefaults standardUserDefaults] setObject:self.expirationDate forKey:expiryDate];
+}
+
+- (void)loadFromBackground {
+    self.expirationDate = [[NSUserDefaults standardUserDefaults] objectForKey:expiryDate];
+    NSTimeInterval seconds = [self.expirationDate timeIntervalSinceNow];
+    self.minutes = seconds / 60;
+    self.seconds = seconds - (seconds / 60);
+    
+}
 @end

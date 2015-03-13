@@ -1,26 +1,28 @@
 //
-//  POTimer.h
-//  The Pomodoro
-//
+//  Timer.h
+//  Timer
 //  Created by sombra on 2015-02-16.
 //  Copyright (c) 2015 DevMountain. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-static NSString * const secondTickNotification;
-static NSString * const currentRoundNotification;
-static NSString * const roundCompleteNotification;
+static NSString * const secondTickNotification = @"secondTick";
+static NSString * const timerCompleteNotification = @"timerCompleteNotification";
+static NSString *expiryDate = @"expiryDate";
 
 
-@interface POTimer : NSObject
+@interface Timer : NSObject
 
 @property (nonatomic,assign) NSInteger minutes;
 @property (nonatomic,assign) NSInteger seconds;
+@property (nonatomic,assign) BOOL isOn;
 
-+ (POTimer *)sharedInstance;
++ (Timer *)sharedInstance;
 
 - (void)startTimer;
 - (void)cancelTimer;
+- (void)prepareForBackground;
+- (void)loadFromBackground;
 
 @end
