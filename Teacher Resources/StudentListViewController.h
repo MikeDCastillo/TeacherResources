@@ -22,6 +22,6 @@
 @property (nonatomic, strong) Group *group;
 @property (nonatomic, assign) NSInteger *groupNameIndex;
 
-//- (void)updateWithGroup:(Group *)group;
+- (void)updateWithGroup:(Group *)group;
 
 @end

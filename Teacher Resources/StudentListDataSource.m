@@ -11,34 +11,36 @@
 
 static NSString * const cellIdentifier = @"CellIdentifier";
 
+@interface StudentListDataSource()
+
+@property (strong, nonatomic) Group *group;
+@property (strong, nonatomic) NSArray *members;
+
+@end
+
 @implementation StudentListDataSource
 
--(void)registerTableView:(UITableView *)tableView {
+-(void)registerTableView:(UITableView *)tableView withGroup:(Group *)group{
     
      [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellIdentifier"];
     
+    self.group = group;
+    self.members = [group.members array];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [GroupController sharedInstance].memberNamesArray.count;
+    return self.group.members.count;
     
 }
 
-//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
-//    
-////    Group *group = [GroupController sharedInstance]addMemberToGroup:
-//    
-//    return  cell;
-//}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
     
-    Member *member = [GroupController sharedInstance].memberNamesArray[indexPath.row];
+    Member *member = self.members[indexPath.row];
+    
     cell.textLabel.text = member.name;
     
     cell.imageView.image = [UIImage imageNamed:@"StudentHat.png"];
@@ -53,7 +55,7 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView beginUpdates];
         
-        [[GroupController sharedInstance] removeMember:[[GroupController sharedInstance].memberNamesArray objectAtIndex:indexPath.row]];
+        [[GroupController sharedInstance] removeMember: self.members[indexPath.row]];
          
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         

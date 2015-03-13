@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Group.h"
 
 static NSString * const refreshNotification = @"refresh";
 static int numberOfPeopleInGroup = 2;
@@ -17,9 +18,11 @@ static int numberOfPeopleInGroup = 2;
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,assign) CGFloat screenHeight;
 @property (nonatomic,assign) CGFloat screenWidth;
-@property (nonatomic, strong) NSIndexPath * arrayIndex;
+@property (nonatomic,strong) NSIndexPath * arrayIndex;
+@property (nonatomic,strong) Group *group;
 
 -(void)refresh;
 -(void)refreshData;
+-(void)updateWithGroup:(Group *)group;
 
 @end

@@ -38,6 +38,10 @@
     return self;
 }
 
+- (void)updateWithGroup:(Group *)group {
+    
+    self.group = group;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

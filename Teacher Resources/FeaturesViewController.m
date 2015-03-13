@@ -35,6 +35,10 @@
     
 }
 
+- (void)updateWithGroup:(Group *)group {
+    
+    self.group = group;
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -50,6 +54,8 @@
             
             RandomizedGroupsViewController *randomizedGroupsViewController = [RandomizedGroupsViewController new];
             
+            [randomizedGroupsViewController updateWithGroup:self.group];
+            
             [self.navigationController pushViewController:randomizedGroupsViewController animated:YES];
             
             
@@ -57,6 +63,8 @@
         case 1: {
             
             StudentListViewController *listViewController = [StudentListViewController new];
+            
+            [listViewController updateWithGroup:self.group];
             
             [self.navigationController pushViewController:listViewController animated:YES];
             

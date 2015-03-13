@@ -14,20 +14,14 @@
 
 @implementation StudentListViewController
 
-//- (void)updateWithGroup:(Group *)group {
-//    
-//    self.group = group;
-//    
-//    self.groupNameTextField.text = group.title;
-//}
+- (void)updateWithGroup:(Group *)group {
+    
+    self.group = group;
+}
 
 - (NSString *)groupTitle {
     
-    Group *group = [GroupController sharedInstance].groupNamesArray[[GroupController sharedInstance].groupSelected];
-    
-    NSString *titleOfGroup = group.title;
-    
-    return titleOfGroup;
+    return self.group.title;
     
 }
 
@@ -47,6 +41,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor trBlueColor];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.translucent = NO;
     
     //Background Color
     self.view.backgroundColor= [UIColor whiteColor];
@@ -57,7 +52,7 @@
     //DataSource + Delegate
     self.tableView.delegate = self;
     self.tableView.dataSource = self.datasource;
-    [self.datasource registerTableView:self.tableView];
+    [self.datasource registerTableView:self.tableView withGroup:self.group];
     
     
     [self.view addSubview:self.tableView];
@@ -85,7 +80,7 @@
                        action:@selector(addGroupButtonPressed)
              forControlEvents:UIControlEventTouchUpInside];
     
-    [addGroupButton setTitle:@"Add Student" forState:UIControlStateNormal];
+    [addGroupButton setTitle:@"Add" forState:UIControlStateNormal];
     addGroupButton.tintColor = [UIColor whiteColor];
     addGroupButton.frame = CGRectMake(self.view.frame.size.width - 85, 35.0, 80.0, 20.0);
     [self.studentNameView addSubview:addGroupButton];
@@ -99,7 +94,7 @@
     if ([self.addTextField.text isEqualToString:@""]) {
         return;
     }
-    [[GroupController sharedInstance] addMemberWithMemberName:self.addTextField.text];
+    [[GroupController sharedInstance] addMemberWithMemberName:self.addTextField.text toGroup:self.group];
     [self.tableView reloadData];
     [self moveOver:self.studentNameView thisMuch:-(self.view.frame.size.width) withDuration:.25];
     [self.addTextField resignFirstResponder];

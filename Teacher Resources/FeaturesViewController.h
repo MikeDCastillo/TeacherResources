@@ -16,5 +16,8 @@
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) FeaturesViewControllerDataSource *dataSource;
+@property (nonatomic, strong) Group *group;
+
+- (void)updateWithGroup:(Group *)group; 
 
 @end

@@ -8,6 +8,8 @@
 
 #import "GroupController.h"
 
+static Group *currentGroup;
+
 @implementation GroupController
 
 + (GroupController *)sharedInstance {
@@ -21,17 +23,18 @@
     
 }
 
-- (NSArray *)memberNamesArray {
 
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Member"];
+//- (NSArray *)memberNamesArray {
+//
+//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Member"];
+//
+//    NSArray *objects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+//
+//    return objects;
+//
+//}
 
-    NSArray *objects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
-
-    return objects;
-
-}
-
-- (NSArray *)groupNamesArray {
+- (NSArray *)groups {
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
     
@@ -51,9 +54,11 @@
     
 }
 
-- (void)addMemberWithMemberName:(NSString *)memberName {
+- (void)addMemberWithMemberName:(NSString *)memberName toGroup:(Group *)group {
     
     Member *member = [NSEntityDescription insertNewObjectForEntityForName:@"Member" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    
+    member.group = group;
     
     member.name = memberName;
     [self synchronize];

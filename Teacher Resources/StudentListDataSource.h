@@ -13,7 +13,7 @@
 
 @interface StudentListDataSource : NSObject <UITableViewDataSource>
 
--(void)registerTableView:(UITableView *)tableView;
+-(void)registerTableView:(UITableView *)tableView withGroup:(Group *)group;
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 
