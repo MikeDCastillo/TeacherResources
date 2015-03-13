@@ -8,6 +8,7 @@
 
 #import "TimerViewController.h"
 #import "Timer.h"
+#import "UIColor+Category.h"
 
 @interface TimerViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -18,11 +19,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *minutesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timer;
 @property (weak, nonatomic) IBOutlet UIButton *secButton5;
+@property (assign, nonatomic) BOOL fiveSecWarningOn;
 @property (weak, nonatomic) IBOutlet UIButton *secondTimer10;
+@property (assign, nonatomic) BOOL tenSecWarningOn;
 @property (weak, nonatomic) IBOutlet UIButton *secondTimer30;
+@property (assign, nonatomic) BOOL thirtySecWarningOn;
 @property (weak, nonatomic) IBOutlet UIButton *minTimer1;
+@property (assign, nonatomic) BOOL oneMinWarningOn;
 @property (weak, nonatomic) IBOutlet UIButton *minTimer2;
+@property (assign, nonatomic) BOOL twoMinWarningOn;
 @property (weak, nonatomic) IBOutlet UIButton *minTimer5;
+@property (assign, nonatomic) BOOL fiveMinWarningOn;
 
 @end
 
@@ -32,6 +39,8 @@
     [super viewDidLoad];
     [self registerForNotifications];
     [self.picker selectRow:60 *50 inComponent:1 animated:NO];
+    [self.picker selectRow:60 *50 inComponent:0 animated:NO];
+
     //If Timer is OFF
     if ([Timer sharedInstance].isOn == NO) {
         [self.pauseButton setEnabled:NO];
@@ -77,7 +86,7 @@
         //Picker
         [self showPicker];
         [self.picker selectRow:60 *50 inComponent:1 animated:NO];
-        [self.picker selectRow:0 inComponent:0 animated:NO];
+        [self.picker selectRow:60 * 50 inComponent:0 animated:NO];
 
         
         //Start Button
@@ -114,6 +123,7 @@
 
 -(void)updateTimerLabel {
     self.timer.text = [NSString stringWithFormat: @"%ld:%02ld", (long)[Timer sharedInstance].minutes, (long)[Timer sharedInstance].seconds];
+
 }
 
 -(void)timerComplete {
@@ -135,45 +145,97 @@
 
 
 - (IBAction)secWarning5:(id)sender {
-    [self setupAlert:5 type:@"Seconds"];
+    if (self.fiveSecWarningOn == NO) {
+        self.fiveSecWarningOn = YES;
+        [self warningButtonOn:self.secButton5];
+    }
+    else {
+        self.fiveSecWarningOn = NO;
+        [self warningButtonOff:self.secButton5];
+    }
     
 }
 
 - (IBAction)secWarning10:(id)sender {
-    [self setupAlert:10 type:@"Seconds"];
+    if (self.tenSecWarningOn == NO) {
+        self.tenSecWarningOn = YES;
+        [self warningButtonOn:self.secondTimer10];
+    }
+    else {
+        self.tenSecWarningOn = NO;
+        [self warningButtonOff:self.secondTimer10];
+    }
 }
 
 - (IBAction)secWarning30:(id)sender {
-    [self setupAlert:30 type:@"Seconds"];
+    if (self.thirtySecWarningOn == NO) {
+        self.thirtySecWarningOn = YES;
+        [self warningButtonOn:self.secondTimer30];
+    }
+    else {
+        self.thirtySecWarningOn = NO;
+        [self warningButtonOff:self.secondTimer30];
+    }
 }
 
 - (IBAction)minWarning1:(id)sender {
-    [self setupAlert:1 type:@"Minutes"];
+    if (self.oneMinWarningOn == NO) {
+        self.oneMinWarningOn = YES;
+        [self warningButtonOn:self.minTimer1];
+    }
+    else {
+        self.oneMinWarningOn = NO;
+        [self warningButtonOff:self.minTimer1];
+    }
 }
 
 - (IBAction)minWarning2:(id)sender {
-    [self setupAlert:2 type:@"Minutes"];
+    if (self.twoMinWarningOn == NO) {
+        self.twoMinWarningOn = YES;
+        [self warningButtonOn:self.minTimer2];
+    }
+    else {
+        self.twoMinWarningOn = NO;
+        [self warningButtonOff:self.minTimer2];
+
+    }
 }
 
 - (IBAction)minWarning5:(id)sender {
-    [self setupAlert:5 type:@"Minutes"];
+    if (self.fiveMinWarningOn == NO) {
+        self.fiveMinWarningOn = YES;
+        [self warningButtonOn:self.minTimer5];
+    }
+    else {
+        self.fiveMinWarningOn = NO;
+        [self warningButtonOff:self.minTimer5];
+
+    }
+}
+
+-(void)warningButtonOn:(UIButton *)button {
+    button.backgroundColor = [UIColor fern];
+    button.tintColor = [UIColor whiteColor];
+}
+
+- (void)warningButtonOff:(UIButton *)button {
+    button.backgroundColor = [UIColor whiteColor];
+    button.tintColor = [UIColor fern];
 }
 
 #pragma - mark Notifications & Alerts
 
 
-- (void)setupAlert: (int)tag type:(NSString *)type{
-    if ([type isEqualToString:@"Seconds"] && [Timer sharedInstance].seconds) {
-         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat: @"%i %@ Remaining!",tag,type] message:@"" preferredStyle:UIAlertControllerStyleAlert];
-        
-        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
+- (void)setupAlert {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Time's Up!" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self startButtonPressed:nil];
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
    
     }
-    
-    
-}
 
 -(void)endTimerAlert {
     
@@ -191,7 +253,6 @@
 -(void)registerForNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTimerLabel) name:secondTickNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endTimerAlert) name:timerCompleteNotification object:nil];
-    
 }
 
 - (void)setUpNotification{
