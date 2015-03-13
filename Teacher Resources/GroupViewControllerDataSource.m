@@ -20,7 +20,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [GroupController sharedInstance].groupNamesArray.count;
+    return [GroupController sharedInstance].groups.count;
     
 }
 
@@ -28,12 +28,14 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellID"];
     
-    Group *group = [GroupController sharedInstance].groupNamesArray[indexPath.row];
+    Group *group = [GroupController sharedInstance].groups[indexPath.row];
     cell.textLabel.text = group.title;
     
     //Cell Subtitle
     NSString *numberOfStudents = [NSString stringWithFormat:@"%lu Member", (unsigned long)[GroupController sharedInstance].group.members.count];
     cell.detailTextLabel.text = numberOfStudents;
+    
+    cell.imageView.image = [UIImage imageNamed:@"Groups.png"]; 
     
     return cell;
     
@@ -44,7 +46,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView beginUpdates];
         
-        [[GroupController sharedInstance] removeGroup:[[GroupController sharedInstance].groupNamesArray objectAtIndex:indexPath.row]];
+        [[GroupController sharedInstance] removeGroup:[[GroupController sharedInstance].groups objectAtIndex:indexPath.row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
         [tableView endUpdates];

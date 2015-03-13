@@ -13,23 +13,23 @@
 
 @interface GroupController : NSObject
 
-@property (nonatomic, strong, readonly) NSArray *memberNamesArray;
-@property (nonatomic, strong, readonly) NSArray *groupNamesArray;
+//@property (nonatomic, strong, readonly) NSArray *memberNamesArray;
+@property (nonatomic, strong, readonly) NSArray *groups;
 @property (nonatomic, strong) Group *group;
 @property (nonatomic, strong) Member *member;
-@property (nonatomic, assign) NSInteger groupSelected;
 
 + (GroupController *)sharedInstance;
 
-- (void)addMemberWithMemberName:(NSString *)memberName;
+
+- (void)addMemberWithMemberName:(NSString *)memberName toGroup:(Group *)group; 
 
 - (void)addGroupWithGroupName:(NSString *)groupName;
 
 - (void)removeGroup:(Group *)group;
 
--(void)removeMember: (Member *)member;
+- (void)removeMember: (Member *)member;
 
-- (void)addMemberToGroup:(Group *)group member:(Member *)member;
+//- (void)addMemberToGroup:(Group *)group;
 
 - (void)synchronize;
 

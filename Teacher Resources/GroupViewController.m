@@ -39,6 +39,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor trBlueColor];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.translucent = NO;
     
     //Background Color
     self.view.backgroundColor= [UIColor whiteColor];
@@ -114,10 +115,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [GroupController sharedInstance].groupSelected = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.addStudentsCV removeFromSuperview];
+    
     FeaturesViewController *featuresViewController = [FeaturesViewController new];
+    [featuresViewController updateWithGroup:[GroupController sharedInstance].groups[indexPath.row]];
     
     [self.navigationController pushViewController:featuresViewController animated:YES];
     
