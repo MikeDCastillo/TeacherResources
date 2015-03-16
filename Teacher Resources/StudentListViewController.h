@@ -15,12 +15,10 @@
 
 @interface StudentListViewController : UIViewController
 
-@property (nonatomic, strong) UIView *studentNameView;
+
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) UITextField *addTextField;
 @property (nonatomic, strong) StudentListDataSource *datasource;
 @property (nonatomic, strong) Group *group;
-@property (nonatomic, assign) NSInteger *groupNameIndex;
 
 - (void)updateWithGroup:(Group *)group;
 

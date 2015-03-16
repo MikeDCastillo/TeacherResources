@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GroupViewControllerDataSource.h"
 #import "StudentListViewController.h"
 #import "GroupController.h"
 
 @interface GroupViewController : UIViewController
-
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 

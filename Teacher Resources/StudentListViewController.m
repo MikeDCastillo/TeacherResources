@@ -10,6 +10,9 @@
 
 @interface StudentListViewController () <UITableViewDelegate, UITextFieldDelegate>
 
+@property (nonatomic, strong) UIView *studentNameView;
+@property (nonatomic, strong) UITextField *addTextField;
+
 @end
 
 @implementation StudentListViewController
@@ -19,78 +22,83 @@
     self.group = group;
 }
 
-- (NSString *)groupTitle {
-    
-    return self.group.title;
-    
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView reloadData];
-    
+    self.view.backgroundColor= [UIColor whiteColor];
     self.datasource = [StudentListDataSource new];
     
-    //Add Class PLUS button
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    //Toolbar
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 74)];
+//    toolbar.backgroundColor = [UIColor trBlueColor];
+    toolbar.barStyle = UIBarStyleBlack;
+    toolbar.barTintColor = [UIColor trBlueColor];
+    [toolbar setTranslucent:NO];
     
+    //Toolbar Items
+    UIBarButtonItem *addStudentButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addStudent)];
+    addStudentButton.tintColor = [UIColor whiteColor];
     
-    //Navigation Bar Title
-    self.title = [self groupTitle];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor trBlueColor];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    self.navigationController.navigationBar.translucent = NO;
-    
-    //Background Color
-    self.view.backgroundColor= [UIColor whiteColor];
+    UIBarButtonItem	*flexy = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    toolbar.items = @[flexy,addStudentButton];
+    [self.view addSubview:toolbar];
     
     //TableView Config
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 74, self.view.frame.size.width, self.view.frame.size.height - 124) style:UITableViewStyleGrouped];
     
     //DataSource + Delegate
     self.tableView.delegate = self;
     self.tableView.dataSource = self.datasource;
     [self.datasource registerTableView:self.tableView withGroup:self.group];
     
+    //Done Button
+    UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    doneButton.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
+    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [doneButton.titleLabel setFont:[UIFont fontWithName:@"" size:16]];
+    [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [doneButton setBackgroundColor:[UIColor fern]];
+    [doneButton addTarget:self action:@selector(removeAddStudentsView) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:self.tableView];
-    
+    [self.view addSubview:doneButton];
     
 }
 
-- (void)addGroup:(id)sender {
+- (void)addStudent {
     
-    //Create Custom Subview for adding groups
-    self.studentNameView = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 64)];
-    self.studentNameView.backgroundColor = [UIColor trBlueColor];
+    //Create Custom Subview for adding students
+    self.studentNameView = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 74)];
+    self.studentNameView.backgroundColor = [UIColor fern];
     
-    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, 250, 35)];
+    //Text Field
+    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 32, 250, 35)];
     self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.addTextField.delegate = self;
     self.addTextField.placeholder = @"Enter Student Name";
-    [self.addTextField setReturnKeyType:UIReturnKeyDone];
+    [self.addTextField setReturnKeyType:UIReturnKeyDefault];
     [self.addTextField becomeFirstResponder];
+    
     [self.studentNameView addSubview:self.addTextField];
     
-    //Add addGroup Button
-    UIButton *addGroupButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [addGroupButton addTarget:self
-                       action:@selector(addGroupButtonPressed)
+    //Add New Student Button
+    UIButton *addStudentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [addStudentButton addTarget:self
+                       action:@selector(addStudentButtonPressed)
              forControlEvents:UIControlEventTouchUpInside];
     
-    [addGroupButton setTitle:@"Add" forState:UIControlStateNormal];
-    addGroupButton.tintColor = [UIColor whiteColor];
-    addGroupButton.frame = CGRectMake(self.view.frame.size.width - 85, 35.0, 80.0, 20.0);
-    [self.studentNameView addSubview:addGroupButton];
+    [addStudentButton setTitle:@"Add" forState:UIControlStateNormal];
+    addStudentButton.tintColor = [UIColor whiteColor];
+    addStudentButton.frame = CGRectMake(self.view.frame.size.width - 85, 43.0, 80.0, 20.0);
+    [self.studentNameView addSubview:addStudentButton];
     
-    [self.navigationController.view addSubview:self.studentNameView];
+    [self.view addSubview:self.studentNameView];
     [self moveOver:self.studentNameView thisMuch:250 withDuration:.2];
     
 }
 
--(void)addGroupButtonPressed {
+-(void)addStudentButtonPressed {
     if ([self.addTextField.text isEqualToString:@""]) {
         return;
     }
@@ -100,22 +108,27 @@
     [self.addTextField resignFirstResponder];
 }
 
+- (void)removeAddStudentsView {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma - mark TextField Delegate Methods
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
         [textField resignFirstResponder];
-        [self moveOver:self.addTextField thisMuch:-(self.view.frame.size.width) withDuration:.25];
+        [self moveOver:self.studentNameView thisMuch:-(self.view.frame.size.width) withDuration:.25];
         return YES;
     }
-    [self addGroupButtonPressed];
+    [self addStudentButtonPressed];
+    
     return YES;
 }
 
 #pragma - mark TableView Delegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
 }
 
@@ -133,16 +146,5 @@
     }];
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -18,6 +18,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *secondsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *minutesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timer;
+@property (weak, nonatomic) IBOutlet UIButton *secButton5;
+@property (assign, nonatomic) BOOL fiveSecWarningOn;
+@property (weak, nonatomic) IBOutlet UIButton *secButton10;
+@property (assign, nonatomic) BOOL tenSecWarningOn;
+@property (weak, nonatomic) IBOutlet UIButton *secButton30;
+@property (assign, nonatomic) BOOL thirtySecWarningOn;
+@property (weak, nonatomic) IBOutlet UIButton *minButton1;
+@property (assign, nonatomic) BOOL oneMinWarningOn;
+@property (weak, nonatomic) IBOutlet UIButton *minButton2;
+@property (assign, nonatomic) BOOL twoMinWarningOn;
+@property (weak, nonatomic) IBOutlet UIButton *minButton5;
+@property (assign, nonatomic) BOOL fiveMinWarningOn;
 
 @end
 
@@ -26,6 +38,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self registerForNotifications];
+    
+    //Makes Picker appear Circular
     [self.picker selectRow:60 *50 inComponent:1 animated:NO];
     [self.picker selectRow:60 *50 inComponent:0 animated:NO];
 
@@ -50,7 +64,7 @@
         [self updateTimerLabel];
         [self setUpNotification];
 
-        //VIEWS
+    //VIEWS
         //Timer Label
         [self.timer setHidden:NO];
         //Picker
@@ -68,7 +82,7 @@
     if ([self.startbutton.titleLabel.text isEqualToString:@"Cancel"]) {
         [[Timer sharedInstance] cancelTimer];
     
-        //VIEWS
+    //VIEWS
         //Timer Label
         [self.timer setHidden:YES];
         //Picker
@@ -109,6 +123,49 @@
     
 }
 
+- (IBAction)secWarning5:(id)sender {
+    [self flipWarningButton:self.secButton5 isOn:self.fiveSecWarningOn];
+}
+
+- (IBAction)secWarning10:(id)sender {
+    [self flipWarningButton:self.secButton10 isOn:self.tenSecWarningOn];
+}
+
+- (IBAction)secWarning30:(id)sender {
+    [self flipWarningButton:self.secButton30 isOn:self.thirtySecWarningOn];
+
+}
+
+- (IBAction)minWarning1:(id)sender {
+    [self flipWarningButton:self.minButton1 isOn:self.oneMinWarningOn];
+
+}
+
+- (IBAction)minWarning2:(id)sender {
+    [self flipWarningButton:self.minButton2 isOn:self.twoMinWarningOn];
+
+}
+
+- (IBAction)minWarning5:(id)sender {
+    [self flipWarningButton:self.minButton5 isOn:self.fiveMinWarningOn];
+
+}
+
+-(void)flipWarningButton:(UIButton *)button isOn:(BOOL)isOn {
+    
+    if (isOn == NO) {
+        isOn = YES;
+        [button setBackgroundColor:[UIColor fern]];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
+    else if (isOn ==YES) {
+        isOn = NO;
+        [button setBackgroundColor:[UIColor whiteColor]];
+        [button setTitleColor:[UIColor fern] forState:UIControlStateNormal];
+    }
+}
+#pragma mark - Timer Methods
+    
 -(void)updateTimerLabel {
     self.timer.text = [NSString stringWithFormat: @"%ld:%02ld", (long)[Timer sharedInstance].minutes, (long)[Timer sharedInstance].seconds];
 
@@ -118,15 +175,17 @@
     [self.timer setHidden:YES];
     [self showPicker];
 }
+    
+#pragma mark - Hide and show Picker
 
 -(void)hidePicker {
-    [self.picker setHidden:YES];
+    [self.picker removeFromSuperview];
     [self.secondsLabel setHidden:YES];
     [self.minutesLabel setHidden:YES];
 }
 
 -(void)showPicker {
-    [self.picker setHidden:NO];
+    [self.view addSubview:self.picker];
     [self.secondsLabel setHidden:NO];
     [self.minutesLabel setHidden:NO];
 }
@@ -171,7 +230,7 @@
     localNotification.fireDate = fireDate;
     
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.soundName = @"bell_tree.mp3";
+    localNotification.soundName = @"bell_three.mp3";
     localNotification.alertBody = @"Time's Up!";
     localNotification.applicationIconBadgeNumber = 1;
     
