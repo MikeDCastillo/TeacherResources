@@ -8,7 +8,6 @@
 
 #import "RandomizedViewControllerDataSource.h"
 #import "MembersCollectionViewCell.h"
-#import "StudentController.h"
 #import "GroupController.h"
 #import "Member.h"
 #import "Group.h"

@@ -10,16 +10,17 @@
 #import "MembersCollectionViewCell.h"
 #import "NewStudentViewController.h"
 #import "RandomizedViewControllerDataSource.h"
-#import "StudentController.h"
 #import "Member.h"
 #import "UIColor+Category.h"
+#import "GroupController.h"
 
 @interface RandomizedGroupsViewController ()
 
 
 @property (nonatomic,strong) RandomizedViewControllerDataSource * dataSource;
-@property (nonatomic,strong) StudentController *modelController;
+@property (nonatomic,strong) GroupController *modelController;
 @property (nonatomic,strong) MembersCollectionViewCell * customCell;
+@property (nonatomic, strong) NSMutableArray * temporaryStudentList;
 
 
 @end
@@ -31,8 +32,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.modelController = [StudentController new];
-        self.usableArray = [NSMutableArray arrayWithArray:[StudentController SharedInstance].students];
+        self.modelController = [GroupController new];
+        self.usableArray = [NSMutableArray arrayWithArray:[GroupController sharedInstance].group.members];
         self.dataSource = [RandomizedViewControllerDataSource new];
     }
     return self;
@@ -98,7 +99,7 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *message = [NSString stringWithFormat:@"Are you sure that you want to delete %@", [[StudentController SharedInstance].students objectAtIndex:indexPath.row]];
+    NSString *message = [NSString stringWithFormat:@"Are you sure that you want to delete %@", [[GroupController sharedInstance].group.members objectAtIndex:indexPath.row]];
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:message delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
     [alert show];
@@ -122,7 +123,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1)
     {
-        [[StudentController SharedInstance] removeStudent:self.arrayIndex.row];
+        [[GroupController sharedInstance] removeMember:self.arrayIndex];
         [self refreshData];
     }
 }
@@ -191,7 +192,7 @@
 }
 
 -(void)refresh{
-    [self.modelController shuffle:[self.group.members array]];
+    [[GroupController sharedInstance] shuffle:[self.group.members array]];
     [self refreshData];
 }
 

@@ -11,6 +11,8 @@
 #import "Member.h"
 #import "Stack.h"
 
+static NSString * const studentKey = @"studentKey";
+
 @interface GroupController : NSObject
 
 @property (nonatomic, strong, readonly) NSArray *groups;
@@ -27,6 +29,8 @@
 - (void)removeGroup:(Group *)group;
 
 - (void)removeMember: (Member *)member;
+
+- (void)shuffle:(NSArray *)array;
 
 - (void)synchronize;
 

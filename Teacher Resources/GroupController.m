@@ -23,7 +23,6 @@ static Group *currentGroup;
     
 }
 
-
 - (NSArray *)groups {
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
@@ -65,6 +64,22 @@ static Group *currentGroup;
 -(void)removeMember:(Member *)member {
     [member.managedObjectContext deleteObject:member];
     [self synchronize];
+}
+
+- (void)shuffle:(NSArray *)array
+{
+    NSMutableArray *newArray = [NSMutableArray arrayWithArray:array];
+    
+    NSUInteger count = [newArray count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        NSInteger remainingCount = count - i;
+        NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t )remainingCount);
+        [newArray exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
+    }
+    //    [StudentController SharedInstance].students = newArray;
+    //    [[NSUserDefaults standardUserDefaults] setObject:newArray forKey:studentKey];
+    //    [[NSUserDefaults standardUserDefaults] synchronize];
+    
 }
 
 - (void)synchronize {

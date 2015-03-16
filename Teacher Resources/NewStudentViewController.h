@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "StudentController.h"
 
 @interface NewStudentViewController : UIViewController
 
