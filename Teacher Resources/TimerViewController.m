@@ -18,18 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *secondsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *minutesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timer;
-@property (weak, nonatomic) IBOutlet UIButton *secButton5;
-@property (assign, nonatomic) BOOL fiveSecWarningOn;
-@property (weak, nonatomic) IBOutlet UIButton *secondTimer10;
-@property (assign, nonatomic) BOOL tenSecWarningOn;
-@property (weak, nonatomic) IBOutlet UIButton *secondTimer30;
-@property (assign, nonatomic) BOOL thirtySecWarningOn;
-@property (weak, nonatomic) IBOutlet UIButton *minTimer1;
-@property (assign, nonatomic) BOOL oneMinWarningOn;
-@property (weak, nonatomic) IBOutlet UIButton *minTimer2;
-@property (assign, nonatomic) BOOL twoMinWarningOn;
-@property (weak, nonatomic) IBOutlet UIButton *minTimer5;
-@property (assign, nonatomic) BOOL fiveMinWarningOn;
 
 @end
 
@@ -132,96 +120,18 @@
 }
 
 -(void)hidePicker {
-    [self.picker removeFromSuperview];
+    [self.picker setHidden:YES];
     [self.secondsLabel setHidden:YES];
     [self.minutesLabel setHidden:YES];
 }
 
 -(void)showPicker {
-    [self.view addSubview:self.picker];
+    [self.picker setHidden:NO];
     [self.secondsLabel setHidden:NO];
     [self.minutesLabel setHidden:NO];
 }
 
 
-- (IBAction)secWarning5:(id)sender {
-    if (self.fiveSecWarningOn == NO) {
-        self.fiveSecWarningOn = YES;
-        [self warningButtonOn:self.secButton5];
-    }
-    else {
-        self.fiveSecWarningOn = NO;
-        [self warningButtonOff:self.secButton5];
-    }
-    
-}
-
-- (IBAction)secWarning10:(id)sender {
-    if (self.tenSecWarningOn == NO) {
-        self.tenSecWarningOn = YES;
-        [self warningButtonOn:self.secondTimer10];
-    }
-    else {
-        self.tenSecWarningOn = NO;
-        [self warningButtonOff:self.secondTimer10];
-    }
-}
-
-- (IBAction)secWarning30:(id)sender {
-    if (self.thirtySecWarningOn == NO) {
-        self.thirtySecWarningOn = YES;
-        [self warningButtonOn:self.secondTimer30];
-    }
-    else {
-        self.thirtySecWarningOn = NO;
-        [self warningButtonOff:self.secondTimer30];
-    }
-}
-
-- (IBAction)minWarning1:(id)sender {
-    if (self.oneMinWarningOn == NO) {
-        self.oneMinWarningOn = YES;
-        [self warningButtonOn:self.minTimer1];
-    }
-    else {
-        self.oneMinWarningOn = NO;
-        [self warningButtonOff:self.minTimer1];
-    }
-}
-
-- (IBAction)minWarning2:(id)sender {
-    if (self.twoMinWarningOn == NO) {
-        self.twoMinWarningOn = YES;
-        [self warningButtonOn:self.minTimer2];
-    }
-    else {
-        self.twoMinWarningOn = NO;
-        [self warningButtonOff:self.minTimer2];
-
-    }
-}
-
-- (IBAction)minWarning5:(id)sender {
-    if (self.fiveMinWarningOn == NO) {
-        self.fiveMinWarningOn = YES;
-        [self warningButtonOn:self.minTimer5];
-    }
-    else {
-        self.fiveMinWarningOn = NO;
-        [self warningButtonOff:self.minTimer5];
-
-    }
-}
-
--(void)warningButtonOn:(UIButton *)button {
-    button.backgroundColor = [UIColor fern];
-    button.tintColor = [UIColor whiteColor];
-}
-
-- (void)warningButtonOff:(UIButton *)button {
-    button.backgroundColor = [UIColor whiteColor];
-    button.tintColor = [UIColor fern];
-}
 
 #pragma - mark Notifications & Alerts
 
