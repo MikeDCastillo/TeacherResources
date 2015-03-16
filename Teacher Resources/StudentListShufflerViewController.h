@@ -12,7 +12,6 @@
 #import "GroupController.h"
 #import "Group.h"
 #import "UIColor+Category.h"
-#import "StudentController.h"
 
 @interface StudentListShufflerViewController : UIViewController
 
@@ -22,7 +21,6 @@
 @property (nonatomic, assign) NSInteger *groupNameIndex;
 @property (nonatomic, strong) UISegmentedControl *segmentControl;
 @property (nonatomic, strong) NSIndexPath *index;
-@property (nonatomic, strong) NSArray *students;
 
 - (void)updateWithGroup:(Group *)group;
 

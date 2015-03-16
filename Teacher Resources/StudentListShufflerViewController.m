@@ -61,6 +61,12 @@
     return 0;
 }
 
+- (void)refresh {
+   
+    [self.tableView reloadData];
+
+}
+
 
 - (void)setupViews
 {
@@ -110,12 +116,21 @@
 
 - (void)arrangeAtoZ {
     
-    NSSortDescriptor *sorter = [[NSSortDescriptor alloc]initWithKey:@"student" ascending:YES];
+    // 1
     
-    NSArray *sortDescriptor = [NSArray arrayWithObjects:sorter, nil];
+//    NSSortDescriptor *sorter = [[NSSortDescriptor alloc]initWithKey:@"student" ascending:YES];
+//    
+//    NSArray *sortDescriptor = [NSArray arrayWithObjects:sorter, nil];
+    
+    // 2
+    
+//    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"studentName" ascending:YES @selector(caseInsensitiveCompare:)];
     
     
-
+//    NSSortDescriptor *sorter = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
+    
+    
+    
     
 }
 
@@ -126,7 +141,6 @@
 
 - (void)shuffle {
     
-    return [[StudentController SharedInstance]shuffle:self.students];
     
 }
 
