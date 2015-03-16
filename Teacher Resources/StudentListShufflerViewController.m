@@ -126,7 +126,7 @@
 
 - (void)shuffle {
     
-    return [[StudentController SharedInstance]shuffle:self.students];
+    return [[GroupController sharedInstance]shuffle:self.students];
     
 }
 

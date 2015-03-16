@@ -12,7 +12,6 @@
 #import "GroupController.h"
 #import "Group.h"
 #import "UIColor+Category.h"
-#import "StudentController.h"
 
 @interface StudentListShufflerViewController : UIViewController
 

@@ -35,7 +35,6 @@
 		6AFD4E691AAE8AA900308595 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E681AAE8AA900308595 /* Member.m */; };
 		EBBF55461AAF83B2006EF8ED /* MembersCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */; };
 		EBBF55601AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF555F1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m */; };
-		EBBF55631AB0E994006EF8ED /* StudentController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF55621AB0E994006EF8ED /* StudentController.m */; };
 		EBBF55661AB0F8E1006EF8ED /* NewStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF55651AB0F8E1006EF8ED /* NewStudentViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -103,8 +102,6 @@
 		EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersCollectionViewCell.m; sourceTree = "<group>"; };
 		EBBF555E1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedGroupsAppereanceController.h; sourceTree = "<group>"; };
 		EBBF555F1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedGroupsAppereanceController.m; sourceTree = "<group>"; };
-		EBBF55611AB0E994006EF8ED /* StudentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentController.h; sourceTree = "<group>"; };
-		EBBF55621AB0E994006EF8ED /* StudentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentController.m; sourceTree = "<group>"; };
 		EBBF55641AB0F8E1006EF8ED /* NewStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewStudentViewController.h; sourceTree = "<group>"; };
 		EBBF55651AB0F8E1006EF8ED /* NewStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewStudentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,8 +245,6 @@
 			children = (
 				27CC8F0B1AAA6ACC0051D062 /* GroupController.h */,
 				27CC8F0C1AAA6ACC0051D062 /* GroupController.m */,
-				EBBF55611AB0E994006EF8ED /* StudentController.h */,
-				EBBF55621AB0E994006EF8ED /* StudentController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -403,7 +398,6 @@
 				27CC8F181AAA6CE00051D062 /* GroupViewControllerDataSource.m in Sources */,
 				6A9335291AB33BFF00F00C6D /* Timer.m in Sources */,
 				27CC8F1F1AAA6D350051D062 /* FeaturesViewControllerDataSource.m in Sources */,
-				EBBF55631AB0E994006EF8ED /* StudentController.m in Sources */,
 				27CC8F261AAA7BAF0051D062 /* StudentListViewController.m in Sources */,
 				2765C7DC1AB38954009F9DD7 /* StudentListShufflerViewController.m in Sources */,
 				27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */,
