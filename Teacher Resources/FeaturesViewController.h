@@ -11,6 +11,7 @@
 #import "RandomizedGroupsViewController.h"
 #import "StudentListViewController.h"
 #import "TimerViewController.h"
+#import "StudentListShufflerViewController.h"
 
 @interface FeaturesViewController : UIViewController <UICollectionViewDelegate>
 

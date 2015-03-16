@@ -33,6 +33,8 @@
     [self.dataSource registerCollectionView:self.collectionView];
     [self.view addSubview:self.collectionView];
     
+//    self.collectionView.contentSize =
+    
 }
 
 - (void)updateWithGroup:(Group *)group {
@@ -72,23 +74,23 @@
             break; }
         case 2: {
             
+            StudentListShufflerViewController *studentListShufflerViewController = [StudentListShufflerViewController new];
+            
+            [studentListShufflerViewController updateWithGroup:self.group];
+            
+            [self.navigationController pushViewController:studentListShufflerViewController animated:YES];
+            
             
             break; }
         case 3: {
             
-            break; }
-        case 4: {
-            
             TimerViewController *timerViewController = [TimerViewController new];
             
             [self.navigationController pushViewController:timerViewController animated:YES];
+
             
             break; }
-        case 5: {
-            
-        
-            break; }
-            
+
             
         default:
             break;

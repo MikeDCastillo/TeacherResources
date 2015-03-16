@@ -52,7 +52,7 @@ static NSString *cellID = @"CellID";
     
     UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
     
-    imageView.frame = CGRectMake(60, 45, 60, 60);
+    imageView.frame = CGRectMake(55, 45, 60, 60);
 
     [cell.contentView addSubview:imageView];
     cell.footerLabel.text = [self iconFooterNames][indexPath.row];
@@ -66,7 +66,7 @@ static NSString *cellID = @"CellID";
 
 - (NSArray *)iconFooterNames {
     
-    return @[@"Randomizer", @"List Maker", @"Name From Hat", @"Cooperative Learning", @"Timer", @"Seating Chart"];
+    return @[@"Randomizer", @"List Maker", @"Name From Hat", @"Timer"];
     
 }
 
@@ -74,7 +74,7 @@ static NSString *cellID = @"CellID";
 
 - (NSArray *)iconImageNames {
     
-    return @[@"randomGroup.png", @"randomList.png", @"nameFromAHat.png", @"cooperativeLearning.png", @"Timer.png", @"seatingChart.png"];
+    return @[@"randomGroup.png", @"randomList.png", @"nameFromAHat.png", @"Timer.png"];
 
 }
 

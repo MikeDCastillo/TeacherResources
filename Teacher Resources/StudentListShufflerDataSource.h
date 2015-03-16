@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GroupController.h"
+#import "Member.h"
+@import UIKit;
 
-@interface StudentListShufflerDataSource : NSObject
+@interface StudentListShufflerDataSource : NSObject <UITableViewDataSource>
+
+-(void)registerTableView:(UITableView *)tableView withGroup:(Group *)group;
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

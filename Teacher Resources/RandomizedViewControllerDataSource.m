@@ -8,7 +8,9 @@
 
 #import "RandomizedViewControllerDataSource.h"
 #import "MembersCollectionViewCell.h"
-#import "StudentController.h"
+#import "GroupController.h"
+#import "Member.h"
+#import "Group.h"
 
 @interface RandomizedViewControllerDataSource ()
 
@@ -16,6 +18,7 @@
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *members;
+@property (nonatomic, strong) Group *group;
 
 @end
 
@@ -24,22 +27,28 @@
 
 @synthesize cell;
 
--(void)registerCollectionView:(UICollectionView *)collectionView
-{
+-(void)registerCollectionView:(UICollectionView *)collectionView withGroup:(Group *)group {
+
+    self.group = group;
+    self.members = [group.members array];
+
     [collectionView registerClass:[MembersCollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
 }
 
 -(MembersCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    NSString *name = [NSString stringWithFormat:@"%@", [[StudentController SharedInstance].students objectAtIndex:indexPath.row]];
-    [cell.name setText:name];
+    
+    Member *member = self.members[indexPath.row];
+    
+    cell.name.text = member.name;
+    
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [[StudentController SharedInstance].students count];
+    return self.members.count;
 }
 
 @end
