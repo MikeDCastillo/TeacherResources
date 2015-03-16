@@ -18,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *secondsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *minutesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timer;
-<<<<<<< Updated upstream
-=======
 @property (weak, nonatomic) IBOutlet UIButton *secButton5;
 @property (assign, nonatomic) BOOL fiveSecWarningOn;
 @property (weak, nonatomic) IBOutlet UIButton *secButton10;
@@ -32,7 +30,6 @@
 @property (assign, nonatomic) BOOL twoMinWarningOn;
 @property (weak, nonatomic) IBOutlet UIButton *minButton5;
 @property (assign, nonatomic) BOOL fiveMinWarningOn;
->>>>>>> Stashed changes
 
 @end
 
@@ -134,29 +131,14 @@
     [self flipWarningButton:self.secButton10 isOn:self.tenSecWarningOn];
 }
 
-<<<<<<< Updated upstream
--(void)hidePicker {
-    [self.picker setHidden:YES];
-    [self.secondsLabel setHidden:YES];
-    [self.minutesLabel setHidden:YES];
-}
-
--(void)showPicker {
-    [self.picker setHidden:NO];
-    [self.secondsLabel setHidden:NO];
-    [self.minutesLabel setHidden:NO];
-=======
 - (IBAction)secWarning30:(id)sender {
     [self flipWarningButton:self.secButton30 isOn:self.thirtySecWarningOn];
 
->>>>>>> Stashed changes
 }
 
 - (IBAction)minWarning1:(id)sender {
     [self flipWarningButton:self.minButton1 isOn:self.oneMinWarningOn];
 
-<<<<<<< Updated upstream
-=======
 }
 
 - (IBAction)minWarning2:(id)sender {
@@ -207,7 +189,6 @@
     [self.secondsLabel setHidden:NO];
     [self.minutesLabel setHidden:NO];
 }
->>>>>>> Stashed changes
 
 
 
