@@ -7,6 +7,7 @@
 //
 
 #import "StudentController.h"
+#import "GroupController.h"
 
 @implementation StudentController
 
@@ -53,8 +54,8 @@
         [newArray exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
     [StudentController SharedInstance].students = newArray;
-    [[NSUserDefaults standardUserDefaults] setObject:newArray forKey:studentKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] setObject:newArray forKey:studentKey];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
     
 }
 

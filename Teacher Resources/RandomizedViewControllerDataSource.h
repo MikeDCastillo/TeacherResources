@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Group.h"
 
 static NSString *cellIdentifier = @"cell";
 
 @interface RandomizedViewControllerDataSource : NSObject <UICollectionViewDataSource>
 
--(void)registerCollectionView:(UICollectionView *)collectionView;
+-(void)registerCollectionView:(UICollectionView *)collectionView withGroup:(Group *)group;
 
 @property (nonatomic,strong) NSIndexPath *arrayIndex;
 

@@ -7,6 +7,7 @@
 //
 
 #import "NewStudentViewController.h"
+#import "GroupController.h"
 #import "RandomizedGroupsViewController.h"
 #import "Member.h"
 #import "UIColor+Category.h"
@@ -49,7 +50,6 @@
 {
     if ([self.name text].length > 0) {
         
-        [[StudentController SharedInstance] addStudent:[self.name text]];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:refreshNotification object:nil];
         

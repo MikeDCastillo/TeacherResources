@@ -69,11 +69,12 @@
 
 - (void)setupCollectionView {
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0.0, 5.0, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:layout];
     
     
     [self.collectionView setBackgroundColor:[UIColor trBlueColor]];
-    [self.dataSource registerCollectionView:self.collectionView];
+    [self updateWithGroup:self.group];
+    [self.dataSource registerCollectionView:self.collectionView withGroup:self.group];
     self.collectionView.dataSource = self.dataSource;
     self.collectionView.delegate = self;
     [self.view addSubview:self.collectionView];
@@ -149,7 +150,7 @@
 
 -(void)setupToolBar {
     
-    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 44, self.view.frame.size.width, 44)];
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 104, self.view.frame.size.width, 44)];
     UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc]
                                    initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
@@ -190,7 +191,7 @@
 }
 
 -(void)refresh{
-    [self.modelController shuffle:[StudentController SharedInstance].students];
+    [self.modelController shuffle:[self.group.members array]];
     [self refreshData];
 }
 
