@@ -8,9 +8,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimerViewController">
             <connections>
+<<<<<<< Updated upstream
                 <outlet property="minutesLabel" destination="urZ-ct-LSF" id="LMs-uF-jOi"/>
                 <outlet property="pauseButton" destination="SwM-Og-pKm" id="T7S-1U-aK4"/>
                 <outlet property="picker" destination="VUb-mk-nDw" id="TIV-9n-SdS"/>
+=======
+                <outlet property="minButton1" destination="Ca7-ir-gZz" id="obp-gm-yKn"/>
+                <outlet property="minButton2" destination="oFb-Qb-1Wi" id="9Xj-TY-ghJ"/>
+                <outlet property="minButton5" destination="GgE-ee-n6Z" id="2Vj-C0-X1F"/>
+                <outlet property="minutesLabel" destination="urZ-ct-LSF" id="LMs-uF-jOi"/>
+                <outlet property="pauseButton" destination="SwM-Og-pKm" id="T7S-1U-aK4"/>
+                <outlet property="picker" destination="VUb-mk-nDw" id="TIV-9n-SdS"/>
+                <outlet property="secButton10" destination="2fG-G1-rmZ" id="LEp-y4-ovq"/>
+                <outlet property="secButton30" destination="CJ3-ko-M6s" id="via-xD-Wzs"/>
+                <outlet property="secButton5" destination="Ya0-qF-mOI" id="Hnf-lf-fcO"/>
+>>>>>>> Stashed changes
                 <outlet property="secondsLabel" destination="LnH-1p-W4F" id="kGO-9m-tQ9"/>
                 <outlet property="startbutton" destination="6My-kd-QOo" id="b4Q-5V-SgI"/>
                 <outlet property="timer" destination="Vj2-fa-bHH" id="FeC-7y-pNr"/>
@@ -23,8 +35,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vj2-fa-bHH">
+<<<<<<< Updated upstream
                     <rect key="frame" x="175" y="80" width="250" height="100"/>
                     <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="100"/>
+=======
+                    <rect key="frame" x="200" y="80" width="200" height="80"/>
+                    <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="100"/>
+>>>>>>> Stashed changes
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -50,8 +67,13 @@
                         </mask>
                     </variation>
                 </label>
+<<<<<<< Updated upstream
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnH-1p-W4F">
                     <rect key="frame" x="408" y="135" width="64" height="17"/>
+=======
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnH-1p-W4F">
+                    <rect key="frame" x="412" y="135" width="64" height="17"/>
+>>>>>>> Stashed changes
                     <constraints>
                         <constraint firstAttribute="width" constant="68" id="7nY-MV-AOY"/>
                         <constraint firstAttribute="width" constant="64" id="FfO-3f-oDX"/>
@@ -65,8 +87,112 @@
                         </mask>
                     </variation>
                 </label>
+<<<<<<< Updated upstream
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6My-kd-QOo">
                     <rect key="frame" x="202" y="316" width="197" height="53"/>
+=======
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Include Warning:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykw-iG-Hby">
+                    <rect key="frame" x="204" y="427" width="193" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="b9q-bk-jvz"/>
+                        <constraint firstAttribute="width" constant="193" id="bWA-Lk-Wad"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=compact" misplaced="YES">
+                        <rect key="frame" x="204" y="249" width="193" height="21"/>
+                    </variation>
+                </label>
+                <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ya0-qF-mOI">
+                    <rect key="frame" x="23" y="479" width="120" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Ka5-gS-Mse"/>
+                        <constraint firstAttribute="width" constant="120" id="Wsv-hy-InB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="20"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="5 Sec">
+                        <color key="titleColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <variation key="heightClass=compact" misplaced="YES">
+                        <rect key="frame" x="23" y="284" width="120" height="50"/>
+                    </variation>
+                    <connections>
+                        <action selector="secWarning5:" destination="-1" eventType="touchUpInside" id="UV9-Ko-kc9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca7-ir-gZz">
+                    <rect key="frame" x="23" y="530" width="120" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="Leu-ks-tyL"/>
+                        <constraint firstAttribute="height" constant="50" id="OXg-ub-NaX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="20"/>
+                    <state key="normal" title="1 Min">
+                        <color key="titleColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=compact" misplaced="YES">
+                        <rect key="frame" x="23" y="342" width="120" height="50"/>
+                    </variation>
+                    <connections>
+                        <action selector="minWarning1:" destination="-1" eventType="touchUpInside" id="psm-yn-0kQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFb-Qb-1Wi">
+                    <rect key="frame" x="240" y="530" width="120" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="Izc-Tf-iPm"/>
+                        <constraint firstAttribute="height" constant="50" id="KeI-jr-RXx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="20"/>
+                    <state key="normal" title="2 Min">
+                        <color key="titleColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=compact" misplaced="YES">
+                        <rect key="frame" x="240" y="342" width="120" height="50"/>
+                    </variation>
+                    <connections>
+                        <action selector="minWarning2:" destination="-1" eventType="touchUpInside" id="i31-w9-ixY"/>
+                    </connections>
+                </button>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUb-mk-nDw">
+                    <rect key="frame" x="140" y="39" width="320" height="162"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="grL-dV-wBN"/>
+                        <outlet property="delegate" destination="-1" id="wcB-NG-FYW"/>
+                    </connections>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GgE-ee-n6Z">
+                    <rect key="frame" x="460" y="530" width="120" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="5sN-bw-dch"/>
+                        <constraint firstAttribute="width" constant="120" id="Eva-Hk-CrS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="20"/>
+                    <state key="normal" title="5 Min">
+                        <color key="titleColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=compact" misplaced="YES">
+                        <rect key="frame" x="460" y="342" width="120" height="50"/>
+                    </variation>
+                    <connections>
+                        <action selector="minWarning5:" destination="-1" eventType="touchUpInside" id="S8K-UK-0GF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6My-kd-QOo">
+                    <rect key="frame" x="202" y="272" width="197" height="53"/>
+>>>>>>> Stashed changes
                     <constraints>
                         <constraint firstAttribute="width" constant="197" id="Ae9-dJ-DLP"/>
                         <constraint firstAttribute="height" constant="53" id="C43-Qi-DXV"/>
@@ -82,12 +208,23 @@
                     <state key="highlighted">
                         <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+<<<<<<< Updated upstream
+=======
+                    <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="-15" y="173" width="197" height="53"/>
+                    </variation>
+>>>>>>> Stashed changes
                     <connections>
                         <action selector="startButtonPressed:" destination="-1" eventType="touchUpInside" id="uC7-eY-TUt"/>
                     </connections>
                 </button>
+<<<<<<< Updated upstream
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwM-Og-pKm">
                     <rect key="frame" x="213" y="449" width="174" height="51"/>
+=======
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwM-Og-pKm">
+                    <rect key="frame" x="213" y="354" width="174" height="51"/>
+>>>>>>> Stashed changes
                     <constraints>
                         <constraint firstAttribute="height" constant="51" id="2ii-xD-rwd"/>
                         <constraint firstAttribute="width" constant="174" id="LHr-KQ-sj0"/>
@@ -107,39 +244,128 @@
                         <action selector="pauseButtonPressed:" destination="-1" eventType="touchUpInside" id="teB-xo-B1c"/>
                     </connections>
                 </button>
+<<<<<<< Updated upstream
+=======
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJ3-ko-M6s">
+                    <rect key="frame" x="455" y="476" width="130" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="7fc-30-CIE"/>
+                        <constraint firstAttribute="width" constant="130" id="Wxu-xb-sNa">
+                            <variation key="heightClass=compact" constant="120"/>
+                        </constraint>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="20"/>
+                    <state key="normal" title="30 Sec">
+                        <color key="titleColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=compact" misplaced="YES">
+                        <rect key="frame" x="455" y="284" width="130" height="50"/>
+                    </variation>
+                    <connections>
+                        <action selector="secWarning30:" destination="-1" eventType="touchUpInside" id="HeD-7H-Veg"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fG-G1-rmZ">
+                    <rect key="frame" x="240" y="479" width="120" height="52"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="5Rq-XF-eCf"/>
+                        <constraint firstAttribute="width" constant="120" id="wBL-RU-yGy"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="20"/>
+                    <state key="normal" title="10 Sec">
+                        <color key="titleColor" red="0.12156862745098039" green="0.45098039215686275" blue="0.20784313725490197" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=compact" misplaced="YES">
+                        <rect key="frame" x="240" y="284" width="120" height="50"/>
+                    </variation>
+                    <connections>
+                        <action selector="secWarning10:" destination="-1" eventType="touchUpInside" id="cCx-88-kRk"/>
+                    </connections>
+                </button>
+>>>>>>> Stashed changes
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <color key="tintColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+<<<<<<< Updated upstream
                 <constraint firstItem="VUb-mk-nDw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="37" id="0uQ-1U-cFE"/>
                 <constraint firstItem="urZ-ct-LSF" firstAttribute="leading" secondItem="LnH-1p-W4F" secondAttribute="trailing" constant="38" id="2qC-OA-aHc"/>
                 <constraint firstAttribute="centerX" secondItem="urZ-ct-LSF" secondAttribute="centerX" constant="30" id="33H-ty-di8"/>
                 <constraint firstAttribute="bottom" secondItem="6My-kd-QOo" secondAttribute="bottom" constant="182" id="3uI-Iz-a2R"/>
+=======
+                <constraint firstItem="2fG-G1-rmZ" firstAttribute="trailing" secondItem="oFb-Qb-1Wi" secondAttribute="trailing" id="0mb-mH-4UI"/>
+                <constraint firstItem="VUb-mk-nDw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="39" id="0uQ-1U-cFE">
+                    <variation key="heightClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstAttribute="centerX" secondItem="2fG-G1-rmZ" secondAttribute="centerX" constant="-0.5" id="1Bs-k3-HY3"/>
+                <constraint firstItem="Ykw-iG-Hby" firstAttribute="centerX" secondItem="SwM-Og-pKm" secondAttribute="centerX" constant="-12.5" id="23u-fk-vU6"/>
+                <constraint firstItem="urZ-ct-LSF" firstAttribute="leading" secondItem="LnH-1p-W4F" secondAttribute="trailing" constant="38" id="2qC-OA-aHc"/>
+                <constraint firstAttribute="trailing" secondItem="GgE-ee-n6Z" secondAttribute="trailing" constant="15" id="2qO-kE-Evs"/>
+                <constraint firstAttribute="centerX" secondItem="urZ-ct-LSF" secondAttribute="centerX" id="33H-ty-di8">
+                    <variation key="heightClass=compact" constant="10"/>
+                </constraint>
+                <constraint firstItem="Ya0-qF-mOI" firstAttribute="centerX" secondItem="Ca7-ir-gZz" secondAttribute="centerX" id="4Fa-Fv-i26"/>
+>>>>>>> Stashed changes
                 <constraint firstItem="6My-kd-QOo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="240" id="4UX-3g-JcD"/>
                 <constraint firstItem="urZ-ct-LSF" firstAttribute="firstBaseline" secondItem="LnH-1p-W4F" secondAttribute="firstBaseline" id="4YU-86-Kkl"/>
                 <constraint firstItem="LnH-1p-W4F" firstAttribute="centerX" secondItem="VUb-mk-nDw" secondAttribute="centerX" constant="120" id="5Cg-PR-0xV"/>
                 <constraint firstItem="6My-kd-QOo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="41" id="5fp-NE-DgV"/>
                 <constraint firstItem="LnH-1p-W4F" firstAttribute="centerY" secondItem="VUb-mk-nDw" secondAttribute="centerY" id="6Bg-px-Cfy"/>
                 <constraint firstItem="Vj2-fa-bHH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="279" id="6PA-Kq-Wbc"/>
+<<<<<<< Updated upstream
+=======
+                <constraint firstItem="GgE-ee-n6Z" firstAttribute="centerX" secondItem="CJ3-ko-M6s" secondAttribute="centerX" id="6p1-JB-aXU"/>
+                <constraint firstAttribute="bottom" secondItem="2fG-G1-rmZ" secondAttribute="bottom" constant="50" id="89d-eQ-Fz8"/>
+>>>>>>> Stashed changes
                 <constraint firstItem="LnH-1p-W4F" firstAttribute="centerY" secondItem="urZ-ct-LSF" secondAttribute="centerY" id="92R-xh-ORS"/>
                 <constraint firstItem="6My-kd-QOo" firstAttribute="leading" secondItem="SwM-Og-pKm" secondAttribute="leading" constant="-24" id="9FG-wo-KXA"/>
                 <constraint firstItem="urZ-ct-LSF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="9ZP-Dd-XWy"/>
                 <constraint firstAttribute="centerX" secondItem="VUb-mk-nDw" secondAttribute="centerX" id="BD2-Fl-gay"/>
+<<<<<<< Updated upstream
                 <constraint firstAttribute="centerX" secondItem="SwM-Og-pKm" secondAttribute="centerX" id="DVK-nj-2d3"/>
                 <constraint firstAttribute="centerX" secondItem="6My-kd-QOo" secondAttribute="centerX" constant="160.5" id="ENF-xN-5ef"/>
+=======
+                <constraint firstItem="oFb-Qb-1Wi" firstAttribute="baseline" secondItem="Ca7-ir-gZz" secondAttribute="baseline" id="Bes-Q6-qwV"/>
+                <constraint firstItem="oFb-Qb-1Wi" firstAttribute="top" secondItem="2fG-G1-rmZ" secondAttribute="bottom" id="DvL-KT-zFO"/>
+                <constraint firstAttribute="centerX" secondItem="6My-kd-QOo" secondAttribute="centerX" id="ENF-xN-5ef">
+                    <variation key="heightClass=compact" constant="216.5"/>
+                </constraint>
+>>>>>>> Stashed changes
                 <constraint firstItem="LnH-1p-W4F" firstAttribute="baseline" secondItem="urZ-ct-LSF" secondAttribute="baseline" constant="2" id="FAq-20-TbL"/>
                 <constraint firstItem="Vj2-fa-bHH" firstAttribute="top" secondItem="VUb-mk-nDw" secondAttribute="bottom" constant="8" id="FTa-6e-40V"/>
                 <constraint firstItem="VUb-mk-nDw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="53" id="H0e-Fl-AXN"/>
+<<<<<<< Updated upstream
                 <constraint firstItem="LnH-1p-W4F" firstAttribute="leading" secondItem="urZ-ct-LSF" secondAttribute="trailing" constant="100" id="HFN-ND-z6e"/>
                 <constraint firstItem="urZ-ct-LSF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="HU7-z6-Www"/>
                 <constraint firstAttribute="centerX" secondItem="6My-kd-QOo" secondAttribute="centerX" id="Hl8-Vy-Acg"/>
                 <constraint firstAttribute="trailing" secondItem="SwM-Og-pKm" secondAttribute="trailing" constant="43" id="Jcf-nK-ykd"/>
                 <constraint firstAttribute="centerX" secondItem="SwM-Og-pKm" secondAttribute="centerX" constant="-170" id="Krx-YB-NqD"/>
+=======
+                <constraint firstItem="LnH-1p-W4F" firstAttribute="leading" secondItem="urZ-ct-LSF" secondAttribute="trailing" constant="78" id="HFN-ND-z6e">
+                    <variation key="heightClass=compact" constant="85"/>
+                </constraint>
+                <constraint firstItem="urZ-ct-LSF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="HU7-z6-Www"/>
+                <constraint firstItem="CJ3-ko-M6s" firstAttribute="leading" secondItem="2fG-G1-rmZ" secondAttribute="trailing" constant="97" id="I23-om-Fp0"/>
+                <constraint firstItem="GgE-ee-n6Z" firstAttribute="leading" secondItem="CJ3-ko-M6s" secondAttribute="leading" id="JMo-Ur-3HZ"/>
+                <constraint firstAttribute="centerX" secondItem="SwM-Og-pKm" secondAttribute="centerX" id="Krx-YB-NqD">
+                    <variation key="heightClass=compact" constant="-220"/>
+                </constraint>
+>>>>>>> Stashed changes
                 <constraint firstItem="6My-kd-QOo" firstAttribute="top" secondItem="VUb-mk-nDw" secondAttribute="bottom" constant="61" id="Lkl-gl-1qZ"/>
                 <constraint firstAttribute="centerX" secondItem="Vj2-fa-bHH" secondAttribute="centerX" id="Ndk-LI-0Ly"/>
                 <constraint firstItem="LnH-1p-W4F" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" constant="41" id="O1C-2k-SwS"/>
                 <constraint firstItem="6My-kd-QOo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="240" id="QqK-mM-7dJ"/>
                 <constraint firstItem="LnH-1p-W4F" firstAttribute="baseline" secondItem="urZ-ct-LSF" secondAttribute="baseline" id="RAM-Tb-Aqz"/>
+<<<<<<< Updated upstream
+=======
+                <constraint firstItem="2fG-G1-rmZ" firstAttribute="centerY" secondItem="Ya0-qF-mOI" secondAttribute="centerY" id="SPq-5B-DXu">
+                    <variation key="heightClass=compact" constant="0.0"/>
+                </constraint>
+>>>>>>> Stashed changes
                 <constraint firstItem="LnH-1p-W4F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="279" id="TpP-MM-H8e"/>
                 <constraint firstAttribute="bottom" secondItem="SwM-Og-pKm" secondAttribute="bottom" constant="100" id="UWI-JJ-xbt"/>
                 <constraint firstAttribute="centerX" secondItem="6My-kd-QOo" secondAttribute="centerX" constant="-0.5" id="Udu-Hp-Di3"/>
@@ -149,6 +375,7 @@
                 <constraint firstAttribute="centerX" secondItem="Vj2-fa-bHH" secondAttribute="centerX" id="ark-RJ-yoh"/>
                 <constraint firstAttribute="centerX" secondItem="6My-kd-QOo" secondAttribute="centerX" constant="-0.5" id="cBc-Yu-Iuz"/>
                 <constraint firstAttribute="centerX" secondItem="VUb-mk-nDw" secondAttribute="centerX" id="dNh-gs-eb3"/>
+<<<<<<< Updated upstream
                 <constraint firstItem="VUb-mk-nDw" firstAttribute="centerY" secondItem="urZ-ct-LSF" secondAttribute="centerY" constant="0.5" id="hJR-o1-YBT"/>
                 <constraint firstAttribute="trailing" secondItem="urZ-ct-LSF" secondAttribute="trailing" constant="147" id="k92-7U-fx2"/>
                 <constraint firstAttribute="centerY" secondItem="6My-kd-QOo" secondAttribute="centerY" constant="33.5" id="kdU-CG-EKT"/>
@@ -164,6 +391,55 @@
                 <constraint firstItem="SwM-Og-pKm" firstAttribute="top" secondItem="6My-kd-QOo" secondAttribute="bottom" constant="80" id="xH7-Qi-a4L"/>
                 <constraint firstItem="SwM-Og-pKm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="13" id="y7M-ti-QWV"/>
                 <constraint firstItem="urZ-ct-LSF" firstAttribute="centerY" secondItem="VUb-mk-nDw" secondAttribute="centerY" id="yLE-Rt-JTH"/>
+=======
+                <constraint firstAttribute="centerX" secondItem="2fG-G1-rmZ" secondAttribute="centerX" id="eDd-if-OWS"/>
+                <constraint firstItem="Ykw-iG-Hby" firstAttribute="top" secondItem="SwM-Og-pKm" secondAttribute="bottom" constant="22" id="eYc-4b-ta0">
+                    <variation key="heightClass=compact" constant="38"/>
+                </constraint>
+                <constraint firstItem="GgE-ee-n6Z" firstAttribute="baseline" secondItem="oFb-Qb-1Wi" secondAttribute="baseline" id="gZN-4M-dwn"/>
+                <constraint firstItem="Ykw-iG-Hby" firstAttribute="centerX" secondItem="2fG-G1-rmZ" secondAttribute="centerX" id="h9y-dj-RIu"/>
+                <constraint firstItem="VUb-mk-nDw" firstAttribute="centerY" secondItem="urZ-ct-LSF" secondAttribute="centerY" constant="0.5" id="hJR-o1-YBT"/>
+                <constraint firstItem="Ya0-qF-mOI" firstAttribute="trailing" secondItem="Ca7-ir-gZz" secondAttribute="trailing" id="hK6-7g-mvF"/>
+                <constraint firstAttribute="trailing" secondItem="CJ3-ko-M6s" secondAttribute="trailing" constant="15" id="heP-nZ-PGv"/>
+                <constraint firstAttribute="trailing" secondItem="urZ-ct-LSF" secondAttribute="trailing" constant="147" id="k92-7U-fx2"/>
+                <constraint firstItem="CJ3-ko-M6s" firstAttribute="leading" secondItem="2fG-G1-rmZ" secondAttribute="trailing" constant="97" id="kNY-I2-ilK"/>
+                <constraint firstItem="Ca7-ir-gZz" firstAttribute="top" secondItem="Ya0-qF-mOI" secondAttribute="bottom" constant="1" id="kWL-bV-Eee">
+                    <variation key="heightClass=compact" constant="8"/>
+                </constraint>
+                <constraint firstAttribute="centerY" secondItem="6My-kd-QOo" secondAttribute="centerY" constant="33.5" id="kdU-CG-EKT"/>
+                <constraint firstItem="VUb-mk-nDw" firstAttribute="centerX" secondItem="urZ-ct-LSF" secondAttribute="centerX" id="l65-Ku-F8O"/>
+                <constraint firstAttribute="centerX" secondItem="oFb-Qb-1Wi" secondAttribute="centerX" constant="-0.5" id="lYw-BK-GbY"/>
+                <constraint firstItem="2fG-G1-rmZ" firstAttribute="centerY" secondItem="CJ3-ko-M6s" secondAttribute="centerY" constant="3" id="mmD-b8-Rwc">
+                    <variation key="heightClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="oFb-Qb-1Wi" firstAttribute="centerY" secondItem="Ca7-ir-gZz" secondAttribute="centerY" id="pIf-Rp-89z"/>
+                <constraint firstItem="SwM-Og-pKm" firstAttribute="centerY" secondItem="6My-kd-QOo" secondAttribute="centerY" id="poz-SQ-BR2"/>
+                <constraint firstAttribute="centerX" secondItem="6My-kd-QOo" secondAttribute="centerX" constant="-0.5" id="qCr-5P-lW3"/>
+                <constraint firstAttribute="centerX" secondItem="Ykw-iG-Hby" secondAttribute="centerX" id="qH7-MX-X0P"/>
+                <constraint firstAttribute="centerY" secondItem="6My-kd-QOo" secondAttribute="centerY" id="qRN-2y-um4">
+                    <variation key="heightClass=compact" constant="0.0"/>
+                </constraint>
+                <constraint firstItem="oFb-Qb-1Wi" firstAttribute="leading" secondItem="2fG-G1-rmZ" secondAttribute="leading" id="qZn-Kn-JzN"/>
+                <constraint firstItem="Vj2-fa-bHH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="rBg-bW-dhx">
+                    <variation key="heightClass=compact" constant="45"/>
+                </constraint>
+                <constraint firstItem="SwM-Og-pKm" firstAttribute="centerX" secondItem="Ykw-iG-Hby" secondAttribute="centerX" constant="-0.5" id="sWZ-ah-N9F"/>
+                <constraint firstItem="SwM-Og-pKm" firstAttribute="centerX" secondItem="CJ3-ko-M6s" secondAttribute="centerX" id="seK-ee-Vhb"/>
+                <constraint firstItem="SwM-Og-pKm" firstAttribute="centerX" secondItem="6My-kd-QOo" secondAttribute="centerX" constant="-0.5" id="slO-Lv-1iY"/>
+                <constraint firstItem="2fG-G1-rmZ" firstAttribute="top" secondItem="Ykw-iG-Hby" secondAttribute="bottom" priority="750" constant="31" id="tgs-Wz-nG3">
+                    <variation key="heightClass=compact" constant="8"/>
+                </constraint>
+                <constraint firstItem="SwM-Og-pKm" firstAttribute="top" secondItem="6My-kd-QOo" secondAttribute="bottom" constant="29" id="vXT-hc-ibC">
+                    <variation key="heightClass=compact" constant="-77"/>
+                </constraint>
+                <constraint firstItem="urZ-ct-LSF" firstAttribute="leading" secondItem="LnH-1p-W4F" secondAttribute="trailing" constant="-100" id="wuQ-Xd-4dY"/>
+                <constraint firstItem="LnH-1p-W4F" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="135" id="x3V-ec-8Mb">
+                    <variation key="heightClass=compact" constant="105"/>
+                </constraint>
+                <constraint firstItem="SwM-Og-pKm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="13" id="y7M-ti-QWV"/>
+                <constraint firstItem="urZ-ct-LSF" firstAttribute="centerY" secondItem="VUb-mk-nDw" secondAttribute="centerY" id="yLE-Rt-JTH"/>
+                <constraint firstItem="Ca7-ir-gZz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="15" id="ztf-CI-UEG"/>
+>>>>>>> Stashed changes
             </constraints>
             <variation key="default">
                 <mask key="constraints">
@@ -171,9 +447,21 @@
                     <exclude reference="dNh-gs-eb3"/>
                     <exclude reference="hJR-o1-YBT"/>
                     <exclude reference="l65-Ku-F8O"/>
+                    <exclude reference="4UX-3g-JcD"/>
+                    <exclude reference="9FG-wo-KXA"/>
+                    <exclude reference="Lkl-gl-1qZ"/>
+                    <exclude reference="QqK-mM-7dJ"/>
+                    <exclude reference="Udu-Hp-Di3"/>
+                    <exclude reference="X7h-JE-Tsf"/>
+                    <exclude reference="cBc-Yu-Iuz"/>
+                    <exclude reference="kdU-CG-EKT"/>
+                    <exclude reference="qCr-5P-lW3"/>
                     <exclude reference="6PA-Kq-Wbc"/>
                     <exclude reference="FTa-6e-40V"/>
                     <exclude reference="ark-RJ-yoh"/>
+                    <exclude reference="Odd-Fs-Tm7"/>
+                    <exclude reference="bIr-g1-Hmm"/>
+                    <exclude reference="hK6-7g-mvF"/>
                     <exclude reference="2qC-OA-aHc"/>
                     <exclude reference="4YU-86-Kkl"/>
                     <exclude reference="9ZP-Dd-XWy"/>
@@ -181,6 +469,7 @@
                     <exclude reference="k92-7U-fx2"/>
                     <exclude reference="wuQ-Xd-4dY"/>
                     <exclude reference="yLE-Rt-JTH"/>
+<<<<<<< Updated upstream
                     <exclude reference="3uI-Iz-a2R"/>
                     <exclude reference="4UX-3g-JcD"/>
                     <exclude reference="5fp-NE-DgV"/>
@@ -194,6 +483,19 @@
                     <exclude reference="kdU-CG-EKT"/>
                     <exclude reference="qCr-5P-lW3"/>
                     <exclude reference="qRN-2y-um4"/>
+=======
+                    <exclude reference="23u-fk-vU6"/>
+                    <exclude reference="QeX-2v-iuW"/>
+                    <exclude reference="h9y-dj-RIu"/>
+                    <exclude reference="0mb-mH-4UI"/>
+                    <exclude reference="1Bs-k3-HY3"/>
+                    <exclude reference="89d-eQ-Fz8"/>
+                    <exclude reference="Ptd-Qo-PBg"/>
+                    <exclude reference="Bes-Q6-qwV"/>
+                    <exclude reference="GFC-Pl-Kc4"/>
+                    <exclude reference="lYw-BK-GbY"/>
+                    <exclude reference="qZn-Kn-JzN"/>
+>>>>>>> Stashed changes
                     <exclude reference="5Cg-PR-0xV"/>
                     <exclude reference="6Bg-px-Cfy"/>
                     <exclude reference="FAq-20-TbL"/>
@@ -202,12 +504,38 @@
                     <exclude reference="TpP-MM-H8e"/>
                     <exclude reference="YHq-0T-QB6"/>
                     <exclude reference="ZGm-2M-pMn"/>
+<<<<<<< Updated upstream
                     <exclude reference="Jcf-nK-ykd"/>
                     <exclude reference="Krx-YB-NqD"/>
                     <exclude reference="naJ-S3-I4g"/>
                     <exclude reference="slO-Lv-1iY"/>
                     <exclude reference="vXT-hc-ibC"/>
                     <exclude reference="y7M-ti-QWV"/>
+=======
+                    <exclude reference="ZlH-XP-Dsx"/>
+                    <exclude reference="poz-SQ-BR2"/>
+                    <exclude reference="sWZ-ah-N9F"/>
+                    <exclude reference="seK-ee-Vhb"/>
+                    <exclude reference="slO-Lv-1iY"/>
+                    <exclude reference="y7M-ti-QWV"/>
+                    <exclude reference="5eu-MF-zR9"/>
+                    <exclude reference="Gjc-Wp-vag"/>
+                    <exclude reference="I23-om-Fp0"/>
+                    <exclude reference="kNY-I2-ilK"/>
+                    <exclude reference="5F9-xH-jaV"/>
+                    <exclude reference="JMo-Ur-3HZ"/>
+                    <exclude reference="gZN-4M-dwn"/>
+>>>>>>> Stashed changes
+                </mask>
+            </variation>
+            <variation key="heightClass=compact">
+                <mask key="constraints">
+                    <exclude reference="ENF-xN-5ef"/>
+                    <exclude reference="eYc-4b-ta0"/>
+                    <exclude reference="Krx-YB-NqD"/>
+                    <include reference="poz-SQ-BR2"/>
+                    <include reference="seK-ee-Vhb"/>
+                    <exclude reference="vXT-hc-ibC"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="279" y="397"/>

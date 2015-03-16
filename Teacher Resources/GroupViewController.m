@@ -9,12 +9,12 @@
 #import "GroupViewController.h"
 #import "UIColor+Category.h"
 #import "FeaturesViewController.h"
+#import "SWTableViewCell.h"
 
 
-@interface GroupViewController () <UITableViewDelegate,UITextFieldDelegate>
+@interface GroupViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SWTableViewCellDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) GroupViewControllerDataSource *datasource;
+//@property (nonatomic, strong) UITableView *tableView;
 @property (strong, nonatomic) UIView *addStudentsCV;
 @property (strong, nonatomic) UITextField *addTextField;
 
@@ -26,9 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView reloadData];
-    
-    self.datasource = [GroupViewControllerDataSource new];
-    
+        
     //Add Class PLUS button
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
     self.navigationItem.rightBarButtonItem = addButton;
@@ -49,8 +47,8 @@
     
     //DataSource + Delegate
     self.tableView.delegate = self;
-    self.tableView.dataSource = self.datasource;
-    [self.datasource registerTableView:self.tableView];
+    self.tableView.dataSource = self;
+//    [self.datasource registerTableView:self.tableView];
     
     
     [self.view addSubview:self.tableView];
@@ -73,7 +71,7 @@
     [self.addTextField becomeFirstResponder];
     [self.addStudentsCV addSubview:self.addTextField];
     
-    //Add addGroup Button
+    //Add addGroup Button Custom View
     UIButton *addGroupButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [addGroupButton addTarget:self
                      action:@selector(addGroupButtonPressed)
@@ -99,7 +97,7 @@
     [self.addTextField resignFirstResponder];
 }
 
-#pragma - mark TextField Delegate Methods
+#pragma mark - TextField Delegate Methods
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
@@ -111,7 +109,48 @@
     return YES;
 }
 
-#pragma - mark TableView Delegate Methods
+#pragma mark - TableView DataSource Methods
+
+- (void)registerTableView:(UITableView *)tableView {
+    [tableView registerClass:[SWTableViewCell class] forCellReuseIdentifier:@"cellID"];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return [GroupController sharedInstance].groups.count;
+    
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellID = @"cellID";
+    
+    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
+    cell.delegate = self;
+    if (cell == nil) {
+        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+        cell.leftUtilityButtons = [self leftButton];
+        cell.rightUtilityButtons = [self rightButton];
+        cell.delegate = self;
+    }
+    cell.leftUtilityButtons = [self leftButton];
+    cell.rightUtilityButtons = [self rightButton];
+    
+    Group *group = [GroupController sharedInstance].groups[indexPath.row];
+    cell.textLabel.text = group.title;
+    
+    //Cell Subtitle
+    NSString *numberOfStudents = [NSString stringWithFormat:@"%lu Members", (unsigned long)[GroupController sharedInstance].group.members.count];
+    if ([GroupController sharedInstance].group.members.count == 0) {
+        
+    }
+    else {
+        cell.detailTextLabel.text = numberOfStudents;
+    }
+    
+    return cell;
+}
+
+#pragma mark - TableView Delegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -128,6 +167,43 @@
     return 80.0;
 }
 
+#pragma mark - SWTableViewCell Methods
+
+- (NSArray *)leftButton {
+    NSMutableArray *rightUtilityButton = [NSMutableArray new];
+    
+    [rightUtilityButton sw_addUtilityButtonWithColor:[UIColor fern] icon:[UIImage imageNamed:@"list"]];
+    
+    return rightUtilityButton;
+}
+
+- (NSArray *)rightButton {
+    NSMutableArray *leftUtilityButton = [NSMutableArray new];
+    
+    [leftUtilityButton sw_addUtilityButtonWithColor:[UIColor redColor] icon:[UIImage imageNamed:@"cross"]];
+    
+    return leftUtilityButton;
+}
+
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index fromTableView:(UITableView *)tableView{
+    StudentListViewController *studentListViewController = [StudentListViewController new];
+    [self.navigationController presentViewController:studentListViewController animated:YES completion:nil];
+}
+
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index fromTableView:(UITableView *)tableView {
+    
+    // Delete button was pressed
+    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+    
+    [[GroupController sharedInstance] removeGroup:[[GroupController sharedInstance].groups objectAtIndex:cellIndexPath.row]];
+    [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    
+}
+
+-(BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell {
+    return NO;
+}
+
 #pragma - mark Animations
 
 -(void)moveOver:(UIView *)view thisMuch:(float)distance withDuration:(float)duration {
@@ -137,5 +213,8 @@
         
     }];
 }
+
+
+
 
 @end

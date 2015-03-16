@@ -1,0 +1,6 @@
+[submodule "SWTableViewCell"]
+	path = SWTableViewCell
+	url = https://github.com/CEWendel/SWTableViewCell.git
+[submodule "External/SWTableViewCell"]
+	path = External/SWTableViewCell
+	url = https://github.com/CEWendel/SWTableViewCell.git
