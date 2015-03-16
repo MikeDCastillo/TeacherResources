@@ -12,7 +12,7 @@
 #import "SWTableViewCell.h"
 
 
-@interface GroupViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, SWTableViewCellDelegate>
+@interface GroupViewController () <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate,UITextFieldDelegate>
 
 //@property (nonatomic, strong) UITableView *tableView;
 @property (strong, nonatomic) UIView *addStudentsCV;
@@ -46,13 +46,11 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     
     //DataSource + Delegate
+    [self registerTableView:self.tableView];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    [self.datasource registerTableView:self.tableView];
-    
     
     [self.view addSubview:self.tableView];
-    
     
 }
 
@@ -122,15 +120,18 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *cellID = @"cellID";
     
-    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
+    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    
     cell.delegate = self;
+    
     if (cell == nil) {
         cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
         cell.leftUtilityButtons = [self leftButton];
         cell.rightUtilityButtons = [self rightButton];
-        cell.delegate = self;
+        
     }
     cell.leftUtilityButtons = [self leftButton];
     cell.rightUtilityButtons = [self rightButton];
@@ -169,28 +170,16 @@
 
 #pragma mark - SWTableViewCell Methods
 
-- (NSArray *)leftButton {
-    NSMutableArray *rightUtilityButton = [NSMutableArray new];
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
+    if (index == 0) {
     
-    [rightUtilityButton sw_addUtilityButtonWithColor:[UIColor fern] icon:[UIImage imageNamed:@"list"]];
-    
-    return rightUtilityButton;
-}
-
-- (NSArray *)rightButton {
-    NSMutableArray *leftUtilityButton = [NSMutableArray new];
-    
-    [leftUtilityButton sw_addUtilityButtonWithColor:[UIColor redColor] icon:[UIImage imageNamed:@"cross"]];
-    
-    return leftUtilityButton;
-}
-
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index fromTableView:(UITableView *)tableView{
     StudentListViewController *studentListViewController = [StudentListViewController new];
-    [self.navigationController presentViewController:studentListViewController animated:YES completion:nil];
+    [studentListViewController updateWithGroup:[[GroupController sharedInstance].groups objectAtIndex:index]];
+        [self.navigationController presentViewController:studentListViewController animated:YES completion:nil];
+    }
 }
 
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index fromTableView:(UITableView *)tableView {
+-(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     
     // Delete button was pressed
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
@@ -200,11 +189,27 @@
     
 }
 
--(BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell {
-    return NO;
+- (NSArray *)leftButton {
+    NSMutableArray *leftUtilityButton = [NSMutableArray new];
+    
+    [leftUtilityButton sw_addUtilityButtonWithColor:[UIColor fern] icon:[UIImage imageNamed:@"list"]];
+    
+    return leftUtilityButton;
 }
 
-#pragma - mark Animations
+- (NSArray *)rightButton {
+    NSMutableArray *rightUtilityButton = [NSMutableArray new];
+    
+    [rightUtilityButton sw_addUtilityButtonWithColor:[UIColor redColor] icon:[UIImage imageNamed:@"cross"]];
+    
+    return rightUtilityButton;
+}
+
+-(BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell {
+    return YES;
+}
+
+#pragma mark - Animations
 
 -(void)moveOver:(UIView *)view thisMuch:(float)distance withDuration:(float)duration {
 
