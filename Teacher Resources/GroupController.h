@@ -13,7 +13,6 @@
 
 @interface GroupController : NSObject
 
-//@property (nonatomic, strong, readonly) NSArray *memberNamesArray;
 @property (nonatomic, strong, readonly) NSArray *groups;
 @property (nonatomic, strong) Group *group;
 @property (nonatomic, strong) Member *member;
@@ -28,8 +27,6 @@
 - (void)removeGroup:(Group *)group;
 
 - (void)removeMember: (Member *)member;
-
-//- (void)addMemberToGroup:(Group *)group;
 
 - (void)synchronize;
 
