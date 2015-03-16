@@ -37,8 +37,8 @@
 }
 
 +(UIColor *)slateColor {
-    UIColor *wasatchGray = [UIColor colorWithRed:0.451 green:0.639 blue:0.757 alpha:1];
-    return wasatchGray;
+    UIColor *slate = [UIColor colorWithRed:0.451 green:0.639 blue:0.757 alpha:1];
+    return slate;
 }
 
 +(UIColor *)trBlueColor2 {
@@ -46,5 +46,9 @@
     return trBlueColor2;
 }
 
++ (UIColor *)fern {
+    UIColor *fern =[UIColor colorWithRed:0.22 green:0.502 blue:0.141 alpha:1];
+    return fern;
+}
 
 @end

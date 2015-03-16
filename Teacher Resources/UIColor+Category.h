@@ -13,4 +13,5 @@
 + (UIColor *)randomColorSimple;
 +(UIColor *)slateColor;
 + (UIColor *)trBlueColor;
++ (UIColor *)fern;
 @end

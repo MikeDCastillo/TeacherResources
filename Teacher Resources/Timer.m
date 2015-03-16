@@ -48,16 +48,18 @@
     if (self.seconds > 0)
     {
         self.seconds--;
-        [[NSNotificationCenter defaultCenter] postNotificationName:secondTickNotification object:nil];
+        
+        NSDictionary *timerDictionary = @{@"Minutes": @(self.minutes), @"Seconds": @(self.seconds)};
+        [[NSNotificationCenter defaultCenter] postNotificationName:secondTickNotification object:self userInfo:timerDictionary];
     }
-    else if (self.seconds == 0 && self.minutes > 0)
-    {
+    else if (self.seconds == 0 && self.minutes > 0) {
+        
         self.minutes--;
         self.seconds = 59;
-        [[NSNotificationCenter defaultCenter] postNotificationName:secondTickNotification object:nil];
+        NSDictionary *timerDictionary = @{@"Minutes": @(self.minutes), @"Seconds": @(self.seconds)};
+        [[NSNotificationCenter defaultCenter] postNotificationName:secondTickNotification object:self userInfo:timerDictionary];
     }
-    else
-    {
+    else {
         [self endTimer];
     }
 }
