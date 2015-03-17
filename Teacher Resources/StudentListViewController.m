@@ -29,23 +29,21 @@
     self.view.backgroundColor= [UIColor whiteColor];
     self.datasource = [StudentListDataSource new];
     
-    //Toolbar
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 74)];
-//    toolbar.backgroundColor = [UIColor trBlueColor];
-    toolbar.barStyle = UIBarStyleBlack;
-    toolbar.barTintColor = [UIColor trBlueColor];
-    [toolbar setTranslucent:NO];
+    UIView *addStudentsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    addStudentsView.backgroundColor = [UIColor trBlueColor];
     
-    //Toolbar Items
-    UIBarButtonItem *addStudentButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addStudent)];
-    addStudentButton.tintColor = [UIColor whiteColor];
+    //Plus Button
+    UIButton *addStudentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addStudentButton setTitle:@"New Student" forState:UIControlStateNormal];
+    addStudentButton.frame = CGRectMake(self.view.frame.size.width - 135, 35.0, 150.0, 20.0);
+    addStudentButton.titleLabel.tintColor = [UIColor whiteColor];
+    [addStudentButton addTarget:self action:@selector(addStudent) forControlEvents:UIControlEventTouchUpInside];
+    [addStudentsView addSubview:addStudentButton];
     
-    UIBarButtonItem	*flexy = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    toolbar.items = @[flexy,addStudentButton];
-    [self.view addSubview:toolbar];
+    [self.view addSubview:addStudentsView];
     
     //TableView Config
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 74, self.view.frame.size.width, self.view.frame.size.height - 124) style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 114) style:UITableViewStyleGrouped];
     
     //DataSource + Delegate
     self.tableView.delegate = self;
@@ -56,7 +54,7 @@
     UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     doneButton.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
     [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton.titleLabel setFont:[UIFont fontWithName:@"" size:16]];
+    [doneButton.titleLabel setFont:[UIFont fontWithName:@"" size:18]];
     [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [doneButton setBackgroundColor:[UIColor fern]];
     [doneButton addTarget:self action:@selector(removeAddStudentsView) forControlEvents:UIControlEventTouchUpInside];
@@ -90,6 +88,7 @@
     
     [addStudentButton setTitle:@"Add" forState:UIControlStateNormal];
     addStudentButton.tintColor = [UIColor whiteColor];
+    [addStudentButton.titleLabel setFont:[UIFont fontWithName:@"" size:30.0]];
     addStudentButton.frame = CGRectMake(self.view.frame.size.width - 85, 43.0, 80.0, 20.0);
     [self.studentNameView addSubview:addStudentButton];
     

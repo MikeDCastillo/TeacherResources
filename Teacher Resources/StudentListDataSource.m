@@ -8,6 +8,7 @@
 
 #import "StudentListDataSource.h" 
 #import "GroupViewController.h"
+#import "Member.h"
 
 static NSString * const cellIdentifier = @"CellIdentifier";
 
@@ -20,12 +21,11 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 
 @implementation StudentListDataSource
 
--(void)registerTableView:(UITableView *)tableView withGroup:(Group *)group{
+-(void)registerTableView:(UITableView *)tableView withGroup:(Group *)group {
     
      [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellIdentifier"];
     
     self.group = group;
-    self.members = [group.members array];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -34,17 +34,13 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     
 }
 
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
-    
-    Member *member = self.members[indexPath.row];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];    
+    Member *member = [self.group.members objectAtIndex:indexPath.row];
     cell.textLabel.text = member.name;
     
     cell.imageView.image = [UIImage imageNamed:@"StudentHat.png"];
-    
     
     return cell;
     
@@ -55,7 +51,7 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView beginUpdates];
         
-        [[GroupController sharedInstance] removeMember: self.members[indexPath.row]];
+        [[GroupController sharedInstance] removeMember: self.group.members[indexPath.row]];
          
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         

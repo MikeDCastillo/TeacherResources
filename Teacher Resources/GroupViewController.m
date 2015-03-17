@@ -171,12 +171,13 @@
 #pragma mark - SWTableViewCell Methods
 
 -(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
-    if (index == 0) {
     
+    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+
     StudentListViewController *studentListViewController = [StudentListViewController new];
-    [studentListViewController updateWithGroup:[[GroupController sharedInstance].groups objectAtIndex:index]];
+    [studentListViewController updateWithGroup:[[GroupController sharedInstance].groups objectAtIndex:cellIndexPath.row]];
         [self.navigationController presentViewController:studentListViewController animated:YES completion:nil];
-    }
+
 }
 
 -(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
