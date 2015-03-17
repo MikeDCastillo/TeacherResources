@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) UIView *studentNameView;
 @property (nonatomic, strong) UITextField *addTextField;
+@property (nonatomic, strong) UIButton *addStudentButton;
+@property (nonatomic, strong) UIButton *doneButton;
 
 @end
 
@@ -29,23 +31,32 @@
     self.view.backgroundColor= [UIColor whiteColor];
     self.datasource = [StudentListDataSource new];
     
-    //Toolbar
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 74)];
-//    toolbar.backgroundColor = [UIColor trBlueColor];
-    toolbar.barStyle = UIBarStyleBlack;
-    toolbar.barTintColor = [UIColor trBlueColor];
-    [toolbar setTranslucent:NO];
+    UIView *addStudentsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    addStudentsView.backgroundColor = [UIColor trBlueColor];
     
-    //Toolbar Items
-    UIBarButtonItem *addStudentButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addStudent)];
-    addStudentButton.tintColor = [UIColor whiteColor];
+    //Add Student Plus Button
+    self.addStudentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.addStudentButton setTitle:@"+" forState:UIControlStateNormal];
+    self.addStudentButton.frame = CGRectMake(self.view.frame.size.width - 110, 35.0, 150.0, 20.0);
+    self.addStudentButton.titleLabel.tintColor = [UIColor whiteColor];
+    self.addStudentButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:50.0];
+    [self.addStudentButton addTarget:self action:@selector(animatePlusButton) forControlEvents:UIControlEventTouchDown];
+    [self.addStudentButton addTarget:self action:@selector(addStudent) forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem	*flexy = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    toolbar.items = @[flexy,addStudentButton];
-    [self.view addSubview:toolbar];
+    [addStudentsView addSubview:self.addStudentButton];
     
-    //TableView Config
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 74, self.view.frame.size.width, self.view.frame.size.height - 124) style:UITableViewStyleGrouped];
+    //Class Title
+    UILabel *groupNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 35, 250, 25)];
+    groupNameLabel.text = self.group.title;
+    groupNameLabel.textAlignment = NSTextAlignmentCenter;
+    groupNameLabel.font = [UIFont fontWithName:@"Chalkduster" size:28];
+    groupNameLabel.textColor = [UIColor whiteColor];
+    [addStudentsView addSubview:groupNameLabel];
+    
+    [self.view addSubview:addStudentsView];
+    
+    //TableView Configuration
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 114) style:UITableViewStyleGrouped];
     
     //DataSource + Delegate
     self.tableView.delegate = self;
@@ -53,57 +64,56 @@
     [self.datasource registerTableView:self.tableView withGroup:self.group];
     
     //Done Button
-    UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton.titleLabel setFont:[UIFont fontWithName:@"" size:16]];
-    [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [doneButton setBackgroundColor:[UIColor fern]];
-    [doneButton addTarget:self action:@selector(removeAddStudentsView) forControlEvents:UIControlEventTouchUpInside];
+    self.doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.doneButton.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
+    [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [self.doneButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:18]];
+    [self.doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.doneButton setBackgroundColor:[UIColor fern]];
+    [self.doneButton addTarget:self action:@selector(removeAddStudentsView) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:self.tableView];
-    [self.view addSubview:doneButton];
+    [self.view addSubview:self.doneButton];
     
 }
 
 - (void)addStudent {
     
-    //Create Custom Subview for adding students
-    self.studentNameView = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 74)];
+//Create Custom Subview for adding students
+    self.studentNameView = [[UIView alloc] initWithFrame:CGRectMake(-(self.view.frame.size.width), 0, self.view.frame.size.width, 64)];
     self.studentNameView.backgroundColor = [UIColor fern];
     
     //Text Field
-    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 32, 250, 35)];
+    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 22, 250, 35)];
     self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.addTextField.delegate = self;
     self.addTextField.placeholder = @"Enter Student Name";
-    [self.addTextField setReturnKeyType:UIReturnKeyDefault];
+    self.addTextField.returnKeyType = UIReturnKeyDefault;
     [self.addTextField becomeFirstResponder];
     
     [self.studentNameView addSubview:self.addTextField];
     
     //Add New Student Button
-    UIButton *addStudentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [addStudentButton addTarget:self
-                       action:@selector(addStudentButtonPressed)
-             forControlEvents:UIControlEventTouchUpInside];
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [cancelButton addTarget:self
+                     action:@selector(cancelButtonPressed)
+           forControlEvents:UIControlEventTouchUpInside];
     
-    [addStudentButton setTitle:@"Add" forState:UIControlStateNormal];
-    addStudentButton.tintColor = [UIColor whiteColor];
-    addStudentButton.frame = CGRectMake(self.view.frame.size.width - 85, 43.0, 80.0, 20.0);
-    [self.studentNameView addSubview:addStudentButton];
+    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [cancelButton setTintColor:[UIColor whiteColor]];
+    [cancelButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:20]];
+    [cancelButton setFrame: CGRectMake(self.view.frame.size.width - 85, 31, 80, 20)];
+    [self.studentNameView addSubview:cancelButton];
     
     [self.view addSubview:self.studentNameView];
-    [self moveOver:self.studentNameView thisMuch:250 withDuration:.2];
+    
+    //Animations
+    [self moveOver:self.studentNameView thisMuch:self.view.frame.size.width withDuration:.2];
     
 }
 
--(void)addStudentButtonPressed {
-    if ([self.addTextField.text isEqualToString:@""]) {
-        return;
-    }
-    [[GroupController sharedInstance] addMemberWithMemberName:self.addTextField.text toGroup:self.group];
-    [self.tableView reloadData];
+- (void)cancelButtonPressed {
+
     [self moveOver:self.studentNameView thisMuch:-(self.view.frame.size.width) withDuration:.25];
     [self.addTextField resignFirstResponder];
 }
@@ -112,20 +122,22 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma - mark TextField Delegate Methods
+#pragma mark - TextField Delegate Methods
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
-        [textField resignFirstResponder];
-        [self moveOver:self.studentNameView thisMuch:-(self.view.frame.size.width) withDuration:.25];
-        return YES;
+        return NO;
     }
-    [self addStudentButtonPressed];
+    else {
     
-    return YES;
+    [[GroupController sharedInstance] addMemberWithMemberName:textField.text toGroup:self.group];
+        [self.tableView reloadData];
+        textField.text = @"";
+    }
+    return NO;
 }
 
-#pragma - mark TableView Delegate Methods
+#pragma mark - TableView Delegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -136,15 +148,29 @@
     return 50.0;
 }
 
-#pragma - mark Animations
+#pragma mark -  Animations
 
--(void)moveOver:(UIView *)view thisMuch:(float)distance withDuration:(float)duration {
+- (void)moveOver:(UIView *)view thisMuch:(float)distance withDuration:(float)duration {
     
     [UIView animateWithDuration:duration animations:^{
         view.center = CGPointMake(view.center.x + distance, view.center.y);
         
     }];
 }
+
+- (void)animatePlusButton {
+    [self growsOnTouch:self.addStudentButton withDuration:.3];
+}
+
+- (void)growsOnTouch:(UIView *)view withDuration:(float)duration {
+    CGAffineTransform bigger = CGAffineTransformMakeScale(5, 5);
+    CGAffineTransform smaller = CGAffineTransformMakeScale(1, 1);
+    [UIView animateWithDuration:duration animations:^{
+        view.transform = bigger;
+        view.transform = smaller;
+    }];
+}
+
 
 
 @end

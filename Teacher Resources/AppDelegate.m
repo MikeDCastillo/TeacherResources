@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "GroupViewController.h"
 #import "Timer.h"
+#import "AppearanceController.h"
 
 
 @interface AppDelegate ()
@@ -25,7 +26,7 @@
     
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:groupViewController];
     self.window.rootViewController = navController;
-    
+    [AppearanceController setupAppearance];
     [self.window makeKeyAndVisible];
     
     

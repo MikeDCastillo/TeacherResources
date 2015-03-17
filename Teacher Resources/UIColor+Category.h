@@ -14,4 +14,5 @@
 +(UIColor *)slateColor;
 + (UIColor *)trBlueColor;
 + (UIColor *)fern;
++ (UIColor *)chalkboardGreen;
 @end

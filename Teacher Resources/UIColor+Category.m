@@ -32,23 +32,24 @@
 }
 
 +(UIColor *)trBlueColor {
-   UIColor *wasatchBlue = [UIColor colorWithRed:0.000 green:0.200 blue:0.584 alpha:1.000];
-    return wasatchBlue;
+   return [UIColor colorWithRed:0.000 green:0.200 blue:0.584 alpha:1.000];
 }
 
 +(UIColor *)slateColor {
-    UIColor *slate = [UIColor colorWithRed:0.451 green:0.639 blue:0.757 alpha:1];
-    return slate;
+    return [UIColor colorWithRed:0.451 green:0.639 blue:0.757 alpha:1];
+
 }
 
 +(UIColor *)trBlueColor2 {
-    UIColor *trBlueColor2 = [UIColor colorWithRed:0.179 green:0.472 blue:0.757 alpha:1.000];
-    return trBlueColor2;
+    return [UIColor colorWithRed:0.179 green:0.472 blue:0.757 alpha:1.000];
+
 }
 
 + (UIColor *)fern {
-    UIColor *fern =[UIColor colorWithRed:0.22 green:0.502 blue:0.141 alpha:1];
-    return fern;
+   return  [UIColor colorWithRed:0.22 green:0.502 blue:0.141 alpha:1];
 }
 
++ (UIColor *)chalkboardGreen {
+    return [UIColor colorWithRed:0.231 green:0.396 blue:0.239 alpha:1];
+}
 @end

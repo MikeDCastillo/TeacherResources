@@ -13,6 +13,17 @@
 
 +(void)setupAppearance {
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    shadow.shadowOffset = CGSizeMake(0, 1);
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                        [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                           shadow, NSShadowAttributeName,
+                                                           [UIFont fontWithName:@"Chalkduster" size:24], NSFontAttributeName, nil]];
+
     [[UIToolbar appearance] setBarStyle:UIBarStyleBlack];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
 }
+
 @end

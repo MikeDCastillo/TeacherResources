@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -28,10 +28,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vj2-fa-bHH">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vj2-fa-bHH">
                     <rect key="frame" x="200" y="80" width="200" height="80"/>
                     <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="100"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urZ-ct-LSF">
@@ -41,7 +41,7 @@
                         <constraint firstAttribute="width" constant="68" id="RSD-zM-fiX"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -56,7 +56,7 @@
                         <constraint firstAttribute="width" constant="64" id="FfO-3f-oDX"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
                         <mask key="constraints">
@@ -71,7 +71,7 @@
                         <constraint firstAttribute="width" constant="193" id="bWA-Lk-Wad"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                     <variation key="heightClass=compact" misplaced="YES">
                         <rect key="frame" x="204" y="249" width="193" height="21"/>
@@ -175,7 +175,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <state key="disabled" title="Disabled">
-                        <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <color key="titleColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <state key="highlighted">
                         <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -374,6 +374,16 @@
                     <exclude reference="dNh-gs-eb3"/>
                     <exclude reference="hJR-o1-YBT"/>
                     <exclude reference="l65-Ku-F8O"/>
+                    <exclude reference="6PA-Kq-Wbc"/>
+                    <exclude reference="FTa-6e-40V"/>
+                    <exclude reference="ark-RJ-yoh"/>
+                    <exclude reference="2qC-OA-aHc"/>
+                    <exclude reference="4YU-86-Kkl"/>
+                    <exclude reference="9ZP-Dd-XWy"/>
+                    <exclude reference="HU7-z6-Www"/>
+                    <exclude reference="k92-7U-fx2"/>
+                    <exclude reference="wuQ-Xd-4dY"/>
+                    <exclude reference="yLE-Rt-JTH"/>
                     <exclude reference="4UX-3g-JcD"/>
                     <exclude reference="9FG-wo-KXA"/>
                     <exclude reference="Lkl-gl-1qZ"/>
@@ -383,30 +393,12 @@
                     <exclude reference="cBc-Yu-Iuz"/>
                     <exclude reference="kdU-CG-EKT"/>
                     <exclude reference="qCr-5P-lW3"/>
-                    <exclude reference="6PA-Kq-Wbc"/>
-                    <exclude reference="FTa-6e-40V"/>
-                    <exclude reference="ark-RJ-yoh"/>
-                    <exclude reference="Odd-Fs-Tm7"/>
-                    <exclude reference="bIr-g1-Hmm"/>
-                    <exclude reference="hK6-7g-mvF"/>
-                    <exclude reference="2qC-OA-aHc"/>
-                    <exclude reference="4YU-86-Kkl"/>
-                    <exclude reference="9ZP-Dd-XWy"/>
-                    <exclude reference="HU7-z6-Www"/>
-                    <exclude reference="k92-7U-fx2"/>
-                    <exclude reference="wuQ-Xd-4dY"/>
-                    <exclude reference="yLE-Rt-JTH"/>
-                    <exclude reference="23u-fk-vU6"/>
-                    <exclude reference="QeX-2v-iuW"/>
-                    <exclude reference="h9y-dj-RIu"/>
-                    <exclude reference="0mb-mH-4UI"/>
-                    <exclude reference="1Bs-k3-HY3"/>
-                    <exclude reference="89d-eQ-Fz8"/>
-                    <exclude reference="Ptd-Qo-PBg"/>
-                    <exclude reference="Bes-Q6-qwV"/>
-                    <exclude reference="GFC-Pl-Kc4"/>
-                    <exclude reference="lYw-BK-GbY"/>
-                    <exclude reference="qZn-Kn-JzN"/>
+                    <exclude reference="ZlH-XP-Dsx"/>
+                    <exclude reference="poz-SQ-BR2"/>
+                    <exclude reference="sWZ-ah-N9F"/>
+                    <exclude reference="seK-ee-Vhb"/>
+                    <exclude reference="slO-Lv-1iY"/>
+                    <exclude reference="y7M-ti-QWV"/>
                     <exclude reference="5Cg-PR-0xV"/>
                     <exclude reference="6Bg-px-Cfy"/>
                     <exclude reference="FAq-20-TbL"/>
@@ -415,12 +407,20 @@
                     <exclude reference="TpP-MM-H8e"/>
                     <exclude reference="YHq-0T-QB6"/>
                     <exclude reference="ZGm-2M-pMn"/>
-                    <exclude reference="ZlH-XP-Dsx"/>
-                    <exclude reference="poz-SQ-BR2"/>
-                    <exclude reference="sWZ-ah-N9F"/>
-                    <exclude reference="seK-ee-Vhb"/>
-                    <exclude reference="slO-Lv-1iY"/>
-                    <exclude reference="y7M-ti-QWV"/>
+                    <exclude reference="23u-fk-vU6"/>
+                    <exclude reference="QeX-2v-iuW"/>
+                    <exclude reference="h9y-dj-RIu"/>
+                    <exclude reference="Odd-Fs-Tm7"/>
+                    <exclude reference="bIr-g1-Hmm"/>
+                    <exclude reference="hK6-7g-mvF"/>
+                    <exclude reference="0mb-mH-4UI"/>
+                    <exclude reference="1Bs-k3-HY3"/>
+                    <exclude reference="89d-eQ-Fz8"/>
+                    <exclude reference="Ptd-Qo-PBg"/>
+                    <exclude reference="Bes-Q6-qwV"/>
+                    <exclude reference="GFC-Pl-Kc4"/>
+                    <exclude reference="lYw-BK-GbY"/>
+                    <exclude reference="qZn-Kn-JzN"/>
                     <exclude reference="5eu-MF-zR9"/>
                     <exclude reference="Gjc-Wp-vag"/>
                     <exclude reference="I23-om-Fp0"/>
@@ -433,11 +433,11 @@
             <variation key="heightClass=compact">
                 <mask key="constraints">
                     <exclude reference="ENF-xN-5ef"/>
-                    <exclude reference="eYc-4b-ta0"/>
                     <exclude reference="Krx-YB-NqD"/>
                     <include reference="poz-SQ-BR2"/>
                     <include reference="seK-ee-Vhb"/>
                     <exclude reference="vXT-hc-ibC"/>
+                    <exclude reference="eYc-4b-ta0"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="279" y="397"/>
