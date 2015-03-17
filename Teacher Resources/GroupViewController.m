@@ -28,14 +28,14 @@
     [self.tableView reloadData];
         
     //Add Class PLUS button
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addGroup:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(addGroup:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
     
     //Navigation Bar Title
     self.title = @"Teacher Resources";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor trBlueColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor chalkboardGreen];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationController.navigationBar.translucent = NO;
     
@@ -65,6 +65,7 @@
     self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.addTextField.delegate = self;
     self.addTextField.placeholder = @"Enter Group Title";
+    self.addTextField.font = [UIFont fontWithName:@"Chalkduster" size:14];
     [self.addTextField setReturnKeyType:UIReturnKeyDone];
     [self.addTextField becomeFirstResponder];
     [self.addStudentsCV addSubview:self.addTextField];
@@ -75,7 +76,9 @@
                      action:@selector(addGroupButtonPressed)
            forControlEvents:UIControlEventTouchUpInside];
     
-    [addGroupButton setTitle:@"Add Group" forState:UIControlStateNormal];
+    [addGroupButton setTitle:@"+" forState:UIControlStateNormal];
+    addGroupButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:50];
+
     addGroupButton.tintColor = [UIColor whiteColor];
     addGroupButton.frame = CGRectMake(self.view.frame.size.width - 85, 35.0, 80.0, 20.0);
     [self.addStudentsCV addSubview:addGroupButton];
@@ -138,6 +141,8 @@
     
     Group *group = [GroupController sharedInstance].groups[indexPath.row];
     cell.textLabel.text = group.title;
+    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20];
+
     
     //Cell Subtitle
     NSString *numberOfStudents = [NSString stringWithFormat:@"%lu Members", (unsigned long)[GroupController sharedInstance].group.members.count];
@@ -193,7 +198,7 @@
 - (NSArray *)leftButton {
     NSMutableArray *leftUtilityButton = [NSMutableArray new];
     
-    [leftUtilityButton sw_addUtilityButtonWithColor:[UIColor fern] icon:[UIImage imageNamed:@"list"]];
+    [leftUtilityButton sw_addUtilityButtonWithColor:[UIColor chalkboardGreen] icon:[UIImage imageNamed:@"list"]];
     
     return leftUtilityButton;
 }

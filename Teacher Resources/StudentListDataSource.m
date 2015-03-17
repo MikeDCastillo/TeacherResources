@@ -23,7 +23,7 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 
 -(void)registerTableView:(UITableView *)tableView withGroup:(Group *)group {
     
-     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellIdentifier"];
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifier];
     
     self.group = group;
 }
@@ -36,10 +36,11 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
     Member *member = [self.group.members objectAtIndex:indexPath.row];
     cell.textLabel.text = member.name;
-    
+    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:24];
     cell.imageView.image = [UIImage imageNamed:@"StudentHat.png"];
     
     return cell;
@@ -52,7 +53,6 @@ static NSString * const cellIdentifier = @"CellIdentifier";
         [tableView beginUpdates];
         
         [[GroupController sharedInstance] removeMember: self.group.members[indexPath.row]];
-         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
         [tableView endUpdates];
