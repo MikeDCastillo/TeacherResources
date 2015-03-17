@@ -66,7 +66,7 @@ static Group *currentGroup;
     [self synchronize];
 }
 
-- (void)shuffle:(NSArray *)array
+- (NSArray *)shuffle:(NSArray *)array
 {
     NSMutableArray *newArray = [NSMutableArray arrayWithArray:array];
     
@@ -76,10 +76,7 @@ static Group *currentGroup;
         NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t )remainingCount);
         [newArray exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
-    //    [StudentController SharedInstance].students = newArray;
-    //    [[NSUserDefaults standardUserDefaults] setObject:newArray forKey:studentKey];
-    //    [[NSUserDefaults standardUserDefaults] synchronize];
-    
+    return newArray;
 }
 
 - (void)synchronize {

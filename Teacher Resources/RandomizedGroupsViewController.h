@@ -18,7 +18,6 @@ static int numberOfPeopleInGroup = 2;
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,assign) CGFloat screenHeight;
 @property (nonatomic,assign) CGFloat screenWidth;
-@property (nonatomic,strong) NSIndexPath * arrayIndex;
 @property (nonatomic,strong) Group *group;
 
 -(void)refresh;

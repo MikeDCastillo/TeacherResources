@@ -17,7 +17,6 @@
 @property (nonatomic,strong) MembersCollectionViewCell * cell;
 
 @property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) NSArray *members;
 @property (nonatomic, strong) Group *group;
 
 @end
@@ -30,7 +29,6 @@
 -(void)registerCollectionView:(UICollectionView *)collectionView withGroup:(Group *)group {
 
     self.group = group;
-    self.members = [group.members array];
 
     [collectionView registerClass:[MembersCollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
 }
@@ -39,7 +37,8 @@
 {
     cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    Member *member = self.members[indexPath.row];
+    
+    Member *member = self.group.members[indexPath.item];
     
     cell.name.text = member.name;
     
@@ -48,7 +47,7 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.members.count;
+    return self.group.members.count;
 }
 
 @end

@@ -16,6 +16,5 @@ static NSString *cellIdentifier = @"cell";
 
 -(void)registerCollectionView:(UICollectionView *)collectionView withGroup:(Group *)group;
 
-@property (nonatomic,strong) NSIndexPath *arrayIndex;
 
 @end
