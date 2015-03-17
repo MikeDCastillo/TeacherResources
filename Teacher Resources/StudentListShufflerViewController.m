@@ -126,11 +126,18 @@
     
 //    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"studentName" ascending:YES @selector(caseInsensitiveCompare:)];
     
+    // 3
     
 //    NSSortDescriptor *sorter = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
     
+    // 4
     
+//    NSArray *studentArray = [GroupController sharedInstance].group.members;
+//    
+//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+//    studentArray = [anArray sortedArrayUsingDescriptors:@[sortDescriptor]];
     
+                             
     
 }
 

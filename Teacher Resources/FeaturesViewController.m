@@ -64,21 +64,17 @@
             break; }
         case 1: {
             
-            StudentListViewController *listViewController = [StudentListViewController new];
-            
-            [listViewController updateWithGroup:self.group];
-            
-            [self.navigationController pushViewController:listViewController animated:YES];
-            
-            
-            break; }
-        case 2: {
-            
             StudentListShufflerViewController *studentListShufflerViewController = [StudentListShufflerViewController new];
             
             [studentListShufflerViewController updateWithGroup:self.group];
             
             [self.navigationController pushViewController:studentListShufflerViewController animated:YES];
+            
+            
+            break; }
+        case 2: {
+            
+
             
             
             break; }
