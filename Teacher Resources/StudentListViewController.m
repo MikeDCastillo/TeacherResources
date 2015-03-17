@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) UIView *studentNameView;
 @property (nonatomic, strong) UITextField *addTextField;
+@property (nonatomic, strong) UIButton *addStudentButton;
+@property (nonatomic, strong) UIButton *doneButton;
 
 @end
 
@@ -32,15 +34,16 @@
     UIView *addStudentsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
     addStudentsView.backgroundColor = [UIColor trBlueColor];
     
-    //Plus Button
-    UIButton *addStudentButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addStudentButton setTitle:@"+" forState:UIControlStateNormal];
-    addStudentButton.frame = CGRectMake(self.view.frame.size.width - 110, 35.0, 150.0, 20.0);
-    addStudentButton.titleLabel.tintColor = [UIColor whiteColor];
-    addStudentButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:50.0];
-    [addStudentButton addTarget:self action:@selector(addStudent) forControlEvents:UIControlEventTouchUpInside];
+    //Add Student Plus Button
+    self.addStudentButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.addStudentButton setTitle:@"+" forState:UIControlStateNormal];
+    self.addStudentButton.frame = CGRectMake(self.view.frame.size.width - 110, 35.0, 150.0, 20.0);
+    self.addStudentButton.titleLabel.tintColor = [UIColor whiteColor];
+    self.addStudentButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:50.0];
+    [self.addStudentButton addTarget:self action:@selector(animatePlusButton) forControlEvents:UIControlEventTouchDown];
+    [self.addStudentButton addTarget:self action:@selector(addStudent) forControlEvents:UIControlEventTouchUpInside];
     
-    [addStudentsView addSubview:addStudentButton];
+    [addStudentsView addSubview:self.addStudentButton];
     
     //Class Title
     UILabel *groupNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 35, 250, 25)];
@@ -61,16 +64,16 @@
     [self.datasource registerTableView:self.tableView withGroup:self.group];
     
     //Done Button
-    UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:18]];
-    [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [doneButton setBackgroundColor:[UIColor fern]];
-    [doneButton addTarget:self action:@selector(removeAddStudentsView) forControlEvents:UIControlEventTouchUpInside];
+    self.doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.doneButton.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
+    [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [self.doneButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:18]];
+    [self.doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.doneButton setBackgroundColor:[UIColor fern]];
+    [self.doneButton addTarget:self action:@selector(removeAddStudentsView) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:self.tableView];
-    [self.view addSubview:doneButton];
+    [self.view addSubview:self.doneButton];
     
 }
 
@@ -103,6 +106,8 @@
     [self.studentNameView addSubview:cancelButton];
     
     [self.view addSubview:self.studentNameView];
+    
+    //Animations
     [self moveOver:self.studentNameView thisMuch:self.view.frame.size.width withDuration:.2];
     
 }
@@ -152,5 +157,20 @@
         
     }];
 }
+
+- (void)animatePlusButton {
+    [self growsOnTouch:self.addStudentButton withDuration:.3];
+}
+
+- (void)growsOnTouch:(UIView *)view withDuration:(float)duration {
+    CGAffineTransform bigger = CGAffineTransformMakeScale(5, 5);
+    CGAffineTransform smaller = CGAffineTransformMakeScale(1, 1);
+    [UIView animateWithDuration:duration animations:^{
+        view.transform = bigger;
+        view.transform = smaller;
+    }];
+}
+
+
 
 @end
