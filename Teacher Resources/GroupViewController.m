@@ -71,29 +71,25 @@
     [self.addStudentsCV addSubview:self.addTextField];
     
     //Add addGroup Button Custom View
-    UIButton *addGroupButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [addGroupButton addTarget:self
-                     action:@selector(addGroupButtonPressed)
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [cancelButton addTarget:self
+                     action:@selector(cancelButtonPressed)
            forControlEvents:UIControlEventTouchUpInside];
     
-    [addGroupButton setTitle:@"+" forState:UIControlStateNormal];
-    addGroupButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:50];
+    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    cancelButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:20];
 
-    addGroupButton.tintColor = [UIColor whiteColor];
-    addGroupButton.frame = CGRectMake(self.view.frame.size.width - 85, 35.0, 80.0, 20.0);
-    [self.addStudentsCV addSubview:addGroupButton];
+    cancelButton.tintColor = [UIColor whiteColor];
+    cancelButton.frame = CGRectMake(self.view.frame.size.width - 85, 35.0, 80.0, 20.0);
+    [self.addStudentsCV addSubview:cancelButton];
 
     [self.navigationController.view addSubview:self.addStudentsCV];
     [self moveOver:self.addStudentsCV thisMuch:250 withDuration:.2];
     
 }
 
--(void)addGroupButtonPressed {
-    if ([self.addTextField.text isEqualToString:@""]) {
-        return;
-    }
-    [[GroupController sharedInstance] addGroupWithGroupName:self.addTextField.text];
-    [self.tableView reloadData];
+-(void)cancelButtonPressed {
+
     [self moveOver:self.addStudentsCV thisMuch:-(self.view.frame.size.width) withDuration:.25];
     [self.addTextField resignFirstResponder];
 }
@@ -102,11 +98,12 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
-        [textField resignFirstResponder];
-        [self moveOver:self.addStudentsCV thisMuch:-(self.view.frame.size.width) withDuration:.25];
-        return YES;
+        return NO;
     }
-    [self addGroupButtonPressed];
+    [[GroupController sharedInstance] addGroupWithGroupName:textField.text];
+    [self moveOver:self.addStudentsCV thisMuch:(self.view.frame.size.width) withDuration:.25];
+    textField.text = @"";
+    [self.tableView reloadData];
     return YES;
 }
 
