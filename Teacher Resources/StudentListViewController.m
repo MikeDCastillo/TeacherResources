@@ -34,15 +34,25 @@
     
     //Plus Button
     UIButton *addStudentButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addStudentButton setTitle:@"New Student" forState:UIControlStateNormal];
-    addStudentButton.frame = CGRectMake(self.view.frame.size.width - 135, 35.0, 150.0, 20.0);
+    [addStudentButton setTitle:@"+" forState:UIControlStateNormal];
+    addStudentButton.frame = CGRectMake(self.view.frame.size.width - 110, 35.0, 150.0, 20.0);
     addStudentButton.titleLabel.tintColor = [UIColor whiteColor];
+    addStudentButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:50.0];
     [addStudentButton addTarget:self action:@selector(addStudent) forControlEvents:UIControlEventTouchUpInside];
+    
     [addStudentsView addSubview:addStudentButton];
+    
+    //Class Title
+    UILabel *groupNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 35, 250, 25)];
+    groupNameLabel.text = self.group.title;
+    groupNameLabel.textAlignment = NSTextAlignmentCenter;
+    groupNameLabel.font = [UIFont fontWithName:@"Chalkduster" size:28];
+    groupNameLabel.textColor = [UIColor whiteColor];
+    [addStudentsView addSubview:groupNameLabel];
     
     [self.view addSubview:addStudentsView];
     
-    //TableView Config
+    //TableView Configuration
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 114) style:UITableViewStyleGrouped];
     
     //DataSource + Delegate
@@ -54,7 +64,7 @@
     UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     doneButton.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
     [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton.titleLabel setFont:[UIFont fontWithName:@"" size:18]];
+    [doneButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:18]];
     [doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [doneButton setBackgroundColor:[UIColor fern]];
     [doneButton addTarget:self action:@selector(removeAddStudentsView) forControlEvents:UIControlEventTouchUpInside];
@@ -88,8 +98,8 @@
     
     [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
     [cancelButton setTintColor:[UIColor whiteColor]];
-    [cancelButton.titleLabel setFont:[UIFont fontWithName:@"" size:30.0]];
-    [cancelButton setFrame: CGRectMake(self.view.frame.size.width - 85, 31.0, 80.0, 20.0)];
+    [cancelButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:20]];
+    [cancelButton setFrame: CGRectMake(self.view.frame.size.width - 85, 31, 80, 20)];
     [self.studentNameView addSubview:cancelButton];
     
     [self.view addSubview:self.studentNameView];
@@ -97,7 +107,7 @@
     
 }
 
--(void)cancelButtonPressed {
+- (void)cancelButtonPressed {
 
     [self moveOver:self.studentNameView thisMuch:-(self.view.frame.size.width) withDuration:.25];
     [self.addTextField resignFirstResponder];
@@ -109,7 +119,7 @@
 
 #pragma mark - TextField Delegate Methods
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
         return NO;
     }
@@ -135,13 +145,12 @@
 
 #pragma mark -  Animations
 
--(void)moveOver:(UIView *)view thisMuch:(float)distance withDuration:(float)duration {
+- (void)moveOver:(UIView *)view thisMuch:(float)distance withDuration:(float)duration {
     
     [UIView animateWithDuration:duration animations:^{
         view.center = CGPointMake(view.center.x + distance, view.center.y);
         
     }];
 }
-
 
 @end
