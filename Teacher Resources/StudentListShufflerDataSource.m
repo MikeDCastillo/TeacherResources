@@ -14,7 +14,7 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 @interface StudentListShufflerDataSource ()
 
 @property (strong, nonatomic) Group *group;
-@property (strong, nonatomic) NSArray *members;
+
 
 @end
 

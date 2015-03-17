@@ -32,7 +32,7 @@
     
     [self setupViews]; 
     
-    self.datasource = [StudentListDataSource new];
+    self.datasource = [StudentListShufflerDataSource new];
     
     self.view.backgroundColor = [UIColor redColor];
     
@@ -116,39 +116,45 @@
 
 - (void)arrangeAtoZ {
     
-    // 1
+    NSMutableArray *array = [NSMutableArray new];
     
-//    NSSortDescriptor *sorter = [[NSSortDescriptor alloc]initWithKey:@"student" ascending:YES];
-//    
-//    NSArray *sortDescriptor = [NSArray arrayWithObjects:sorter, nil];
+    for (NSString *student in self.group.members) {
+        [array addObject:student];
+    }
     
-    // 2
-    
-//    NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"studentName" ascending:YES @selector(caseInsensitiveCompare:)];
-    
-    // 3
-    
-//    NSSortDescriptor *sorter = [[NSSortDescriptor alloc]initWithKey:nil ascending:YES];
-    
-    // 4
-    
-//    NSArray *studentArray = [GroupController sharedInstance].group.members;
-//    
-//    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-//    studentArray = [anArray sortedArrayUsingDescriptors:@[sortDescriptor]];
-    
-                             
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSArray *sortedArray;
+    sortedArray = [array sortedArrayUsingDescriptors:@[sortDescriptor]];
+    self.datasource.members = sortedArray;
+    [self.tableView reloadData];
     
 }
 
 - (void)arrangeZtoA {
     
+    NSMutableArray *array = [NSMutableArray new];
+    
+    for (NSString *student in self.group.members) {
+        [array addObject:student];
+    }
+    
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    NSArray *sortedArray;
+    sortedArray = [array sortedArrayUsingDescriptors:@[sortDescriptor]];
+    self.datasource.members = sortedArray;
+    [self.tableView reloadData];
     
 }
 
 - (void)shuffle {
     
-
+    NSMutableArray *array = [NSMutableArray new];
+    
+    for (NSString *student in self.group.members) {
+        [array addObject:student];
+    }
+    
+    [GroupController sharedInstance].group = [[GroupController sharedInstance]shuffle:array];
     
 }
 
