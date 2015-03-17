@@ -27,8 +27,6 @@
 		6A048AC31AAA477900C7E790 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A048AC11AAA477900C7E790 /* LaunchScreen.xib */; };
 		6A048ACF1AAA477900C7E790 /* Teacher_ResourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048ACE1AAA477900C7E790 /* Teacher_ResourcesTests.m */; };
 		6A1754CB1AB7899300B620CB /* AppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754CA1AB7899200B620CB /* AppearanceController.m */; };
-<<<<<<< Updated upstream
-=======
 		6A1754F11AB7963000B620CB /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754CF1AB7963000B620CB /* check@2x.png */; };
 		6A1754F21AB7963000B620CB /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754D01AB7963000B620CB /* clock@2x.png */; };
 		6A1754F31AB7963000B620CB /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754D11AB7963000B620CB /* cross@2x.png */; };
@@ -54,7 +52,6 @@
 		6A17558D1AB8C07B00B620CB /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1755861AB8C07B00B620CB /* Icon-60@2x.png */; };
 		6A17558E1AB8C07B00B620CB /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1755871AB8C07B00B620CB /* Icon-60@3x.png */; };
 		6A17558F1AB8C07B00B620CB /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1755881AB8C07B00B620CB /* Icon-76@2x.png */; };
->>>>>>> Stashed changes
 		6A9335291AB33BFF00F00C6D /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9335251AB33BFF00F00C6D /* Timer.m */; };
 		6A93352A1AB33BFF00F00C6D /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9335271AB33BFF00F00C6D /* TimerViewController.m */; };
 		6A93352B1AB33BFF00F00C6D /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A9335281AB33BFF00F00C6D /* TimerViewController.xib */; };
@@ -62,21 +59,6 @@
 		6AFD4E661AAE8AA900308595 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E651AAE8AA900308595 /* Group.m */; };
 		6AFD4E691AAE8AA900308595 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E681AAE8AA900308595 /* Member.m */; };
 		EBBF55461AAF83B2006EF8ED /* MembersCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */; };
-<<<<<<< Updated upstream
-		EBBF55601AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF555F1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m */; };
-		EBBF55661AB0F8E1006EF8ED /* NewStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF55651AB0F8E1006EF8ED /* NewStudentViewController.m */; };
-		EBC589101AB8C7AE003B7C9D /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC588FC1AB8C7AE003B7C9D /* cross@2x.png */; };
-		EBC589111AB8C7AE003B7C9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBC588FE1AB8C7AE003B7C9D /* InfoPlist.strings */; };
-		EBC589121AB8C7AE003B7C9D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC589001AB8C7AE003B7C9D /* MainStoryboard.storyboard */; };
-		EBC589131AB8C7AE003B7C9D /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC589021AB8C7AE003B7C9D /* list@2x.png */; };
-		EBC589141AB8C7AE003B7C9D /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC589051AB8C7AE003B7C9D /* NSMutableArray+SWUtilityButtons.m */; };
-		EBC589151AB8C7AE003B7C9D /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC589071AB8C7AE003B7C9D /* SWCellScrollView.m */; };
-		EBC589161AB8C7AE003B7C9D /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC589091AB8C7AE003B7C9D /* SWLongPressGestureRecognizer.m */; };
-		EBC589171AB8C7AE003B7C9D /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC5890B1AB8C7AE003B7C9D /* SWTableViewCell.m */; };
-		EBC589181AB8C7AE003B7C9D /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC5890D1AB8C7AE003B7C9D /* SWUtilityButtonTapGestureRecognizer.m */; };
-		EBC589191AB8C7AE003B7C9D /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC5890F1AB8C7AE003B7C9D /* SWUtilityButtonView.m */; };
-=======
->>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,8 +110,6 @@
 		6A048ACE1AAA477900C7E790 /* Teacher_ResourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Teacher_ResourcesTests.m; sourceTree = "<group>"; };
 		6A1754C91AB7899200B620CB /* AppearanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceController.h; sourceTree = "<group>"; };
 		6A1754CA1AB7899200B620CB /* AppearanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearanceController.m; sourceTree = "<group>"; };
-<<<<<<< Updated upstream
-=======
 		6A1754CF1AB7963000B620CB /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		6A1754D01AB7963000B620CB /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		6A1754D11AB7963000B620CB /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
@@ -164,7 +144,6 @@
 		6A1755861AB8C07B00B620CB /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		6A1755871AB8C07B00B620CB /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
 		6A1755881AB8C07B00B620CB /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
->>>>>>> Stashed changes
 		6A9335241AB33BFF00F00C6D /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		6A9335251AB33BFF00F00C6D /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		6A9335261AB33BFF00F00C6D /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
@@ -178,29 +157,6 @@
 		6AFD4E681AAE8AA900308595 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Member.m; path = ../Member.m; sourceTree = "<group>"; };
 		EBBF55441AAF83B2006EF8ED /* MembersCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersCollectionViewCell.h; sourceTree = "<group>"; };
 		EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersCollectionViewCell.m; sourceTree = "<group>"; };
-<<<<<<< Updated upstream
-		EBBF555E1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedGroupsAppereanceController.h; sourceTree = "<group>"; };
-		EBBF555F1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedGroupsAppereanceController.m; sourceTree = "<group>"; };
-		EBBF55641AB0F8E1006EF8ED /* NewStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewStudentViewController.h; sourceTree = "<group>"; };
-		EBBF55651AB0F8E1006EF8ED /* NewStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewStudentViewController.m; sourceTree = "<group>"; };
-		EBC588FC1AB8C7AE003B7C9D /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
-		EBC588FF1AB8C7AE003B7C9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		EBC589011AB8C7AE003B7C9D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		EBC589021AB8C7AE003B7C9D /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
-		EBC589041AB8C7AE003B7C9D /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
-		EBC589051AB8C7AE003B7C9D /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
-		EBC589061AB8C7AE003B7C9D /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
-		EBC589071AB8C7AE003B7C9D /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCellScrollView.m; sourceTree = "<group>"; };
-		EBC589081AB8C7AE003B7C9D /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
-		EBC589091AB8C7AE003B7C9D /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
-		EBC5890A1AB8C7AE003B7C9D /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
-		EBC5890B1AB8C7AE003B7C9D /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
-		EBC5890C1AB8C7AE003B7C9D /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
-		EBC5890D1AB8C7AE003B7C9D /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
-		EBC5890E1AB8C7AE003B7C9D /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
-		EBC5890F1AB8C7AE003B7C9D /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
-=======
->>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,10 +255,7 @@
 		6A048AB21AAA477800C7E790 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EBC588FC1AB8C7AE003B7C9D /* cross@2x.png */,
-				EBC588FD1AB8C7AE003B7C9D /* en.lproj */,
-				EBC589021AB8C7AE003B7C9D /* list@2x.png */,
-				EBC589031AB8C7AE003B7C9D /* PodFiles */,
+				6A1754CC1AB7963000B620CB /* SWTableViewCell */,
 				6AFD4E5B1AAE4F3500308595 /* UIColor+Category.h */,
 				6AFD4E5C1AAE4F3500308595 /* UIColor+Category.m */,
 				6A048AB31AAA477800C7E790 /* Info.plist */,
@@ -328,8 +281,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-<<<<<<< Updated upstream
-=======
 		6A1754CC1AB7963000B620CB /* SWTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,7 +339,6 @@
 			path = "../../../../../../Downloads/TRLogo icons";
 			sourceTree = "<group>";
 		};
->>>>>>> Stashed changes
 		6AFD4E561AAE4A1200308595 /* Model/Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,34 +396,6 @@
 				EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */,
 			);
 			name = "Randomized Groups";
-			sourceTree = "<group>";
-		};
-		EBC588FD1AB8C7AE003B7C9D /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				EBC588FE1AB8C7AE003B7C9D /* InfoPlist.strings */,
-				EBC589001AB8C7AE003B7C9D /* MainStoryboard.storyboard */,
-			);
-			path = en.lproj;
-			sourceTree = "<group>";
-		};
-		EBC589031AB8C7AE003B7C9D /* PodFiles */ = {
-			isa = PBXGroup;
-			children = (
-				EBC589041AB8C7AE003B7C9D /* NSMutableArray+SWUtilityButtons.h */,
-				EBC589051AB8C7AE003B7C9D /* NSMutableArray+SWUtilityButtons.m */,
-				EBC589061AB8C7AE003B7C9D /* SWCellScrollView.h */,
-				EBC589071AB8C7AE003B7C9D /* SWCellScrollView.m */,
-				EBC589081AB8C7AE003B7C9D /* SWLongPressGestureRecognizer.h */,
-				EBC589091AB8C7AE003B7C9D /* SWLongPressGestureRecognizer.m */,
-				EBC5890A1AB8C7AE003B7C9D /* SWTableViewCell.h */,
-				EBC5890B1AB8C7AE003B7C9D /* SWTableViewCell.m */,
-				EBC5890C1AB8C7AE003B7C9D /* SWUtilityButtonTapGestureRecognizer.h */,
-				EBC5890D1AB8C7AE003B7C9D /* SWUtilityButtonTapGestureRecognizer.m */,
-				EBC5890E1AB8C7AE003B7C9D /* SWUtilityButtonView.h */,
-				EBC5890F1AB8C7AE003B7C9D /* SWUtilityButtonView.m */,
-			);
-			path = PodFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,13 +479,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< Updated upstream
-				EBC589111AB8C7AE003B7C9D /* InfoPlist.strings in Resources */,
-				6A93352B1AB33BFF00F00C6D /* TimerViewController.xib in Resources */,
-				EBC589131AB8C7AE003B7C9D /* list@2x.png in Resources */,
-				6A048ABE1AAA477800C7E790 /* Main.storyboard in Resources */,
-				EBC589101AB8C7AE003B7C9D /* cross@2x.png in Resources */,
-=======
 				6A17558B1AB8C07B00B620CB /* Icon-40@2x.png in Resources */,
 				6A1754F91AB7963000B620CB /* list@2x.png in Resources */,
 				6A93352B1AB33BFF00F00C6D /* TimerViewController.xib in Resources */,
@@ -578,17 +493,13 @@
 				6A17558A1AB8C07B00B620CB /* Icon-40.png in Resources */,
 				6A1755031AB7963000B620CB /* um.png in Resources */,
 				6A1754F41AB7963000B620CB /* Default-568h@2x.png in Resources */,
->>>>>>> Stashed changes
 				6A048AC31AAA477900C7E790 /* LaunchScreen.xib in Resources */,
-				EBC589121AB8C7AE003B7C9D /* MainStoryboard.storyboard in Resources */,
+				6A1754F21AB7963000B620CB /* clock@2x.png in Resources */,
 				6A048AC01AAA477900C7E790 /* Images.xcassets in Resources */,
-<<<<<<< Updated upstream
-=======
 				6A17558E1AB8C07B00B620CB /* Icon-60@3x.png in Resources */,
 				6A1754F51AB7963000B620CB /* Default.png in Resources */,
 				6A17558D1AB8C07B00B620CB /* Icon-60@2x.png in Resources */,
 				6A1755891AB8C07B00B620CB /* Icon-29.png in Resources */,
->>>>>>> Stashed changes
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,31 +517,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< Updated upstream
-				EBBF55601AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m in Sources */,
-=======
 				6A1755051AB7963000B620CB /* ViewController.m in Sources */,
->>>>>>> Stashed changes
 				EBBF55461AAF83B2006EF8ED /* MembersCollectionViewCell.m in Sources */,
 				27CC8F131AAA6B740051D062 /* RandomizedGroupsViewController.m in Sources */,
 				2765C79B1AB0E72E009F9DD7 /* FeaturesCollectionViewCell.m in Sources */,
 				6A1754CB1AB7899300B620CB /* AppearanceController.m in Sources */,
 				6A93352A1AB33BFF00F00C6D /* TimerViewController.m in Sources */,
 				6A9335291AB33BFF00F00C6D /* Timer.m in Sources */,
-				EBC589161AB8C7AE003B7C9D /* SWLongPressGestureRecognizer.m in Sources */,
+				6A1754FF1AB7963000B620CB /* SWTableViewCell.m in Sources */,
 				27CC8F1F1AAA6D350051D062 /* FeaturesViewControllerDataSource.m in Sources */,
 				27CC8F261AAA7BAF0051D062 /* StudentListViewController.m in Sources */,
 				2765C7DC1AB38954009F9DD7 /* StudentListShufflerViewController.m in Sources */,
 				27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */,
 				27CC8F291AAA7C8A0051D062 /* Model.xcdatamodeld in Sources */,
-<<<<<<< Updated upstream
-				EBC589141AB8C7AE003B7C9D /* NSMutableArray+SWUtilityButtons.m in Sources */,
-				EBBF55661AB0F8E1006EF8ED /* NewStudentViewController.m in Sources */,
-=======
 				6A1755041AB7963000B620CB /* UMTableViewCell.m in Sources */,
 				6A1755001AB7963000B620CB /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
->>>>>>> Stashed changes
 				6A048ABB1AAA477800C7E790 /* GroupViewController.m in Sources */,
+				6A1754FD1AB7963000B620CB /* SWCellScrollView.m in Sources */,
 				27CC8EF91AAA695A0051D062 /* FeaturesViewController.m in Sources */,
 				6AFD4E691AAE8AA900308595 /* Member.m in Sources */,
 				6AFD4E661AAE8AA900308595 /* Group.m in Sources */,
@@ -639,12 +542,11 @@
 				27CC8F2C1AABF0F30051D062 /* StudentListDataSource.m in Sources */,
 				6A048AB51AAA477800C7E790 /* main.m in Sources */,
 				27CC8F0D1AAA6ACC0051D062 /* GroupController.m in Sources */,
-				EBC589171AB8C7AE003B7C9D /* SWTableViewCell.m in Sources */,
-				EBC589181AB8C7AE003B7C9D /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				6A1754FC1AB7963000B620CB /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				6AFD4E5D1AAE4F3500308595 /* UIColor+Category.m in Sources */,
-				EBC589191AB8C7AE003B7C9D /* SWUtilityButtonView.m in Sources */,
+				6A1755011AB7963000B620CB /* SWUtilityButtonView.m in Sources */,
 				2765C7D91AB388FE009F9DD7 /* StudentListShufflerDataSource.m in Sources */,
-				EBC589151AB8C7AE003B7C9D /* SWCellScrollView.m in Sources */,
+				6A1754FE1AB7963000B620CB /* SWLongPressGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,20 +585,12 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		EBC588FE1AB8C7AE003B7C9D /* InfoPlist.strings */ = {
+		6A1754D51AB7963000B620CB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EBC588FF1AB8C7AE003B7C9D /* en */,
+				6A1754D61AB7963000B620CB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		EBC589001AB8C7AE003B7C9D /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EBC589011AB8C7AE003B7C9D /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
