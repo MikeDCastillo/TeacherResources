@@ -36,7 +36,11 @@
     name = [[UILabel alloc]initWithFrame:self.labelFrame];
     [name setTextAlignment:NSTextAlignmentCenter];
     [name setTextColor:[UIColor whiteColor]];
+<<<<<<< Updated upstream
     [name setFont:[UIFont fontWithName:@"Chalkduster" size:20]];
+=======
+    [name setFont:[UIFont fontWithName:@"Chalkboard" size:20]];
+>>>>>>> Stashed changes
     [self addSubview:name];
 }
 

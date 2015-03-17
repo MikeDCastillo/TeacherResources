@@ -17,6 +17,7 @@
 //@property (nonatomic, strong) UITableView *tableView;
 @property (strong, nonatomic) UIView *addStudentsCV;
 @property (strong, nonatomic) UITextField *addTextField;
+@property (strong, nonatomic) UIButton *addClassButton;
 
 @end
 
@@ -26,17 +27,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView reloadData];
-        
+    
     //Add Class PLUS button
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithTitle:@"New" style:UIBarButtonItemStylePlain target:self action:@selector(addGroup:)];
+    self.addClassButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.addClassButton setTitle:@"+" forState:UIControlStateNormal];
+    self.addClassButton.frame = CGRectMake(0, 15.0, 30.0, 20.0);
+    self.addClassButton.titleLabel.tintColor = [UIColor whiteColor];
+    self.addClassButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:50.0];
+    [self.addClassButton addTarget:self action:@selector(animatePlusButton) forControlEvents:UIControlEventTouchDown];
+    [self.addClassButton addTarget:self action:@selector(addGroup:) forControlEvents:UIControlEventTouchUpInside];
+
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithCustomView:self.addClassButton];
     self.navigationItem.rightBarButtonItem = addButton;
     
     
     //Navigation Bar Title
     self.title = @"Teacher Resources";
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor chalkboardGreen];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
     
     //Background Color
@@ -160,9 +169,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.addStudentsCV removeFromSuperview];
     
-    FeaturesViewController *featuresViewController = [FeaturesViewController new];
-    [featuresViewController updateWithGroup:[GroupController sharedInstance].groups[indexPath.row]];
+    Group *currentGroup = [GroupController sharedInstance].groups[indexPath.row];
     
+    FeaturesViewController *featuresViewController = [FeaturesViewController new];
+    [featuresViewController updateWithGroup:currentGroup];
+    
+    [GroupController sharedInstance].temporaryStudentList = [currentGroup.members array];
     [self.navigationController pushViewController:featuresViewController animated:YES];
     
 }
@@ -219,6 +231,19 @@
     [UIView animateWithDuration:duration animations:^{
         view.center = CGPointMake(view.center.x + distance, view.center.y);
         
+    }];
+}
+
+- (void)animatePlusButton {
+    [self growsOnTouch:self.addClassButton withDuration:.3];
+}
+
+- (void)growsOnTouch:(UIView *)view withDuration:(float)duration {
+    CGAffineTransform bigger = CGAffineTransformMakeScale(5, 5);
+    CGAffineTransform smaller = CGAffineTransformMakeScale(1, 1);
+    [UIView animateWithDuration:duration animations:^{
+        view.transform = bigger;
+        view.transform = smaller;
     }];
 }
 

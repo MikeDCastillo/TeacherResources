@@ -18,6 +18,7 @@ static NSString * const studentKey = @"studentKey";
 @property (nonatomic, strong, readonly) NSArray *groups;
 @property (nonatomic, strong) Group *group;
 @property (nonatomic, strong) Member *member;
+@property (nonatomic, strong) NSArray *temporaryStudentList;
 
 + (GroupController *)sharedInstance;
 
@@ -30,7 +31,7 @@ static NSString * const studentKey = @"studentKey";
 
 - (void)removeMember: (Member *)member;
 
-- (void)shuffle:(NSArray *)array;
+- (NSArray *)shuffle:(NSArray *)array;
 
 - (void)synchronize;
 

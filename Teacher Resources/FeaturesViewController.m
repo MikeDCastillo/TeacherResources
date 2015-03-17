@@ -15,15 +15,20 @@
 
 @implementation FeaturesViewController
 
+- (void)updateWithGroup:(Group *)group {
+    
+    self.group = group;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Features"; 
+    self.title = [NSString stringWithFormat:@"%@-Features", self.group.title];
     
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor chalkboardGreen];
     
     layout.sectionInset = UIEdgeInsetsMake(2.0, 2.0, 2.0, 2.0);
 
@@ -37,10 +42,7 @@
     
 }
 
-- (void)updateWithGroup:(Group *)group {
-    
-    self.group = group;
-}
+
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -57,9 +59,7 @@
             RandomizedGroupsViewController *randomizedGroupsViewController = [RandomizedGroupsViewController new];
             
             [randomizedGroupsViewController updateWithGroup:self.group];
-            
             [self.navigationController pushViewController:randomizedGroupsViewController animated:YES];
-            
             
             break; }
         case 1: {
@@ -67,53 +67,24 @@
             StudentListViewController *listViewController = [StudentListViewController new];
             
             [listViewController updateWithGroup:self.group];
-            
             [self.navigationController pushViewController:listViewController animated:YES];
-            
             
             break; }
         case 2: {
             
-            StudentListShufflerViewController *studentListShufflerViewController = [StudentListShufflerViewController new];
-            
-            [studentListShufflerViewController updateWithGroup:self.group];
-            
-            [self.navigationController pushViewController:studentListShufflerViewController animated:YES];
-            
+           
             
             break; }
         case 3: {
             
             TimerViewController *timerViewController = [TimerViewController new];
-            
             [self.navigationController pushViewController:timerViewController animated:YES];
 
-            
             break; }
-
             
         default:
             break;
     }
-    
-
-    
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -1,5 +1,5 @@
 //
-//  GroupDetailViewController.m
+//  StudentListViewController.m
 //  Teacher Resources
 //
 //  Created by Ethan Hess on 3/6/15.
@@ -32,9 +32,10 @@
     self.datasource = [StudentListDataSource new];
     
     UIView *addStudentsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
-    addStudentsView.backgroundColor = [UIColor trBlueColor];
+    addStudentsView.backgroundColor = [UIColor chalkboardGreen];
     
     //Add Student Plus Button
+    
     self.addStudentButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.addStudentButton setTitle:@"+" forState:UIControlStateNormal];
     self.addStudentButton.frame = CGRectMake(self.view.frame.size.width - 110, 35.0, 150.0, 20.0);
@@ -67,9 +68,9 @@
     self.doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.doneButton.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
     [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [self.doneButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:18]];
+    [self.doneButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:22]];
     [self.doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.doneButton setBackgroundColor:[UIColor fern]];
+    [self.doneButton setBackgroundColor:[UIColor chalkboardGreen]];
     [self.doneButton addTarget:self action:@selector(removeAddStudentsView) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:self.tableView];
@@ -81,7 +82,7 @@
     
 //Create Custom Subview for adding students
     self.studentNameView = [[UIView alloc] initWithFrame:CGRectMake(-(self.view.frame.size.width), 0, self.view.frame.size.width, 64)];
-    self.studentNameView.backgroundColor = [UIColor fern];
+    self.studentNameView.backgroundColor = [UIColor trBlueColor];
     
     //Text Field
     self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 22, 250, 35)];

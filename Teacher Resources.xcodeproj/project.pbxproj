@@ -27,6 +27,34 @@
 		6A048AC31AAA477900C7E790 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A048AC11AAA477900C7E790 /* LaunchScreen.xib */; };
 		6A048ACF1AAA477900C7E790 /* Teacher_ResourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048ACE1AAA477900C7E790 /* Teacher_ResourcesTests.m */; };
 		6A1754CB1AB7899300B620CB /* AppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754CA1AB7899200B620CB /* AppearanceController.m */; };
+<<<<<<< Updated upstream
+=======
+		6A1754F11AB7963000B620CB /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754CF1AB7963000B620CB /* check@2x.png */; };
+		6A1754F21AB7963000B620CB /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754D01AB7963000B620CB /* clock@2x.png */; };
+		6A1754F31AB7963000B620CB /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754D11AB7963000B620CB /* cross@2x.png */; };
+		6A1754F41AB7963000B620CB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754D21AB7963000B620CB /* Default-568h@2x.png */; };
+		6A1754F51AB7963000B620CB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754D31AB7963000B620CB /* Default.png */; };
+		6A1754F61AB7963000B620CB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754D41AB7963000B620CB /* Default@2x.png */; };
+		6A1754F71AB7963000B620CB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754D51AB7963000B620CB /* InfoPlist.strings */; };
+		6A1754F91AB7963000B620CB /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754D91AB7963000B620CB /* list@2x.png */; };
+		6A1754FC1AB7963000B620CB /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754DE1AB7963000B620CB /* NSMutableArray+SWUtilityButtons.m */; };
+		6A1754FD1AB7963000B620CB /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754E01AB7963000B620CB /* SWCellScrollView.m */; };
+		6A1754FE1AB7963000B620CB /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754E21AB7963000B620CB /* SWLongPressGestureRecognizer.m */; };
+		6A1754FF1AB7963000B620CB /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754E41AB7963000B620CB /* SWTableViewCell.m */; };
+		6A1755001AB7963000B620CB /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754E61AB7963000B620CB /* SWUtilityButtonTapGestureRecognizer.m */; };
+		6A1755011AB7963000B620CB /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754E81AB7963000B620CB /* SWUtilityButtonView.m */; };
+		6A1755021AB7963000B620CB /* SWTableViewCell-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754E91AB7963000B620CB /* SWTableViewCell-Info.plist */; };
+		6A1755031AB7963000B620CB /* um.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1754EB1AB7963000B620CB /* um.png */; };
+		6A1755041AB7963000B620CB /* UMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754ED1AB7963000B620CB /* UMTableViewCell.m */; };
+		6A1755051AB7963000B620CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754EF1AB7963000B620CB /* ViewController.m */; };
+		6A1755891AB8C07B00B620CB /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1755821AB8C07B00B620CB /* Icon-29.png */; };
+		6A17558A1AB8C07B00B620CB /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1755831AB8C07B00B620CB /* Icon-40.png */; };
+		6A17558B1AB8C07B00B620CB /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1755841AB8C07B00B620CB /* Icon-40@2x.png */; };
+		6A17558C1AB8C07B00B620CB /* Icon-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1755851AB8C07B00B620CB /* Icon-40@3x.png */; };
+		6A17558D1AB8C07B00B620CB /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1755861AB8C07B00B620CB /* Icon-60@2x.png */; };
+		6A17558E1AB8C07B00B620CB /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1755871AB8C07B00B620CB /* Icon-60@3x.png */; };
+		6A17558F1AB8C07B00B620CB /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1755881AB8C07B00B620CB /* Icon-76@2x.png */; };
+>>>>>>> Stashed changes
 		6A9335291AB33BFF00F00C6D /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9335251AB33BFF00F00C6D /* Timer.m */; };
 		6A93352A1AB33BFF00F00C6D /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9335271AB33BFF00F00C6D /* TimerViewController.m */; };
 		6A93352B1AB33BFF00F00C6D /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A9335281AB33BFF00F00C6D /* TimerViewController.xib */; };
@@ -34,6 +62,7 @@
 		6AFD4E661AAE8AA900308595 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E651AAE8AA900308595 /* Group.m */; };
 		6AFD4E691AAE8AA900308595 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E681AAE8AA900308595 /* Member.m */; };
 		EBBF55461AAF83B2006EF8ED /* MembersCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */; };
+<<<<<<< Updated upstream
 		EBBF55601AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF555F1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m */; };
 		EBBF55661AB0F8E1006EF8ED /* NewStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF55651AB0F8E1006EF8ED /* NewStudentViewController.m */; };
 		EBC589101AB8C7AE003B7C9D /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC588FC1AB8C7AE003B7C9D /* cross@2x.png */; };
@@ -46,6 +75,8 @@
 		EBC589171AB8C7AE003B7C9D /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC5890B1AB8C7AE003B7C9D /* SWTableViewCell.m */; };
 		EBC589181AB8C7AE003B7C9D /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC5890D1AB8C7AE003B7C9D /* SWUtilityButtonTapGestureRecognizer.m */; };
 		EBC589191AB8C7AE003B7C9D /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC5890F1AB8C7AE003B7C9D /* SWUtilityButtonView.m */; };
+=======
+>>>>>>> Stashed changes
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +128,43 @@
 		6A048ACE1AAA477900C7E790 /* Teacher_ResourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Teacher_ResourcesTests.m; sourceTree = "<group>"; };
 		6A1754C91AB7899200B620CB /* AppearanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceController.h; sourceTree = "<group>"; };
 		6A1754CA1AB7899200B620CB /* AppearanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearanceController.m; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+=======
+		6A1754CF1AB7963000B620CB /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		6A1754D01AB7963000B620CB /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		6A1754D11AB7963000B620CB /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cross@2x.png"; sourceTree = "<group>"; };
+		6A1754D21AB7963000B620CB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6A1754D31AB7963000B620CB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		6A1754D41AB7963000B620CB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		6A1754D61AB7963000B620CB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6A1754D91AB7963000B620CB /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
+		6A1754DD1AB7963000B620CB /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
+		6A1754DE1AB7963000B620CB /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
+		6A1754DF1AB7963000B620CB /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
+		6A1754E01AB7963000B620CB /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCellScrollView.m; sourceTree = "<group>"; };
+		6A1754E11AB7963000B620CB /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		6A1754E21AB7963000B620CB /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		6A1754E31AB7963000B620CB /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		6A1754E41AB7963000B620CB /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
+		6A1754E51AB7963000B620CB /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		6A1754E61AB7963000B620CB /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		6A1754E71AB7963000B620CB /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
+		6A1754E81AB7963000B620CB /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		6A1754E91AB7963000B620CB /* SWTableViewCell-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SWTableViewCell-Info.plist"; sourceTree = "<group>"; };
+		6A1754EA1AB7963000B620CB /* SWTableViewCell-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWTableViewCell-Prefix.pch"; sourceTree = "<group>"; };
+		6A1754EB1AB7963000B620CB /* um.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = um.png; sourceTree = "<group>"; };
+		6A1754EC1AB7963000B620CB /* UMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMTableViewCell.h; sourceTree = "<group>"; };
+		6A1754ED1AB7963000B620CB /* UMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMTableViewCell.m; sourceTree = "<group>"; };
+		6A1754EE1AB7963000B620CB /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6A1754EF1AB7963000B620CB /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6A1755821AB8C07B00B620CB /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
+		6A1755831AB8C07B00B620CB /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
+		6A1755841AB8C07B00B620CB /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		6A1755851AB8C07B00B620CB /* Icon-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@3x.png"; sourceTree = "<group>"; };
+		6A1755861AB8C07B00B620CB /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		6A1755871AB8C07B00B620CB /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		6A1755881AB8C07B00B620CB /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		6A9335241AB33BFF00F00C6D /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		6A9335251AB33BFF00F00C6D /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		6A9335261AB33BFF00F00C6D /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
@@ -110,6 +178,7 @@
 		6AFD4E681AAE8AA900308595 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Member.m; path = ../Member.m; sourceTree = "<group>"; };
 		EBBF55441AAF83B2006EF8ED /* MembersCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersCollectionViewCell.h; sourceTree = "<group>"; };
 		EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersCollectionViewCell.m; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		EBBF555E1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedGroupsAppereanceController.h; sourceTree = "<group>"; };
 		EBBF555F1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedGroupsAppereanceController.m; sourceTree = "<group>"; };
 		EBBF55641AB0F8E1006EF8ED /* NewStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewStudentViewController.h; sourceTree = "<group>"; };
@@ -130,6 +199,8 @@
 		EBC5890D1AB8C7AE003B7C9D /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
 		EBC5890E1AB8C7AE003B7C9D /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
 		EBC5890F1AB8C7AE003B7C9D /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+=======
+>>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +289,7 @@
 				2765C7D61AB388BE009F9DD7 /* Student List Shuffler  */,
 				6AFD4E591AAE4B4900308595 /* Timer */,
 				6A048ABF1AAA477900C7E790 /* Images.xcassets */,
+				6A1755811AB8C07B00B620CB /* TRLogo icons */,
 				6A048AC11AAA477900C7E790 /* LaunchScreen.xib */,
 				6A048AB21AAA477800C7E790 /* Supporting Files */,
 			);
@@ -256,6 +328,67 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+<<<<<<< Updated upstream
+=======
+		6A1754CC1AB7963000B620CB /* SWTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				6A1754CF1AB7963000B620CB /* check@2x.png */,
+				6A1754D01AB7963000B620CB /* clock@2x.png */,
+				6A1754D11AB7963000B620CB /* cross@2x.png */,
+				6A1754D21AB7963000B620CB /* Default-568h@2x.png */,
+				6A1754D31AB7963000B620CB /* Default.png */,
+				6A1754D41AB7963000B620CB /* Default@2x.png */,
+				6A1754D51AB7963000B620CB /* InfoPlist.strings */,
+				6A1754D91AB7963000B620CB /* list@2x.png */,
+				6A1754DC1AB7963000B620CB /* PodFiles */,
+				6A1754E91AB7963000B620CB /* SWTableViewCell-Info.plist */,
+				6A1754EA1AB7963000B620CB /* SWTableViewCell-Prefix.pch */,
+				6A1754EB1AB7963000B620CB /* um.png */,
+				6A1754EC1AB7963000B620CB /* UMTableViewCell.h */,
+				6A1754ED1AB7963000B620CB /* UMTableViewCell.m */,
+				6A1754EE1AB7963000B620CB /* ViewController.h */,
+				6A1754EF1AB7963000B620CB /* ViewController.m */,
+			);
+			name = SWTableViewCell;
+			path = SWTableViewCell/SWTableViewCell;
+			sourceTree = SOURCE_ROOT;
+		};
+		6A1754DC1AB7963000B620CB /* PodFiles */ = {
+			isa = PBXGroup;
+			children = (
+				6A1754DD1AB7963000B620CB /* NSMutableArray+SWUtilityButtons.h */,
+				6A1754DE1AB7963000B620CB /* NSMutableArray+SWUtilityButtons.m */,
+				6A1754DF1AB7963000B620CB /* SWCellScrollView.h */,
+				6A1754E01AB7963000B620CB /* SWCellScrollView.m */,
+				6A1754E11AB7963000B620CB /* SWLongPressGestureRecognizer.h */,
+				6A1754E21AB7963000B620CB /* SWLongPressGestureRecognizer.m */,
+				6A1754E31AB7963000B620CB /* SWTableViewCell.h */,
+				6A1754E41AB7963000B620CB /* SWTableViewCell.m */,
+				6A1754E51AB7963000B620CB /* SWUtilityButtonTapGestureRecognizer.h */,
+				6A1754E61AB7963000B620CB /* SWUtilityButtonTapGestureRecognizer.m */,
+				6A1754E71AB7963000B620CB /* SWUtilityButtonView.h */,
+				6A1754E81AB7963000B620CB /* SWUtilityButtonView.m */,
+			);
+			path = PodFiles;
+			sourceTree = "<group>";
+		};
+		6A1755811AB8C07B00B620CB /* TRLogo icons */ = {
+			isa = PBXGroup;
+			children = (
+				6A1755821AB8C07B00B620CB /* Icon-29.png */,
+				6A1755831AB8C07B00B620CB /* Icon-40.png */,
+				6A1755841AB8C07B00B620CB /* Icon-40@2x.png */,
+				6A1755851AB8C07B00B620CB /* Icon-40@3x.png */,
+				6A1755861AB8C07B00B620CB /* Icon-60@2x.png */,
+				6A1755871AB8C07B00B620CB /* Icon-60@3x.png */,
+				6A1755881AB8C07B00B620CB /* Icon-76@2x.png */,
+			);
+			name = "TRLogo icons";
+			path = "../../../../../../Downloads/TRLogo icons";
+			sourceTree = "<group>";
+		};
+>>>>>>> Stashed changes
 		6AFD4E561AAE4A1200308595 /* Model/Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,16 +438,12 @@
 		6AFD4E5A1AAE4B7100308595 /* Randomized Groups */ = {
 			isa = PBXGroup;
 			children = (
-				EBBF55641AB0F8E1006EF8ED /* NewStudentViewController.h */,
-				EBBF55651AB0F8E1006EF8ED /* NewStudentViewController.m */,
 				27CC8F111AAA6B740051D062 /* RandomizedGroupsViewController.h */,
 				27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */,
 				27CC8F191AAA6D000051D062 /* RandomizedViewControllerDataSource.h */,
 				27CC8F1A1AAA6D000051D062 /* RandomizedViewControllerDataSource.m */,
 				EBBF55441AAF83B2006EF8ED /* MembersCollectionViewCell.h */,
 				EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */,
-				EBBF555E1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.h */,
-				EBBF555F1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m */,
 			);
 			name = "Randomized Groups";
 			sourceTree = "<group>";
@@ -396,6 +525,7 @@
 				TargetAttributes = {
 					6A048AAE1AAA477800C7E790 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = WK6LDT652Z;
 					};
 					6A048AC71AAA477900C7E790 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -427,14 +557,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< Updated upstream
 				EBC589111AB8C7AE003B7C9D /* InfoPlist.strings in Resources */,
 				6A93352B1AB33BFF00F00C6D /* TimerViewController.xib in Resources */,
 				EBC589131AB8C7AE003B7C9D /* list@2x.png in Resources */,
 				6A048ABE1AAA477800C7E790 /* Main.storyboard in Resources */,
 				EBC589101AB8C7AE003B7C9D /* cross@2x.png in Resources */,
+=======
+				6A17558B1AB8C07B00B620CB /* Icon-40@2x.png in Resources */,
+				6A1754F91AB7963000B620CB /* list@2x.png in Resources */,
+				6A93352B1AB33BFF00F00C6D /* TimerViewController.xib in Resources */,
+				6A1754F31AB7963000B620CB /* cross@2x.png in Resources */,
+				6A17558F1AB8C07B00B620CB /* Icon-76@2x.png in Resources */,
+				6A17558C1AB8C07B00B620CB /* Icon-40@3x.png in Resources */,
+				6A048ABE1AAA477800C7E790 /* Main.storyboard in Resources */,
+				6A1754F11AB7963000B620CB /* check@2x.png in Resources */,
+				6A1755021AB7963000B620CB /* SWTableViewCell-Info.plist in Resources */,
+				6A1754F71AB7963000B620CB /* InfoPlist.strings in Resources */,
+				6A1754F61AB7963000B620CB /* Default@2x.png in Resources */,
+				6A17558A1AB8C07B00B620CB /* Icon-40.png in Resources */,
+				6A1755031AB7963000B620CB /* um.png in Resources */,
+				6A1754F41AB7963000B620CB /* Default-568h@2x.png in Resources */,
+>>>>>>> Stashed changes
 				6A048AC31AAA477900C7E790 /* LaunchScreen.xib in Resources */,
 				EBC589121AB8C7AE003B7C9D /* MainStoryboard.storyboard in Resources */,
 				6A048AC01AAA477900C7E790 /* Images.xcassets in Resources */,
+<<<<<<< Updated upstream
+=======
+				6A17558E1AB8C07B00B620CB /* Icon-60@3x.png in Resources */,
+				6A1754F51AB7963000B620CB /* Default.png in Resources */,
+				6A17558D1AB8C07B00B620CB /* Icon-60@2x.png in Resources */,
+				6A1755891AB8C07B00B620CB /* Icon-29.png in Resources */,
+>>>>>>> Stashed changes
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +606,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< Updated upstream
 				EBBF55601AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m in Sources */,
+=======
+				6A1755051AB7963000B620CB /* ViewController.m in Sources */,
+>>>>>>> Stashed changes
 				EBBF55461AAF83B2006EF8ED /* MembersCollectionViewCell.m in Sources */,
 				27CC8F131AAA6B740051D062 /* RandomizedGroupsViewController.m in Sources */,
 				2765C79B1AB0E72E009F9DD7 /* FeaturesCollectionViewCell.m in Sources */,
@@ -465,8 +623,13 @@
 				2765C7DC1AB38954009F9DD7 /* StudentListShufflerViewController.m in Sources */,
 				27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */,
 				27CC8F291AAA7C8A0051D062 /* Model.xcdatamodeld in Sources */,
+<<<<<<< Updated upstream
 				EBC589141AB8C7AE003B7C9D /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				EBBF55661AB0F8E1006EF8ED /* NewStudentViewController.m in Sources */,
+=======
+				6A1755041AB7963000B620CB /* UMTableViewCell.m in Sources */,
+				6A1755001AB7963000B620CB /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+>>>>>>> Stashed changes
 				6A048ABB1AAA477800C7E790 /* GroupViewController.m in Sources */,
 				27CC8EF91AAA695A0051D062 /* FeaturesViewController.m in Sources */,
 				6AFD4E691AAE8AA900308595 /* Member.m in Sources */,
@@ -620,6 +783,7 @@
 		6A048AD31AAA477900C7E790 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Teacher Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -629,6 +793,7 @@
 		6A048AD41AAA477900C7E790 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Teacher Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

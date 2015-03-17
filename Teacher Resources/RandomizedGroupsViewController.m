@@ -8,7 +8,6 @@
 
 #import "RandomizedGroupsViewController.h"
 #import "MembersCollectionViewCell.h"
-#import "NewStudentViewController.h"
 #import "RandomizedViewControllerDataSource.h"
 #import "Member.h"
 #import "UIColor+Category.h"
@@ -20,7 +19,6 @@
 @property (nonatomic,strong) RandomizedViewControllerDataSource * dataSource;
 @property (nonatomic,strong) GroupController *modelController;
 @property (nonatomic,strong) MembersCollectionViewCell * customCell;
-@property (nonatomic, strong) NSMutableArray * temporaryStudentList;
 
 
 @end
@@ -33,7 +31,6 @@
     self = [super init];
     if (self) {
         self.modelController = [GroupController new];
-        self.usableArray = [NSMutableArray arrayWithArray:[GroupController sharedInstance].group.members];
         self.dataSource = [RandomizedViewControllerDataSource new];
     }
     return self;
@@ -49,15 +46,12 @@
     
     screenHeight = self.view.frame.size.height;
     screenWidth = self.view.frame.size.width;
-    
-    [self registerNotifications];
-    
+        
     [self setupNavigationBar];
     
     [self setupCollectionView];
     
     [self setupToolBar];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -99,12 +93,12 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *message = [NSString stringWithFormat:@"Are you sure that you want to delete %@", [[GroupController sharedInstance].group.members objectAtIndex:indexPath.row]];
+    NSString *message = [NSString stringWithFormat:@"Are you sure that you want to delete %@", [[GroupController sharedInstance].temporaryStudentList objectAtIndex:indexPath.item]];
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:message delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
     [alert show];
     
-    self.arrayIndex = indexPath;
+
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -120,13 +114,6 @@
     return 0.0;
 }
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1)
-    {
-        [[GroupController sharedInstance] removeMember:self.arrayIndex];
-        [self refreshData];
-    }
-}
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
@@ -136,13 +123,6 @@
 #pragma mark - Setup Navigation Bar
 
 -(void)setupNavigationBar {
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
-                               initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                               target:self
-                               action:@selector(AddNewStudent)];
-    
-    self.navigationItem.rightBarButtonItem = addButton;
     
     [self setTitle:@"Random Groups"];
 }
@@ -192,7 +172,7 @@
 }
 
 -(void)refresh{
-    [[GroupController sharedInstance] shuffle:[self.group.members array]];
+    [[GroupController sharedInstance] shuffle:[GroupController sharedInstance].temporaryStudentList];
     [self refreshData];
 }
 
@@ -200,27 +180,5 @@
     [self.collectionView reloadData];
 }
 
--(void)AddNewStudent {
-    [self.navigationController pushViewController: [NewStudentViewController new] animated:YES];
-}
-
-#pragma mark - Notification Center
-
--(void)registerNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:refreshNotification object:nil];
-}
-
--(void)unregisterNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:studentKey object:nil];
-}
-
--(void)dealloc {
-    [self unregisterNotifications];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end
