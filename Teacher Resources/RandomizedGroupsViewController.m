@@ -73,7 +73,7 @@
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:layout];
     
     
-    [self.collectionView setBackgroundColor:[UIColor trBlueColor]];
+    [self.collectionView setBackgroundColor:[UIColor chalkboardGreen]];
     [self updateWithGroup:self.group];
     [self.dataSource registerCollectionView:self.collectionView withGroup:self.group];
     self.collectionView.dataSource = self.dataSource;
