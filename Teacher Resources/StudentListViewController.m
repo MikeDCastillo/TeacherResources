@@ -66,43 +66,39 @@
 
 - (void)addStudent {
     
-    //Create Custom Subview for adding students
-    self.studentNameView = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 74)];
+//Create Custom Subview for adding students
+    self.studentNameView = [[UIView alloc] initWithFrame:CGRectMake(-(self.view.frame.size.width), 0, self.view.frame.size.width, 64)];
     self.studentNameView.backgroundColor = [UIColor fern];
     
     //Text Field
-    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 32, 250, 35)];
+    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 22, 250, 35)];
     self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.addTextField.delegate = self;
     self.addTextField.placeholder = @"Enter Student Name";
-    [self.addTextField setReturnKeyType:UIReturnKeyDefault];
+    self.addTextField.returnKeyType = UIReturnKeyDefault;
     [self.addTextField becomeFirstResponder];
     
     [self.studentNameView addSubview:self.addTextField];
     
     //Add New Student Button
-    UIButton *addStudentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [addStudentButton addTarget:self
-                       action:@selector(addStudentButtonPressed)
-             forControlEvents:UIControlEventTouchUpInside];
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [cancelButton addTarget:self
+                     action:@selector(cancelButtonPressed)
+           forControlEvents:UIControlEventTouchUpInside];
     
-    [addStudentButton setTitle:@"Add" forState:UIControlStateNormal];
-    addStudentButton.tintColor = [UIColor whiteColor];
-    [addStudentButton.titleLabel setFont:[UIFont fontWithName:@"" size:30.0]];
-    addStudentButton.frame = CGRectMake(self.view.frame.size.width - 85, 43.0, 80.0, 20.0);
-    [self.studentNameView addSubview:addStudentButton];
+    [cancelButton setTitle:@"Cancel" forState:UIControlStateNormal];
+    [cancelButton setTintColor:[UIColor whiteColor]];
+    [cancelButton.titleLabel setFont:[UIFont fontWithName:@"" size:30.0]];
+    [cancelButton setFrame: CGRectMake(self.view.frame.size.width - 85, 31.0, 80.0, 20.0)];
+    [self.studentNameView addSubview:cancelButton];
     
     [self.view addSubview:self.studentNameView];
-    [self moveOver:self.studentNameView thisMuch:250 withDuration:.2];
+    [self moveOver:self.studentNameView thisMuch:self.view.frame.size.width withDuration:.2];
     
 }
 
--(void)addStudentButtonPressed {
-    if ([self.addTextField.text isEqualToString:@""]) {
-        return;
-    }
-    [[GroupController sharedInstance] addMemberWithMemberName:self.addTextField.text toGroup:self.group];
-    [self.tableView reloadData];
+-(void)cancelButtonPressed {
+
     [self moveOver:self.studentNameView thisMuch:-(self.view.frame.size.width) withDuration:.25];
     [self.addTextField resignFirstResponder];
 }
@@ -111,20 +107,22 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma - mark TextField Delegate Methods
+#pragma mark - TextField Delegate Methods
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
-        [textField resignFirstResponder];
-        [self moveOver:self.studentNameView thisMuch:-(self.view.frame.size.width) withDuration:.25];
-        return YES;
+        return NO;
     }
-    [self addStudentButtonPressed];
+    else {
     
-    return YES;
+    [[GroupController sharedInstance] addMemberWithMemberName:textField.text toGroup:self.group];
+        [self.tableView reloadData];
+        textField.text = @"";
+    }
+    return NO;
 }
 
-#pragma - mark TableView Delegate Methods
+#pragma mark - TableView Delegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -135,7 +133,7 @@
     return 50.0;
 }
 
-#pragma - mark Animations
+#pragma mark -  Animations
 
 -(void)moveOver:(UIView *)view thisMuch:(float)distance withDuration:(float)duration {
     
