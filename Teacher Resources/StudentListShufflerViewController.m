@@ -124,46 +124,39 @@
 
 - (void)arrangeAtoZ {
     
-    NSMutableArray *array = [NSMutableArray new];
-    
-    for (NSString *student in self.group.members) {
-        [array addObject:student];
-    }
+    NSArray *array = [NSArray arrayWithArray:[GroupController sharedInstance].temporaryStudentList];
     
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     NSArray *sortedArray;
     sortedArray = [array sortedArrayUsingDescriptors:@[sortDescriptor]];
-    self.datasource.members = sortedArray;
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:sortedArray];
+    [GroupController sharedInstance].temporaryStudentList = mutableArray;
+
     [self.tableView reloadData];
     
 }
 
 - (void)arrangeZtoA {
     
-    NSMutableArray *array = [NSMutableArray new];
-    
-    for (NSString *student in self.group.members) {
-        [array addObject:student];
-    }
+    NSArray *array = [NSArray arrayWithArray:[GroupController sharedInstance].temporaryStudentList];
     
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
     NSArray *sortedArray;
     sortedArray = [array sortedArrayUsingDescriptors:@[sortDescriptor]];
-    self.datasource.members = sortedArray;
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:sortedArray];
+    [GroupController sharedInstance].temporaryStudentList = mutableArray;
+
     [self.tableView reloadData];
     
 }
 
 - (void)shuffle {
     
-    NSMutableArray *array = [NSMutableArray new];
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[GroupController sharedInstance] shuffle:[GroupController sharedInstance].temporaryStudentList]];
     
-    for (NSString *student in self.group.members) {
-        [array addObject:student];
-    }
+    [GroupController sharedInstance].temporaryStudentList = mutableArray;
     
-    [GroupController sharedInstance].group = [[GroupController sharedInstance]shuffle:array];
-    
+    [self.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

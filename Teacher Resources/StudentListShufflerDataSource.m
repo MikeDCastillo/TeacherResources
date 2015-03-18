@@ -25,21 +25,20 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellIdentifier"];
     
     self.group = group;
-    self.members = [group.members array];
+
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.group.members.count;
+    return [[GroupController sharedInstance].temporaryStudentList count];
     
 }
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
     
-    Member *member = self.members[indexPath.row];
+    Member *member = [GroupController sharedInstance].temporaryStudentList[indexPath.row];
     
     cell.textLabel.text = member.name;
     
@@ -56,8 +55,8 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView beginUpdates];
         
-        [[GroupController sharedInstance] removeMember: self.members[indexPath.row]];
-        
+        [[GroupController sharedInstance].temporaryStudentList removeObjectAtIndex:indexPath.row];
+    
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
         [tableView endUpdates];
