@@ -16,7 +16,7 @@
 @interface StudentListShufflerViewController : UIViewController
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) StudentListDataSource *datasource;
+@property (nonatomic, strong) StudentListShufflerDataSource *datasource;
 @property (nonatomic, strong) Group *group;
 @property (nonatomic, assign) NSInteger *groupNameIndex;
 @property (nonatomic, strong) UISegmentedControl *segmentControl;

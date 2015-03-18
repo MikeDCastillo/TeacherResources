@@ -13,6 +13,8 @@
 
 @interface StudentListShufflerDataSource : NSObject <UITableViewDataSource>
 
+@property (strong, nonatomic) NSArray *members;
+
 -(void)registerTableView:(UITableView *)tableView withGroup:(Group *)group;
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;

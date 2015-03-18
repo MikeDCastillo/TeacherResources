@@ -14,7 +14,7 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 @interface StudentListShufflerDataSource ()
 
 @property (strong, nonatomic) Group *group;
-@property (strong, nonatomic) NSArray *members;
+
 
 @end
 
@@ -45,6 +45,7 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     
     cell.imageView.image = [UIImage imageNamed:@"StudentHat.png"];
     
+    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20];
     
     return cell;
     
