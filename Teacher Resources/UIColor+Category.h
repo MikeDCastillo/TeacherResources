@@ -11,7 +11,7 @@
 @interface UIColor (UIColorCategory)
 + (UIColor *)randomColorHue;
 + (UIColor *)randomColorSimple;
-+(UIColor *)slateColor;
++ (UIColor *)slateColor;
 + (UIColor *)trBlueColor;
 + (UIColor *)fern;
 + (UIColor *)chalkboardGreen;

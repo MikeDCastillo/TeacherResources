@@ -7,6 +7,7 @@
 //
 
 #import "StudentListShufflerViewController.h"
+#import "SWTableViewCell.h"
 
 @interface StudentListShufflerViewController () <UITableViewDelegate, UITextFieldDelegate>
 
@@ -75,8 +76,15 @@
     self.segmentControl.frame = CGRectMake(10, 10, self.view.frame.size.width - 2*10, 35);
     self.segmentControl.selectedSegmentIndex = 0;
     self.segmentControl.tintColor = [UIColor blackColor];
-    self.segmentControl.backgroundColor = [UIColor whiteColor];
+    self.segmentControl.backgroundColor = [UIColor lightGrayColor];
     
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+    [UIFont fontWithName:@"Chalkduster" size:15], NSFontAttributeName,
+    [UIColor trBlueColor], NSForegroundColorAttributeName, nil];
+    [self.segmentControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+
     [self.segmentControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
     [self.view addSubview:self.segmentControl];
     

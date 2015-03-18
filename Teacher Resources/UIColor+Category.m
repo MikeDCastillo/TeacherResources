@@ -31,16 +31,16 @@
     return randomColor;
 }
 
-+(UIColor *)trBlueColor {
++ (UIColor *)trBlueColor {
    return [UIColor colorWithRed:0.000 green:0.200 blue:0.584 alpha:1.000];
 }
 
-+(UIColor *)slateColor {
++ (UIColor *)slateColor {
     return [UIColor colorWithRed:0.451 green:0.639 blue:0.757 alpha:1];
 
 }
 
-+(UIColor *)trBlueColor2 {
++ (UIColor *)trBlueColor2 {
     return [UIColor colorWithRed:0.179 green:0.472 blue:0.757 alpha:1.000];
 
 }
