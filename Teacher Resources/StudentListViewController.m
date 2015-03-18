@@ -82,7 +82,7 @@
     
 //Create Custom Subview for adding students
     self.studentNameView = [[UIView alloc] initWithFrame:CGRectMake(-(self.view.frame.size.width), 0, self.view.frame.size.width, 64)];
-    self.studentNameView.backgroundColor = [UIColor trBlueColor];
+    self.studentNameView.backgroundColor = [UIColor chalkboardGreen];
     
     //Text Field
     self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 22, 250, 35)];

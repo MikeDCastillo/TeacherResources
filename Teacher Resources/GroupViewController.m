@@ -44,7 +44,7 @@
     
     //Navigation Bar Title
     self.title = @"Teacher Resources";
-    self.navigationController.navigationBar.barTintColor = [UIColor chalkboardGreen];
+    self.navigationController.navigationBar.barTintColor = [UIColor woodColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
     
@@ -67,7 +67,7 @@
     
     //Create Custom Subview for adding groups
     self.addStudentsCV = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 64)];
-    self.addStudentsCV.backgroundColor = [UIColor trBlueColor];
+    self.addStudentsCV.backgroundColor = [UIColor chalkboardGreen];
     
     //Add Group TextField
     self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, 250, 35)];

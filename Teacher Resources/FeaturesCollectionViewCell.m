@@ -34,7 +34,7 @@
     CGFloat viewWidth = self.frame.size.width;
     
     self.footerLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, viewHeight - backViewHeight, viewWidth, backViewHeight)];
-    self.footerLabel.backgroundColor = [UIColor slateColor];
+//    self.footerLabel.backgroundColor = [UIColor slateColor];
     self.footerLabel.text = self.title;
     self.footerLabel.textColor = [UIColor whiteColor];
     [self.footerLabel setTextAlignment:NSTextAlignmentCenter];

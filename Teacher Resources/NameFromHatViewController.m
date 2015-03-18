@@ -72,8 +72,8 @@ static CGFloat const ticketHeight = 150.0;
     self.drawingButton.frame = CGRectMake(25, screenHeight - 150, screenWidth - 50, 75);
     [self.drawingButton setTitle:@"New Winner!" forState:UIControlStateNormal];
     [self.drawingButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:34]];
-    [self.drawingButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.drawingButton setBackgroundColor:[UIColor brownColor]];
+    [self.drawingButton setTitleColor:[UIColor chalkWhite] forState:UIControlStateNormal];
+    [self.drawingButton setBackgroundColor:[UIColor chalkboardGreen]];
     [self.drawingButton addTarget:self action:@selector(newWinnerButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:self.drawingButton];
@@ -87,7 +87,7 @@ static CGFloat const ticketHeight = 150.0;
     self.winnerLabel = [[UILabel alloc] initWithFrame: CGRectMake(25, screenHeight/2 - (ticketHeight), ticketWidth, ticketHeight)];
     
     self.winnerLabel.font = [UIFont fontWithName:@"Chalkduster" size:60];
-    self.winnerLabel.textColor = [UIColor whiteColor];
+    self.winnerLabel.textColor = [UIColor chalkWhite];
     self.winnerLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.winnerLabel];
 }

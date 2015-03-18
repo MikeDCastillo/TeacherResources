@@ -45,8 +45,8 @@ static NSString *cellID = @"CellID";
         [view removeFromSuperview];
     }
     
-    cell.layer.borderWidth = 5.0f;
-    cell.layer.borderColor = [UIColor blackColor].CGColor;
+//    cell.layer.borderWidth = 5.0f;
+//    cell.layer.borderColor = [UIColor blackColor].CGColor;
     
     UIImage *image = [UIImage imageNamed:[self iconImageNames][indexPath.row]];
     

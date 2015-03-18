@@ -24,7 +24,7 @@
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
-    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.backgroundColor = [UIColor chalkboardGreen];
     
     layout.sectionInset = UIEdgeInsetsMake(2.0, 2.0, 2.0, 2.0);
 
@@ -33,7 +33,7 @@
     self.collectionView.delegate = self;
     [self.dataSource registerCollectionView:self.collectionView];
     [self.view addSubview:self.collectionView];
-        
+    
 }
 
 - (void)updateWithGroup:(Group *)group {

@@ -15,4 +15,6 @@
 + (UIColor *)trBlueColor;
 + (UIColor *)fern;
 + (UIColor *)chalkboardGreen;
++ (UIColor *)chalkWhite;
++ (UIColor *)woodColor;
 @end

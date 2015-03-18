@@ -50,6 +50,15 @@
 }
 
 + (UIColor *)chalkboardGreen {
-    return [UIColor colorWithRed:0.231 green:0.396 blue:0.239 alpha:1];
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"chalkboardBackground"]];
+//    return [UIColor colorWithRed:0.231 green:0.396 blue:0.239 alpha:1];
+}
+
++ (UIColor *)chalkWhite {
+    return [UIColor colorWithRed:0.969 green:0.984 blue:0.894 alpha:1];
+}
+
++ (UIColor *)woodColor {
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"woodBackground"]];
 }
 @end
