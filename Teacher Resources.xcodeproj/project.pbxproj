@@ -36,6 +36,7 @@
 		6A048AC31AAA477900C7E790 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A048AC11AAA477900C7E790 /* LaunchScreen.xib */; };
 		6A048ACF1AAA477900C7E790 /* Teacher_ResourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A048ACE1AAA477900C7E790 /* Teacher_ResourcesTests.m */; };
 		6A1754CB1AB7899300B620CB /* AppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754CA1AB7899200B620CB /* AppearanceController.m */; };
+		6A1755921AB8DC1500B620CB /* NameFromHatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1755911AB8DC1500B620CB /* NameFromHatViewController.m */; };
 		6A9335291AB33BFF00F00C6D /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9335251AB33BFF00F00C6D /* Timer.m */; };
 		6A93352A1AB33BFF00F00C6D /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9335271AB33BFF00F00C6D /* TimerViewController.m */; };
 		6A93352B1AB33BFF00F00C6D /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A9335281AB33BFF00F00C6D /* TimerViewController.xib */; };
@@ -43,8 +44,6 @@
 		6AFD4E661AAE8AA900308595 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E651AAE8AA900308595 /* Group.m */; };
 		6AFD4E691AAE8AA900308595 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E681AAE8AA900308595 /* Member.m */; };
 		EBBF55461AAF83B2006EF8ED /* MembersCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */; };
-		EBBF55601AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF555F1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m */; };
-		EBBF55661AB0F8E1006EF8ED /* NewStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBF55651AB0F8E1006EF8ED /* NewStudentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +110,8 @@
 		6A048ACE1AAA477900C7E790 /* Teacher_ResourcesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Teacher_ResourcesTests.m; sourceTree = "<group>"; };
 		6A1754C91AB7899200B620CB /* AppearanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppearanceController.h; sourceTree = "<group>"; };
 		6A1754CA1AB7899200B620CB /* AppearanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppearanceController.m; sourceTree = "<group>"; };
+		6A1755901AB8DC1500B620CB /* NameFromHatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameFromHatViewController.h; sourceTree = "<group>"; };
+		6A1755911AB8DC1500B620CB /* NameFromHatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameFromHatViewController.m; sourceTree = "<group>"; };
 		6A9335241AB33BFF00F00C6D /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		6A9335251AB33BFF00F00C6D /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		6A9335261AB33BFF00F00C6D /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
@@ -124,10 +125,6 @@
 		6AFD4E681AAE8AA900308595 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Member.m; path = ../Member.m; sourceTree = "<group>"; };
 		EBBF55441AAF83B2006EF8ED /* MembersCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MembersCollectionViewCell.h; sourceTree = "<group>"; };
 		EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MembersCollectionViewCell.m; sourceTree = "<group>"; };
-		EBBF555E1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomizedGroupsAppereanceController.h; sourceTree = "<group>"; };
-		EBBF555F1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomizedGroupsAppereanceController.m; sourceTree = "<group>"; };
-		EBBF55641AB0F8E1006EF8ED /* NewStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewStudentViewController.h; sourceTree = "<group>"; };
-		EBBF55651AB0F8E1006EF8ED /* NewStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewStudentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,18 +208,9 @@
 			name = "Group List  (HOME)";
 			sourceTree = "<group>";
 		};
-		27F735B91AB8BECB00BEF88C /* SWTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SWTableViewCell;
-			path = "Teacher Resources/SWTableViewCell";
-			sourceTree = "<group>";
-		};
 		6A048AA61AAA477800C7E790 = {
 			isa = PBXGroup;
 			children = (
-				27F735B91AB8BECB00BEF88C /* SWTableViewCell */,
 				6A048AB11AAA477800C7E790 /* Teacher Resources */,
 				6A048ACB1AAA477900C7E790 /* Teacher ResourcesTests */,
 				6A048AB01AAA477800C7E790 /* Products */,
@@ -253,6 +241,7 @@
 				27CC8EFA1AAA697C0051D062 /* Features Collection View */,
 				6AFD4E5A1AAE4B7100308595 /* Randomized Groups */,
 				2765C7D61AB388BE009F9DD7 /* Student List Shuffler  */,
+				6A1755931AB8DC1B00B620CB /* Name From A Hat */,
 				6AFD4E591AAE4B4900308595 /* Timer */,
 				6A048ABF1AAA477900C7E790 /* Images.xcassets */,
 				6A048AC11AAA477900C7E790 /* LaunchScreen.xib */,
@@ -288,6 +277,15 @@
 				6A048ACD1AAA477900C7E790 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6A1755931AB8DC1B00B620CB /* Name From A Hat */ = {
+			isa = PBXGroup;
+			children = (
+				6A1755901AB8DC1500B620CB /* NameFromHatViewController.h */,
+				6A1755911AB8DC1500B620CB /* NameFromHatViewController.m */,
+			);
+			name = "Name From A Hat";
 			sourceTree = "<group>";
 		};
 		6AFD4E561AAE4A1200308595 /* Model/Core Data */ = {
@@ -339,16 +337,12 @@
 		6AFD4E5A1AAE4B7100308595 /* Randomized Groups */ = {
 			isa = PBXGroup;
 			children = (
-				EBBF55641AB0F8E1006EF8ED /* NewStudentViewController.h */,
-				EBBF55651AB0F8E1006EF8ED /* NewStudentViewController.m */,
 				27CC8F111AAA6B740051D062 /* RandomizedGroupsViewController.h */,
 				27CC8F121AAA6B740051D062 /* RandomizedGroupsViewController.m */,
 				27CC8F191AAA6D000051D062 /* RandomizedViewControllerDataSource.h */,
 				27CC8F1A1AAA6D000051D062 /* RandomizedViewControllerDataSource.m */,
 				EBBF55441AAF83B2006EF8ED /* MembersCollectionViewCell.h */,
 				EBBF55451AAF83B2006EF8ED /* MembersCollectionViewCell.m */,
-				EBBF555E1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.h */,
-				EBBF555F1AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m */,
 			);
 			name = "Randomized Groups";
 			sourceTree = "<group>";
@@ -457,7 +451,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBBF55601AB0E77F006EF8ED /* RandomizedGroupsAppereanceController.m in Sources */,
 				EBBF55461AAF83B2006EF8ED /* MembersCollectionViewCell.m in Sources */,
 				27CC8F131AAA6B740051D062 /* RandomizedGroupsViewController.m in Sources */,
 				276503451AB8C923003C9C00 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
@@ -470,10 +463,10 @@
 				276503421AB8C923003C9C00 /* SWCellScrollView.m in Sources */,
 				27CC8F1F1AAA6D350051D062 /* FeaturesViewControllerDataSource.m in Sources */,
 				27CC8F261AAA7BAF0051D062 /* StudentListViewController.m in Sources */,
+				6A1755921AB8DC1500B620CB /* NameFromHatViewController.m in Sources */,
 				2765C7DC1AB38954009F9DD7 /* StudentListShufflerViewController.m in Sources */,
 				27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */,
 				27CC8F291AAA7C8A0051D062 /* Model.xcdatamodeld in Sources */,
-				EBBF55661AB0F8E1006EF8ED /* NewStudentViewController.m in Sources */,
 				6A048ABB1AAA477800C7E790 /* GroupViewController.m in Sources */,
 				27CC8EF91AAA695A0051D062 /* FeaturesViewController.m in Sources */,
 				6AFD4E691AAE8AA900308595 /* Member.m in Sources */,

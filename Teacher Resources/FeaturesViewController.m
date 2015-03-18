@@ -9,6 +9,7 @@
 #import "FeaturesViewController.h"
 #import "UIColor+Category.h"
 
+
 @interface FeaturesViewController ()
 
 @end
@@ -32,9 +33,7 @@
     self.collectionView.delegate = self;
     [self.dataSource registerCollectionView:self.collectionView];
     [self.view addSubview:self.collectionView];
-    
-//    self.collectionView.contentSize =
-    
+        
 }
 
 - (void)updateWithGroup:(Group *)group {
@@ -48,68 +47,39 @@
     return CGSizeMake(180,180);
 }
 
-
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     switch (indexPath.row) {
         case 0: {
             
             RandomizedGroupsViewController *randomizedGroupsViewController = [RandomizedGroupsViewController new];
-            
             [randomizedGroupsViewController updateWithGroup:self.group];
-            
             [self.navigationController pushViewController:randomizedGroupsViewController animated:YES];
-            
-            
+        
             break; }
         case 1: {
             
             StudentListShufflerViewController *studentListShufflerViewController = [StudentListShufflerViewController new];
-            
             [studentListShufflerViewController updateWithGroup:self.group];
-            
             [self.navigationController pushViewController:studentListShufflerViewController animated:YES];
-            
             
             break; }
         case 2: {
             
-
-            
+            NameFromHatViewController *nameFromHatViewController = [NameFromHatViewController new];
+            [nameFromHatViewController updateWithGroup:self.group];
+            [self.navigationController pushViewController:nameFromHatViewController animated:YES];
             
             break; }
         case 3: {
             
             TimerViewController *timerViewController = [TimerViewController new];
-            
             [self.navigationController pushViewController:timerViewController animated:YES];
-
-            
             break; }
-
             
         default:
             break;
     }
-    
-
-    
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -12,6 +12,7 @@
 #import "StudentListViewController.h"
 #import "TimerViewController.h"
 #import "StudentListShufflerViewController.h"
+#import "NameFromHatViewController.h"
 
 @interface FeaturesViewController : UIViewController <UICollectionViewDelegate>
 
