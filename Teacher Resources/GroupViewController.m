@@ -73,7 +73,7 @@
     self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, 250, 35)];
     self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.addTextField.delegate = self;
-    self.addTextField.placeholder = @"Enter Group Title";
+    self.addTextField.placeholder = @"Enter Class Name";
     self.addTextField.font = [UIFont fontWithName:@"Chalkduster" size:14];
     [self.addTextField setReturnKeyType:UIReturnKeyDone];
     [self.addTextField becomeFirstResponder];
