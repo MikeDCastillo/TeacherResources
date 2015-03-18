@@ -55,8 +55,8 @@ static CGFloat const ticketHeight = 150.0;
         self.winnerLabel.text = @"There aren't any students in this class!";
     }
     else {
-        int randomStudentNumber = arc4random_uniform(students.count);
-        Member *newMember = [students objectAtIndex:randomStudentNumber];
+        [[GroupController sharedInstance] shuffle:students];
+        Member *newMember = [students objectAtIndex:0];
         
         self.winnerLabel.text = newMember.name;
 
@@ -86,8 +86,8 @@ static CGFloat const ticketHeight = 150.0;
     
     self.winnerLabel = [[UILabel alloc] initWithFrame: CGRectMake(25, screenHeight/2 - (ticketHeight), ticketWidth, ticketHeight)];
     
-    self.winnerLabel.font = [UIFont fontWithName:@"Chalkduster" size:40];
-    self.winnerLabel.tintColor = [UIColor whiteColor];
+    self.winnerLabel.font = [UIFont fontWithName:@"Chalkduster" size:60];
+    self.winnerLabel.textColor = [UIColor whiteColor];
     self.winnerLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:self.winnerLabel];
 }

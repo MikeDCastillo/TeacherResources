@@ -14,6 +14,8 @@ static NSString *cellIdentifier = @"cell";
 
 @interface RandomizedViewControllerDataSource : NSObject <UICollectionViewDataSource>
 
+@property (nonatomic,strong) NSIndexPath *arrayIndex;
+
 -(void)registerCollectionView:(UICollectionView *)collectionView withGroup:(Group *)group;
 
 

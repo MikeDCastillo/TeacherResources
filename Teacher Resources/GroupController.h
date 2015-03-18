@@ -1,3 +1,4 @@
+
 //
 //  GroupController.h
 //  Teacher Resources
@@ -23,7 +24,7 @@ static NSString * const studentKey = @"studentKey";
 + (GroupController *)sharedInstance;
 
 
-- (void)addMemberWithMemberName:(NSString *)memberName toGroup:(Group *)group; 
+- (void)addMemberWithMemberName:(NSString *)memberName toGroup:(Group *)group;
 
 - (void)addGroupWithGroupName:(NSString *)groupName;
 
@@ -32,6 +33,7 @@ static NSString * const studentKey = @"studentKey";
 - (void)removeMember: (Member *)member;
 
 - (NSArray *)shuffle:(NSArray *)array;
+
 
 - (void)synchronize;
 

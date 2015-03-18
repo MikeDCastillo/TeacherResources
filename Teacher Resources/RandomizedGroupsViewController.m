@@ -19,6 +19,7 @@
 @property (nonatomic,strong) RandomizedViewControllerDataSource * dataSource;
 @property (nonatomic,strong) GroupController *modelController;
 @property (nonatomic,strong) MembersCollectionViewCell * customCell;
+@property (nonatomic, strong) NSMutableArray * temporaryStudentList;
 
 
 @end
@@ -41,23 +42,29 @@
     self.group = group;
 }
 
+-(void)updateWithArray:(NSArray *)array;
+{
+    self.usableArray = [[NSArray alloc]initWithArray:array];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     screenHeight = self.view.frame.size.height;
     screenWidth = self.view.frame.size.width;
-        
+    
+    [self registerNotifications];
+    
     [self setupNavigationBar];
     
     [self setupCollectionView];
     
     [self setupToolBar];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self refreshData];
-    
 }
 
 #pragma mark - Setup CollectionView
@@ -93,12 +100,12 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *message = [NSString stringWithFormat:@"Are you sure that you want to delete %@", [[GroupController sharedInstance].temporaryStudentList objectAtIndex:indexPath.item]];
+    NSString *message = [NSString stringWithFormat:@"Are you sure that you want to delete %@", [[GroupController sharedInstance].group.members objectAtIndex:indexPath.row]];
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:message delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
     [alert show];
     
-
+    self.arrayIndex = indexPath;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -114,6 +121,13 @@
     return 0.0;
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1)
+    {
+        [[GroupController sharedInstance] removeMember:self.arrayIndex];
+        [self refreshData];
+    }
+}
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
@@ -134,22 +148,22 @@
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 104, self.view.frame.size.width, 44)];
     UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc]
-                                   initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                   target:self
-                                   action:@selector(refresh)];
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                      target:self
+                                      action:@selector(refresh)];
     UIBarButtonItem *groupsOfTwo = [[UIBarButtonItem alloc] initWithTitle:@"2"
-                                 style: UIBarButtonItemStylePlain
-                                 target:nil
-                                 action:@selector(groupsOfTwo)];
+                                                                    style: UIBarButtonItemStylePlain
+                                                                   target:nil
+                                                                   action:@selector(groupsOfTwo)];
     UIBarButtonItem *groupsOfThree = [[UIBarButtonItem alloc] initWithTitle:@"3"
-                                   style: UIBarButtonItemStylePlain
-                                   target:nil
-                                   action:@selector(groupsOfThree)];
+                                                                      style: UIBarButtonItemStylePlain
+                                                                     target:nil
+                                                                     action:@selector(groupsOfThree)];
     UIBarButtonItem *groupsOfFour = [[UIBarButtonItem alloc] initWithTitle:@"4"
-                                  style: UIBarButtonItemStylePlain
-                                  target:nil
-                                  action:@selector(groupsOfFour)];
-
+                                                                     style: UIBarButtonItemStylePlain
+                                                                    target:nil
+                                                                    action:@selector(groupsOfFour)];
+    
     refreshButton.tintColor = [UIColor whiteColor];
     NSArray *arrayOfItems = @[flexibleItem, refreshButton, flexibleItem, groupsOfTwo, flexibleItem, groupsOfThree, flexibleItem, groupsOfFour, flexibleItem];
     [toolBar setItems:arrayOfItems];
@@ -172,7 +186,7 @@
 }
 
 -(void)refresh{
-    [[GroupController sharedInstance] shuffle:[GroupController sharedInstance].temporaryStudentList];
+    [GroupController sharedInstance].temporaryStudentList =  [[GroupController sharedInstance] shuffle:[GroupController sharedInstance].temporaryStudentList];
     [self refreshData];
 }
 
@@ -181,4 +195,24 @@
 }
 
 
+#pragma mark - Notification Center
+
+-(void)registerNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:refreshNotification object:nil];
+}
+
+-(void)unregisterNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:studentKey object:nil];
+}
+
+-(void)dealloc {
+    [self unregisterNotifications];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 @end
+

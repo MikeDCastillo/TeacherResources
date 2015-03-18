@@ -152,7 +152,7 @@
     
     //Cell Subtitle
     NSString *numberOfStudents = [NSString stringWithFormat:@"%lu Members", (unsigned long)[GroupController sharedInstance].group.members.count];
-    if ([GroupController sharedInstance].group.members.count == 0) {
+    if ([GroupController sharedInstance].group.members.count == 0 || [GroupController sharedInstance].group.members.count == nil) {
         
     }
     else {

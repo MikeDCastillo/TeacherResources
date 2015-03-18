@@ -66,8 +66,7 @@ static Group *currentGroup;
     [self synchronize];
 }
 
-- (NSArray *)shuffle:(NSArray *)array
-{
+- (NSArray *)shuffle:(NSArray *)array {
     NSMutableArray *newArray = [NSMutableArray arrayWithArray:array];
     
     NSUInteger count = [newArray count];
@@ -76,8 +75,10 @@ static Group *currentGroup;
         NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t )remainingCount);
         [newArray exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
-    return newArray;
+
+    return [NSArray arrayWithArray:newArray];
 }
+
 
 - (void)synchronize {
     
@@ -86,5 +87,8 @@ static Group *currentGroup;
 }
 
 @end
+
+
+
 
 
