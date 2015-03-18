@@ -179,13 +179,13 @@
 #pragma mark - Hide and show Picker
 
 -(void)hidePicker {
-    [self.picker removeFromSuperview];
+    [self.picker setHidden:YES];
     [self.secondsLabel setHidden:YES];
     [self.minutesLabel setHidden:YES];
 }
 
 -(void)showPicker {
-    [self.view addSubview:self.picker];
+    [self.picker setHidden:NO];
     [self.secondsLabel setHidden:NO];
     [self.minutesLabel setHidden:NO];
 }
