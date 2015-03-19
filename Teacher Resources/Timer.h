@@ -22,6 +22,7 @@ static NSString *expiryDate = @"expiryDate";
 
 - (void)startTimer;
 - (void)cancelTimer;
+- (void)pauseTimer;
 - (void)prepareForBackground;
 - (void)loadFromBackground;
 

@@ -43,6 +43,12 @@
     
 }
 
+- (void)pauseTimer {
+    self.isOn = NO;
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(decreaseSecond) object:nil];
+    
+}
+
 - (void)decreaseSecond {
     
     if (self.seconds > 0)

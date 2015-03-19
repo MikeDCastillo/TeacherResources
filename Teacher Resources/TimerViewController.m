@@ -53,6 +53,10 @@
     //If Timer is ON
     else if ([Timer sharedInstance].isOn == YES) {
         [self hidePicker];
+        [self.timer setHidden:NO];
+        [self.pauseButton setEnabled:YES];
+        [self.startbutton setTitle:@"Cancel" forState:UIControlStateNormal];
+        [self.startbutton setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
     }
     
 }
@@ -66,7 +70,7 @@
         [self updateTimerLabel];
         [self setUpNotification];
 
-    //VIEWS
+
         //Timer Label
         [self.timer setHidden:NO];
         //Picker
@@ -75,7 +79,6 @@
         //Start Button
         [self.startbutton setTitle:@"Cancel" forState:UIControlStateNormal];
         [self.startbutton setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
-//        [self.startbutton.titleLabel setFont:[UIFont fontWithName:@"Heiti TC" size:42.0]];
         
         //PauseButton
         [self.pauseButton setEnabled:YES];
@@ -84,7 +87,6 @@
     if ([self.startbutton.titleLabel.text isEqualToString:@"Cancel"]) {
         [[Timer sharedInstance] cancelTimer];
     
-    //VIEWS
         //Timer Label
         [self.timer setHidden:YES];
         //Picker
@@ -92,6 +94,8 @@
         [self.picker selectRow:60 *50 inComponent:1 animated:NO];
         [self.picker selectRow:60 * 50 inComponent:0 animated:NO];
 
+        [self.pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+        [self.pauseButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         
         //Start Button
         [self.startbutton setTitle:@"Start" forState:UIControlStateNormal];
@@ -106,12 +110,10 @@
 - (IBAction)pauseButtonPressed:(id)sender {
     //When PAUSE is pressed
     if ([self.pauseButton.titleLabel.text isEqualToString:@"Pause"]) {
-        [Timer sharedInstance].isOn = NO;
+        [[Timer sharedInstance]pauseTimer];
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
-        
-        [self.pauseButton setTitle:@"Resume" forState:UIControlStateNormal];
-        [self.pauseButton setTitleColor:[UIColor colorWithRed:0.22 green:0.502 blue:0.141 alpha:1] forState:UIControlStateNormal];
-
+        [self.pauseButton setHidden:YES];
+        [self performSelector:@selector(setPauseButtonToResume) withObject:nil afterDelay:.33333];
     }
     //When RESUME is pressed
     if ([self.pauseButton.titleLabel.text isEqualToString:@"Resume"]) {
@@ -123,6 +125,12 @@
         [self.pauseButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     }
     
+}
+
+- (void)setPauseButtonToResume {
+    [self.pauseButton setHidden:NO];
+    [self.pauseButton setTitle:@"Resume" forState:UIControlStateNormal];
+    [self.pauseButton setTitleColor:[UIColor colorWithRed:0.22 green:0.502 blue:0.141 alpha:1] forState:UIControlStateNormal];
 }
 
 #pragma mark - Timer Methods
@@ -218,7 +226,7 @@
     [self updateTimerLabel];
 }
 
-#pragma - mark Picker Data Source
+#pragma mark - Picker Data Source
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 2;
