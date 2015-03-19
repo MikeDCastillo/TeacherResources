@@ -26,6 +26,7 @@ static CGFloat const ticketHeight = 150.0;
 @implementation NameFromHatViewController
 
 -(void)updateWithGroup:(Group *)group {
+    
     self.group = group;
 }
 
@@ -41,26 +42,28 @@ static CGFloat const ticketHeight = 150.0;
 - (void)newWinnerButtonPressed {
     
     self.winnerLabel.text = @"?????";
-    
     [self growsOnTouch:self.winnerLabel withDuration:2];
+    [self.drawingButton setEnabled:NO];
+    [self.drawingButton setTitle:@"Drumroll!!" forState:UIControlStateDisabled];
+    [self.drawingButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     
     [self performSelector:@selector(updateWinnerLabel) withObject:nil afterDelay:2];
 
 }
 
 - (void)updateWinnerLabel {
-    NSArray *students = [[NSArray alloc] initWithArray:[self.group.members array]];
     
-    if (self.group.members.count == 0) {
+    NSArray *array = [GroupController sharedInstance].temporaryStudentList;
+    if ( array.count == 0) {
         self.winnerLabel.text = @"There aren't any students in this class!";
     }
     else {
-        [[GroupController sharedInstance] shuffle:students];
-        Member *newMember = [students objectAtIndex:0];
+        array = [[GroupController sharedInstance] shuffle:array];
+        Member *member = array[0];
         
-        self.winnerLabel.text = newMember.name;
-
-}
+        self.winnerLabel.text = member.name;
+    }
+    [self.drawingButton setEnabled:YES];
 }
 
 - (void)setupDrawingButton {
@@ -81,6 +84,7 @@ static CGFloat const ticketHeight = 150.0;
 }
 
 - (void)setupWinnerLabel {
+    
     CGFloat screenWidth = self.view.frame.size.width;
     CGFloat screenHeight = self.view.frame.size.height;
     
@@ -95,6 +99,7 @@ static CGFloat const ticketHeight = 150.0;
 #pragma mark - Animations
 
 - (void)growsOnTouch:(UIView *)view withDuration:(float)duration {
+    
     CGAffineTransform bigger = CGAffineTransformMakeScale(10, 10);
     CGAffineTransform smaller = CGAffineTransformMakeScale(1, 1);
     CGAffineTransform rotate = CGAffineTransformMakeRotation(radians(180));
