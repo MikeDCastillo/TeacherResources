@@ -22,6 +22,6 @@ static int numberOfPeopleInGroup = 2;
 
 -(void)refresh;
 -(void)refreshData;
-//-(void)updateWithGroup:(Group *)group;
+-(void)updateWithGroup:(Group *)group;
 
 @end
