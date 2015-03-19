@@ -19,7 +19,7 @@ static NSString * const studentKey = @"studentKey";
 @property (nonatomic, strong, readonly) NSArray *groups;
 @property (nonatomic, strong) Group *group;
 @property (nonatomic, strong) Member *member;
-@property (nonatomic, strong) NSMutableArray *temporaryStudentList;
+@property (nonatomic, strong) NSArray *temporaryStudentList;
 
 + (GroupController *)sharedInstance;
 
