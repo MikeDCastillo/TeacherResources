@@ -17,9 +17,7 @@
 
 
 @property (nonatomic,strong) RandomizedViewControllerDataSource * dataSource;
-@property (nonatomic,strong) GroupController *modelController;
 @property (nonatomic,strong) MembersCollectionViewCell * customCell;
-@property (nonatomic, strong) NSMutableArray * temporaryStudentList;
 
 
 @end
@@ -31,40 +29,31 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.modelController = [GroupController new];
         self.dataSource = [RandomizedViewControllerDataSource new];
     }
     return self;
-}
-
-- (void)updateWithGroup:(Group *)group {
-    
-    self.group = group;
-}
-
--(void)updateWithArray:(NSArray *)array;
-{
-    self.usableArray = [[NSArray alloc]initWithArray:array];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     screenHeight = self.view.frame.size.height;
     screenWidth = self.view.frame.size.width;
-    
-    [self registerNotifications];
-    
+        
     [self setupNavigationBar];
     
     [self setupCollectionView];
     
     [self setupToolBar];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self refreshData];
+}
+
+- (void)updateWithGroup:(Group *)group {
+    
+    self.group = group;
 }
 
 #pragma mark - Setup CollectionView
@@ -73,12 +62,13 @@
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0.0, 0.0, self.view.bounds.size.width, self.view.bounds.size.height) collectionViewLayout:layout];
     
-    
-    [self.collectionView setBackgroundColor:[UIColor chalkboardGreen]];
-    [self updateWithGroup:self.group];
+    //Collection View - Register - Delegate - Datasource
     [self.dataSource registerCollectionView:self.collectionView withGroup:self.group];
     self.collectionView.dataSource = self.dataSource;
     self.collectionView.delegate = self;
+    
+    [self.collectionView setBackgroundColor:[UIColor chalkboardGreen]];
+
     [self.view addSubview:self.collectionView];
 }
 
@@ -100,12 +90,23 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *message = [NSString stringWithFormat:@"Are you sure that you want to delete %@", [[GroupController sharedInstance].group.members objectAtIndex:indexPath.row]];
     
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:message delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+    Member *currentMember = [GroupController sharedInstance].temporaryStudentList[indexPath.item];
+    NSString *message = [NSString stringWithFormat:@"Delete %@ from temporary student list?", currentMember.name];
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Delete" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
     [alert show];
     
-    self.arrayIndex = indexPath;
+    self.arrayIndex = indexPath.item;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        NSMutableArray *mutableArray = [NSMutableArray arrayWithArray: [GroupController sharedInstance].temporaryStudentList];
+        [mutableArray removeObjectAtIndex:self.arrayIndex];
+        [GroupController sharedInstance].temporaryStudentList = mutableArray;
+        [self refreshData];
+    }
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
@@ -119,14 +120,6 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 0.0;
-}
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1)
-    {
-        [[GroupController sharedInstance] removeMember:self.arrayIndex];
-        [self refreshData];
-    }
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
@@ -192,21 +185,6 @@
 
 -(void)refreshData {
     [self.collectionView reloadData];
-}
-
-
-#pragma mark - Notification Center
-
--(void)registerNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:refreshNotification object:nil];
-}
-
--(void)unregisterNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:studentKey object:nil];
-}
-
--(void)dealloc {
-    [self unregisterNotifications];
 }
 
 - (void)didReceiveMemoryWarning {
