@@ -38,11 +38,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self registerForNotifications];
-    
+    self.view.backgroundColor = [UIColor chalkboardGreen];
+    self.title = @"Timer";
+
     //Makes Picker appear Circular
     [self.picker selectRow:60 *50 inComponent:1 animated:NO];
     [self.picker selectRow:60 *50 inComponent:0 animated:NO];
-
+    
     //If Timer is OFF
     if ([Timer sharedInstance].isOn == NO) {
         [self.pauseButton setEnabled:NO];
@@ -93,7 +95,7 @@
         
         //Start Button
         [self.startbutton setTitle:@"Start" forState:UIControlStateNormal];
-        [self.startbutton setTitleColor:[UIColor colorWithRed:0.22 green:0.502 blue:0.141 alpha:1]forState:UIControlStateNormal];
+        [self.startbutton setTitleColor:[UIColor whiteColor]forState:UIControlStateNormal];
         
         //Pause Button
         [self.pauseButton setEnabled:NO];
@@ -123,47 +125,6 @@
     
 }
 
-- (IBAction)secWarning5:(id)sender {
-    [self flipWarningButton:self.secButton5 isOn:self.fiveSecWarningOn];
-}
-
-- (IBAction)secWarning10:(id)sender {
-    [self flipWarningButton:self.secButton10 isOn:self.tenSecWarningOn];
-}
-
-- (IBAction)secWarning30:(id)sender {
-    [self flipWarningButton:self.secButton30 isOn:self.thirtySecWarningOn];
-
-}
-
-- (IBAction)minWarning1:(id)sender {
-    [self flipWarningButton:self.minButton1 isOn:self.oneMinWarningOn];
-
-}
-
-- (IBAction)minWarning2:(id)sender {
-    [self flipWarningButton:self.minButton2 isOn:self.twoMinWarningOn];
-
-}
-
-- (IBAction)minWarning5:(id)sender {
-    [self flipWarningButton:self.minButton5 isOn:self.fiveMinWarningOn];
-
-}
-
--(void)flipWarningButton:(UIButton *)button isOn:(BOOL)isOn {
-    
-    if (isOn == NO) {
-        isOn = YES;
-        [button setBackgroundColor:[UIColor fern]];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    }
-    else if (isOn ==YES) {
-        isOn = NO;
-        [button setBackgroundColor:[UIColor whiteColor]];
-        [button setTitleColor:[UIColor fern] forState:UIControlStateNormal];
-    }
-}
 #pragma mark - Timer Methods
     
 -(void)updateTimerLabel {

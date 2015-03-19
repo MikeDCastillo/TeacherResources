@@ -41,7 +41,9 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     Member *member = [self.group.members objectAtIndex:indexPath.row];
     cell.textLabel.text = member.name;
     cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:24];
+    cell.textLabel.textColor = [UIColor whiteColor];
     cell.imageView.image = [UIImage imageNamed:@"StudentHat.png"];
+    cell.backgroundColor = [UIColor clearColor];
     
     return cell;
     

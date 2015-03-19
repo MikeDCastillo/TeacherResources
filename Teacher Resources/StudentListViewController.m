@@ -28,11 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView reloadData];
-    self.view.backgroundColor= [UIColor whiteColor];
+    self.view.backgroundColor= [UIColor chalkboardGreen];
     self.datasource = [StudentListDataSource new];
     
     UIView *addStudentsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
-    addStudentsView.backgroundColor = [UIColor chalkboardGreen];
+    addStudentsView.backgroundColor= [UIColor woodColor];
     
     //Add Student Plus Button
     
@@ -58,6 +58,7 @@
     
     //TableView Configuration
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 114) style:UITableViewStyleGrouped];
+    self.tableView.backgroundColor = [UIColor chalkboardGreen];
     
     //DataSource + Delegate
     self.tableView.delegate = self;
@@ -82,14 +83,16 @@
     
 //Create Custom Subview for adding students
     self.studentNameView = [[UIView alloc] initWithFrame:CGRectMake(-(self.view.frame.size.width), 0, self.view.frame.size.width, 64)];
-    self.studentNameView.backgroundColor = [UIColor chalkboardGreen];
+    self.studentNameView.backgroundColor = [UIColor woodColor];
     
     //Text Field
     self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 22, 250, 35)];
-    self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.addTextField.delegate = self;
     self.addTextField.placeholder = @"Enter Student Name";
     self.addTextField.returnKeyType = UIReturnKeyDefault;
+    self.addTextField.font = [UIFont fontWithName:@"Chalkduster" size:20];
+    self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
+
     [self.addTextField becomeFirstResponder];
     
     [self.studentNameView addSubview:self.addTextField];

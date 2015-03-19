@@ -40,6 +40,7 @@
     
     Member *member = [GroupController sharedInstance].temporaryStudentList[indexPath.row];
     cell.name.text = member.name;
+    cell.name.font = [UIFont fontWithName:@"Chalkduster" size:16];
     return cell;
 }
 

@@ -178,10 +178,10 @@
 		2765C7D61AB388BE009F9DD7 /* Student List Shuffler  */ = {
 			isa = PBXGroup;
 			children = (
-				2765C7D71AB388FE009F9DD7 /* StudentListShufflerDataSource.h */,
-				2765C7D81AB388FE009F9DD7 /* StudentListShufflerDataSource.m */,
 				2765C7DA1AB38954009F9DD7 /* StudentListShufflerViewController.h */,
 				2765C7DB1AB38954009F9DD7 /* StudentListShufflerViewController.m */,
+				2765C7D71AB388FE009F9DD7 /* StudentListShufflerDataSource.h */,
+				2765C7D81AB388FE009F9DD7 /* StudentListShufflerDataSource.m */,
 			);
 			name = "Student List Shuffler ";
 			sourceTree = "<group>";
@@ -314,10 +314,10 @@
 		6AFD4E581AAE4ACB00308595 /* Student List */ = {
 			isa = PBXGroup;
 			children = (
-				27CC8F2A1AABF0F30051D062 /* StudentListDataSource.h */,
-				27CC8F2B1AABF0F30051D062 /* StudentListDataSource.m */,
 				27CC8F241AAA7BAF0051D062 /* StudentListViewController.h */,
 				27CC8F251AAA7BAF0051D062 /* StudentListViewController.m */,
+				27CC8F2A1AABF0F30051D062 /* StudentListDataSource.h */,
+				27CC8F2B1AABF0F30051D062 /* StudentListDataSource.m */,
 			);
 			name = "Student List";
 			sourceTree = "<group>";
@@ -396,6 +396,7 @@
 				TargetAttributes = {
 					6A048AAE1AAA477800C7E790 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = WK6LDT652Z;
 					};
 					6A048AC71AAA477900C7E790 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -610,18 +611,22 @@
 		6A048AD31AAA477900C7E790 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Teacher Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		6A048AD41AAA477900C7E790 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Teacher Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

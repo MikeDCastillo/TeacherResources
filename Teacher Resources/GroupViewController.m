@@ -15,7 +15,7 @@
 @interface GroupViewController () <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate,UITextFieldDelegate>
 
 //@property (nonatomic, strong) UITableView *tableView;
-@property (strong, nonatomic) UIView *addStudentsCV;
+@property (strong, nonatomic) UIView *addClassCustomView;
 @property (strong, nonatomic) UITextField *addTextField;
 @property (strong, nonatomic) UIButton *addClassButton;
 
@@ -27,7 +27,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView reloadData];
+    [self setupViews];
     
+    self.view.backgroundColor= [UIColor whiteColor];
+    
+    //DataSource + Delegate
+    [self registerTableView:self.tableView];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
+    
+}
+
+- (void)setupViews {
     //Add Class PLUS button
     self.addClassButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.addClassButton setTitle:@"+" forState:UIControlStateNormal];
@@ -35,39 +47,31 @@
     self.addClassButton.titleLabel.tintColor = [UIColor whiteColor];
     self.addClassButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:50.0];
     [self.addClassButton addTarget:self action:@selector(animatePlusButton) forControlEvents:UIControlEventTouchDown];
-    [self.addClassButton addTarget:self action:@selector(addGroup:) forControlEvents:UIControlEventTouchUpInside];
-
+    [self.addClassButton addTarget:self action:@selector(addClassButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithCustomView:self.addClassButton];
     self.navigationItem.rightBarButtonItem = addButton;
     
     
     //Navigation Bar Title
-    self.title = @"Teacher Resources";
+    self.title = @"Classes";
     self.navigationController.navigationBar.barTintColor = [UIColor woodColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
-    
-    //Background Color
-    self.view.backgroundColor= [UIColor whiteColor];
-    
+
     //TableView Config
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
-    
-    //DataSource + Delegate
-    [self registerTableView:self.tableView];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
+    self.tableView.backgroundColor = [UIColor chalkboardGreen];
     [self.view addSubview:self.tableView];
-    
+
 }
 
-- (void)addGroup:(id)sender {
+- (void)addClassButtonPressed:(id)sender {
     
     //Create Custom Subview for adding groups
-    self.addStudentsCV = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 64)];
-    self.addStudentsCV.backgroundColor = [UIColor chalkboardGreen];
+    self.addClassCustomView = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 64)];
+    self.addClassCustomView.backgroundColor = [UIColor chalkboardGreen];
     
     //Add Group TextField
     self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, 250, 35)];
@@ -77,7 +81,7 @@
     self.addTextField.font = [UIFont fontWithName:@"Chalkduster" size:14];
     [self.addTextField setReturnKeyType:UIReturnKeyDone];
     [self.addTextField becomeFirstResponder];
-    [self.addStudentsCV addSubview:self.addTextField];
+    [self.addClassCustomView addSubview:self.addTextField];
     
     //Add addGroup Button Custom View
     UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -90,16 +94,16 @@
 
     cancelButton.tintColor = [UIColor whiteColor];
     cancelButton.frame = CGRectMake(self.view.frame.size.width - 85, 35.0, 80.0, 20.0);
-    [self.addStudentsCV addSubview:cancelButton];
+    [self.addClassCustomView addSubview:cancelButton];
 
-    [self.navigationController.view addSubview:self.addStudentsCV];
-    [self moveOver:self.addStudentsCV thisMuch:250 withDuration:.2];
+    [self.navigationController.view addSubview:self.addClassCustomView];
+    [self moveOver:self.addClassCustomView thisMuch:250 withDuration:.2];
     
 }
 
 -(void)cancelButtonPressed {
 
-    [self moveOver:self.addStudentsCV thisMuch:-(self.view.frame.size.width) withDuration:.25];
+    [self moveOver:self.addClassCustomView thisMuch:-(self.view.frame.size.width) withDuration:.25];
     [self.addTextField resignFirstResponder];
 }
 
@@ -110,7 +114,7 @@
         return NO;
     }
     [[GroupController sharedInstance] addGroupWithGroupName:textField.text];
-    [self moveOver:self.addStudentsCV thisMuch:(self.view.frame.size.width) withDuration:.25];
+    [self moveOver:self.addClassCustomView thisMuch:(self.view.frame.size.width) withDuration:.25];
     textField.text = @"";
     [self.tableView reloadData];
     return YES;
@@ -129,37 +133,40 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     static NSString *cellID = @"cellID";
     
-    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    
+    SWTableViewCell *cell = (SWTableViewCell *)[[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     cell.delegate = self;
-    
     if (cell == nil) {
         cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
         cell.leftUtilityButtons = [self leftButton];
         cell.rightUtilityButtons = [self rightButton];
-        
+        cell.delegate = self;
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = [UIColor whiteColor];
     }
     cell.leftUtilityButtons = [self leftButton];
     cell.rightUtilityButtons = [self rightButton];
+    cell.backgroundColor = [UIColor clearColor];
     
-    Group *group = [GroupController sharedInstance].groups[indexPath.row];
-    cell.textLabel.text = group.title;
-    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:20];
-
+    //Cell Title
+    Group *currentGroup = [GroupController sharedInstance].groups[indexPath.row];
+    cell.textLabel.text = currentGroup.title;
+    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:30];
+    cell.textLabel.textColor = [UIColor whiteColor];
     
     //Cell Subtitle
-    NSString *numberOfStudents = [NSString stringWithFormat:@"%lu Members", (unsigned long)[GroupController sharedInstance].group.members.count];
-    if ([GroupController sharedInstance].group.members.count == 0 || [GroupController sharedInstance].group.members.count == nil) {
-        
+    NSInteger classSize = currentGroup.members.count;
+    NSString *numberOfStudents = [NSString stringWithFormat:@"%zd Students",classSize];
+    if (classSize == 0) {
+        cell.detailTextLabel.text = @"empty";
     }
     else {
         cell.detailTextLabel.text = numberOfStudents;
     }
-    
-    return cell;
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Chalkduster" size:14];
+    cell.detailTextLabel.textColor = [UIColor whiteColor];
+     return cell;
 }
 
 #pragma mark - TableView Delegate Methods
@@ -167,14 +174,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.addStudentsCV removeFromSuperview];
+    [self.addClassCustomView removeFromSuperview];
     
     Group *currentGroup = [GroupController sharedInstance].groups[indexPath.row];
     
     FeaturesViewController *featuresViewController = [FeaturesViewController new];
     [featuresViewController updateWithGroup:currentGroup];
     
-    [GroupController sharedInstance].temporaryStudentList = [currentGroup.members array];
+    //Set Temporary Student List for use
+    NSSet *set = [currentGroup.members set];
+    [GroupController sharedInstance].temporaryStudentList = [NSArray arrayWithArray:[set allObjects]];
+
     [self.navigationController pushViewController:featuresViewController animated:YES];
     
 }
@@ -205,14 +215,16 @@
 }
 
 - (NSArray *)leftButton {
+    
     NSMutableArray *leftUtilityButton = [NSMutableArray new];
     
-    [leftUtilityButton sw_addUtilityButtonWithColor:[UIColor chalkboardGreen] icon:[UIImage imageNamed:@"list"]];
+    [leftUtilityButton sw_addUtilityButtonWithColor:[UIColor clearColor] icon:[UIImage imageNamed:@"list"]];
     
     return leftUtilityButton;
 }
 
 - (NSArray *)rightButton {
+    
     NSMutableArray *rightUtilityButton = [NSMutableArray new];
     
     [rightUtilityButton sw_addUtilityButtonWithColor:[UIColor redColor] icon:[UIImage imageNamed:@"cross"]];
@@ -235,10 +247,12 @@
 }
 
 - (void)animatePlusButton {
+    
     [self growsOnTouch:self.addClassButton withDuration:.3];
 }
 
 - (void)growsOnTouch:(UIView *)view withDuration:(float)duration {
+    
     CGAffineTransform bigger = CGAffineTransformMakeScale(5, 5);
     CGAffineTransform smaller = CGAffineTransformMakeScale(1, 1);
     [UIView animateWithDuration:duration animations:^{
@@ -246,8 +260,5 @@
         view.transform = smaller;
     }];
 }
-
-
-
 
 @end

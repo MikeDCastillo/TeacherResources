@@ -20,12 +20,6 @@
     self.group = group;
 }
 
-- (NSString *)groupTitle {
-    
-    return self.group.title;
-    
-}
-
 - (void)viewDidLoad {
     self.automaticallyAdjustsScrollViewInsets = NO;
     [super viewDidLoad];
@@ -38,14 +32,10 @@
     self.view.backgroundColor = [UIColor redColor];
     
     //Navigation Bar Title
-    self.title = [self groupTitle];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor chalkboardGreen];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    self.navigationController.navigationBar.translucent = NO;
+    self.title = self.group.title;
     
     //Background Color
-    self.view.backgroundColor= [UIColor whiteColor];
+    self.view.backgroundColor= [UIColor chalkboardGreen];
     
     //DataSource + Delegate
     self.tableView.delegate = self;
@@ -72,24 +62,24 @@
 - (void)setupViews
 {
     
-    self.segmentControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Names A - Z", @"Names Z - A", @"Shuffle", nil]];
+    self.segmentControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"A - Z", @"Z - A", @"Shuffle", nil]];
     self.segmentControl.frame = CGRectMake(10, 10, self.view.frame.size.width - 2*10, 35);
-    self.segmentControl.selectedSegmentIndex = 0;
-    self.segmentControl.tintColor = [UIColor blackColor];
-    self.segmentControl.backgroundColor = [UIColor lightGrayColor];
+    self.segmentControl.selectedSegmentIndex = 2;
+    self.segmentControl.tintColor = [UIColor whiteColor];
+    self.segmentControl.backgroundColor = [UIColor clearColor];
     
     
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
     [UIFont fontWithName:@"Chalkduster" size:15], NSFontAttributeName,
-    [UIColor trBlueColor], NSForegroundColorAttributeName, nil];
+    [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [self.segmentControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
 
     [self.segmentControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
     [self.view addSubview:self.segmentControl];
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height - 94) style:UITableViewStyleGrouped];
+    self.tableView.backgroundColor = [UIColor chalkboardGreen];
     
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.segmentControl];
@@ -161,7 +151,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 
