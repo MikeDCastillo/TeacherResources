@@ -25,7 +25,7 @@
     [[UINavigationBar appearance] setTintColor:[UIColor chalkboardGreen]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Chalkduster" size:12]} forState:UIControlStateNormal];
 }
 
 @end
