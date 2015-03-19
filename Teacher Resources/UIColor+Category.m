@@ -60,7 +60,7 @@
 
 + (UIColor *)woodColor {
 //    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"woodBackground"]];
-    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"chalkboardBackground"]];
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"wood"]];
 
 }
 @end

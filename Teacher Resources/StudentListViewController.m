@@ -28,11 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView reloadData];
-    self.view.backgroundColor= [UIColor whiteColor];
+    self.view.backgroundColor= [UIColor chalkboardGreen];
     self.datasource = [StudentListDataSource new];
     
     UIView *addStudentsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
-    addStudentsView.backgroundColor = [UIColor chalkboardGreen];
+    addStudentsView.backgroundColor = [UIColor woodColor]; 
     
     //Add Student Plus Button
     
@@ -70,7 +70,7 @@
     [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
     [self.doneButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:22]];
     [self.doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.doneButton setBackgroundColor:[UIColor chalkboardGreen]];
+    [self.doneButton setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"rock"]]];
     [self.doneButton addTarget:self action:@selector(removeAddStudentsView) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:self.tableView];

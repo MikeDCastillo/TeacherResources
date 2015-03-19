@@ -40,7 +40,7 @@
     //Navigation Bar Title
     self.title = [self groupTitle];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor chalkboardGreen];
+    self.navigationController.navigationBar.barTintColor = [UIColor woodColor];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationController.navigationBar.translucent = NO;
     
