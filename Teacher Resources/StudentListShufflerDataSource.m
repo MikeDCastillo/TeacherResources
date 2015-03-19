@@ -54,8 +54,9 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView beginUpdates];
-        
-        [[GroupController sharedInstance].temporaryStudentList removeObjectAtIndex:indexPath.row];
+        NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[GroupController sharedInstance].temporaryStudentList];
+        [mutableArray removeObjectAtIndex:indexPath.row];
+        [GroupController sharedInstance].temporaryStudentList = mutableArray;
     
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
@@ -64,3 +65,5 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 }
 
 @end
+
+
