@@ -29,13 +29,13 @@
 
 -(void)setupViews
 {
-    CGFloat backViewHeight = (self.frame.size.height / 5);
+    CGFloat backViewHeight = (self.frame.size.height / 4);
     CGFloat viewHeight = self.frame.size.height;
     CGFloat viewWidth = self.frame.size.width;
     
     self.footerLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, viewHeight - backViewHeight, viewWidth, backViewHeight)];
-//    self.footerLabel.backgroundColor = [UIColor slateColor];
     self.footerLabel.text = self.title;
+    self.footerLabel.numberOfLines = 0;
     self.footerLabel.textColor = [UIColor whiteColor];
     [self.footerLabel setTextAlignment:NSTextAlignmentCenter];
         

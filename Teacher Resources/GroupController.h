@@ -34,7 +34,6 @@ static NSString * const studentKey = @"studentKey";
 
 - (NSArray *)shuffle:(NSArray *)array;
 
-
 - (void)synchronize;
 
 @end
