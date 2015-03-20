@@ -71,7 +71,7 @@
     
     //Create Custom Subview for adding groups
     self.addClassCustomView = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 64)];
-    self.addClassCustomView.backgroundColor = [UIColor chalkboardGreen];
+    self.addClassCustomView.backgroundColor = [UIColor woodColor];
     
     //Add Group TextField
     self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, 250, 35)];
@@ -117,6 +117,7 @@
     [self moveOver:self.addClassCustomView thisMuch:(self.view.frame.size.width) withDuration:.25];
     textField.text = @"";
     [self.tableView reloadData];
+    [textField resignFirstResponder];
     return YES;
 }
 
@@ -200,7 +201,9 @@
 
     StudentListViewController *studentListViewController = [StudentListViewController new];
     [studentListViewController updateWithGroup:[[GroupController sharedInstance].groups objectAtIndex:cellIndexPath.row]];
-        [self.navigationController presentViewController:studentListViewController animated:YES completion:nil];
+        [self.navigationController presentViewController:studentListViewController animated:YES completion:^{
+            [self.tableView reloadData];
+        }];
 
 }
 

@@ -47,7 +47,7 @@
     [addStudentsView addSubview:self.addStudentButton];
     
     //Class Title
-    UILabel *groupNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 35, 250, 25)];
+    UILabel *groupNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 35, self.view.frame.size.width, 25)];
     groupNameLabel.text = self.group.title;
     groupNameLabel.textAlignment = NSTextAlignmentCenter;
     groupNameLabel.font = [UIFont fontWithName:@"Chalkduster" size:28];
@@ -71,7 +71,7 @@
     [self.doneButton setTitle:@"Done" forState:UIControlStateNormal];
     [self.doneButton.titleLabel setFont:[UIFont fontWithName:@"Chalkduster" size:22]];
     [self.doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.doneButton setBackgroundColor:[UIColor chalkboardGreen]];
+    [self.doneButton setBackgroundColor:[UIColor clearColor]];
     [self.doneButton addTarget:self action:@selector(removeAddStudentsView) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:self.tableView];

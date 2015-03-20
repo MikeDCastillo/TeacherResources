@@ -171,7 +171,7 @@
 
 - (void)setupConfigView {
     self.configView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 0, 200, self.view.frame.size.height - 64)];
-    self.configView.backgroundColor = [UIColor chalkboardGreen];
+    self.configView.backgroundColor = [UIColor clearColor];
     self.configView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.configView.layer.borderWidth = 3.0f;
     self.configView.layer.cornerRadius = 10;

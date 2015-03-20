@@ -38,8 +38,7 @@
 		6A1754CB1AB7899300B620CB /* AppearanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1754CA1AB7899200B620CB /* AppearanceController.m */; };
 		6A1755921AB8DC1500B620CB /* NameFromHatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1755911AB8DC1500B620CB /* NameFromHatViewController.m */; };
 		6A9335291AB33BFF00F00C6D /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9335251AB33BFF00F00C6D /* Timer.m */; };
-		6A93352A1AB33BFF00F00C6D /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9335271AB33BFF00F00C6D /* TimerViewController.m */; };
-		6A93352B1AB33BFF00F00C6D /* TimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A9335281AB33BFF00F00C6D /* TimerViewController.xib */; };
+		6AD449141ABCA59A00ABDAAB /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD449131ABCA59A00ABDAAB /* ClockViewController.m */; };
 		6AFD4E5D1AAE4F3500308595 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E5C1AAE4F3500308595 /* UIColor+Category.m */; };
 		6AFD4E661AAE8AA900308595 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E651AAE8AA900308595 /* Group.m */; };
 		6AFD4E691AAE8AA900308595 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFD4E681AAE8AA900308595 /* Member.m */; };
@@ -114,9 +113,8 @@
 		6A1755911AB8DC1500B620CB /* NameFromHatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameFromHatViewController.m; sourceTree = "<group>"; };
 		6A9335241AB33BFF00F00C6D /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		6A9335251AB33BFF00F00C6D /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
-		6A9335261AB33BFF00F00C6D /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
-		6A9335271AB33BFF00F00C6D /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
-		6A9335281AB33BFF00F00C6D /* TimerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerViewController.xib; sourceTree = "<group>"; };
+		6AD449121ABCA59A00ABDAAB /* ClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockViewController.h; sourceTree = "<group>"; };
+		6AD449131ABCA59A00ABDAAB /* ClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockViewController.m; sourceTree = "<group>"; };
 		6AFD4E5B1AAE4F3500308595 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
 		6AFD4E5C1AAE4F3500308595 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 		6AFD4E641AAE8AA900308595 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Group.h; path = ../Group.h; sourceTree = "<group>"; };
@@ -327,9 +325,8 @@
 			children = (
 				6A9335241AB33BFF00F00C6D /* Timer.h */,
 				6A9335251AB33BFF00F00C6D /* Timer.m */,
-				6A9335261AB33BFF00F00C6D /* TimerViewController.h */,
-				6A9335271AB33BFF00F00C6D /* TimerViewController.m */,
-				6A9335281AB33BFF00F00C6D /* TimerViewController.xib */,
+				6AD449121ABCA59A00ABDAAB /* ClockViewController.h */,
+				6AD449131ABCA59A00ABDAAB /* ClockViewController.m */,
 			);
 			name = Timer;
 			sourceTree = "<group>";
@@ -430,7 +427,6 @@
 			files = (
 				2765033D1AB8C923003C9C00 /* cross@2x.png in Resources */,
 				2765033E1AB8C923003C9C00 /* InfoPlist.strings in Resources */,
-				6A93352B1AB33BFF00F00C6D /* TimerViewController.xib in Resources */,
 				276503401AB8C923003C9C00 /* list@2x.png in Resources */,
 				6A048ABE1AAA477800C7E790 /* Main.storyboard in Resources */,
 				6A048AC31AAA477900C7E790 /* LaunchScreen.xib in Resources */,
@@ -459,13 +455,13 @@
 				6A1754CB1AB7899300B620CB /* AppearanceController.m in Sources */,
 				276503431AB8C923003C9C00 /* SWLongPressGestureRecognizer.m in Sources */,
 				276503461AB8C923003C9C00 /* SWUtilityButtonView.m in Sources */,
-				6A93352A1AB33BFF00F00C6D /* TimerViewController.m in Sources */,
 				6A9335291AB33BFF00F00C6D /* Timer.m in Sources */,
 				276503421AB8C923003C9C00 /* SWCellScrollView.m in Sources */,
 				27CC8F1F1AAA6D350051D062 /* FeaturesViewControllerDataSource.m in Sources */,
 				27CC8F261AAA7BAF0051D062 /* StudentListViewController.m in Sources */,
 				6A1755921AB8DC1500B620CB /* NameFromHatViewController.m in Sources */,
 				2765C7DC1AB38954009F9DD7 /* StudentListShufflerViewController.m in Sources */,
+				6AD449141ABCA59A00ABDAAB /* ClockViewController.m in Sources */,
 				27CC8EF01AAA67DD0051D062 /* Stack.m in Sources */,
 				27CC8F291AAA7C8A0051D062 /* Model.xcdatamodeld in Sources */,
 				6A048ABB1AAA477800C7E790 /* GroupViewController.m in Sources */,
