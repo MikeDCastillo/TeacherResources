@@ -59,6 +59,8 @@
 }
 
 + (UIColor *)woodColor {
-    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"woodBackground"]];
+//    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"woodBackground"]];
+    return [UIColor colorWithPatternImage:[UIImage imageNamed:@"wood"]];
+
 }
 @end
