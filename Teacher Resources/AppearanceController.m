@@ -26,6 +26,8 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Chalkduster" size:14]} forState:UIControlStateNormal];
+    
+    [[UILabel appearance] setTextColor:[UIColor whiteColor]];
 }
 
 //Attribution:
