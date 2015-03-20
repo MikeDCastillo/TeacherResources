@@ -85,7 +85,6 @@ static CGFloat const ticketHeight = 150.0;
 
 - (void)setupWinnerLabel {
     
-    CGFloat screenWidth = self.view.frame.size.width;
     CGFloat screenHeight = self.view.frame.size.height;
     
     self.winnerLabel = [[UILabel alloc] initWithFrame: CGRectMake(25, screenHeight/2 - (ticketHeight), ticketWidth, ticketHeight)];
