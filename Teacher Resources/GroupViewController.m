@@ -74,7 +74,7 @@
     self.addClassCustomView.backgroundColor = [UIColor woodColor];
     
     //Add Group TextField
-    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, 250, 35)];
+    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, self.view.frame.size.width *0.75, 35)];
     self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.addTextField.delegate = self;
     self.addTextField.placeholder = @"Enter Class Name";
