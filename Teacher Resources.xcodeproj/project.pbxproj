@@ -393,11 +393,11 @@
 				TargetAttributes = {
 					6A048AAE1AAA477800C7E790 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = W4XSS6X3G6;
+						DevelopmentTeam = WK6LDT652Z;
 					};
 					6A048AC71AAA477900C7E790 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = W4XSS6X3G6;
+						DevelopmentTeam = WK6LDT652Z;
 						TestTargetID = 6A048AAE1AAA477800C7E790;
 					};
 				};
