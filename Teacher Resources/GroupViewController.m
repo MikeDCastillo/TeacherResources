@@ -74,7 +74,7 @@
     self.addClassCustomView.backgroundColor = [UIColor woodColor];
     
     //Add Group TextField
-    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, self.view.frame.size.width *0.75, 35)];
+    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, self.view.frame.size.width *0.6, 35)];
     self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.addTextField.delegate = self;
     self.addTextField.placeholder = @"Enter Class Name";
@@ -145,7 +145,12 @@
         cell.delegate = self;
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = [UIColor whiteColor];
+        [cell.contentView.layer setBorderColor:[UIColor whiteColor].CGColor];
+        [cell.contentView.layer setBorderWidth:.25];
+
     }
+    [cell.contentView.layer setBorderColor:[UIColor whiteColor].CGColor];
+    [cell.contentView.layer setBorderWidth:.25];
     cell.leftUtilityButtons = [self leftButton];
     cell.rightUtilityButtons = [self rightButton];
     cell.backgroundColor = [UIColor clearColor];
