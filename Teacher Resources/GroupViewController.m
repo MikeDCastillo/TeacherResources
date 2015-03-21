@@ -145,12 +145,8 @@
         cell.delegate = self;
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = [UIColor whiteColor];
-        [cell.contentView.layer setBorderColor:[UIColor whiteColor].CGColor];
-        [cell.contentView.layer setBorderWidth:.25];
 
     }
-    [cell.contentView.layer setBorderColor:[UIColor whiteColor].CGColor];
-    [cell.contentView.layer setBorderWidth:.25];
     cell.leftUtilityButtons = [self leftButton];
     cell.rightUtilityButtons = [self rightButton];
     cell.backgroundColor = [UIColor clearColor];
@@ -226,7 +222,7 @@
     
     NSMutableArray *leftUtilityButton = [NSMutableArray new];
     
-    [leftUtilityButton sw_addUtilityButtonWithColor:[UIColor clearColor] icon:[UIImage imageNamed:@"list"]];
+    [leftUtilityButton sw_addUtilityButtonWithColor:[UIColor clearColor] icon:[UIImage imageNamed:@"plus"]];
     
     return leftUtilityButton;
 }
