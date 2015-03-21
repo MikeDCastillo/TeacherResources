@@ -33,7 +33,7 @@ static CGFloat const ticketHeight = 150.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.title = @"Winner";
+    self.title = self.group.title;
     self.view.backgroundColor = [UIColor chalkboardGreen];
     [self setupDrawingButton];
     [self setupWinnerLabel];
