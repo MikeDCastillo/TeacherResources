@@ -10,7 +10,7 @@
 #import "UIColor+Category.h"
 #import "FeaturesViewController.h"
 #import "SWTableViewCell.h"
-
+#import "PageViewController.h"
 
 @interface GroupViewController () <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate,UITextFieldDelegate>
 
@@ -18,15 +18,24 @@
 @property (strong, nonatomic) UIView *addClassCustomView;
 @property (strong, nonatomic) UITextField *addTextField;
 @property (strong, nonatomic) UIButton *addClassButton;
+@property (nonatomic, strong) GroupViewController *groupViewController;
+@property (assign, nonatomic) BOOL hasLaunched;
 
 @end
 
 @implementation GroupViewController
 
+- (void)updateWithHasLaunched:(BOOL)hasLaunched {
+    self.hasLaunched = hasLaunched;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView reloadData];
+    
+//    if (self.hasLaunched == NO) {
+        [self presentOnBoard];
+//    }
     [self setupViews];
     
     self.view.backgroundColor= [UIColor whiteColor];
@@ -37,6 +46,16 @@
     self.tableView.dataSource = self;
     
     
+}
+
+-(void)setupNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentOnBoard) name:@"onBoard" object:nil];
+}
+
+-(void)presentOnBoard {
+    PageViewController *pageViewController = [PageViewController new];
+    [self.navigationController presentViewController:pageViewController animated:YES completion:nil];
+
 }
 
 - (void)setupViews {
@@ -52,7 +71,6 @@
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc]initWithCustomView:self.addClassButton];
     self.navigationItem.rightBarButtonItem = addButton;
-    
     
     //Navigation Bar Title
     self.title = @"Classes";

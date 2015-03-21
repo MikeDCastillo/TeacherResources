@@ -17,7 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@""]];
+    UIImage *image = [UIImage imageNamed:@"opening screen"];
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
+
+    imageView.image = image;
+    
+    [self.view addSubview:imageView];
     
 }
 

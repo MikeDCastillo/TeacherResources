@@ -13,5 +13,6 @@
 @interface GroupViewController : UIViewController
 @property (nonatomic, strong) UITableView *tableView;
 
+-(void)updateWithHasLaunched:(BOOL)hasLaunched;
 @end
 

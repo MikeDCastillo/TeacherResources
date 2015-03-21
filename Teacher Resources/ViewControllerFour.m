@@ -7,6 +7,7 @@
 //
 
 #import "ViewControllerFour.h"
+#import "UIColor+Category.h"
 
 @interface ViewControllerFour ()
 
@@ -17,7 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@""]]; 
+    UIImage *image = [UIImage imageNamed:@"delete"];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
+    imageView.image = image;
+    
+    [self.view addSubview:imageView];
 }
 
 - (void)didReceiveMemoryWarning {

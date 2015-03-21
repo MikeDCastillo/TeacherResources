@@ -22,7 +22,6 @@
     self.vcThree = [ViewControllerThree new];
     self.vcFour = [ViewControllerFour new];
     self.vcFive = [ViewControllerFive new];
-    self.vcSix = [ViewControllerSix new];
     
     
     self.pageViewController = [[UIPageViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
@@ -49,10 +48,8 @@
         return self.vcTwo;
     } else if (viewController == self.vcFour) {
         return self.vcThree;
-    } else if (viewController == self.vcFive) {
-        return self.vcFour;
     } else {
-        return self.vcFive;
+        return self.vcFour;
     }
 
 }
@@ -66,14 +63,11 @@
         return self.vcThree;
     } else if (viewController == self.vcThree) {
         return self.vcFour;
-    } else if (viewController == self.vcFour) {
+    } else if (viewController == self.vcFour){
         return self.vcFive;
-    } else if (viewController == self.vcFive) {
-        return self.vcSix;
     } else {
         return nil;
     }
-    
 }
 
 

@@ -15,7 +15,7 @@
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong) GroupViewController *groupViewController;
+//@property (nonatomic, strong) GroupViewController *groupViewController;
 @property (nonatomic, assign) BOOL hasLaunched;
 
 @end
@@ -25,36 +25,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.hasLaunched = NO; //[[NSUserDefaults standardUserDefaults] objectForKey:@"launchKey"];
     
     GroupViewController *groupViewController = [GroupViewController new];
-    
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:groupViewController];
+    
     self.window.rootViewController = navController;
+    
+    [groupViewController updateWithHasLaunched:self.hasLaunched];
     [AppearanceController setupAppearance];
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [self updateLaunchCount];
     
-
-    return YES;
-}
-
-- (void) updateLaunchCount {
-    NSInteger launchCountInteger = [[NSUserDefaults standardUserDefaults] integerForKey:@"launchKey"];
-    
-    if (self.hasLaunched == YES) {
-    }
-    else {
-        self.hasLaunched = YES;
-        
-        PageViewController *pageViewController = [PageViewController new];
-        
-        [self.groupViewController presentViewController:pageViewController animated:YES completion:nil];
-    }
-    
-    
-    [[NSUserDefaults standardUserDefaults] setInteger:launchCountInteger forKey:@"launchKey"];
+    [[NSUserDefaults standardUserDefaults] setBool:self.hasLaunched forKey:@"launchKey"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
