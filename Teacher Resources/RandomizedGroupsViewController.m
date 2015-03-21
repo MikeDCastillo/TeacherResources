@@ -316,8 +316,6 @@
 
 - (void)moveConfigMenuOver {
     [self moveOver:self.configView thisMuch:-200 withDuration:.5];
-    UIBlurEffect *blur = [UIBlurEffect new];
-    [self.view addSubview:blur];
 }
 
 -(void)moveConfigMenuBack {
