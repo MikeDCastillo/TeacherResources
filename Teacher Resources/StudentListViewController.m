@@ -130,7 +130,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
-        return NO;
+        return YES;
     }
     else {
     
