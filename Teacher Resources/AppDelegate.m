@@ -10,9 +10,13 @@
 #import "GroupViewController.h"
 #import "Timer.h"
 #import "AppearanceController.h"
+#import "PageViewController.h"
 
 
 @interface AppDelegate ()
+
+//@property (nonatomic, strong) GroupViewController *groupViewController;
+@property (nonatomic, assign) BOOL hasLaunched;
 
 @end
 
@@ -21,15 +25,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.hasLaunched = NO; //[[NSUserDefaults standardUserDefaults] objectForKey:@"launchKey"];
     
     GroupViewController *groupViewController = [GroupViewController new];
-    
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:groupViewController];
+    
     self.window.rootViewController = navController;
+    
+    [groupViewController updateWithHasLaunched:self.hasLaunched];
     [AppearanceController setupAppearance];
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     
+    [[NSUserDefaults standardUserDefaults] setBool:self.hasLaunched forKey:@"launchKey"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     return YES;
 }
