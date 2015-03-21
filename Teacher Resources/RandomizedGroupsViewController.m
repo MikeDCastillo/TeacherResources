@@ -25,6 +25,7 @@
 @property (nonatomic, strong) UIButton *fourButton;
 @property (nonatomic, strong) UIButton *configButton;
 @property (nonatomic, strong) UIButton *randomizeButton;
+@property (nonatomic, assign) BOOL configIsOut;
 
 @end
 
@@ -54,7 +55,7 @@
     
     [self setupConfigView];
     
-    [self setupGestureRecognition];
+    [self setupSwipeGestures];
 }
 
 - (BOOL)canBecomeFirstResponder
@@ -145,13 +146,13 @@
     
     self.title = @"Random Groups";
     
-        //Config Button
-        self.configButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.configButton.frame = CGRectMake(0, 0, 50.0, 20.0);
-        [self configureButton:self.configButton withTitle:@"*" andSize:40];
-        [self.configButton addTarget:self action:@selector(configButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    //Config Button
+    self.configButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.configButton.frame = CGRectMake(0, 0, 50.0, 20.0);
+    [self configureButton:self.configButton withTitle:@"*" andSize:40];
+    [self.configButton addTarget:self action:@selector(configButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
-        UIBarButtonItem *configBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.configButton];
+    UIBarButtonItem *configBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.configButton];
     self.navigationItem.rightBarButtonItem = configBarButtonItem;
     
     
@@ -180,7 +181,7 @@
     groupsOfLabel.text = @"Groups Of:";
     groupsOfLabel.textColor = [UIColor whiteColor];
     groupsOfLabel.textAlignment = NSTextAlignmentCenter;
-    groupsOfLabel.font = [UIFont fontWithName:@"Chalkduster" size:30];
+    groupsOfLabel.font = [UIFont fontWithName:@"Chalkduster" size:26];
     
     [self.configView addSubview:groupsOfLabel];
     
@@ -254,15 +255,11 @@
 }
 
 #pragma mark - Gesture Recognition 
--(void)setupGestureRecognition {
+
+-(void)setupSwipeGestures {
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft:)];
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeLeft];
-    
-            
-}
-
--(void)setupConfigGestureRecognition {
     
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)];
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
@@ -270,16 +267,19 @@
 }
 
 -(void)handleSwipeLeft:(UISwipeGestureRecognizer *)recognizer {
-    [self configButtonPressed];
-    [self.view removeGestureRecognizer:recognizer];
-    [self setupConfigGestureRecognition];
+    if (self.configIsOut == YES) {
+    }
+    else {
+        [self configButtonPressed];
+    }
 }
 
 -(void)handleSwipeRight:(UISwipeGestureRecognizer *)recognizer {
-    [self configButtonPressed];
-    [self.view removeGestureRecognizer:recognizer];
-    [self setupGestureRecognition];
-    
+    if (self.configIsOut == YES) {
+        [self configButtonPressed];
+    }
+    else {
+        }
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
@@ -296,7 +296,6 @@
     
     [UIView animateWithDuration:duration animations:^{
         view.center = CGPointMake(view.center.x + distance, view.center.y);
-        
     }];
 }
 
@@ -306,22 +305,22 @@
     if ([self.configButton.titleLabel.text isEqualToString:@"*"]) {
         [self moveConfigMenuOver];
         [self.configButton setTitle:@"->" forState:UIControlStateNormal];
+        self.configIsOut = YES;
     }
     else if ([self.configButton.titleLabel.text isEqualToString:@"->"]) {
         [self moveConfigMenuBack];
         [self.configButton setTitle:@"*" forState:UIControlStateNormal];
+        self.configIsOut = NO;
     }
 }
 
 - (void)moveConfigMenuOver {
-//    [self moveOver:self.collectionView thisMuch:-200 withDuration:.5];
-//    [self moveOver:self.toolBar thisMuch:-200 withDuration:.5];
     [self moveOver:self.configView thisMuch:-200 withDuration:.5];
+    UIBlurEffect *blur = [UIBlurEffect new];
+    [self.view addSubview:blur];
 }
 
 -(void)moveConfigMenuBack {
-//    [self moveOver:self.collectionView thisMuch:200 withDuration:.5];
-//    [self moveOver:self.toolBar thisMuch:200 withDuration:.5];
     [self moveOver:self.configView thisMuch:200 withDuration:.3];
 }
 
