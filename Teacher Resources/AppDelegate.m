@@ -10,9 +10,13 @@
 #import "GroupViewController.h"
 #import "Timer.h"
 #import "AppearanceController.h"
+#import "PageViewController.h"
 
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) GroupViewController *groupViewController;
+@property (nonatomic, assign) BOOL hasLaunched;
 
 @end
 
@@ -29,9 +33,28 @@
     [AppearanceController setupAppearance];
     [self.window makeKeyAndVisible];
     
+    [self updateLaunchCount];
     
-    
+
     return YES;
+}
+
+- (void) updateLaunchCount {
+    NSInteger launchCountInteger = [[NSUserDefaults standardUserDefaults] integerForKey:@"launchKey"];
+    
+    if (self.hasLaunched == YES) {
+    }
+    else {
+        self.hasLaunched = YES;
+        
+        PageViewController *pageViewController = [PageViewController new];
+        
+        [self.groupViewController presentViewController:pageViewController animated:YES completion:nil];
+    }
+    
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:launchCountInteger forKey:@"launchKey"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
