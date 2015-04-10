@@ -130,6 +130,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
+        [textField resignFirstResponder];
         return YES;
     }
     else {

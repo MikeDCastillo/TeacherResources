@@ -18,6 +18,7 @@
 @property (nonatomic, strong) Group *group;
 @property (nonatomic, strong) Member *member;
 @property (nonatomic, strong) NSArray *temporaryStudentList;
+@property (nonatomic, strong) NSMutableArray *hatMutableArray;
 
 + (GroupController *)sharedInstance;
 

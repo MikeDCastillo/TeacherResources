@@ -20,6 +20,7 @@ static CGFloat const ticketHeight = 150.0;
 
 @property (strong, nonatomic) UIButton *drawingButton;
 @property (strong, nonatomic) UILabel *winnerLabel;
+@property (strong, nonatomic) NSMutableArray *hatArray;
 
 @end
 
@@ -38,34 +39,13 @@ static CGFloat const ticketHeight = 150.0;
     [self setupDrawingButton];
     [self setupWinnerLabel];
     
-}
-
-- (void)newWinnerButtonPressed {
-    
-    self.winnerLabel.text = @"?????";
-    [self growsOnTouch:self.winnerLabel withDuration:2];
-    [self.drawingButton setEnabled:NO];
-    [self.drawingButton setTitle:@"Drumroll!!" forState:UIControlStateDisabled];
-    [self.drawingButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-    
-    [self performSelector:@selector(updateWinnerLabel) withObject:nil afterDelay:2];
-
-}
-
-- (void)updateWinnerLabel {
-    
-    NSArray *array = [GroupController sharedInstance].temporaryStudentList;
-    if ( array.count == 0) {
-        self.winnerLabel.text = @"There aren't any students in this class!";
+    if (!self.hatArray) {
+        self.hatArray = [NSMutableArray arrayWithArray:[GroupController sharedInstance].temporaryStudentList];
     }
-    else {
-        array = [[GroupController sharedInstance] shuffle:array];
-        Member *member = array[0];
-        
-        self.winnerLabel.text = member.name;
-    }
-    [self.drawingButton setEnabled:YES];
+    
 }
+
+#pragma mark - UIView Elements
 
 - (void)setupDrawingButton {
     
@@ -93,6 +73,46 @@ static CGFloat const ticketHeight = 150.0;
     self.winnerLabel.textAlignment = NSTextAlignmentCenter;
     self.winnerLabel.adjustsFontSizeToFitWidth = YES;
     [self.view addSubview:self.winnerLabel];
+}
+
+#pragma mark - Names Array methods
+
+- (void)resetHatArray {
+    self.hatArray = [NSMutableArray arrayWithArray:[GroupController sharedInstance].temporaryStudentList];
+}
+
+- (void)newWinnerButtonPressed {
+    if ([self.drawingButton.titleLabel.text isEqualToString:@"Reset Names"]) {
+        [self.drawingButton setTitle: @"Draw Name!" forState:UIControlStateNormal];
+    }
+        self.winnerLabel.text = @"?????";
+        [self growsOnTouch:self.winnerLabel withDuration:2];
+        [self.drawingButton setEnabled:NO];
+        [self.drawingButton setTitle:@"Drumroll!!" forState:UIControlStateDisabled];
+        [self.drawingButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    
+        [self performSelector:@selector(updateWinnerLabel) withObject:nil afterDelay:2];
+    }
+
+- (void)updateWinnerLabel {
+    
+    NSMutableArray *array = self.hatArray;
+    
+    if (array.count == 0) {
+        self.winnerLabel.text = @"All the students have been drawn!";
+        [self.drawingButton setTitle:@"Reset Names" forState:UIControlStateNormal];
+        [self resetHatArray];
+        
+    }
+    else {
+        
+        array = [NSMutableArray arrayWithArray:[[GroupController sharedInstance] shuffle:array]];
+        Member *member = array[0];
+        self.winnerLabel.text = member.name;
+        [array removeObject:member];
+        self.hatArray = array;
+    }
+    [self.drawingButton setEnabled:YES];
 }
 
 #pragma mark - Animations

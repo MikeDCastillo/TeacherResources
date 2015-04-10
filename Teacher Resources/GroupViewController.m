@@ -33,9 +33,9 @@
     [super viewDidLoad];
     [self.tableView reloadData];
     
-//    if (self.hasLaunched == NO) {
+    if (self.hasLaunched == NO) {
         [self presentOnBoard];
-//    }
+    }
     [self setupViews];
     
     self.view.backgroundColor= [UIColor whiteColor];

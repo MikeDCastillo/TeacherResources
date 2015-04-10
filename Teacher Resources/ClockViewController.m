@@ -1,6 +1,6 @@
 //
 //  TimerViewController.m
-//  Teacher Resources
+//  Teacher Tools
 //
 //  Created by Parker Rushton on 3/10/15.
 //  Copyright (c) 2015 PJayRushton. All rights reserved.
@@ -146,9 +146,10 @@
         [[Timer sharedInstance] cancelTimer];
         
         [self showPicker];
-        
-        [self.picker selectRow:60 *50 inComponent:0 animated:NO];
-        [self.picker selectRow:60 * 50 inComponent:1 animated:NO];
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+
+        [self.picker selectRow:60 * 50 inComponent:0 animated: NO];
+        [self.picker selectRow:60 * 50 inComponent:1 animated: NO];
         
         [self.pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
         [self.pauseButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
