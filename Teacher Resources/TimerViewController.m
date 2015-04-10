@@ -6,11 +6,13 @@
 //  Copyright (c) 2015 PJayRushton. All rights reserved.
 //
 
-#import "ClockViewController.h"
+#import "TimerViewController.h"
 #import "Timer.h"
 #import "UIColor+Category.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface ClockViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface TimerViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic)  UIPickerView *picker;
 @property (strong, nonatomic)  UIButton *startbutton;
@@ -22,7 +24,7 @@
 
 @end
 
-@implementation ClockViewController
+@implementation TimerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,7 +57,7 @@
 
 #pragma mark - Setup Views
 
-- (void)setupViews {
+-(void)setupViews {
     //Picker View
     self.picker = [[UIPickerView alloc] initWithFrame:CGRectMake(30, 90, self.view.frame.size.width - 80, 150)];
     self.picker.dataSource = self;
@@ -194,7 +196,6 @@
 
 -(void)updateTimerLabel {
     self.timerLabel.text = [NSString stringWithFormat: @"%ld:%02ld", (long)[Timer sharedInstance].minutes, (long)[Timer sharedInstance].seconds];
-    
 }
 
 -(void)timerComplete {
@@ -202,18 +203,21 @@
     [self showPicker];
 }
 
-#pragma - mark Notifications & Alerts
+#pragma mark - Notifications & Alerts
 
 
 - (void)setupAlert {
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Tock" ofType:@"aiff"]] error:NULL];
+    [audioPlayer play];
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Time's Up!" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self startButtonPressed];
+        [audioPlayer stop];
+        
     }]];
     
     [self presentViewController:alertController animated:YES completion:nil];
-    
 }
 
 -(void)endTimerAlert {
@@ -225,8 +229,6 @@
     }]];
     
     [self presentViewController:alertController animated:YES completion:nil];
-    
-    
 }
 
 -(void)registerForNotifications {
@@ -270,7 +272,7 @@
     return secondsArray;
 }
 
-#pragma - mark Picker Delegate
+#pragma mark - Picker Delegate
 
 -(NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
     

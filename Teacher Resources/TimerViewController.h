@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClockViewController : UIViewController
+@interface TimerViewController : UIViewController
 
 @end

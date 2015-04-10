@@ -10,7 +10,7 @@
 #import "FeaturesViewControllerDataSource.h"
 #import "RandomizedGroupsViewController.h"
 #import "StudentListViewController.h"
-#import "ClockViewController.h"
+#import "TimerViewController.h"
 #import "StudentListShufflerViewController.h"
 #import "NameFromHatViewController.h"
 

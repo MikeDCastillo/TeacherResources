@@ -73,7 +73,7 @@
             break; }
         case 3: {
             
-            ClockViewController *timerViewController = [ClockViewController new];
+            TimerViewController *timerViewController = [TimerViewController new];
             [self.navigationController pushViewController:timerViewController animated:YES];
             break; }
             
