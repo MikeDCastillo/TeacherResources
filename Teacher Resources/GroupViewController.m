@@ -10,11 +10,13 @@
 #import "UIColor+Category.h"
 #import "FeaturesViewController.h"
 #import "SWTableViewCell.h"
-#import "PageViewController.h"
+#import "GroupTableViewDataSource.h"
+#import "GroupTableViewCell.h"
 
-@interface GroupViewController () <UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate,UITextFieldDelegate>
+@interface GroupViewController () <UITableViewDelegate,UITextFieldDelegate, AddStudentsDelegate>
 
 //@property (nonatomic, strong) UITableView *tableView;
+@property (strong, nonatomic) GroupTableViewDataSource *dataSource;
 @property (strong, nonatomic) UIView *addClassCustomView;
 @property (strong, nonatomic) UITextField *addTextField;
 @property (strong, nonatomic) UIButton *addClassButton;
@@ -25,37 +27,18 @@
 
 @implementation GroupViewController
 
-- (void)updateWithHasLaunched:(BOOL)hasLaunched {
-    self.hasLaunched = hasLaunched;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView reloadData];
-    
-    if (self.hasLaunched == NO) {
-        [self presentOnBoard];
-    }
     [self setupViews];
     
-    self.view.backgroundColor= [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     //DataSource + Delegate
-    [self registerTableView:self.tableView];
     self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
-    
-}
-
--(void)setupNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentOnBoard) name:@"onBoard" object:nil];
-}
-
--(void)presentOnBoard {
-    PageViewController *pageViewController = [PageViewController new];
-    [self.navigationController presentViewController:pageViewController animated:YES completion:nil];
-
+    self.dataSource = [GroupTableViewDataSource new];
+    [self.dataSource registerTableView:self.tableView];
+    self.tableView.dataSource = self.dataSource;
 }
 
 - (void)setupViews {
@@ -86,7 +69,6 @@
 }
 
 - (void)addClassButtonPressed:(id)sender {
-    
     //Create Custom Subview for adding groups
     self.addClassCustomView = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 64)];
     self.addClassCustomView.backgroundColor = [UIColor woodColor];
@@ -120,7 +102,6 @@
 }
 
 -(void)cancelButtonPressed {
-
     [self moveOver:self.addClassCustomView thisMuch:-(self.view.frame.size.width) withDuration:.25];
     [self.addTextField resignFirstResponder];
 }
@@ -138,61 +119,9 @@
     [textField resignFirstResponder];
     return YES;
 }
-
-#pragma mark - TableView DataSource Methods
-
-- (void)registerTableView:(UITableView *)tableView {
-    [tableView registerClass:[SWTableViewCell class] forCellReuseIdentifier:@"cellID"];
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return [GroupController sharedInstance].groups.count;
-    
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"cellID";
-    
-    SWTableViewCell *cell = (SWTableViewCell *)[[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    cell.delegate = self;
-    if (cell == nil) {
-        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-        cell.leftUtilityButtons = [self leftButton];
-        cell.rightUtilityButtons = [self rightButton];
-        cell.delegate = self;
-        cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.textColor = [UIColor whiteColor];
-
-    }
-    cell.leftUtilityButtons = [self leftButton];
-    cell.rightUtilityButtons = [self rightButton];
-    cell.backgroundColor = [UIColor clearColor];
-    
-    //Cell Title
-    Group *currentGroup = [GroupController sharedInstance].groups[indexPath.row];
-    cell.textLabel.text = currentGroup.title;
-    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:30];
-    cell.textLabel.textColor = [UIColor whiteColor];
-    
-    //Cell Subtitle
-    NSInteger classSize = currentGroup.members.count;
-    NSString *numberOfStudents = [NSString stringWithFormat:@"%zd Students",classSize];
-    if (classSize == 0) {
-        cell.detailTextLabel.text = @"empty";
-    }
-    else {
-        cell.detailTextLabel.text = numberOfStudents;
-    }
-    cell.detailTextLabel.font = [UIFont fontWithName:@"Chalkduster" size:14];
-    cell.detailTextLabel.textColor = [UIColor whiteColor];
-     return cell;
-}
-
 #pragma mark - TableView Delegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.addClassCustomView removeFromSuperview];
     
@@ -208,73 +137,35 @@
     [self.navigationController pushViewController:featuresViewController animated:YES];
     
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 80.0;
 }
 
-#pragma mark - SWTableViewCell Methods
-
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
-    
-    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-
+-(void)addStudentsButtonPressed:(id)sender {
     StudentListViewController *studentListViewController = [StudentListViewController new];
-    [studentListViewController updateWithGroup:[[GroupController sharedInstance].groups objectAtIndex:cellIndexPath.row]];
-        [self.navigationController presentViewController:studentListViewController animated:YES completion:^{
-            [self.tableView reloadData];
-        }];
-
-}
-
--(void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    GroupTableViewCell *cell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
-    // Delete button was pressed
-    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-    
-    [[GroupController sharedInstance] removeGroup:[[GroupController sharedInstance].groups objectAtIndex:cellIndexPath.row]];
-    [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
-    
-}
-
-- (NSArray *)leftButton {
-    
-    NSMutableArray *leftUtilityButton = [NSMutableArray new];
-    
-    [leftUtilityButton sw_addUtilityButtonWithColor:[UIColor clearColor] icon:[UIImage imageNamed:@"plus"]];
-    
-    return leftUtilityButton;
-}
-
-- (NSArray *)rightButton {
-    
-    NSMutableArray *rightUtilityButton = [NSMutableArray new];
-    
-    [rightUtilityButton sw_addUtilityButtonWithColor:[UIColor redColor] icon:[UIImage imageNamed:@"cross"]];
-    
-    return rightUtilityButton;
-}
-
--(BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell {
-    return YES;
+    [studentListViewController updateWithGroup:[[GroupController sharedInstance].groups objectAtIndex:indexPath.row]];
+    [self.navigationController presentViewController:studentListViewController animated:YES completion:^{
+        [self.tableView reloadData];
+    }];
 }
 
 #pragma mark - Animations
 
 -(void)moveOver:(UIView *)view thisMuch:(float)distance withDuration:(float)duration {
-
     [UIView animateWithDuration:duration animations:^{
         view.center = CGPointMake(view.center.x + distance, view.center.y);
-        
     }];
 }
 
 - (void)animatePlusButton {
-    
     [self growsOnTouch:self.addClassButton withDuration:.3];
 }
 
 - (void)growsOnTouch:(UIView *)view withDuration:(float)duration {
-    
     CGAffineTransform bigger = CGAffineTransformMakeScale(5, 5);
     CGAffineTransform smaller = CGAffineTransformMakeScale(1, 1);
     [UIView animateWithDuration:duration animations:^{
