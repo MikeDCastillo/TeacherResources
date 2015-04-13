@@ -15,7 +15,6 @@
 @end
 
 
-
 @implementation Timer
 
 + (Timer *)sharedInstance {
@@ -34,7 +33,7 @@
 
 - (void)cancelTimer {
     self.isOn = NO;
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(decreaseSecond) object:nil];
+    [NSNotificationCenter cancelPreviousPerformRequestsWithTarget:self selector:@selector(decreaseSecond) object:nil];
 }
 
 - (void)endTimer {
@@ -46,24 +45,20 @@
 - (void)pauseTimer {
     self.isOn = NO;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(decreaseSecond) object:nil];
-    
 }
 
 - (void)decreaseSecond {
-    
     if (self.seconds > 0)
     {
         self.seconds--;
         
-        NSDictionary *timerDictionary = @{@"Minutes": @(self.minutes), @"Seconds": @(self.seconds)};
-        [[NSNotificationCenter defaultCenter] postNotificationName:secondTickNotification object:self userInfo:timerDictionary];
+        [[NSNotificationCenter defaultCenter] postNotificationName:secondTickNotification object:self userInfo:nil];
     }
     else if (self.seconds == 0 && self.minutes > 0) {
         
         self.minutes--;
         self.seconds = 59;
-        NSDictionary *timerDictionary = @{@"Minutes": @(self.minutes), @"Seconds": @(self.seconds)};
-        [[NSNotificationCenter defaultCenter] postNotificationName:secondTickNotification object:self userInfo:timerDictionary];
+        [[NSNotificationCenter defaultCenter] postNotificationName:secondTickNotification object:self userInfo:nil];
     }
     else {
         [self endTimer];
@@ -77,7 +72,6 @@
     }
 }
 
-
 - (void)prepareForBackground {
     [[NSUserDefaults standardUserDefaults] setObject:self.expirationDate forKey:expiryDate];
 }
@@ -87,6 +81,5 @@
     NSTimeInterval seconds = [self.expirationDate timeIntervalSinceNow];
     self.minutes = seconds / 60;
     self.seconds = seconds - (seconds / 60);
-    
 }
 @end

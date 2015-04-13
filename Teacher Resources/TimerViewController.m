@@ -9,7 +9,6 @@
 #import "TimerViewController.h"
 #import "Timer.h"
 #import "UIColor+Category.h"
-#import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
 @interface TimerViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
@@ -21,6 +20,7 @@
 @property (strong, nonatomic)  UILabel *minutesLabel;
 @property (strong, nonatomic)  UILabel *timerLabel;
 
+@property (strong, nonatomic) AVAudioPlayer *player;
 
 @end
 
@@ -28,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self askPermissionForNotifications];
     [self registerForNotifications];
     [self setupViews];
     self.view.backgroundColor = [UIColor chalkboardGreen];
@@ -53,6 +54,13 @@
         [self.startbutton setTitleColor: [UIColor redColor] forState:UIControlStateNormal];
     }
     
+}
+
+-(void)askPermissionForNotifications {
+    UIApplication *application = [UIApplication sharedApplication];
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
+         }
 }
 
 #pragma mark - Setup Views
@@ -205,27 +213,16 @@
 
 #pragma mark - Notifications & Alerts
 
-
-- (void)setupAlert {
-    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:[[NSBundle bundleWithIdentifier:@"com.apple.UIKit"] pathForResource:@"Tock" ofType:@"aiff"]] error:NULL];
-    [audioPlayer play];
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Time's Up!" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self startButtonPressed];
-        [audioPlayer stop];
-        
-    }]];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
-}
-
 -(void)endTimerAlert {
+    NSURL *timerSound = [[NSBundle mainBundle] URLForResource:@"alarm" withExtension:@"mp3"];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:timerSound error:nil];
+    [self.player play];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Time's Up!" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self startButtonPressed ];
+        [self.player stop];
     }]];
     
     [self presentViewController:alertController animated:YES completion:nil];
@@ -242,7 +239,7 @@
     localNotification.fireDate = fireDate;
     
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.soundName = @"bell_three.mp3";
+    localNotification.soundName = @"alarm.mp3";
     localNotification.alertBody = @"Time's Up!";
     localNotification.applicationIconBadgeNumber = 1;
     

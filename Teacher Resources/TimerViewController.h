@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TimerViewController : UIViewController
-
+- (void)startButtonPressed;
 @end
