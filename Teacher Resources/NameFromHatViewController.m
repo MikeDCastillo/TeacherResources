@@ -8,6 +8,7 @@
 
 #import "NameFromHatViewController.h"
 #import "UIColor+Category.h"
+#import <AVFoundation/AVFoundation.h>
 #include <stdlib.h>
 #include <math.h>
 
@@ -21,6 +22,7 @@ static CGFloat const ticketHeight = 150.0;
 @property (strong, nonatomic) UIButton *drawingButton;
 @property (strong, nonatomic) UILabel *winnerLabel;
 @property (strong, nonatomic) NSMutableArray *hatArray;
+@property (strong, nonatomic) AVAudioPlayer *player;
 
 @end
 
@@ -77,47 +79,50 @@ static CGFloat const ticketHeight = 150.0;
 
 #pragma mark - Names Array methods
 
-- (void)resetHatArray {
+-(void)resetHatArray {
     self.hatArray = [NSMutableArray arrayWithArray:[GroupController sharedInstance].temporaryStudentList];
 }
 
-- (void)newWinnerButtonPressed {
+-(void)newWinnerButtonPressed {
     if ([self.drawingButton.titleLabel.text isEqualToString:@"Reset Names"]) {
         [self.drawingButton setTitle: @"Draw Name!" forState:UIControlStateNormal];
-    }
+    } else {
         self.winnerLabel.text = @"?????";
-        [self growsOnTouch:self.winnerLabel withDuration:2];
+        [self growsOnTouch:self.winnerLabel withDuration:1.6];
         [self.drawingButton setEnabled:NO];
         [self.drawingButton setTitle:@"Drumroll!!" forState:UIControlStateDisabled];
         [self.drawingButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-    
-        [self performSelector:@selector(updateWinnerLabel) withObject:nil afterDelay:2];
-    }
+        
+        NSURL *timerSound = [[NSBundle mainBundle] URLForResource:@"drumroll" withExtension:@"mp3"];
+        self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:timerSound error:nil];
+        [self.player play];
 
-- (void)updateWinnerLabel {
-    
+        [self performSelector:@selector(updateWinnerLabel) withObject:nil afterDelay:1.6];
+    }
+}
+
+-(void)updateWinnerLabel {
     NSMutableArray *array = self.hatArray;
-    
     if (array.count == 0) {
         self.winnerLabel.text = @"All the students have been drawn!";
         [self.drawingButton setTitle:@"Reset Names" forState:UIControlStateNormal];
         [self resetHatArray];
         
-    }
-    else {
-        
+    } else {
+        [self.player stop];
         array = [NSMutableArray arrayWithArray:[[GroupController sharedInstance] shuffle:array]];
         Member *member = array[0];
         self.winnerLabel.text = member.name;
         [array removeObject:member];
         self.hatArray = array;
     }
+    
     [self.drawingButton setEnabled:YES];
 }
 
 #pragma mark - Animations
 
-- (void)growsOnTouch:(UIView *)view withDuration:(float)duration {
+-(void)growsOnTouch:(UIView *)view withDuration:(float)duration {
     
     CGAffineTransform bigger = CGAffineTransformMakeScale(10, 10);
     CGAffineTransform smaller = CGAffineTransformMakeScale(1, 1);
