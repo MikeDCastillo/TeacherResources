@@ -21,23 +21,16 @@ static NSString * const cellIdentifier = @"CellIdentifier";
 @implementation StudentListShufflerDataSource
 
 -(void)registerTableView:(UITableView *)tableView withGroup:(Group *)group{
-    
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellIdentifier"];
-    
     self.group = group;
-
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return [[GroupController sharedInstance].temporaryStudentList count];
-    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
-    
     Member *member = [GroupController sharedInstance].temporaryStudentList[indexPath.row];
     
     cell.textLabel.text = member.name;
@@ -48,11 +41,9 @@ static NSString * const cellIdentifier = @"CellIdentifier";
     cell.backgroundColor = [UIColor clearColor];
     
     return cell;
-    
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView beginUpdates];
         NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[GroupController sharedInstance].temporaryStudentList];

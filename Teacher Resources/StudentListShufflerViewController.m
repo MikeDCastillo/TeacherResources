@@ -42,10 +42,7 @@
     self.tableView.dataSource = self.datasource;
     [self.datasource registerTableView:self.tableView withGroup:self.group];
     
-    
     [self.view addSubview:self.tableView];
-    
-    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -53,28 +50,21 @@
 }
 
 - (void)refresh {
-   
     [self.tableView reloadData];
-
 }
 
-
-- (void)setupViews
-{
-    
+- (void)setupViews {
     self.segmentControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"A - Z", @"Z - A", @"Shuffle", nil]];
     self.segmentControl.frame = CGRectMake(10, 10, self.view.frame.size.width - 2*10, 35);
     self.segmentControl.selectedSegmentIndex = 2;
     self.segmentControl.tintColor = [UIColor whiteColor];
     self.segmentControl.backgroundColor = [UIColor clearColor];
     
-    
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
     [UIFont fontWithName:@"Chalkduster" size:15], NSFontAttributeName,
     [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     [self.segmentControl setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
-
     [self.segmentControl addTarget:self action:@selector(valueChanged:) forControlEvents: UIControlEventValueChanged];
     [self.view addSubview:self.segmentControl];
     
@@ -83,27 +73,18 @@
     
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.segmentControl];
-
 }
 
 - (void)valueChanged:(UISegmentedControl *)segment {
-    
     switch (segment.selectedSegmentIndex) {
         case 0: {
-            
             [self arrangeAtoZ];
-            
             break; }
         case 1: {
-            
             [self arrangeZtoA];
-            
             break; }
         case 2: {
-            
-            [self shuffle]; 
-           
-            
+            [self shuffle];
             break; }
             
         default:
@@ -113,7 +94,6 @@
 }
 
 - (void)arrangeAtoZ {
-    
     NSArray *array = [NSArray arrayWithArray:[GroupController sharedInstance].temporaryStudentList];
     
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
@@ -123,11 +103,9 @@
     [GroupController sharedInstance].temporaryStudentList = mutableArray;
 
     [self.tableView reloadData];
-    
 }
 
 - (void)arrangeZtoA {
-    
     NSArray *array = [NSArray arrayWithArray:[GroupController sharedInstance].temporaryStudentList];
     
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
@@ -137,11 +115,9 @@
     [GroupController sharedInstance].temporaryStudentList = mutableArray;
 
     [self.tableView reloadData];
-    
 }
 
 - (void)shuffle {
-    
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[[GroupController sharedInstance] shuffle:[GroupController sharedInstance].temporaryStudentList]];
     
     [GroupController sharedInstance].temporaryStudentList = mutableArray;
@@ -150,15 +126,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
-
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 50.0;
 }
-
 
 @end

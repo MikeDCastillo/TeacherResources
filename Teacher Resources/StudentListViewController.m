@@ -80,8 +80,7 @@
 }
 
 - (void)addStudent {
-    
-//Create Custom Subview for adding students
+    //Create Custom Subview for adding students
     self.studentNameView = [[UIView alloc] initWithFrame:CGRectMake(-(self.view.frame.size.width), 0, self.view.frame.size.width, 64)];
     self.studentNameView.backgroundColor = [UIColor woodColor];
     
@@ -89,7 +88,6 @@
     self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 22, 250, 35)];
     self.addTextField.delegate = self;
     self.addTextField.placeholder = @"Enter Student Name";
-    self.addTextField.returnKeyType = UIReturnKeyDefault;
     self.addTextField.font = [UIFont fontWithName:@"Chalkduster" size:20];
     self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
 
@@ -117,7 +115,6 @@
 }
 
 - (void)cancelButtonPressed {
-
     [self moveOver:self.studentNameView thisMuch:-(self.view.frame.size.width) withDuration:.25];
     [self.addTextField resignFirstResponder];
 }
@@ -131,6 +128,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField.text isEqualToString:@""]) {
         [textField resignFirstResponder];
+        [self moveOver:self.studentNameView thisMuch:-(self.view.frame.size.width) withDuration:.25];
         return YES;
     }
     else {
