@@ -14,6 +14,8 @@
 @interface TimerViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic)  UIPickerView *picker;
+//@property (assign, nonatomic) NSInteger selectedRowMinutes;
+//@property (assign, nonatomic) NSInteger selectedRowSeconds;
 @property (strong, nonatomic)  UIButton *startbutton;
 @property (strong, nonatomic)  UIButton *pauseButton;
 @property (strong, nonatomic)  UILabel *secondsLabel;
@@ -158,10 +160,20 @@
         
         [self showPicker];
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        if ([[NSUserDefaults standardUserDefaults] integerForKey:@"minutes"]) {
+            [self.picker selectRow:[[NSUserDefaults standardUserDefaults] integerForKey:@"minutes"] inComponent:0 animated: YES];
 
-        [self.picker selectRow:60 * 50 inComponent:0 animated: NO];
-        [self.picker selectRow:60 * 50 inComponent:1 animated: NO];
-        
+        } else {
+            [self.picker selectRow: 60 * 50 inComponent:0 animated: YES];
+
+        }
+        if ([[NSUserDefaults standardUserDefaults] integerForKey:@"seconds"]) {
+            [self.picker selectRow:[[NSUserDefaults standardUserDefaults] integerForKey:@"seconds"] inComponent:1 animated: YES];
+            
+        } else {
+            [self.picker selectRow: 60 * 50 inComponent:1 animated: YES];
+            
+        }
         [self.pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
         [self.pauseButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         
@@ -222,7 +234,7 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Time's Up!" message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        [self startButtonPressed ];
+        [self startButtonPressed];
         [self.player stop];
     }]];
     
@@ -278,18 +290,20 @@
     NSAttributedString *attString = [[NSAttributedString alloc] initWithString:numberString attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     return attString;
-    
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     NSNumber *minutes = [self seconds][[pickerView selectedRowInComponent:0]];
     [Timer sharedInstance].minutes = [minutes integerValue];
+    [[NSUserDefaults standardUserDefaults] setInteger:[pickerView selectedRowInComponent:0] forKey:@"minutes"];
+
     
     NSNumber *seconds = [self seconds][[pickerView selectedRowInComponent:1]];
     [Timer sharedInstance].seconds = [seconds integerValue];
-    
+    [[NSUserDefaults standardUserDefaults] setInteger:[pickerView selectedRowInComponent:1] forKey:@"seconds"];
     [self updateTimerLabel];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
