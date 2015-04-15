@@ -1,8 +1,8 @@
 //
-//  GroupDetailViewControllerDataSource.h
+//  StudentListShufflerDataSource.h
 //  Teacher Resources
 //
-//  Created by Ethan Hess on 3/7/15.
+//  Created by Ethan Hess on 3/13/15.
 //  Copyright (c) 2015 PJayRushton. All rights reserved.
 //
 
@@ -12,6 +12,8 @@
 @import UIKit;
 
 @interface StudentListDataSource : NSObject <UITableViewDataSource>
+
+//@property (strong, nonatomic) NSArray *members;
 
 -(void)registerTableView:(UITableView *)tableView withGroup:(Group *)group;
 
