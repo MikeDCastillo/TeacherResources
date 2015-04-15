@@ -18,45 +18,29 @@ static Group *currentGroup;
     dispatch_once(&onceToken, ^{
         sharedInstance = [GroupController new];
     });
-    
     return sharedInstance;
-    
 }
 
 - (NSArray *)groups {
-    
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Group"];
-    
     NSArray *objects = [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
-    
     return objects;
-    
 }
 
 - (void)addGroupWithGroupName:(NSString *)groupName {
-    
     Group *group = [NSEntityDescription insertNewObjectForEntityForName:@"Group" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-    
     group.title = groupName;
     [self synchronize];
-    
-    
 }
 
 - (void)addMemberWithMemberName:(NSString *)memberName toGroup:(Group *)group {
-    
     Member *member = [NSEntityDescription insertNewObjectForEntityForName:@"Member" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-    
     member.group = group;
-    
     member.name = memberName;
     [self synchronize];
-    
 }
 
-
 - (void)removeGroup:(Group *)group {
-    
     [group.managedObjectContext deleteObject:group];
     [self synchronize];
 }
@@ -75,15 +59,11 @@ static Group *currentGroup;
         NSInteger exchangeIndex = i + arc4random_uniform((u_int32_t )remainingCount);
         [newArray exchangeObjectAtIndex:i withObjectAtIndex:exchangeIndex];
     }
-
     return [NSArray arrayWithArray:newArray];
 }
 
-
 - (void)synchronize {
-    
     [[Stack sharedInstance].managedObjectContext save:NULL];
-    
 }
 
 @end
