@@ -39,33 +39,29 @@
 
 
 -(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    NSURL *timerSound = [[NSBundle mainBundle] URLForResource:@"alarm" withExtension:@"mp3"];
-    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:timerSound error:nil];
-    [self.player play];
-    
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Time's Up!" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        TimerViewController *timerVC = [TimerViewController new];
-        [timerVC startButtonPressed ];
-        [self.player stop];
-    }]];
-    
-        [self.window.rootViewController presentViewController:alertController animated:YES completion:^{
-            [self.player stop];
-        }];
+//    NSURL *timerSound = [[NSBundle mainBundle] URLForResource:@"alarm" withExtension:@"mp3"];
+//    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:timerSound error:nil];
+//    [self.player play];
+//    
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Time's Up!" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+//    
+//    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        TimerViewController *timerVC = [TimerViewController new];
+//        [timerVC startButtonPressed ];
+//        [self.player stop];
+//    }]];
 
     
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+    application.applicationIconBadgeNumber = 0;
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [[Timer sharedInstance] prepareForBackground];
-    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
