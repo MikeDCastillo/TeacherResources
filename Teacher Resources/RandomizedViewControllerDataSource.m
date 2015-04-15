@@ -24,7 +24,6 @@
 
 @implementation RandomizedViewControllerDataSource
 
-
 @synthesize cell;
 
 -(void)registerCollectionView:(UICollectionView *)collectionView withGroup:(Group *)group {
@@ -34,8 +33,7 @@
     [collectionView registerClass:[MembersCollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
 }
 
--(MembersCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+-(MembersCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     Member *member = [GroupController sharedInstance].temporaryStudentList[indexPath.row];
@@ -44,8 +42,7 @@
     return cell;
 }
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [[GroupController sharedInstance].temporaryStudentList count];
 }
 
