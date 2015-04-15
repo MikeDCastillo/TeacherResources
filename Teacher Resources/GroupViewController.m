@@ -80,11 +80,11 @@
         self.pressPlusButtonLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self.tableView addSubview:self.pressPlusButtonLabel];
         
-        self.openingLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height / 3, self.view.frame.size.width, 120)];
+        self.openingLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height / 3, self.view.frame.size.width, 150)];
         self.openingLabel.text = @"Welcome to Teacher Tools!";
         self.openingLabel.textColor = [UIColor whiteColor];
         self.openingLabel.textAlignment = NSTextAlignmentCenter;
-        self.openingLabel.font = [UIFont fontWithName:@"Chalkduster" size:40];
+        self.openingLabel.font = [UIFont fontWithName:@"Chalkduster" size:34];
         self.openingLabel.numberOfLines = 0;
         self.openingLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [self.tableView addSubview:self.openingLabel];
