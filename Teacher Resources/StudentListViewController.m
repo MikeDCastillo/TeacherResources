@@ -7,7 +7,6 @@
 //
 
 #import "StudentListViewController.h"
-#import "SWTableViewCell.h"
 
 @interface StudentListViewController () <UITableViewDelegate, UITextFieldDelegate>
 

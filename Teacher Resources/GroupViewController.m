@@ -9,7 +9,6 @@
 #import "GroupViewController.h"
 #import "UIColor+Category.h"
 #import "FeaturesViewController.h"
-#import "SWTableViewCell.h"
 #import "GroupTableViewDataSource.h"
 
 @interface GroupViewController () <UITableViewDelegate,UITextFieldDelegate>
@@ -128,7 +127,10 @@
     
     FeaturesViewController *featuresViewController = [FeaturesViewController new];
     [featuresViewController updateWithGroup:currentGroup];
-
+    
+    NSSet *set = [currentGroup.members set];
+    [GroupController sharedInstance].temporaryStudentList = [NSArray arrayWithArray:[set allObjects]];
+    
     [self.navigationController pushViewController:featuresViewController animated:YES];
     
 }
