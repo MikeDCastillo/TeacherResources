@@ -51,34 +51,28 @@
     
     switch (indexPath.row) {
         case 0: {
-            
-            RandomizedGroupsViewController *randomizedGroupsViewController = [RandomizedGroupsViewController new];
-            [randomizedGroupsViewController updateWithGroup:self.group];
-            [self.navigationController pushViewController:randomizedGroupsViewController animated:YES];
-        
-            break; }
-        case 1: {
-            
             StudentListViewController *studentListShufflerViewController = [StudentListViewController new];
             [studentListShufflerViewController updateWithGroup:self.group];
             [self.navigationController pushViewController:studentListShufflerViewController animated:YES];
             
             break; }
+        case 1: {
+            RandomizedGroupsViewController *randomizedGroupsViewController = [RandomizedGroupsViewController new];
+            [randomizedGroupsViewController updateWithGroup:self.group];
+            [self.navigationController pushViewController:randomizedGroupsViewController animated:YES];
+        
+            break; }
         case 2: {
-            
             NameFromHatViewController *nameFromHatViewController = [NameFromHatViewController new];
             [nameFromHatViewController updateWithGroup:self.group];
             [self.navigationController pushViewController:nameFromHatViewController animated:YES];
             
             break; }
         case 3: {
-            
             TimerViewController *timerViewController = [TimerViewController new];
             [self.navigationController pushViewController:timerViewController animated:YES];
             break; }
-            
-        default:
-            break;
+
     }
 }
 
