@@ -44,6 +44,10 @@
     [self.datasource registerTableView:self.tableView withGroup:self.group];
 }
 
+-(void)viewWillDisappear:(BOOL)animated {
+    [self resetTemporaryList];
+}
+
 -(void)resetTemporaryList {
     NSSet *set = [self.group.members set];
     [GroupController sharedInstance].temporaryStudentList = [NSArray arrayWithArray:[set allObjects]];
