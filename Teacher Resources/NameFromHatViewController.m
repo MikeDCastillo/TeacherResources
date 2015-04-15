@@ -14,7 +14,7 @@
 
 static inline double radians (double degrees) {return degrees * M_PI/180;}
 
-static CGFloat const ticketWidth = 300.0;
+//static CGFloat const ticketWidth = 300.0;
 static CGFloat const ticketHeight = 150.0;
 
 @interface NameFromHatViewController ()
@@ -111,7 +111,6 @@ static CGFloat const ticketHeight = 150.0;
     if (array.count == 0) {
 
     } else {
-        [self.player stop];
         array = [NSMutableArray arrayWithArray:[[GroupController sharedInstance] shuffle:array]];
         Member *member = array[0];
         self.winnerLabel.text = member.name;
