@@ -11,9 +11,8 @@
 #import "FeaturesViewController.h"
 #import "SWTableViewCell.h"
 #import "GroupTableViewDataSource.h"
-#import "GroupTableViewCell.h"
 
-@interface GroupViewController () <UITableViewDelegate,UITextFieldDelegate, AddStudentsDelegate>
+@interface GroupViewController () <UITableViewDelegate,UITextFieldDelegate>
 
 //@property (nonatomic, strong) UITableView *tableView;
 @property (strong, nonatomic) GroupTableViewDataSource *dataSource;
@@ -70,11 +69,11 @@
 
 - (void)addClassButtonPressed:(id)sender {
     //Create Custom Subview for adding groups
-    self.addClassCustomView = [[UIView alloc] initWithFrame:CGRectMake(-250, 0, self.view.frame.size.width, 64)];
+    self.addClassCustomView = [[UIView alloc] initWithFrame:CGRectMake(-self.view.frame.size.width, 0, self.view.frame.size.width, 64)];
     self.addClassCustomView.backgroundColor = [UIColor woodColor];
     
     //Add Group TextField
-    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, self.view.frame.size.width *0.6, 35)];
+    self.addTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 24, self.view.frame.size.width * 0.7, 35)];
     self.addTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.addTextField.delegate = self;
     self.addTextField.placeholder = @"Enter Class Name";
@@ -93,11 +92,11 @@
     cancelButton.titleLabel.font = [UIFont fontWithName:@"Chalkduster" size:20];
 
     cancelButton.tintColor = [UIColor whiteColor];
-    cancelButton.frame = CGRectMake(self.view.frame.size.width - 85, 35.0, 80.0, 20.0);
+    cancelButton.frame = CGRectMake(self.view.frame.size.width * 0.75, 35.0, 80.0, 20.0);
     [self.addClassCustomView addSubview:cancelButton];
 
     [self.navigationController.view addSubview:self.addClassCustomView];
-    [self moveOver:self.addClassCustomView thisMuch:250 withDuration:.2];
+    [self moveOver:self.addClassCustomView thisMuch:self.view.frame.size.width withDuration:.2];
     
 }
 
@@ -129,10 +128,6 @@
     
     FeaturesViewController *featuresViewController = [FeaturesViewController new];
     [featuresViewController updateWithGroup:currentGroup];
-    
-    //Set Temporary Student List for use
-    NSSet *set = [currentGroup.members set];
-    [GroupController sharedInstance].temporaryStudentList = [NSArray arrayWithArray:[set allObjects]];
 
     [self.navigationController pushViewController:featuresViewController animated:YES];
     
@@ -142,16 +137,7 @@
     return 80.0;
 }
 
--(void)addStudentsButtonPressed:(id)sender {
-    StudentListViewController *studentListViewController = [StudentListViewController new];
-    GroupTableViewCell *cell = sender;
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    
-    [studentListViewController updateWithGroup:[[GroupController sharedInstance].groups objectAtIndex:indexPath.row]];
-    [self.navigationController presentViewController:studentListViewController animated:YES completion:^{
-        [self.tableView reloadData];
-    }];
-}
+
 
 #pragma mark - Animations
 
