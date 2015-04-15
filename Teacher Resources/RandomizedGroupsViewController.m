@@ -133,7 +133,7 @@
 
 - (void)setupNavigationBar {
     
-    self.title = @"Random Groups";
+    self.title = self.group.title;
     
     //Config Button
     self.configButton = [UIButton buttonWithType:UIButtonTypeCustom];
