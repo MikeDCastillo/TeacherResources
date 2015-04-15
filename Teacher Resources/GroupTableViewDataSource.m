@@ -8,36 +8,48 @@
 
 #import "GroupTableViewDataSource.h"
 #import "GroupController.h"
-#import "GroupTableViewCell.h"
 #import "Group.h"
+
+static NSString *cellID = @"cellID";
 
 @implementation GroupTableViewDataSource
 
 - (void)registerTableView:(UITableView *)tableView {
-    [tableView registerClass:[GroupTableViewCell class] forCellReuseIdentifier:@"cellID"];
-
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     self.tableView = tableView;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return [GroupController sharedInstance].groups.count;
-    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"cellID";
+
     Group *currentGroup = [GroupController sharedInstance].groups[indexPath.row];
     
-    GroupTableViewCell *cell = (GroupTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"groupCellID" owner:self options:nil];
-        cell = (GroupTableViewCell *)[nib objectAtIndex:0];
-        cell = [[GroupTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-        [cell updateWithGroup:currentGroup];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+//    }
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.text = currentGroup.title;
+    cell.textLabel.font = [UIFont fontWithName:@"Chalkduster" size:34];
+    cell.textLabel.textColor = [UIColor whiteColor];
+
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Chalkduster" size:14];
+    cell.detailTextLabel.textColor = [UIColor whiteColor];
+    
+    NSInteger classSize = currentGroup.members.count;
+    NSString *numberOfStudents = [NSString stringWithFormat:@"%ld Students",(long)classSize];
+    if (classSize == 0) {
+        cell.detailTextLabel.text = @"empty";
+    }
+    else {
+        cell.detailTextLabel.text = numberOfStudents;
     }
     
-    [cell updateWithGroup:currentGroup];
+    
+    
     
     return cell;
 }
