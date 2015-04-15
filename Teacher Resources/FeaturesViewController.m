@@ -59,7 +59,7 @@
             break; }
         case 1: {
             
-            StudentListShufflerViewController *studentListShufflerViewController = [StudentListShufflerViewController new];
+            StudentListViewController *studentListShufflerViewController = [StudentListViewController new];
             [studentListShufflerViewController updateWithGroup:self.group];
             [self.navigationController pushViewController:studentListShufflerViewController animated:YES];
             
