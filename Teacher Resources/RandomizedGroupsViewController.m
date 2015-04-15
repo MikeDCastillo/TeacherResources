@@ -48,18 +48,13 @@
     screenWidth = self.view.frame.size.width;
         
     [self setupNavigationBar];
-    
     [self setupCollectionView];
-    
     [self setupRandomizeButton];
-    
     [self setupConfigView];
-    
     [self setupSwipeGestures];
 }
 
-- (BOOL)canBecomeFirstResponder
-{
+- (BOOL)canBecomeFirstResponder {
     return YES;
 }
 
@@ -93,7 +88,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGSize itemSize = CGSizeMake((screenWidth /numberOfPeopleInGroup) - 6 , ((screenHeight - 64) / 5) / 2);
+    CGSize itemSize = CGSizeMake((screenWidth /numberOfPeopleInGroup) - 6 , 45);
     return itemSize;
 }
 
@@ -143,7 +138,7 @@
     //Config Button
     self.configButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.configButton.frame = CGRectMake(0, 0, 50.0, 20.0);
-    [self configureButton:self.configButton withTitle:@"*" andSize:40];
+    [self configureButton:self.configButton withTitle:@"<-" andSize:40];
     [self.configButton addTarget:self action:@selector(configButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *configBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.configButton];
@@ -296,14 +291,14 @@
 - (void)configButtonPressed {
     [self growsOnTouch:self.configButton withDuration:.3];
 
-    if ([self.configButton.titleLabel.text isEqualToString:@"*"]) {
+    if ([self.configButton.titleLabel.text isEqualToString:@"<-"]) {
         [self moveConfigMenuOver];
         [self.configButton setTitle:@"->" forState:UIControlStateNormal];
         self.configIsOut = YES;
     }
     else if ([self.configButton.titleLabel.text isEqualToString:@"->"]) {
         [self moveConfigMenuBack];
-        [self.configButton setTitle:@"*" forState:UIControlStateNormal];
+        [self.configButton setTitle:@"<-" forState:UIControlStateNormal];
         self.configIsOut = NO;
     }
 }
