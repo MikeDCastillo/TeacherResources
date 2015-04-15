@@ -10,13 +10,13 @@
 #import "GroupViewController.h"
 #import "Timer.h"
 #import "AppearanceController.h"
-#import "PageViewController.h"
-
+#import "TimerViewController.h"
+@import AVFoundation;
 
 @interface AppDelegate ()
 
-//@property (nonatomic, strong) GroupViewController *groupViewController;
 @property (nonatomic, assign) BOOL hasLaunched;
+@property (strong, nonatomic) AVAudioPlayer *player;
 
 @end
 
@@ -24,25 +24,38 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.hasLaunched = NO; //[[NSUserDefaults standardUserDefaults] objectForKey:@"launchKey"];
     
     GroupViewController *groupViewController = [GroupViewController new];
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:groupViewController];
-    
     self.window.rootViewController = navController;
-    
-    [groupViewController updateWithHasLaunched:self.hasLaunched];
     [AppearanceController setupAppearance];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    
-    [[NSUserDefaults standardUserDefaults] setBool:self.hasLaunched forKey:@"launchKey"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
+  
     return YES;
+}
+
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSURL *timerSound = [[NSBundle mainBundle] URLForResource:@"alarm" withExtension:@"mp3"];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:timerSound error:nil];
+    [self.player play];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Time's Up!" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        TimerViewController *timerVC = [TimerViewController new];
+        [timerVC startButtonPressed ];
+        [self.player stop];
+    }]];
+    
+        [self.window.rootViewController presentViewController:alertController animated:YES completion:^{
+            [self.player stop];
+        }];
+
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -52,17 +65,16 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [[Timer sharedInstance] prepareForBackground];
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [[Timer sharedInstance] loadFromBackground];
+    [self.player stop];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    
-    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
-    }
+
     application.applicationIconBadgeNumber = 0;
 }
 
