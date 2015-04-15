@@ -14,6 +14,8 @@
 @interface GroupViewController () <UITableViewDelegate,UITextFieldDelegate>
 
 //@property (nonatomic, strong) UITableView *tableView;
+@property (strong, nonatomic) UILabel *pressPlusButtonLabel;
+@property (strong, nonatomic) UILabel *openingLabel;
 @property (strong, nonatomic) GroupTableViewDataSource *dataSource;
 @property (strong, nonatomic) UIView *addClassCustomView;
 @property (strong, nonatomic) UITextField *addTextField;
@@ -37,6 +39,10 @@
     self.dataSource = [GroupTableViewDataSource new];
     [self.dataSource registerTableView:self.tableView];
     self.tableView.dataSource = self.dataSource;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
 }
 
 - (void)setupViews {
@@ -63,10 +69,38 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     self.tableView.backgroundColor = [UIColor chalkboardGreen];
     [self.view addSubview:self.tableView];
+    
+    if ([GroupController sharedInstance].groups.count == 0) {
+        self.pressPlusButtonLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, 10, self.view.frame.size.width, 60)];
+        self.pressPlusButtonLabel.text = @"Press the + button to add your first class!";
+        self.pressPlusButtonLabel.textColor = [UIColor whiteColor];
+        self.pressPlusButtonLabel.textAlignment = NSTextAlignmentCenter;
+        self.pressPlusButtonLabel.font = [UIFont fontWithName:@"Chalkduster" size:20];
+        self.pressPlusButtonLabel.numberOfLines = 0;
+        self.pressPlusButtonLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        [self.tableView addSubview:self.pressPlusButtonLabel];
+        
+        self.openingLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, self.view.frame.size.height / 3, self.view.frame.size.width, 120)];
+        self.openingLabel.text = @"Welcome to Teacher Tools!";
+        self.openingLabel.textColor = [UIColor whiteColor];
+        self.openingLabel.textAlignment = NSTextAlignmentCenter;
+        self.openingLabel.font = [UIFont fontWithName:@"Chalkduster" size:40];
+        self.openingLabel.numberOfLines = 0;
+        self.openingLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        [self.tableView addSubview:self.openingLabel];
+        self.hasLaunched = YES;
+        [[NSUserDefaults standardUserDefaults] setBool:self.hasLaunched forKey:@"hasLanched"];
+    }
 
 }
 
 - (void)addClassButtonPressed:(id)sender {
+    if (self.openingLabel) {
+        [self.openingLabel removeFromSuperview];
+    }
+    if (self.pressPlusButtonLabel) {
+        [self.pressPlusButtonLabel removeFromSuperview];
+    }
     //Create Custom Subview for adding groups
     self.addClassCustomView = [[UIView alloc] initWithFrame:CGRectMake(-self.view.frame.size.width, 0, self.view.frame.size.width, 64)];
     self.addClassCustomView.backgroundColor = [UIColor woodColor];
