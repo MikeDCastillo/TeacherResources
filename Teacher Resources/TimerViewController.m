@@ -33,6 +33,7 @@
     [self setupViews];
     self.view.backgroundColor = [UIColor chalkboardGreen];
     self.title = @"Timer";
+    [self.player prepareToPlay];
     
     //Makes Picker appear Circular
     [self.picker selectRow:60 * 50 inComponent:1 animated:NO];

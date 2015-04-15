@@ -29,7 +29,6 @@ static CGFloat const ticketHeight = 150.0;
 @implementation NameFromHatViewController
 
 -(void)updateWithGroup:(Group *)group {
-    
     self.group = group;
 }
 
@@ -40,17 +39,16 @@ static CGFloat const ticketHeight = 150.0;
     self.view.backgroundColor = [UIColor chalkboardGreen];
     [self setupDrawingButton];
     [self setupWinnerLabel];
+    [self.player prepareToPlay];
     
     if (!self.hatArray) {
         self.hatArray = [NSMutableArray arrayWithArray:[GroupController sharedInstance].temporaryStudentList];
     }
-    
 }
 
 #pragma mark - UIView Elements
 
 - (void)setupDrawingButton {
-    
     CGFloat screenWidth = self.view.frame.size.width;
     CGFloat screenHeight = self.view.frame.size.height;
     
@@ -68,7 +66,7 @@ static CGFloat const ticketHeight = 150.0;
 - (void)setupWinnerLabel {
     CGFloat screenHeight = self.view.frame.size.height;
     
-    self.winnerLabel = [[UILabel alloc] initWithFrame: CGRectMake(25, screenHeight/2 - (ticketHeight), ticketWidth, ticketHeight)];
+    self.winnerLabel = [[UILabel alloc] initWithFrame: CGRectMake(0, screenHeight/2 - (ticketHeight), self.view.frame.size.width, ticketHeight)];
     
     self.winnerLabel.font = [UIFont fontWithName:@"Chalkduster" size:60];
     self.winnerLabel.textColor = [UIColor whiteColor];
@@ -84,6 +82,12 @@ static CGFloat const ticketHeight = 150.0;
 }
 
 -(void)newWinnerButtonPressed {
+    if (self.hatArray.count == 0 && [self.drawingButton.titleLabel.text isEqualToString:@"Draw Name!"]) {
+        self.winnerLabel.text = @"All the students have been drawn!";
+        [self.drawingButton setTitle:@"Reset Names" forState:UIControlStateNormal];
+        [self resetHatArray];
+    } else {
+    
     if ([self.drawingButton.titleLabel.text isEqualToString:@"Reset Names"]) {
         [self.drawingButton setTitle: @"Draw Name!" forState:UIControlStateNormal];
     } else {
@@ -98,16 +102,14 @@ static CGFloat const ticketHeight = 150.0;
         [self.player play];
 
         [self performSelector:@selector(updateWinnerLabel) withObject:nil afterDelay:1.6];
+        }
     }
 }
 
 -(void)updateWinnerLabel {
     NSMutableArray *array = self.hatArray;
     if (array.count == 0) {
-        self.winnerLabel.text = @"All the students have been drawn!";
-        [self.drawingButton setTitle:@"Reset Names" forState:UIControlStateNormal];
-        [self resetHatArray];
-        
+
     } else {
         [self.player stop];
         array = [NSMutableArray arrayWithArray:[[GroupController sharedInstance] shuffle:array]];
@@ -116,7 +118,6 @@ static CGFloat const ticketHeight = 150.0;
         [array removeObject:member];
         self.hatArray = array;
     }
-    
     [self.drawingButton setEnabled:YES];
 }
 
